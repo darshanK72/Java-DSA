@@ -1,4 +1,5 @@
 Java DSA Preparation
+
 1. Java Basics
     1.1 Variables & Data Types
     1.2 Operators
@@ -11,10 +12,16 @@ Java DSA Preparation
     1.9 Collection Framework
 
 2. Patterns
-3. Introduction to Data Structure
-4. Introduction to Algorithms
-5. Analysis of Algorithms
-6. Mathematics I
-7. Bit Magic/Bit Manipulation
-8. Recursion
-9. Arrays 1D
+
+3. Introductin to DSA
+    3.1 Introduction to Data Structure
+    3.2 Introduction to Algorithms
+    3.3 Analysis of Algorithms
+    
+4. Mathematics I
+
+5. Bit Magic/Bit Manipulation
+
+6. Recursion
+
+7. Arrays 1D
