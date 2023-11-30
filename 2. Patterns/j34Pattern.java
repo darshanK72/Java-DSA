@@ -18,11 +18,11 @@ public class j34Pattern {
                     System.out.print("* ");
                 }
                 else if(i <= n/2){
-                    if(i == 1 && j <= n/2)
+                    if(j == 1 && i <= n/2)
                     {
                         System.out.print("* ");
                     }
-                    else if(j == n && i <= n/2){
+                    else if(i == 1 && j > n/2+1){
                         System.out.print("* ");
                     }
                     else{
@@ -31,11 +31,11 @@ public class j34Pattern {
                 }
                 else{
 
-                    if(j == 1 && i > n/2+1)
+                    if(i == n && j <= n/2)
                     {
                         System.out.print("* ");
                     }
-                    else if(i == n && j > n/2+1)
+                    else if(j == n && i > n/2+1)
                     {
                         System.out.print("* ");
                     }
@@ -52,8 +52,8 @@ public class j34Pattern {
     }
 }
 
-// * * *   *
-//     *   *
-// * * * * * 
-// *   *   
 // *   * * *
+// *   *   
+// * * * * * 
+//     *   *
+// * * *   *
