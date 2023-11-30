@@ -19,7 +19,23 @@ public class j5Pattern {
             System.out.println();
         }
 
+        // int sp = n-1; 
+        // int st = 1;
+
+        // for(int i = 1; i <= n; i++)
+        // {
+        //     System.out.println(sp + "" + st);
+        //     sp--;
+        //     st++;
+        // }
+
         in.close();
     }
     
 }
+
+// *
+// * *
+// * * *
+// * * * *
+// * * * * *
