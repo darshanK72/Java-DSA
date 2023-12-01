@@ -12,6 +12,7 @@ Java DSA Preparation
     1.9 Collection Framework
 
 2. Patterns
+    35 Patterns
 
 3. Introductin to DSA
     3.1 Introduction to Data Structure
@@ -20,7 +21,7 @@ Java DSA Preparation
     
 4. Mathematics I
 
-5. Bit Magic/Bit Manipulation
+5. Bit Manipulation
 
 6. Recursion
 
