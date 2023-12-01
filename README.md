@@ -44,6 +44,30 @@ A static data structure has a fixed memory size and easier element access. Examp
 ### Dynamic Data Structure
 A dynamic data structure allows resizing during runtime, optimizing memory space. Examples: Queue, Stack, etc.
 
+
+# Abstract Data Types (ADTs)
+
+An Abstract Data Type (ADT) is a theoretical concept in computer science that defines a set of data values and operations on those values without specifying the implementation details. It focuses on describing the operations that can be performed on the data and the constraints and rules governing these operations.
+
+ADTs are abstract in nature as they provide a logical description of data behavior while hiding the underlying implementation details. They encapsulate data structures and operations, enabling users to work with the data without requiring in-depth knowledge of its internal workings.
+
+## Example: Stack ADT
+
+**Data:** A stack is a collection of elements with two primary operations: push (adding an element) and pop (removing an element).
+
+**Behavior:** Stacks follow the Last-In-First-Out (LIFO) principle, where the last element added is the first one to be removed.
+
+Implementations of a stack can vary—using arrays, linked lists, or other data structures—but from an abstract perspective, users interact with the stack through its defined operations (push and pop) without needing to understand the internal execution details.
+
+## Benefits of ADTs
+
+- **Abstraction:** Users can focus on utilizing data without dealing with implementation complexities.
+- **Encapsulation:** Internal details are concealed, enhancing security and preventing unintended changes.
+- **Modularity:** ADTs enable modular programming by separating the interface (methods) from the implementation, facilitating easier maintenance and updates.
+
+Common examples of ADTs encompass stacks, queues, lists, trees, and graphs. These abstract concepts serve as foundational elements for designing algorithms and constructing more complex data structures in various programming languages.
+
+
 # Definition of Algorithm
 
 The word Algorithm means ”A set of finite rules or instructions to be followed in calculations or other problem-solving operations” or ”A procedure for solving a mathematical problem in a finite number of steps that frequently involves recursive operations”. Therefore, an Algorithm refers to a sequence of finite steps to solve a particular problem.
