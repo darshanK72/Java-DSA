@@ -20,16 +20,16 @@ public class j9TypeOfInheritence {
  * it causes ambiguity, to eliminate that problem Interfaces are used
  */
 
-class Shape
+class Shape1
 {
 	private int sides;
 	
-	public Shape()
+	public Shape1()
 	{
 		
 	}
 
-	public Shape(int sides) {
+	public Shape1(int sides) {
 		super();
 		this.setSides(sides);
 	}
@@ -49,7 +49,7 @@ class Shape
 /*
  * Inheritence is known as deriving propert
  */
-class Ractangle extends Shape
+class Ractangle extends Shape1
 {
 	private int length;
 	private int breadth;
@@ -67,7 +67,7 @@ class Ractangle extends Shape
 	}
 }
 
-class Triangle extends Shape
+class Triangle extends Shape1
 {
 	private int side_1;
 	private int side_2;

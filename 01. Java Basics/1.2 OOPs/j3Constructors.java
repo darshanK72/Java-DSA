@@ -2,9 +2,9 @@ public class j3Constructors {
     public static void main(String[] args)
     {
 
-        Student s1 = new Student();
-        Student s2 = new Student("Darshan Khairnar",21,89.60f);
-        Student s3 = s2;
+        Student2 s1 = new Student2();
+        Student2 s2 = new Student2("Darshan Khairnar",21,89.60f);
+        Student2 s3 = s2;
 
 
         s1.great_student();
@@ -19,14 +19,14 @@ public class j3Constructors {
     
 }
 
-class Student
+class Student2
 {
     String name;
     int roll_no;
     final float marks;
 
     // Non-paramaterised Constructor
-    Student()
+    Student2()
     {
         name = "Not Mentioned";
         roll_no = 0;
@@ -36,7 +36,7 @@ class Student
     }
 
     // Parameterised Constructor
-    Student(String name,int roll_no,float marks)
+    Student2(String name,int roll_no,float marks)
     {
         this.name = name;
         this.roll_no = roll_no;
@@ -46,7 +46,7 @@ class Student
     }
 
     // Copy Constructor
-    Student(Student s)
+    Student2(Student2 s)
     {
         this.name = s.name;
         this.roll_no = s.roll_no;

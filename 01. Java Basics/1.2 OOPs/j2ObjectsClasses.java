@@ -4,7 +4,7 @@ public class j2ObjectsClasses {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
-        Student s1 = new Student();
+        Student1 s1 = new Student1();
         // Creating New Student Object from Student Class
 
         s1.roll_no = 16;
@@ -30,14 +30,14 @@ public class j2ObjectsClasses {
 //     }
 // }
 
-class Student
+class Student1
 {
     String name;
     int roll_no;
     float marks;
 
     // Non-paramaterised Constructor
-    Student()
+    Student1()
     {
         name = "Not Mentioned";
         roll_no = 0;
@@ -47,7 +47,7 @@ class Student
     }
 
     // Parameterised Constructor
-    Student(String name,int roll_no,float marks)
+    Student1(String name,int roll_no,float marks)
     {
         this.name = name;
         this.roll_no = roll_no;
@@ -57,7 +57,7 @@ class Student
     }
 
     // Copy Constructor
-    Student(Student s)
+    Student1(Student1 s)
     {
         this.name = s.name;
         this.roll_no = s.roll_no;

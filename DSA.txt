@@ -20,8 +20,26 @@ Java DSA Preparation
     3.3 Analysis of Algorithms
     
 4. Mathematics I
+    4.1  Odd & Even
+    4.2  Prime Number & Sieve Of Erastosthenes
+    4.3  Square Root
+    4.4  Prime Factorization 
+    4.5  GCD, HCF & LCM
+    4.6  Fibonacci Series
+    4.7  Digit Manipulation
+    4.8  Factorial & Trailing Zeros
+    4.9  Probability
+    4.10 Number System
+    4.11 Modulo Arithmetics
+
+    pigon hole principle
+    catlane Number
+    inclusion and exclusion principle
+    factorial in mod
 
 5. Bit Manipulation
+    5.1 Bitwise Operators
+    5.2 
 
 6. Recursion
 
