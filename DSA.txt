@@ -28,9 +28,10 @@ Java DSA Preparation
     4.6  Fibonacci Series
     4.7  Digit Manipulation
     4.8  Factorial & Trailing Zeros
-    4.9  Probability
-    4.10 Number System
+    4.9  Arithmetic Progression & Geometric Progression
+    4.10 Permucations & Combinations 
     4.11 Modulo Arithmetics
+    4.12 Number System
 
     pigon hole principle
     catlane Number
