@@ -23,15 +23,17 @@ Java DSA Preparation
     4.1  Odd & Even
     4.2  Prime Number & Sieve Of Erastosthenes
     4.3  Square Root
-    4.4  Prime Factorization 
+    4.4  Factorization 
     4.5  GCD, HCF & LCM
     4.6  Fibonacci Series
     4.7  Digit Manipulation
     4.8  Factorial & Trailing Zeros
     4.9  Arithmetic Progression & Geometric Progression
-    4.10 Permucations & Combinations 
-    4.11 Modulo Arithmetics
-    4.12 Number System
+    4.10 Quadratic Equations
+    4.11 Mean, Median & Mode
+    4.12 Permutations & Combinations 
+    4.13 Modulo Arithmetics
+    4.14 Number System
 
     pigon hole principle
     catlane Number
