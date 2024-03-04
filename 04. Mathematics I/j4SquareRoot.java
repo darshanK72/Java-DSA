@@ -24,7 +24,7 @@ public class j4SquareRoot {
             int m = s + (e - s)/2;
 
             if(m * m == n){
-                return m;
+                root = m;
             }
 
             if(m * m > n){
@@ -33,6 +33,9 @@ public class j4SquareRoot {
             else{
                 s = m + 1;
             }
+
+            // System.out.println(m);
+            // System.out.println(root);
         }
 
         double precision = 0.1;
@@ -40,6 +43,7 @@ public class j4SquareRoot {
         for(int i = 1; i <= p; i++){
             while(root * root <= n){
                 root += precision;
+                System.out.println(root);
             }
             root -= precision;
             precision /= 10;
