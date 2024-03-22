@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 // Complexity : O(Log5 N)
 
-public class j20TrailingZeros {
+public class j21TrailingZeros {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
 

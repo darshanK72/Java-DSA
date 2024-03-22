@@ -9,7 +9,7 @@ public class j10GcdLcm {
         int a = in.nextInt();
         int b = in.nextInt();
 
-        int hcf = gcd(a,b);
+        int hcf = gcdRec(a,b);
         int lcm = lcm(a,b);
 
         System.out.printf("HCF of (%d,%d) = %d\n",a,b,hcf);
@@ -18,19 +18,23 @@ public class j10GcdLcm {
         in.close();
     }  
 
-    public static int gcd(int a,int b){
-        if(a == 0 || b == 0){
-            return a == 0 ? b : a;
+    public static int gcdSimple(int a,int b){
+        while(b != 0){
+            int temp = b;
+            b = a % b;
+            a = temp;
         }
-        else if(a > b){
-            return gcd(a%b,b);
-        }
-        else{
-            return gcd(b%a,a);
-        }
+        return a;
+    }
+
+    public static int gcdRec(int a,int b){
+        if(b == 0)
+            return a;
+        return gcdRec(b,a % b);
+        
     }
 
     public static int lcm(int a,int b){
-        return (a * b) / gcd(a,b);
+        return (a * b) / gcdRec(a,b);
     }
 }

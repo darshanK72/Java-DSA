@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j24DigitFrequency {
+public class j19DigitFrequency {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
 
@@ -11,7 +11,6 @@ public class j24DigitFrequency {
 
         in.close();
     }
-
     public static int digitFrequency(long n,int d){
         int count = 0;
         while(n > 0){

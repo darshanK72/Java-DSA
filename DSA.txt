@@ -33,7 +33,7 @@ Java DSA Preparation
     4.11 Mean, Median & Mode
     4.12 Permutations & Combinations 
     4.13 Modulo Arithmetics
-    4.14 Number System
+    4.14 Number Systems
 
     pigon hole principle
     catlane Number

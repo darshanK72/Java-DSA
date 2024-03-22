@@ -10,16 +10,11 @@ public class j8IsPythaghorasTriplet {
         int b = in.nextInt();
         int c = in.nextInt();
 
-        if(a > b && a > c){
-            System.out.print(a*a == b*b + c*c);
-        }
-        else if(b > a && b > c){
-            System.out.print(b*b == a*a + c*c);
-        }
-        else{
-            System.out.print(c*c == a*a + b*b);
-        }
-
+        System.out.println(isPythagoreanTriplet(a, b, c));
         in.close();
+    }
+
+    public static boolean isPythagoreanTriplet(int a, int b, int c) {
+        return a * a + b * b == c * c || b * b + c * c == a * a || a * a + c * c == b * b;
     }
 }

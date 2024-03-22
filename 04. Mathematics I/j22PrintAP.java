@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j21PrintAP{
+public class j22PrintAP{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
 

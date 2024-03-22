@@ -1,18 +1,18 @@
 import java.util.Scanner;
 
-public class j24Combinations {
-     public static void main(String args[]){
+public class j24Permutations {
+    public static void main(String args[]){
         Scanner in = new Scanner(System.in);
 
         int n = in.nextInt();
         int r = in.nextInt();
         
-        System.out.println(n + "C" + r + " = " + nCr(n,r));
+        System.out.println(n + "P" + r + " = " + nPr(n,r));
         in.close();
     }
 
-    public static int nCr(int n,int r){
-        return fact(n) / (fact(r) * fact(n - r));
+    public static int nPr(int n,int r){
+        return fact(n) / fact(n - r);
     }
 
     public static int fact(int n){

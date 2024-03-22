@@ -136,6 +136,30 @@ It's observed that the bulbs which remain 'on' are those that are toggled an odd
 
 For instance, for 'n' = 10, the bulbs that remain 'on' are bulbs 1, 4, and 9.
 
+**Pythaghoras Triplets**
+
+Pythagorean triples are sets of three positive integers \(a\), \(b\), and \(c\) that satisfy the Pythagorean theorem, which states that in a right-angled triangle, the square of the length of the hypotenuse (\(c\)) is equal to the sum of the squares of the lengths of the other two sides (\(a\) and \(b\)). Mathematically, it can be represented as:
+
+\[ a^2 + b^2 = c^2 \]
+
+Here's an explanation of Pythagorean triples and how they work:
+
+1. **Primitive Pythagorean Triples**: A Pythagorean triple \((a, b, c)\) is called primitive if the greatest common divisor (GCD) of \(a\), \(b\), and \(c\) is 1. In other words, the three numbers in a primitive Pythagorean triple have no common factors other than 1.
+
+2. **Generating Pythagorean Triples**:
+   - There are various methods to generate Pythagorean triples. One common method is based on the formula:
+     \[ a = m^2 - n^2, \quad b = 2mn, \quad c = m^2 + n^2 \]
+     where \(m\) and \(n\) are positive integers with \(m > n\), \(m\) and \(n\) are coprime (have no common factors other than 1), and one of them is even and the other is odd. This formula generates all primitive Pythagorean triples.
+
+3. **Non-Primitive Pythagorean Triples**: Non-primitive Pythagorean triples can be obtained by scaling primitive triples. If \((a, b, c)\) is a primitive Pythagorean triple, then \(ka\), \(kb\), and \(kc\) form a non-primitive Pythagorean triple for any positive integer \(k\).
+
+4. **Examples**:
+   - The triple \((3, 4, 5)\) is a primitive Pythagorean triple because \(3^2 + 4^2 = 5^2\).
+   - The triple \((6, 8, 10)\) is a non-primitive Pythagorean triple because it is obtained by scaling the primitive triple \((3, 4, 5)\) by a factor of 2.
+
+Pythagorean triples have numerous applications in mathematics and other fields, including geometry, number theory, cryptography, and computer science. They are also used in practical applications such as engineering and construction for creating right-angled structures.
+
+
 
 ## 5. HCF,LCM & GCD
 
@@ -167,17 +191,24 @@ The Euclidean algorithm derives the HCF based on subtraction or division:
 The algorithm can be implemented recursively in code:
 
 ```java
-public static int gcd(int a,int b){
-        if(a == 0 || b == 0){
-            return a == 0 ? b : a;
-        }
-        else if(a > b){
-            return gcd(a%b,b);
-        }
-        else{
-            return gcd(b%a,a);
-        }
+public static int gcdSimple(int a,int b){
+     while(b != 0){
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
+    return a;
+}
+
+public static int gcdRec(int a,int b){
+    if(b == 0)
+        return a;
+    return gcdRec(b,a % b);    
+}
+
+public static int lcm(int a,int b){
+        return (a * b) / gcdRec(a,b);
+}
 ```
 
 ## 6. Fibonacci Series
