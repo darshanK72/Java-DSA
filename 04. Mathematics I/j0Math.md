@@ -376,6 +376,59 @@ If ‘a’ is the first term and ‘r’ is the common ratio. Thus, the explicit
 
 General Formulas to solve problems related to Geometric Progressions:
 
+***Formulas for Sum of Geometric and Arithmetic Progressions***
+
+**1. Sum of Infinite Geometric Progression (GP) with Common Ratio Less than 1**
+
+If the common ratio (r) of the GP is less than 1, the sum of an infinite GP can be calculated using the formula:
+
+\[ S = \frac{a}{1 - r} \]
+
+Where:
+- S is the sum of the infinite series.
+- a is the first term.
+- r is the common ratio.
+
+**2. Sum of Arithmetic Progression (AP)**
+
+For a sequence of consecutive numbers starting from 1, the sum of the first n terms is given by the formula:
+
+\[ S_n = \frac{n(n + 1)}{2} \]
+
+Where:
+- \(S_n\) is the sum of the first n terms.
+- n is the number of terms.
+
+**Examples**
+\(1/2 + 1/4 + 1/8 + \ldots\)
+This is an infinite geometric progression with the first term \(a = \frac{1}{2}\) and the common ratio \(r = \frac{1}{2}\).
+
+Using the formula for the sum of an infinite GP:
+\[ S = \frac{a}{1 - r} = \frac{\frac{1}{2}}{1 - \frac{1}{2}} = 1 \]
+
+So, the sum of this GP is \(1\).
+
+ \(1, 2, 3, 4, 5, 6, \ldots\)
+This is an arithmetic progression where the first term \(a = 1\) and the common difference \(d = 1\).
+
+Using the formula for the sum of an arithmetic progression:
+\[ S_n = \frac{n(n + 1)}{2} \]
+
+For example, if we want to find the sum of the first 6 terms:
+\[ S_6 = \frac{6(6 + 1)}{2} = \frac{6 \times 7}{2} = 21 \]
+
+So, the sum of the first 6 terms is \(21\).
+
+ \(1^2, 2^2, 3^2, \ldots\)
+This is not a geometric or arithmetic progression, but a sequence of perfect squares. The sum of squares of the first \(n\) natural numbers can be calculated using the formula:
+\[ S_n = \frac{n(n + 1)(2n + 1)}{6} \]
+
+For example, if we want to find the sum of squares of the first 3 natural numbers:
+\[ S_3 = \frac{3(3 + 1)(2 \times 3 + 1)}{6} = \frac{3 \times 4 \times 7}{6} = 14 \]
+
+So, the sum of squares of the first 3 natural numbers is \(14\).
+
+
 **If ‘a’ is the first term and ‘r’ is the common ratio:**
 1. nth term of a GP = a*rn-1.
 2. Geometric Mean = nth root of product of n terms in the GP.
@@ -397,7 +450,46 @@ a can't be zero.
 
 A quadratic equation has two roots. The roots of a quadratic equation can be easily obtained using the quadratic formula:
 
-**roots = (-b ± √(b2 - 4ac))/2a**
+**Roots of Quadratic Equation**
+
+In algebra, a quadratic equation is a polynomial equation of the second degree. It has the general form:
+
+\[ ax^2 + bx + c = 0 \]
+
+where \( a \), \( b \), and \( c \) are constants, and \( a \neq 0 \).
+
+The solutions to a quadratic equation, also known as the roots, can be found using the quadratic formula:
+
+\[ x = \frac{{-b \pm \sqrt{{b^2 - 4ac}}}}{{2a}} \]
+
+There are three cases based on the discriminant (\( b^2 - 4ac \)):
+
+1. **Discriminant (\( b^2 - 4ac \)) > 0**:
+   - In this case, the quadratic equation has two distinct real roots.
+   - Example: \( x^2 - 4x + 3 = 0 \)
+   - Roots: \( x = \frac{{4 \pm \sqrt{{16 - 4 \cdot 1 \cdot 3}}}}{{2 \cdot 1}} \)
+          \( x = \frac{{4 \pm \sqrt{4}}}{{2}} \)
+          \( x = \frac{{4 \pm 2}}{{2}} \)
+          \( x_1 = 3 \) and \( x_2 = 1 \)
+
+2. **Discriminant (\( b^2 - 4ac \)) = 0**:
+   - In this case, the quadratic equation has two equal real roots (or a repeated root).
+   - Example: \( x^2 - 4x + 4 = 0 \)
+   - Roots: \( x = \frac{{4 \pm \sqrt{{16 - 4 \cdot 1 \cdot 4}}}}{{2 \cdot 1}} \)
+          \( x = \frac{{4 \pm \sqrt{0}}}{{2}} \)
+          \( x = \frac{{4 \pm 0}}{{2}} \)
+          \( x_1 = x_2 = 2 \)
+
+3. **Discriminant (\( b^2 - 4ac \)) < 0**:
+   - In this case, the quadratic equation has two complex (or imaginary) roots.
+   - Example: \( x^2 + 4 = 0 \)
+   - Roots: \( x = \frac{{-0 \pm \sqrt{{0 - 4 \cdot 1 \cdot 4}}}}{{2 \cdot 1}} \)
+          \( x = \frac{{0 \pm \sqrt{-16}}}{{2}} \)
+          \( x = \frac{{0 \pm 4i}}{{2}} \)
+          \( x_1 = 2i \) and \( x_2 = -2i \)
+
+These are the three possible scenarios for the roots of a quadratic equation based on the discriminant. The nature of the roots provides information about the solutions and behavior of the quadratic equation.
+
 
 
 ## 11. Mean, Median, and Mode
@@ -508,28 +600,93 @@ Modular arithmetic, often referred to as 'clock arithmetic', deals with the rema
 
 Given two integers 'a' and 'b' and a positive integer 'm', 'a mod m' denotes the remainder when 'a' is divided by 'm'. For example, 14 mod 12 equals 2, as dividing 14 by 12 leaves a remainder of 2.
 
-#### Operations in Modular Arithmetic
+####Modular Arithmetic
 
-##### Addition
-- (a + b) mod m = (a mod m + b mod m) mod m
+Modular arithmetic is a branch of arithmetic that deals with integers, where numbers "wrap around" upon reaching a certain value called the modulus. It is widely used in number theory, cryptography, and computer science.
 
-##### Subtraction
-- (a - b) mod m = (a mod m - b mod m + m) mod m
+### Basic Operations
 
-##### Multiplication
-- (a * b) mod m = (a mod m * b mod m) mod m
+**Addition**
+- \( (a + b) \mod m = (a \mod m + b \mod m) \mod m \)
+
+**Subtraction**
+- \( (a - b) \mod m = (a \mod m - b \mod m) \mod m \)
+
+**Multiplication**
+- \( (a \times b) \mod m = (a \mod m \times b \mod m) \mod m \)
+
+
+**Modular Congruence**
+Two integers \( a \) and \( b \) are said to be congruent modulo \( m \) if they have the same remainder when divided by \( m \). It is denoted as \( a \equiv b \mod m \).
+
+**Modular Inverse**
+- The modular inverse of \( a \) modulo \( m \) is an integer \( x \) such that \( a \times x \equiv 1 \mod m \).
+
 
 ##### Division (requires modular inverse)
-- (a / b) mod m = (a mod m * b^(-1) mod m) mod m
-
-#### Modular Inverse
-The modular inverse is an integer 'x' such that.
- a x ≡ 1 (mod M) 
-
 The value of x should be in {0, 1, 2, ... M-1}, i.e., in the ring of integer modulo M.
 
 The multiplicative inverse of "a modulo M" exists if and only if a and M are relatively prime (i.e., if **gcd(a, M) = 1**).
 
+To divide \(a\) by \(b\) modulo \(m\), where \(b\) and \(m\) are coprime (i.e., their greatest common divisor is 1), we can use the following formula:
+
+\[ a \div b \pmod{m} = (a \times \text{modInv}(b, m)) \pmod{m} \]
+
+Where:
+- \(a\) is the dividend.
+- \(b\) is the divisor.
+- \(m\) is the modulus.
+- \(\text{modInv}(b, m)\) is the modular inverse of \(b\) modulo \(m\).
+
+## Example
+Let's say we want to calculate \(7 \div 3 \pmod{11}\):
+
+1. First, we find the modular inverse of \(3\) modulo \(11\):
+   \[ \text{modInv}(3, 11) = 4 \] (because \(3 \times 4 \equiv 1 \pmod{11}\))
+
+2. Then, we multiply \(7\) by the modular inverse of \(3\):
+   \[ 7 \times 4 = 28 \]
+
+3. Finally, we take the result modulo \(11\):
+   \[ 28 \pmod{11} = 6 \]
+
+So, \(7 \div 3 \pmod{11} = 6\).
+
+**Modular Exponentiation**
+- \( a^b \mod m = (a \mod m)^b \mod m \)
+
+### Modular Exponentiation
+
+Modular exponentiation is a technique used to efficiently compute large powers of an integer modulo another integer. It is particularly useful in cryptography and number theory.
+
+**Algorithm**
+
+The modular exponentiation algorithm follows the principle of exponentiation by squaring and reduces intermediate results modulo a given modulus.
+
+**Algorithm Steps:**
+
+1. Start with the result \( \text{result} = 1 \).
+2. Iterate over the bits of the exponent from left to right.
+   - If the current bit is 1, multiply the result by the base modulo the modulus.
+   - Square the base and take the result modulo the modulus for the next iteration.
+3. After iterating over all bits, the final result will be the desired exponentiation modulo the modulus.
+
+```java
+public static long modularExponentiation(long base, long exponent, long modulus) {
+    long result = 1;
+    base = base % modulus; // Reduce base modulo modulus to handle large base values
+    
+    while (exponent > 0) {
+        if (exponent % 2 == 1) {
+            result = (result * base) % modulus;
+        }
+        base = (base * base) % modulus;
+        exponent /= 2;
+    }
+    
+    return result;
+}
+```
 
 #### Important Properties
 

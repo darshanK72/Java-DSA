@@ -15,11 +15,12 @@ public class j26ModularArithematic {
     public static long fastExponention(long a,long b,long m){
         long result = 1;
         while(b > 0){
-            if(b % 2 == 1){
+            if(/*b % 2 == 1*/ (b & 1) == 1){
                 result = modMul(result, a, m);
             }
             a = modMul(a, a, m);
-            b /= 2;
+            // b /= 2;
+            b >>= 2;
         }
         return result;
     }
