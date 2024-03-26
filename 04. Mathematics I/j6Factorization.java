@@ -10,7 +10,7 @@ public class j6Factorization {
         int n = in.nextInt();
 
         System.out.printf("Factors of %d are", n);
-        factors(n);
+        factorsEfficient(n);
 
         in.close();
     }
@@ -38,6 +38,22 @@ public class j6Factorization {
             }
         }
 
+        System.out.print(factors.toString());
+    }
+
+    public static void factorsEfficient(int n){
+        ArrayList<Integer> factors = new ArrayList<Integer>();
+        int i;
+        for(i = 1; i*i <= n; i++){
+            if(n%i == 0){
+                factors.add(i);
+            }
+        }
+        for(;i > 0; i--){
+            if(n%i == 0){
+                factors.add(n/i);
+            }
+        }
         System.out.print(factors.toString());
     }
 }

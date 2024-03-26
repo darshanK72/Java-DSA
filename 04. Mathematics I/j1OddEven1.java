@@ -11,6 +11,7 @@ public class j1OddEven1 {
        in.close();
     }
 
+    // O(1)
     public static boolean isOdd(int number){
         return number % 2 == 1;
     }

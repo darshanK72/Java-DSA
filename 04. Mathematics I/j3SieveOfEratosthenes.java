@@ -9,14 +9,14 @@ public class j3SieveOfEratosthenes {
         int n = in.nextInt();
         boolean[] primes = new boolean[n + 1];
 
-        printSieve(n, primes);
+        printSieveNive(n, primes);
 
         in.close();
     }
 
     // if in array flag is false, then number is prime, and true then not prime
-
-    public static void printSieve(int n, boolean[] primes) {
+    // O(n * log(log(n)))
+    public static void printSieveNive(int n, boolean[] primes) {
         for (int i = 2; i * i <= n; i++) {
             if (!primes[i]) {
                 for (int j = 2 * i; j <= n; j += i) {
@@ -24,10 +24,37 @@ public class j3SieveOfEratosthenes {
                 }
             }
         }
-
         for (int i = 2; i <= n; i++) {
             if (!primes[i]) {
                 System.out.print(i + " ");
+            }
+        }
+    }
+
+    // O(n * log(log(n)))
+    public static void printSieveEfficient(int n, boolean[] primes) {
+        for (int i = 2; i * i <= n; i++) {
+            if (!primes[i]) {
+                for (int j = i * i; j <= n; j += i) { // Start marking multiples from i * i
+                    primes[j] = true;
+                }
+            }
+        }
+        for (int i = 2; i <= n; i++) {
+            if (!primes[i]) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+
+    // O(n * log(log(n)))
+    public static void printSieveMoreEfficient(int n, boolean[] primes) {
+        for (int i = 2; i <= n; i++) {
+            if (!primes[i]) {
+                System.out.print(i + " ");
+                for (int j = i * i; j <= n; j += i) { // Start marking multiples from i * i
+                    primes[j] = true;
+                }
             }
         }
     }
