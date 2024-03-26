@@ -10,7 +10,7 @@ public class j4SquareRoot {
         int n = in.nextInt();
         int p = in.nextInt();
 
-        System.out.printf("Square Root of %d is %.3f",n,sqrt(n,p));
+        System.out.printf("Square Root of %d is %f",n,sqrt(n,p));
 
         in.close();
     }
