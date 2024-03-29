@@ -1,7 +1,7 @@
 # Bit Manipulation Cheat Sheet
 
 ## Check if two integers have opposite signs
-```c++
+```java
 if(x^y >0)
     return false;
 else
@@ -9,39 +9,39 @@ else
 ```
 
 ## Add 1 to a given number
-```c++
+```java
 (-(~x));
 ```
 
 ## Multiply a number by 2
-```c++
+```java
 x<<1;
 ```
 
 ## Divide a number by 2
-```c++
+```java
 x>>1;
 ```
 
 ## Turn off the rightmost set bit
-```c++
+```java
 x&(x-1);
 ```
 
 ## Check whether a given number is a power of 4 or not
-```c++
+```java
 if(!(x & (x-1))){
     if(__builtin_ctz(x)%2==0)
         return true;
 ```
 
 ## Compute modulus division by a power-of-2-number
-```c++
+```java
 x & (powerOf2 - 1);
 ```
 
 ## Rotate bits of a number
-```c++
+```java
 int leftCircularShift(int x,int shiftBy)
     return (x<<shiftBy) | (x>>shiftBy);
 
@@ -50,17 +50,17 @@ int rightCircularShift(int x,int shiftBy)
 ```
 
 ## Count number of bits to be flipped to convert A to B
-```c++
+```java
 __builtin_popcount(a ^ b);
 ```
 
 ## Find whether a no is power of two
-```c++
+```java
 return (n>0 and !(n&(n-1)));
 ```
 
 ## Position of rightmost set bit
-```c++
+```java
 ffs(x);
 //another way
 log2(x & -x)+1;
@@ -70,7 +70,7 @@ if(x!=0)
 ```
 
 ## Calculate XOR from 1 to n
-```c++
+```java
 switch(n & 3) // n % 4  
 { 
     case 0: return n;     // if n is multiple of 4 
@@ -81,7 +81,7 @@ switch(n & 3) // n % 4
 ```
 
 ## Binary representation of a given number
-```c++
+```java
 void bin(unsigned n) 
 { 
     if (n > 1) 
@@ -92,18 +92,18 @@ void bin(unsigned n)
 ```
 
 ## Find position of only set bit
-```c++
+```java
 if(!(n&(n-1)))
 	ffs(n);
 ```
 
 ## Turn off a particular bit in a number
-```c++
+```java
 x & (~1<<(pos-1));
 ```
 
 ## Check if 2 numbers are equal
-```c++
+```java
 if((x ^ y))
     return false;
 else
@@ -111,12 +111,12 @@ else
 ```
 
 ## Find XOR of numbers without using xor operator
-```c++
+```java
 (x | y) & (~x | ~y);
 ```
 
 ## Swap three variables
-```c++
+```java
 x = x ^ y ^ z;
 y = x ^ y ^ z;
 z = x ^ y ^ z;
@@ -124,27 +124,27 @@ x = x ^ y ^ z;
 ```
 
 ## Toggle Kth bit of a number
-```c++
+```java
 x = x ^ 1<<(k-1);
 ```
 
 ## Toggle all bits except Kth bit of a number
-```c++
+```java
 x = ~(x ^ 1<<(k-1);)
 ```
 
 ## Set the rightmost unset bit
-```c++
+```java
 x = x | (x+1)
 ```
 
 ## Toggle the last m bits
-```c++
+```java
 x ^ ~(-1<<m);
 ```
 
 ## Maximum XOR-value of at-most k-elements from 1 to n
-```c++
+```java
 int x = log2(n) + 1;
 return x<<1 - 1;
 
@@ -164,12 +164,12 @@ return res - 1;
 ``` 
 
 ## Check if a number is divisible by 8 using bitwise operators
-```c++
+```java
 return (((n >> 3) << 3) == n);
 ```
 
 ## Toggle bits of a number except first and last bits
-```c++
+```java
 int size = sizeof(int)*8 - __builtin_clz(n);
 int one = (1<<(size-1))-1;
 n = n ^ one;
@@ -177,20 +177,20 @@ n = n ^ 1;
 ```
 
 # Toggle all even bits of a number
-```c++
+```java
 int temp = n,i=1;
 while(temp){
     n = n ^ 1>>(i*2);
-    i++;
+    java;
     temp = temp>>1;
 }
 ```
 
 ## Brian Kernighan’s Algorithm for counting set Bits
-```c++
+```java
 while(n){
     n &=(n-1);
-    count++;
+    counjava;
 }
 
 ```
