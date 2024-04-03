@@ -15,9 +15,9 @@ public class j2FindUnique{
 
     public static int findUniqueFromArray(int[] arr){
         int ans = 0;
-       for(int n : arr){
-        ans ^= n;
-       }
-       return ans;
+        for(int n : arr){
+            ans ^= n;
+        }
+        return ans;
     }
 }
