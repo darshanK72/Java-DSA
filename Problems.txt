@@ -2,3 +2,4 @@ Mathematics I
 1) LC-1281 : Subtract the Product and Sum of Digits of an Integer
 2) LC-204 : Count Primes
 3) LC-372 : Super Pow
+4) LC-832 : Flipping an Image

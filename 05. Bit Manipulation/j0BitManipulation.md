@@ -122,6 +122,97 @@ $n \gg x = \left\lfloor \frac{n}{2^x} \right\rfloor$
 
 ## Bit Manipulation Cheat Sheet
 
+**Note: Position Starts from 1 Right to Left**
+
+### 1. Check if nth bit is set or unset
+
+```java
+int number = 42; // 101010 in binary
+int n = 3;
+if ((number & (1 << (n-1))) != 0) {
+    System.out.println("Bit is set");
+} else {
+    System.out.println("Bit is not set"); // Not set
+}
+```
+
+### 2. Set nth bit
+
+```java
+// Set the 4th bit in number
+int number = 42; // 101010 in binary
+int n = 4; 
+number = number | (1 << (n-1));
+System.out.println(Integer.toBinaryString(number)); // 101010 already set
+```
+
+### 3. Clear nth bit
+
+```java
+int number = 42; // 101010 in binary
+int n = 4; 
+number = number & ~(1 << (n-1))
+System.out.println(Integer.toBinaryString(number)); // 100010 
+```
+
+### 4. Toggle nth bit
+```java
+int number = 42; // 101010 in binary
+int n = 4; 
+number = number ^ (1 << (n-1))
+System.out.println(Integer.toBinaryString(number)); // 100010 
+```
+
+### 5. Counting Set bits
+
+```java
+int number = 42; // 101010 in binary
+int count = 0;
+while(number > 0){
+    if((number & 1) == 1) count++;
+    number >>= 1;
+}
+```
+
+### 6. Is Power of 2
+```java
+int number = 16;
+if ((number & (number - 1)) == 0 && number != 0) {
+    System.out.println("Power of two"); // Power of two
+} else {
+    System.out.println("Not a power of two");
+}
+```
+
+### 7. Swapping two numbers
+```java
+// Swap two values without using a temporary variable
+int a = 10;
+int b = 20;
+a ^= b;
+b ^= a;
+a ^= b;
+System.out.println("a: " + a); // a: 20
+System.out.println("b: " + b); // b: 10
+```
+
+### 8. XOR of Range 0 to n
+```java
+xorRange(n){
+    switch(n % 3){ // (n & 3)
+        case 0: return n;     // if n is multiple of 4 
+        case 1: return 1;     // If n % 4 gives remainder 1   
+        case 2: return n + 1; // If n % 4 gives remainder 2     
+        case 3: return 0;     // If n % 4 gives remainder 3   
+    } 
+}
+```
+
+### 9. XOR of Range n1 to n2
+```java
+xorRange(n1-1) ^ xorRange(n2);
+```
+
 ### Check if two integers have opposite signs
 ```java
 if(x^y >0)
