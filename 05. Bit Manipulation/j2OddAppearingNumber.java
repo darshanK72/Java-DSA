@@ -24,14 +24,14 @@ public class j2OddAppearingNumber{
     public static int[] findTwoOddAppearingNumbers(int[] nums){
         int r = 0;
         for(int num:nums){
-            res ^= num;
+            r ^= num;
         }
 
-        int rd = res ^ ~(res - 1);
+        int rd = r ^ ~(r - 1); // rd = r ^ -r
         int r1 = 0;
         int r2 = 0;
         for(int i = 0; i < nums.length; i++){
-            if(nums[i] & rd == 0){
+            if((nums[i] & rd) == 0){
                 r1 = r1 ^ nums[i];
             }
             else{

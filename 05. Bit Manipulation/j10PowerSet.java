@@ -2,7 +2,6 @@ import java.util.Scanner;
 import java.lang.Math;
 import java.lang.StringBuilder;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class j10PowerSet{
     public static void main(String[] args){
