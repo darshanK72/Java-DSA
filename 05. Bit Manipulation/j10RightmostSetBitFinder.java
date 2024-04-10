@@ -1,4 +1,4 @@
-public class j9RightmostSetBitFinder {
+public class j10RightmostSetBitFinder {
     public static int findRightmostSetBit(int num) {
         // Performing bitwise AND with two's complement to isolate rightmost set bit
         int rightmostSetBit = num & -num; // num & ~(num - 1)

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j2OddAppearingNumber{
+public class j3OddAppearingNumber{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int s = in.nextInt();

@@ -3,3 +3,18 @@ Mathematics I
 2) LC-204 : Count Primes
 3) LC-372 : Super Pow
 4) LC-832 : Flipping an Image
+
+
+
+
+
+
+
+
+
+
+
+29. Divide Two Integers
+
+GFG Faithful Numbers
+GFG Number of 1 Bits

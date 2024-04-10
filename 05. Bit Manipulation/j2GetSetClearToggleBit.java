@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j3GetSetClearToggleBit{
+public class j2GetSetClearToggleBit{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int number = in.nextInt();
@@ -9,7 +9,7 @@ public class j3GetSetClearToggleBit{
         int getBit = number & (1 << (n-1));
         int setBit = number | (1 << (n-1));
         int clearBit = number & ~((1 << (n-1)));
-        int toggleBit = number ^ (1 << (n - 1));
+        int toggleBit = number ^ (1 << (n-1));
 
         System.out.println(Integer.toBinaryString(number));
         System.out.println(Integer.toBinaryString(getBit));
