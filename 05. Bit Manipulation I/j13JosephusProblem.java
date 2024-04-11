@@ -9,7 +9,7 @@ public class j13JosephusProblem {
 
     public static int josephusProb(int n){
         int p = 1;
-        while(p* 2 < n){
+        while(p * 2 < n){
             p *= 2;
         }
         System.out.println(p);

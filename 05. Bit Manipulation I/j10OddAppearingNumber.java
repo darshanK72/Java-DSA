@@ -1,6 +1,7 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
-public class j3OddAppearingNumber{
+public class j10OddAppearingNumber{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int s = in.nextInt();
@@ -10,6 +11,8 @@ public class j3OddAppearingNumber{
         }
 
         System.out.println(findOneOddAppearingNumber(arr));
+        System.out.println(Arrays.toString((findTwoOddAppearingNumbers(arr))));
+        System.out.println(findSingleNumberFromThriceAppearingNumbers(arr));
         in.close(); 
     }
 
@@ -27,7 +30,7 @@ public class j3OddAppearingNumber{
             r ^= num;
         }
 
-        int rd = r ^ ~(r - 1); // rd = r ^ -r
+        int rd = r & ~(r - 1); // rd = r & -r
         int r1 = 0;
         int r2 = 0;
         for(int i = 0; i < nums.length; i++){
@@ -39,5 +42,19 @@ public class j3OddAppearingNumber{
             }
         }
         return new int[]{r1,r2};
+    }
+
+    public static int findSingleNumberFromThriceAppearingNumbers(int[] nums){
+        int ans = 0;
+        for(int i = 0; i < 32; i++){
+            int count = 0;
+            for(int num: nums){
+              if((num & (1 << i)) != 0) count++;
+            }
+            if(count%3 == 1){
+                ans = ans | (1 << i);
+            } 
+        }
+        return ans;
     }
 }
