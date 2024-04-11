@@ -19,3 +19,5 @@ GFG Faithful Numbers
 GFG Number of 1 Bits
 LC-89 : Gray Code
 LC-2965 : Find Missing and Repeated Values
+
+LC-7. Reverse Integer

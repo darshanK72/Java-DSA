@@ -13,6 +13,7 @@ public class j10OddAppearingNumber{
         System.out.println(findOneOddAppearingNumber(arr));
         System.out.println(Arrays.toString((findTwoOddAppearingNumbers(arr))));
         System.out.println(findSingleNumberFromThriceAppearingNumbers(arr));
+        System.out.println(findSingleNumberFromThriceAppearingNumbersEfficient(arr));
         in.close(); 
     }
 
@@ -56,5 +57,28 @@ public class j10OddAppearingNumber{
             } 
         }
         return ans;
+    }
+
+    public static int findSingleNumberFromThriceAppearingNumbersEfficient(int[] nums){
+        int tn = Integer.MAX_VALUE;
+        int tnp1 = 0;
+        int tnp2 = 0;
+
+        for(int num:nums){
+            int ctn = num & tn;
+            int ctn1 = num & tnp1;
+            int ctn2 = num & tnp2;
+
+            tn = tn & ~(ctn);
+            tnp1 = tnp1 | ctn;
+
+            tnp1 = tnp1 & ~(ctn1);
+            tnp2 = tnp2 | ctn1;
+
+            tnp2 = tnp2 & ~(ctn2);
+            tn = tn | ctn2; 
+        }
+
+        return tnp1;
     }
 }
