@@ -13,11 +13,14 @@ Mathematics I
 
 
 
+231. Power of Two
+
 
 LC-29 : Divide Two Integers
 GFG Faithful Numbers
 GFG Number of 1 Bits
 LC-89 : Gray Code
 LC-2965 : Find Missing and Repeated Values
+2220. Minimum Bit Flips to Convert Number
 
 LC-7. Reverse Integer
