@@ -4,7 +4,7 @@ public class j7CountSetBits{
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
 
-        System.out.println(countSetBitsEfficient(n));
+        System.out.println(countSetBitsLookupTable(n));
 
         in.close();
     }
@@ -45,9 +45,9 @@ public class j7CountSetBits{
         int count = 0;
         // Count set bits in each byte of the number
         count += lookupTable[num & 0xFF];           // Count set bits in the least significant byte
-        count += lookupTable[(num >> 8) & 0xFF];    // Count set bits in the second byte
-        count += lookupTable[(num >> 16) & 0xFF];   // Count set bits in the third byte
-        count += lookupTable[(num >> 24) & 0xFF];   // Count set bits in the most significant byte
+        count += lookupTable[(num >>> 8) & 0xFF];    // Count set bits in the second byte
+        count += lookupTable[(num >>> 16) & 0xFF];   // Count set bits in the third byte
+        count += lookupTable[(num >>> 24) & 0xFF];   // Count set bits in the most significant byte
         return count;
     }
 } 

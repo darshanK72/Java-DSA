@@ -3,3 +3,9 @@ Mathematics I
 2) LC-204 : Count Primes
 3) LC-372 : Super Pow
 4) LC-832 : Flipping an Image
+5) LC-2220 : Minimum Bit Flips to Convert 
+6) LC-1318 : Minimum Flips to Make a OR b Equal to c
+7) LC-78 : Subsets
+8) LC-136 : Single Number
+9) LC-137 : Single Number II
+10) LC-260 : Single Number III
