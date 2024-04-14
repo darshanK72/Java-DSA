@@ -54,15 +54,19 @@ public class j27Power {
         return result;
     }
 
-    public static double powerBinaryExponentiation2(int x,double p){
-        double result = 1;
-        while(p > 0){
-            if((p % 2) == 1) result *= x;
-            x *= x;
-            p /= 2;
+    public static double powerBinaryExponentiation2(double x,int n){
+        double result = 1.0;
+        if(n < 0){
+            n = -1 * n;
+            x = 1/x;
+            System.out.println(n);
         }
-
-        if(p < 1) return 1.0/result;
+        while(n != 0){
+            if((n & 1) != 0) result *= x;
+            x *= x;
+            n >>>= 1;
+        }
         return result;
+        
     }
 }

@@ -213,7 +213,7 @@ xorRange(n){
 xorRange(n1-1) ^ xorRange(n2);
 ```
 
-### Check if two integers have opposite signs
+### 10. Check if two integers have opposite signs
 ```java
 if(x^y >0)
     return false;
@@ -221,24 +221,14 @@ else
     return true;
 ```
 
-### Add 1 to a given number
+### 11. Add 1 to a given number
 ```java
 (-(~x));
 ```
 
-### Multiply a number by 2
+### 12. Turn off the rightmost set bit
 ```java
-x<<1;
-```
-
-### Divide a number by 2
-```java
-x>>1;
-```
-
-### Turn off the rightmost set bit
-```java
-x&(x-1);
+x & (x-1);
 ```
 
 ### Check whether a given number is a power of 4 or not

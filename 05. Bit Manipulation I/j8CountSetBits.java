@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class j7CountSetBits{
+public class j8CountSetBits{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
@@ -18,6 +18,7 @@ public class j7CountSetBits{
         return count;
     }
 
+    // Kahingam Algorithms
     public static int countSetBitsEfficient(int n){
         int count = 0;
         while(n > 0){

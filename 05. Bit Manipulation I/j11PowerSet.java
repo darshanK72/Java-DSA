@@ -3,7 +3,7 @@ import java.lang.Math;
 import java.lang.StringBuilder;
 import java.util.ArrayList;
 
-public class j10PowerSet{
+public class j11PowerSet{
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
         String s = in.next();
