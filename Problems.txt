@@ -9,6 +9,14 @@ Mathematics I
 8) LC-136 : Single Number
 9) LC-137 : Single Number II
 10) LC-260 : Single Number III
+11) LC-29 : Divide Two Integers
+13) LC-89 : Gray Code
+14) LC-7 : Reverse Integer
+15) LC-2965 : Find Missing and Repeated Values
+16) 2220 : Minimum Bit Flips to Convert Number
+17) 231 : Power of Two
+18) GFG Faithful Numbers
+19) GFG Number of 1 Bits
 
 
 
@@ -19,14 +27,5 @@ Mathematics I
 
 
 
-231. Power of Two
 
 
-LC-29 : Divide Two Integers
-GFG Faithful Numbers
-GFG Number of 1 Bits
-LC-89 : Gray Code
-LC-2965 : Find Missing and Repeated Values
-2220. Minimum Bit Flips to Convert Number
-
-LC-7. Reverse Integer

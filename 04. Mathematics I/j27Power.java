@@ -44,6 +44,7 @@ public class j27Power {
         return result;
     }
 
+    // O(log(n))
     public static long powerBinaryExponentiation2(int x,int p){
         long result = 1;
         while(p > 0){
@@ -54,6 +55,7 @@ public class j27Power {
         return result;
     }
 
+    // O(log(n)) - For negative numbers
     public static double powerBinaryExponentiation2(double x,int n){
         double result = 1.0;
         if(n < 0){
