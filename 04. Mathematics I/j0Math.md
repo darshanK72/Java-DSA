@@ -1,4 +1,5 @@
 # Mathematics I for DSA
+Geeks For Geeks : https://www.geeksforgeeks.org/mathematical-algorithms/
 
 ## 1. Odd & Even Numbers
 

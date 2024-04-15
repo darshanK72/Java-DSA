@@ -1,4 +1,6 @@
 ## Bit Manipulation
+Geeks For Geeks : https://www.geeksforgeeks.org/bitwise-algorithms/?ref=lbp
+
 Bit stands for binary digit. A bit is the basic unit of information and can only have one of two possible values that is 0 or 1.
 
 A binary number is a number expressed in the base-2 numeral system or binary numeral system. It is a method of mathematical expression which uses only two symbols: typically "0" (zero) and "1" (one).
