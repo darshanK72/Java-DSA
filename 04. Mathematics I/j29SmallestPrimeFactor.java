@@ -12,7 +12,7 @@ public class j29SmallestPrimeFactor{
         }
 
         int[] seive = getSeive(1000);
-        // System.out.println(Arrays.toString(seive));
+        System.out.println(Arrays.toString(seive));
         for(int i = 0; i < q; i++){
             System.out.println(seive[quries[i]]);
         }
