@@ -3,47 +3,181 @@ Java DSA Preparation
 1. Java Basics
     1.1 Variables & Data Types
     1.2 Operators
-    1.3 Conditional Statements (if-else,switch-case)
-    1.4 Loop Statements (for,while,do-while,for-each)
-    1.5 Function/Methods
-    1.6 Array & ArrayList
-    1.7 String
-    1.8 OOPs
-    1.9 Collection Framework
+    1.3 Conditional Statements (if-else, switch-case)
+    1.4 Loop Statements (for, while, do-while, for-each)
+    1.5 Functions/Methods
+    1.6 Arrays & ArrayList
+    1.7 String manipulation
+    1.8 Object-Oriented Programming Concepts (Classes, Objects, Inheritance, Polymorphism, Encapsulation)
+    1.9 Exception Handling
+    1.10 File Handling
+    1.11 Multithreading
+    1.12 Generics
+    1.13 Lambda Expressions
+    1.14 Java Collections Framework (List, Set, Map, Queue)
 
 2. Patterns
-    35 Patterns
+    Learn various patterns like pyramid patterns, number patterns, star patterns, etc.
 
-3. Introductin to DSA
+3. Introduction to Data Structures and Algorithms
     3.1 Introduction to Data Structure
     3.2 Introduction to Algorithms
-    3.3 Analysis of Algorithms
-    
-4. Mathematics I
-    4.1  Odd & Even
-    4.2  Prime Number & Sieve Of Erastosthenes
-    4.3  Square Root
-    4.4  Factorization 
-    4.5  GCD, HCF & LCM
-    4.6  Fibonacci Series
-    4.7  Digit Manipulation
-    4.8  Factorial & Trailing Zeros
-    4.9  Arithmetic Progression & Geometric Progression
+    3.3 Analysis of Algorithms (Time and Space Complexity)
+    3.4 Asymptotic Notations (Big O, Omega, Theta)
+
+4. Mathematics Level 1
+    4.1 Odd & Even
+    4.2 Prime Number & Sieve Of Eratosthenes
+    4.3 Square Root
+    4.4 Factorization
+    4.5 GCD, HCF & LCM
+    4.6 Fibonacci Series
+    4.7 Digit Manipulation
+    4.8 Factorial & Trailing Zeros
+    4.9 Arithmetic Progression & Geometric Progression
     4.10 Quadratic Equations
     4.11 Mean, Median & Mode
-    4.12 Permutations & Combinations 
-    4.13 Modulo Arithmetics
+    4.12 Permutations & Combinations
+    4.13 Modulo Arithmetic
     4.14 Number Systems
 
-    pigon hole principle
-    catlane Number
-    inclusion and exclusion principle
-    factorial in mod
+5. Bit Manipulation Level 1
+    5.1 Basics of Binary Representation
+    5.2 Bitwise Operators (AND, OR, XOR, Left Shift, Right Shift)
+    5.3 Bit Manipulation Tricks (Set, Clear, Toggle, Check)
 
-5. Bit Manipulation
-    5.1 Bitwise Operators
-    5.2 
+6. Recursion Level 1
+    6.1 Understanding Recursion
+    6.2 Recursive vs. Iterative Solutions
+    6.3 Recursive Backtracking
+    6.4 Tail Recursion
+    6.5 Divide and Conquer Techniques
 
-6. Recursion
+7. Arrays
+    7.1 Array Representation
+    7.2 Array Operations (Insertion, Deletion, Searching)
+    7.3 Array Manipulation Techniques
+    7.4 Problems involving Arrays (e.g., Finding Missing Number, Majority Element)
 
-7. Arrays 1D
+8. Sorting Algorithms
+    8.1 Bubble Sort
+    8.2 Selection Sort
+    8.3 Insertion Sort
+    8.4 Merge Sort
+    8.5 Quick Sort
+    8.6 Heap Sort
+    8.7 Radix Sort
+    8.8 Counting Sort
+    8.9 Bucket Sort
+    8.10 Comparison of Sorting Algorithms
+
+9. Searching Algorithms
+    9.1 Linear Search
+    9.2 Binary Search
+    9.3 Jump Search
+    9.4 Interpolation Search
+    9.5 Exponential Search
+
+10. Stacks and Queues
+    10.1 Stack Implementation
+    10.2 Queue Implementation
+    10.3 Stack Applications (e.g., Expression Evaluation, Infix to Postfix Conversion)
+    10.4 Queue Applications (e.g., BFS in Graphs)
+    10.5 Implementing Stack and Queue using Linked List
+    10.6 Implementing Stack and Queue using Arrays
+    10.7 Double-ended Queue (Deque)
+
+11. Linked Lists
+    10.1 Singly Linked List
+    10.2 Doubly Linked List
+    10.3 Circular Linked List
+    10.4 Operations on Linked Lists (Insertion, Deletion, Traversal)
+    10.5 Reversing a Linked List
+    10.6 Detecting and Removing Loops in Linked Lists
+    10.7 Linked List Problems (e.g., Intersection Point, Nth Node from End)
+
+12. Trees
+    11.1 Binary Trees
+    11.2 Binary Search Trees (BST)
+    11.3 Tree Traversal (Inorder, Preorder, Postorder)
+    11.4 Tree Operations (Insertion, Deletion, Searching)
+    11.5 AVL Trees
+    11.6 Red-Black Trees
+    11.7 Splay Trees
+    11.8 Segment Trees
+    11.9 Trie (Prefix Tree)
+    11.10 Fenwick Tree (Binary Indexed Tree)
+    11.11 B-Tree and B+ Tree
+
+13. Graphs
+    12.1 Graph Representation (Adjacency Matrix, Adjacency List)
+    12.2 Graph Traversal (DFS, BFS)
+    12.3 Minimum Spanning Trees (Prim's Algorithm, Kruskal's Algorithm)
+    12.4 Shortest Path Algorithms (Dijkstra's Algorithm, Bellman-Ford Algorithm)
+    12.5 Topological Sorting
+    12.6 Detecting Cycles in a Graph
+    12.7 Bridges and Articulation Points
+    12.8 Strongly Connected Components (Tarjan's Algorithm, Kosaraju's Algorithm)
+    12.9 Graph Coloring
+    12.10 Maximum Flow Algorithms (Ford-Fulkerson Algorithm, Edmonds-Karp Algorithm)
+    12.11 Network Flow Problems
+    12.12 Eulerian Path/Circuit and Hamiltonian Path/Cycle
+
+14. Dynamic Programming
+    13.1 Introduction to Dynamic Programming
+    13.2 Overlapping Subproblems and Memoization
+    13.3 Bottom-up (Tabulation) Approach
+    13.4 Examples of Dynamic Programming Problems (e.g., Fibonacci Series, Longest Common Subsequence, Knapsack Problem)
+    13.5 Dynamic Programming on Trees and Graphs
+
+15. Greedy Algorithms
+    14.1 Introduction to Greedy Algorithms
+    14.2 Activity Selection Problem
+    14.3 Huffman Coding
+    14.4 Kruskal's Algorithm (Greedy Approach)
+    14.5 Job Sequencing Problem
+    14.6 Fractional Knapsack Problem
+    14.7 Greedy Algorithms on Trees
+
+16. String Algorithms
+    15.1 Pattern Searching (Naive Algorithm, Knuth-Morris-Pratt Algorithm, Rabin-Karp Algorithm)
+    15.2 Longest Common Substring/Subsequence
+    15.3 Trie Applications (e.g., Auto-complete, Spell Checker)
+    15.4 Suffix Trees and Suffix Arrays
+    15.5 Manacher's Algorithm (Longest Palindromic Substring)
+    15.6 Z Algorithm
+    15.7 String Compression Techniques
+    15.8 Regular Expression Matching
+
+17. Advanced Data Structures
+    16.1 Segment Tree
+    16.2 Fenwick Tree (Binary Indexed Tree)
+    16.3 Disjoint Set Union (Union-Find)
+    16.4 Treap
+    16.5 Suffix Array
+    16.6 Persistent Data Structures
+    16.7 Range Minimum Query (RMQ)
+    16.8 K-D Tree
+
+18. System Design Basics
+    17.1 Introduction to System Design
+    17.2 Scalability, Availability, and Consistency
+    17.3 Load Balancing
+    17.4 Caching
+    17.5 Database Sharding
+    17.6 Consistent Hashing
+    17.7 CAP Theorem
+    17.8 ACID vs. BASE Properties
+    17.9 Message Queues and Pub/Sub Systems
+
+19. Competitive Programming Techniques
+    18.1 Two Pointers Technique
+    18.2 Sliding Window Technique
+    18.3 Meet in the Middle Technique
+    18.4 Binary Search Variations
+    18.5 Divide and Conquer Optimization
+    18.6 Geometry Algorithms
+    18.7 Advanced Data Structure Problems
+    18.8 System Design Problems
+    18.9 Handling Large Inputs and Optimization Techniques
+    18.10 Handling Input/Output in Competitive Programming
