@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j7TowerOfHanoi{
+public class j12TowerOfHanoi{
 
     public static void main(String args[]){
        Scanner in = new Scanner(System.in);
