@@ -18,6 +18,7 @@ Mathematics I
 18) GFG Faithful Numbers
 19) GFG Number of 1 Bits
 20) LC-1342 : Number of Steps to Reduce a Number to Zero
+21) 485 : Max Consecutive Ones
 
 
 
