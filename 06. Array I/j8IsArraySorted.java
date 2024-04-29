@@ -7,7 +7,7 @@ public class j8IsArraySorted{
         for(int i = 0; i < n; i++){
             arr[i] = in.nextInt();
         }
-        System.out.println(isSorted(arr));
+        System.out.println(isSortedRec(arr,0));
         in.close();
     }
 
@@ -16,5 +16,11 @@ public class j8IsArraySorted{
             if(arr[i] > arr[i+1]) return false;
         }
         return true;
+    }
+
+    // O(n)
+    public static boolean isSortedRec(int[] arr,int i){
+        if(i == arr.length-1) return true;
+        return arr[i] < arr[i+1] && isSortedRec(arr,i+1);
     }
 }

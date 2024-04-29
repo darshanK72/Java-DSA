@@ -16,8 +16,7 @@ public class j2FindFirstApperance{
         if(index == arr.length) return -1;
         if(arr[index] == k) return index;
         else {
-            int ind = find(arr,index+1,k);
-            return ind;
+            return find(arr,index+1,k);
         }
        
     }

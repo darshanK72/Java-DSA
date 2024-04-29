@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.Arrays;
+import java.util.ArrayList;
 public class j4FindAllAperance{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
@@ -9,7 +10,7 @@ public class j4FindAllAperance{
             arr[i] = in.nextInt();
         }
         int k = in.nextInt();
-        System.out.println(Arrays.toString(findAll(arr,0,k,0)));
+        System.out.println(findAllList(arr,k,0));
         in.close();
     }
 
@@ -26,5 +27,16 @@ public class j4FindAllAperance{
             int[] idall= findAll(arr,index+1,k,csf);
             return idall;
         }
+    }
+
+    public static ArrayList<Integer> findAllList(int[] arr,int k,int index){
+        if(index == arr.length){
+            return new ArrayList<>();
+        }
+        ArrayList<Integer> res = findAllList(arr,k,index+1);
+        if(arr[index] == k){
+            res.add(0,index);
+        }
+        return res;
     }
 }

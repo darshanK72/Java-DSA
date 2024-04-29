@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Arrays;
 import java.util.ArrayList;
-public class j5GetSubsequences{
+public class j6GetSubsequences{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         String s = in.next();
@@ -15,13 +15,13 @@ public class j5GetSubsequences{
             arr.add("");
             return arr;
         }
-        char c = str.charAt(0);
-        String substr = str.substring(1);
-        ArrayList<String> res = getSubsequences(substr);
+        ArrayList<String> res = getSubsequences(str.substring(1));
         ArrayList<String> output = new ArrayList<>();
         for(String s : res){
             output.add(s);
-            output.add(c + s);
+        }
+        for(String s : res){
+            output.add(str.charAt(0) + s);
         }
         return output;
     }
