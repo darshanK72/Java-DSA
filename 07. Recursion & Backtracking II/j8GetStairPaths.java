@@ -9,6 +9,15 @@ public class j8GetStairPaths{
         in.close();
     }
 
+    public static void printStariPaths(int n,String path){
+        if(n == 0){
+            System.out.println(path);
+            return;
+        }
+
+        
+    }
+
     // T(n) = T(n-1) + T(n-2) + T(n-3) + c 
     public static ArrayList<String> getStairPaths(int n){
         if(n == 0){

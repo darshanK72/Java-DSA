@@ -11,12 +11,35 @@ public class j10GetMazePathsWithJump {
     }
 
     public static ArrayList<String> getMazeJumpPaths(int sr,int sc,int dr,int dc){
-        if(i == m && j == n){
+
+        if(sr == dr && sc == dc){
             ArrayList<String> arr = new ArrayList<>();
             arr.add("");
             return arr;
         }
+        ArrayList<String> output = new ArrayList<>();
+        
+        for(int ms = 1; ms <= dc - sc; ms++){
+            ArrayList<String> hpaths = getMazeJumpPaths(sr, sc + ms, dr, dc);
+            for(String path: hpaths){
+                output.add("h" + ms + path);
+            }
+        }
 
-        for(int ms = 1; ms < n - j)
+        for(int ms = 1; ms <= dr - sr; ms++){
+            ArrayList<String> vpaths = getMazeJumpPaths(sr + ms, sc, dr, dc);
+            for(String path: vpaths){
+                output.add("v" + ms + path);
+            }
+        }
+
+        for(int ms = 1;ms <= dr - sr && ms <= dc - sc; ms++){
+            ArrayList<String> dpaths = getMazeJumpPaths(sr + ms, sc + ms, dr, dc);
+            for(String path: dpaths){
+                output.add("d" + ms + path);
+            }
+        }
+
+        return output;
     }
 }

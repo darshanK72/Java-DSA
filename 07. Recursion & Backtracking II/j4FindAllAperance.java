@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Arrays;
 import java.util.ArrayList;
 public class j4FindAllAperance{
     public static void main(String args[]){

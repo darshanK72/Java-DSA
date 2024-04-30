@@ -6,7 +6,18 @@ public class j6GetSubsequences{
         String s = in.next();
         System.out.println(getSubsequences(s).toString());
         System.out.println(generateSubsequences(s, ""));
+        printSubsequences(s, "");
         in.close();
+    }
+
+    public static void printSubsequences(String str,String current){
+        if(str.length() == 0){
+            System.out.println(current);
+            return;
+        }
+        char c = str.charAt(0);
+        printSubsequences(str.substring(1), current);
+        printSubsequences(str.substring(1), current + c);
     }
 
     public static ArrayList<String> getSubsequences(String str){

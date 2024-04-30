@@ -18,7 +18,20 @@ public class j7GetKeypadCombination{
         Scanner in = new Scanner(System.in);
         String s = in.next();
         System.out.println(getKeypadCombinations(s).toString());
+        printKeypadCombinations(s, "");
         in.close();
+    }
+
+    public static void printKeypadCombinations(String str,String current){
+        if(str.length() == 0){
+            System.out.println(current);
+            return;
+        }
+        char c = str.charAt(0);
+        String keys = keymap[c - '1'];
+        for(int i = 0; i < keys.length(); i++){
+            printKeypadCombinations(str.substring(1),current + keys.charAt(i));
+        }
     }
 
     public static ArrayList<String> getKeypadCombinations(String str){
