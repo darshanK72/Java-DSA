@@ -9,6 +9,7 @@ public class j14SubsetSum{
         }
         int k = in.nextInt();
         System.out.println(countSubsetWithSum(arr,arr.length ,k));
+        in.close();
     }
 
     public static int countSubsetWithSum(int[] arr,int current,int k){

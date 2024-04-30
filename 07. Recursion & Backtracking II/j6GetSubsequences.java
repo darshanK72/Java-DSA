@@ -1,11 +1,11 @@
 import java.util.Scanner;
-import java.util.Arrays;
 import java.util.ArrayList;
 public class j6GetSubsequences{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         String s = in.next();
         System.out.println(getSubsequences(s).toString());
+        System.out.println(generateSubsequences(s, ""));
         in.close();
     }
 
@@ -24,5 +24,18 @@ public class j6GetSubsequences{
             output.add(str.charAt(0) + s);
         }
         return output;
+    }
+
+    public static ArrayList<String> generateSubsequences(String str,String current){
+        if(str.length() == 0){
+            ArrayList<String> output = new ArrayList<>();
+            output.add(current);
+            return output;
+        }
+
+        ArrayList<String> right = generateSubsequences(str.substring(1), current);
+        ArrayList<String> left =  generateSubsequences(str.substring(1), current + str.charAt(0));
+        left.addAll(right);
+        return left;
     }
 }
