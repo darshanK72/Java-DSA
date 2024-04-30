@@ -7,7 +7,27 @@ public class j10GetMazePathsWithJump {
         int m = in.nextInt();
         int n = in.nextInt();
         System.out.println(getMazeJumpPaths(1,1,m,n));
+        printMazeJumpPaths(1,1,m,n,"");
         in.close();
+    }
+
+    public static void printMazeJumpPaths(int sr,int sc,int dr,int dc,String path){
+        if(sr == dr && sc == dc){
+            System.out.println(path);
+            return;
+        }
+
+        for(int i = 1; i <= dc - sc; i++){
+            printMazeJumpPaths(sr,sc + i,dr,dc,path + "h" + i);
+        }
+
+        for(int i = 1; i <= dr - sr; i++){
+            printMazeJumpPaths(sr + i,sc,dr,dc,path + "v" + i);
+        }
+
+        for(int i = 1; i <= dr - sr && i <= dc - sc; i++){
+            printMazeJumpPaths(sr + i,sc + i,dr,dc,path + "d" + i);
+        }
     }
 
     public static ArrayList<String> getMazeJumpPaths(int sr,int sc,int dr,int dc){

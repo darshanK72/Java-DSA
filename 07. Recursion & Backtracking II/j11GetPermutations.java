@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class j8GetPermutations {
+public class j11GetPermutations {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         String s = in.next();
@@ -22,6 +22,21 @@ public class j8GetPermutations {
             String f = current.substring(0, i);
             String n = current.substring(i);
             printPermutations(s.substring(1), f + c + n);
+        }
+    }
+
+    public static void printPermutations(String s,String current){
+        if(s.length() == 0){
+            System.out.println(current);
+            return;
+        }
+
+        for(int i = 0; i < s.length(); i++){
+            char c = s.charAt(i);
+            String left = s.substring(0,i);
+            String right = s.substring(i+1);
+            String nes = left + right;
+            printPermutations(nes,current + c);
         }
     }
 

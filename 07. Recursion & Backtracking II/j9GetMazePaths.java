@@ -7,7 +7,21 @@ public class j9GetMazePaths {
         int m = in.nextInt();
         int n = in.nextInt();
         System.out.println(getMazePaths(1,1,m,n));
+        printMazePaths(1,1,m,n,"");
         in.close();
+    }
+
+
+    public static void printMazePaths(int sr,int sc,int dr,int dc,String step){
+        if(sc > dc || sr > dr){
+            return;
+        }
+        if(sr == dr && sc == dc){
+            System.out.println(step);
+        }
+        
+        printMazePaths(sr,sc + 1, dr,dc,step + "h");
+        printMazePaths(sr+1,sc,dr,dc,step + "v");
     }
 
     public static ArrayList<String> getMazePaths(int sr,int sc,int dr,int dc){
@@ -30,10 +44,10 @@ public class j9GetMazePaths {
         ArrayList<String> output = new ArrayList<>();
 
         for(String path : rpaths){  
-           output.add("r" + path);
+           output.add("h" + path);
         }
         for(String path : dpaths){  
-            output.add("d" + path);
+            output.add("v" + path);
         }
 
         return output;

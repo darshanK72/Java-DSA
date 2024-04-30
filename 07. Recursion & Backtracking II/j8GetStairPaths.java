@@ -6,16 +6,22 @@ public class j8GetStairPaths{
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         System.out.println(getStairPaths(n));
+        printStairPaths(n,"");
         in.close();
     }
 
-    public static void printStariPaths(int n,String path){
+    public static void printStairPaths(int n,String path){
         if(n == 0){
             System.out.println(path);
             return;
         }
+        if(n < 0){
+            return;
+        }
 
-        
+        printStairPaths(n-1,path + "1");
+        printStairPaths(n-2, path + "2");
+        printStairPaths(n-3,path + "3");
     }
 
     // T(n) = T(n-1) + T(n-2) + T(n-3) + c 
