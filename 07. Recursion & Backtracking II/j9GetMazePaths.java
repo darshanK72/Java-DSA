@@ -32,7 +32,7 @@ public class j9GetMazePaths {
         }
 
         ArrayList<String> rpaths = new ArrayList<>();
-        ArrayList<String> dpaths = new ArrayList<>();;
+        ArrayList<String> dpaths = new ArrayList<>();
 
         if(sc < dc){
             rpaths = getMazePaths(sr,sc + 1, dr, dc);
