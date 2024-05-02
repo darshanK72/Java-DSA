@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Arrays;
 public class j17NQueens{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);

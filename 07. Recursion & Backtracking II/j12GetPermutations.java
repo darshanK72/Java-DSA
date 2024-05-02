@@ -11,7 +11,7 @@ public class j12GetPermutations {
         in.close();
     }
 
-    public static void printPermutations(String s,String current){
+    public static void printPermutations1(String s,String current){
         if(s.length() == 0){
             System.out.println(current);
             return;

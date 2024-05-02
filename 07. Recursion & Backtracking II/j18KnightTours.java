@@ -10,7 +10,7 @@ public class j18KnightTours{
     }
 
     public static void knightTour(int[][] chess,int row,int col,int move){
-        if(row < 0 || col < 0 || row >= chess.length || col >= chess.length || chess[row][col] >= 0){
+        if(row < 0 || col < 0 || row >= chess.length || col >= chess.length || chess[row][col] > 0){
             return;
         }
         else if(move == chess.length * chess.length){
