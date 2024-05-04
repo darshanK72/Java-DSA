@@ -10,7 +10,7 @@ public class j13JohesephProblem{
     }
 
     public static int joesephKill(int n,int k){
-        if(n == 1) return 0;
+        if(n == 0) return 0;
         return (joesephKill(n-1,k) + k)%n;
     }
 }
