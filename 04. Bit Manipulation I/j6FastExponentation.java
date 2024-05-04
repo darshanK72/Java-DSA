@@ -6,6 +6,7 @@ public class j6FastExponentation{
         int p = in.nextInt();
 
         System.out.println(fastExp(n,p));
+        System.out.println(fastExp2(n,p));
         in.close();
     }
 
@@ -26,10 +27,10 @@ public class j6FastExponentation{
             n = -1 * n;
             x = 1/x;
         }
-        while(n != 0){
-            if((n & 1) != 0) result *= x;
+        while(n > 0){
+            if((n & 1) == 1) result *= x;
             x *= x;
-            n >>>= 1; // not signed right shift
+            n >>>= 1;
         }
         return result;
         

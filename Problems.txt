@@ -1,5 +1,4 @@
 Mathematics I 
-1) LC-1281 : Subtract the Product and Sum of Digits of an Integer
 2) LC-204 : Count Primes
 3) LC-372 : Super Pow
 4) LC-832 : Flipping an Image
@@ -11,7 +10,6 @@ Mathematics I
 10) LC-260 : Single Number III
 11) LC-29 : Divide Two Integers
 13) LC-89 : Gray Code
-14) LC-7 : Reverse Integer
 15) LC-2965 : Find Missing and Repeated Values
 16) 2220 : Minimum Bit Flips to Convert Number
 17) 231 : Power of Two
@@ -19,6 +17,30 @@ Mathematics I
 19) GFG Number of 1 Bits
 20) LC-1342 : Number of Steps to Reduce a Number to Zero
 21) 485 : Max Consecutive Ones
+
+
+Mathematics
+Leetcode 
+292. Nim Game
+1025. Divisor Game
+258. Add Digits
+319. Bulb Switcher
+1688. Count of Matches in Tournament
+1523. Count Odd Numbers in an Interval Range
+1518. Water Bottles
+1925. Count Square Sum Triples
+172. Factorial Trailing Zeroes
+263. Ugly Number
+1360. Number of Days Between Two Dates
+1154. Day of the Year
+1185. Day of the Week
+7. Reverse Integer
+2119. A Number After a Double Reversal
+1281. Subtract the Product and Sum of Digits of an Integer
+728. Self Dividing Numbers
+
+GFG
+Series GP
 
 
 
