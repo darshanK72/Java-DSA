@@ -38,6 +38,10 @@ Leetcode
 2119. A Number After a Double Reversal
 1281. Subtract the Product and Sum of Digits of an Integer
 728. Self Dividing Numbers
+1837. Sum of Digits in Base K
+504. Base 7
+67. Add Binary
+476. Number Complement
 
 GFG
 Series GP
