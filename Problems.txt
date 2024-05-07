@@ -42,6 +42,8 @@ Leetcode
 504. Base 7
 67. Add Binary
 476. Number Complement
+1295. Find Numbers with Even Number of Digits
+1672. Richest Customer Wealth
 
 GFG
 Series GP
