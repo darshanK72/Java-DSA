@@ -1,61 +1,86 @@
-Mathematics I 
-2) LC-204 : Count Primes
-3) LC-372 : Super Pow
-4) LC-832 : Flipping an Image
-5) LC-2220 : Minimum Bit Flips to Convert 
-6) LC-1318 : Minimum Flips to Make a OR b Equal to c
-7) LC-78 : Subsets
-8) LC-136 : Single Number
-9) LC-137 : Single Number II
-10) LC-260 : Single Number III
-11) LC-29 : Divide Two Integers
-13) LC-89 : Gray Code
-15) LC-2965 : Find Missing and Repeated Values
-16) 2220 : Minimum Bit Flips to Convert Number
-17) 231 : Power of Two
-18) GFG Faithful Numbers
-19) GFG Number of 1 Bits
-20) LC-1342 : Number of Steps to Reduce a Number to Zero
-21) 485 : Max Consecutive Ones
-
-
-Mathematics
-Leetcode 
-292. Nim Game
-1025. Divisor Game
-258. Add Digits
-319. Bulb Switcher
-1688. Count of Matches in Tournament
+1. Maths
+1281. Subtract the Product and Sum of Digits of an Integer
+7. Reverse Integer
 1523. Count Odd Numbers in an Interval Range
-1518. Water Bottles
-1925. Count Square Sum Triples
+509. Fibonacci Number
 172. Factorial Trailing Zeroes
 263. Ugly Number
-1360. Number of Days Between Two Dates
-1154. Day of the Year
-1185. Day of the Week
-7. Reverse Integer
-2119. A Number After a Double Reversal
-1281. Subtract the Product and Sum of Digits of an Integer
 728. Self Dividing Numbers
-1837. Sum of Digits in Base K
+1017. Convert to Base -2
 504. Base 7
-67. Add Binary
-476. Number Complement
-1295. Find Numbers with Even Number of Digits
+1837. Sum of Digits in Base K
+2119. A Number After a Double Reversal
+1185. Day of the Week
+1154. Day of the Year
+1360. Number of Days Between Two Dates
+2769. Find the Maximum Achievable Number
+1518. Water Bottles
+1688. Count of Matches in Tournament
+319. Bulb Switcher
+292. Nim Game
+1025. Divisor Game
+1925. Count Square Sum Triples
+258. Add Digits
+231. Power of Two
+50. Pow(x, n)
+204. Count Primes
+1823. Find the Winner of the Circular Game
+1073. Adding Two Negabinary Numbers
 1672. Richest Customer Wealth
-
-GFG
-Series GP
+175. Combine Two Tables
 
 
+2. Bit Manipulation Level 1
+476. Number Complement
+1318. Minimum Flips to Make a OR b Equal to c
+2220. Minimum Bit Flips to Convert Number
+231. Power of Two
+342. Power of Four
+29. Divide Two Integers
+405. Convert a Number to Hexadecimal
+762. Prime Number of Set Bits in Binary Representation
+1342. Number of Steps to Reduce a Number to Zero
+67. Add Binary
+136. Single Number
+137. Single Number II
+260. Single Number III
+2859. Sum of Values at Indices With K Set Bits
 
 
+3. Recursion Level 1
+509. Fibonacci Number
+50. Pow(x, n)
+231. Power of Two
+1823. Find the Winner of the Circular Game
 
 
+4. Array Level 1
+485. Max Consecutive Ones
+1295. Find Numbers with Even Number of Digits
+136. Single Number
+137. Single Number II
+260. Single Number III
+2859. Sum of Values at Indices With K Set Bits
+1. Two Sum
+2965. Find Missing and Repeated Values
+73. Set Matrix Zeroes
+217. Contains Duplicate
+204. Count Primes
+1823. Find the Winner of the Circular Game
+1672. Richest Customer Wealth
+724. Find Pivot Index
+1480. Running Sum of 1d Array
+832. Flipping an Image
 
+5. Recursion & Backtracking Level 2
+52. N-Queens II
+46. Permutations
+51. N-Queens
+78. Subsets
+89. Gray Code
 
-
-
-
-
+Additional Questions (from other topics)
+20. Valid Parentheses
+459. Repeated Substring Pattern
+17. Letter Combinations of a Phone Number
+389. Find the Difference
