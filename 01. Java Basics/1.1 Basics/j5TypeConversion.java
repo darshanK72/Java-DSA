@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class j6TypeConversion {
+public class j5TypeConversion {
     public static void main(String[] args)
     {
         Scanner input = new Scanner(System.in);

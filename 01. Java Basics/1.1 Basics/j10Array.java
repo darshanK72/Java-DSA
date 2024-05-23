@@ -1,5 +1,5 @@
 import java.util.Arrays;
-public class j11Array {
+public class j10Array {
     public static void main(String args[])
     {
         int[] arr = new int[20];

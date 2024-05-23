@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class j1ClassesAndObjects
+public class j19ClassesAndObjects
 {
     public static void main(String args[])
     {

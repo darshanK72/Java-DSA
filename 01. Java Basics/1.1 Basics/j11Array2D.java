@@ -1,6 +1,6 @@
 import java.util.Arrays;
 import java.util.Scanner;
-public class j12Array2D {
+public class j11Array2D {
 
     public static void main(String[] args)
     {

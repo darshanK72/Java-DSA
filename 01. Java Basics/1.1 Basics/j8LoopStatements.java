@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class j9LoopStatements {
+public class j8LoopStatements {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);

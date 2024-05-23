@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j8ConditionalStatements {
+public class j7ConditionalStatements {
     public static void main(String args[])
     {
         //if else statements

@@ -1,4 +1,4 @@
-public class j7Operators {
+public class j6Operators {
 
     public static void main(String[] args)
     {

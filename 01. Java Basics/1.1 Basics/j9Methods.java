@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class j10Methods {
+public class j9Methods {
     public static void main(String[] args)
     {
         Scanner input = new Scanner(System.in);

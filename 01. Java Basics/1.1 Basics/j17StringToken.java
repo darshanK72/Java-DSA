@@ -1,6 +1,6 @@
 import java.util.StringTokenizer;
 
-public class j19StringToken {
+public class j17StringToken {
 
 	public static void main(String[] args) {
 		StringTokenizer str = new StringTokenizer("hi this is new sentence");

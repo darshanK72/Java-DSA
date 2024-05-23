@@ -1,4 +1,4 @@
-public class j20StringUsingBufferAndBuilder {
+public class j18StringUsingBufferAndBuilder {
 
 	public static void main(String[] args) {
 		/*

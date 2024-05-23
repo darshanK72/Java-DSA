@@ -1,4 +1,4 @@
-public class j18Literals {
+public class j16Literals {
 
 	public static void main(String[] args) {
 		
