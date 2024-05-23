@@ -1,4 +1,4 @@
-public class j6StaticBlock {
+public class j23StaticBlock {
     public static void main(String args[])
     {
         Human h1 = new Human(21,"Darshan");

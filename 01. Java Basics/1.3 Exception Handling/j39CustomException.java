@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j6CustomException {
+public class j39CustomException {
     
     public static void main(String args[])
     {

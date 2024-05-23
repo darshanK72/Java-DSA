@@ -1,4 +1,4 @@
-public class j9TypeOfInheritence {
+public class j26TypeOfInheritence {
 
 	public static void main(String[] args) {
 		

@@ -1,4 +1,4 @@
-public class j14Abstraction {
+public class j31Abstraction {
 
 	public static void main(String[] args) {
 		

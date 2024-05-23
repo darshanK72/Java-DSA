@@ -1,4 +1,4 @@
-public class j13DynamicPolymorphism {
+public class j30DynamicPolymorphism {
     public static void main(String args[])
     {
 

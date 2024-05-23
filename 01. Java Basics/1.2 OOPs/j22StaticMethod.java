@@ -1,4 +1,4 @@
-public class j5StaticMethod {
+public class j22StaticMethod {
     public static void main(String args[])
     {
         Teacher t1 = new Teacher(201,21,"Darshan");

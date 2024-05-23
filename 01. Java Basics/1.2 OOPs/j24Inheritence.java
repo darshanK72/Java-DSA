@@ -1,4 +1,4 @@
-public class j7Inheritence
+public class j24Inheritence
 {
     public static void main(String args[])
     {

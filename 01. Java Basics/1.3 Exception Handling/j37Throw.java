@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j4Throw {
+public class j37Throw {
 
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {

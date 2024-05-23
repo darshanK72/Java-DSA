@@ -1,4 +1,4 @@
-public class j16SingletonClass {
+public class j33SingletonClass {
     public static void main(String args[])
     {
         Book b1 = Book.get_book_instant(200,"Game of Thrones");// new Book() cannot calll as it is pribate 

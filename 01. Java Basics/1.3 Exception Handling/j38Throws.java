@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class j5Throws {
+public class j38Throws {
 
 	public static void main(String[] args) {
 		

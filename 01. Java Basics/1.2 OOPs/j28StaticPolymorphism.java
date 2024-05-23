@@ -1,4 +1,4 @@
-public class j11StaticPolymorphism {
+public class j28StaticPolymorphism {
 
     public static void main(String args[])
     {

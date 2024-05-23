@@ -1,4 +1,4 @@
-public class j8InnerClasses {
+public class j25InnerClasses {
 
     static class Shape
     {

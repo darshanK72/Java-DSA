@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class j2MultipleCatchBlock {
+public class j35MultipleCatchBlock {
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);

@@ -1,4 +1,4 @@
-public class j1TryCatchFinally {
+public class j34TryCatchFinally {
 
 	public static void main(String[] args) {
 		

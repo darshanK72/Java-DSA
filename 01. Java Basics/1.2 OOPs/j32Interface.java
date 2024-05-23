@@ -1,4 +1,4 @@
-public class j15Interface {
+public class j32Interface {
 
 	public static void main(String[] args) {
 		
