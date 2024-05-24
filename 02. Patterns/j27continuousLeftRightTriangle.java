@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j27continuousLeftRightTriangle {
+public class j27ContinuousLeftRightTriangle {
    public static void main(String args[]){
         Scanner in = new Scanner(System.in);
 
