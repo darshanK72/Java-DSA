@@ -30,6 +30,16 @@ LeetCode :
 1073. Adding Two Negabinary Numbers
 1672. Richest Customer Wealth
 175. Combine Two Tables
+2652. Sum Multiples
+2413. Smallest Even Multiple
+2235. Add Two Integers
+2894. Divisible and Non-divisible Sums Difference
+2520. Count the Digits That Divide a Number
+3099. Harshad Number
+1716. Calculate Money in Leetcode Bank
+2544. Alternating Digit Sum
+507. Perfect Number
+2525. Categorize Box According to Criteria
 
 GFG :
 Addition of Two Numbers
@@ -101,6 +111,7 @@ LeetCode
 137. Single Number II
 260. Single Number III
 2859. Sum of Values at Indices With K Set Bits
+191. Number of 1 Bits
 
 GFG
 Missing number in array
