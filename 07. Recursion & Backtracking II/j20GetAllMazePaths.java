@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class j14GetAllMazePaths {
+public class j20GetAllMazePaths {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int m = in.nextInt();

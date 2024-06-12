@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class j16GetPermutations {
+public class j14GetPermutations {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         String s = in.next();
