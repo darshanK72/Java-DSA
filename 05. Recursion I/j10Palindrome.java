@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j9Palindrome{
+public class j10Palindrome{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         String str = in.next();

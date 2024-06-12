@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class j5Factorial{
+public class j6Factorial{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
 

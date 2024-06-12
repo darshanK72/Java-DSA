@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
-public class j8GetKeypadCombination{
+public class j9GetKeypadCombination{
 
     public static String[] keymap = {
         "",

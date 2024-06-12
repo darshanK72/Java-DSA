@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j2FindElement {
+public class j2LinearSearch {
    public static void main(String args[]){
     Scanner in = new Scanner(System.in);
     int n = in.nextInt();

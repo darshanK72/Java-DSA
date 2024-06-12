@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.lang.Math;
 
-public class j7ReverseNumber{
+public class j8ReverseNumber{
     public static void main(String args[])
     {
         Scanner in = new Scanner(System.in);
