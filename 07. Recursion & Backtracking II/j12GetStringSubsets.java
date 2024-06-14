@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class j11GetStringSubsets{
+public class j12GetStringSubsets{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         String s = in.next();

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.util.Arrays;
-public class j24KnightTours{
+public class j25KnightTours{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class j18SwapOddEvenBits{
+public class j16SwapOddEvenBits{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
