@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class j23IntersectionOfSortedArrays {
+public class j2IntersectionOfSortedArrays {
      public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
