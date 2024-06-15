@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.HashMap;
 
-public class j2LongestSubarrayWithSumK{
+public class j7LongestSubarrayWithSumK{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
@@ -50,7 +50,7 @@ public class j2LongestSubarrayWithSumK{
         return maxLength;
     }
 
-    // O(n) -> Optimized for +ve
+    // O(n) -> Optimized for +ve (Two Pointers)
     public static int longestSubarraySumKEfficientForPositive(int[] arr,int k){
         int i = 0; 
         int j = 0;
