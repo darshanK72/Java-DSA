@@ -4,71 +4,69 @@ public class j27Power {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
 
-        int x = in.nextInt();
+        double x = in.nextDouble();
         int p = in.nextInt();
 
         System.out.println(powerNaive(x,p));
-        System.out.println(powerEfficient(x,p));
-        System.out.println(powerBinaryExponentiation1(x,p));
+        System.out.println(powerForNegatives(x,p));
+        System.out.println(powerBinaryExponentiation(x,p));
 
         in.close();
     }
 
-    // O(n)
-    public static long powerNaive(int x,int p){
-        long res = 1; 
+    // O(n) -> will not work for negative numbers & +ve numbers within range
+    public static double powerNaive(double x,int p){
+        double res = 1.0; 
         for(int i = 1; i <= p; i++){
             res *= x;
         }
         return res;
     }
 
-    // O(log(n))
-    public static long powerEfficient(int x,int p){
-        if(p == 0) return 1;
-        if(p == 1) return x;
-        long temp = powerEfficient(x, p/2);
-        temp *= temp;
-        if(p % 2 == 0) return temp;
-        else return temp * x;
-    }
-
-    // O(log(n))
-    public static long powerBinaryExponentiation1(int x,int p){
-        long result = 1;
-        while(p > 0){
-            if(p % 2 == 1) result *= x;
-            x = x * x;
-            p /= 2;
+     // O(n) -> this will work for for positive and negative powers, and large powers
+    public static double powerForNegatives(double x,int p){
+        if(x == 1) return 1;
+        if(x == -1){
+            if(p % 2 == 0) return 1;
+            return -1;
         }
-        return result;
-    }
-
-    // O(log(n))
-    public static long powerBinaryExponentiation2(int x,int p){
-        long result = 1;
-        while(p > 0){
-            if((p & 1) == 1) result *= x;
-            x *= x;
-            p >>= 1;
+        double res = 1.0;
+        long b = p;
+        if(p < 0){
+            b = b * -1;
+            x = 1.0 / x;
         }
-        return result;
+
+        for(long i = 1; i <= b; i++){
+            res *= x;
+        }
+        return res;
+
     }
 
-    // O(log(n)) - For negative numbers
-    public static double powerBinaryExponentiation2(double x,int n){
+
+    // O(log(n)) -> will work form positive and -ve numbers
+    public static double powerBinaryExponentiation(double x,int p){
+        if(x == 1) return 1;
+        if(x == -1){
+            if(p % 2 == 0) return 1;
+            return -1;
+        }
         double result = 1.0;
-        if(n < 0){
-            n = -1 * n;
-            x = 1/x;
-            System.out.println(n);
+        long b = p;
+        if(b < 0){
+            b = b * -1;
+            x = 1.0 / x;
         }
-        while(n != 0){
-            if((n & 1) != 0) result *= x;
-            x *= x;
-            n >>>= 1;
+        while(b > 0){
+            if(b % 2 == 1) result *= x;
+            x = x * x;
+            b /= 2.0;
         }
         return result;
-        
     }
+
+   
+   
+
 }

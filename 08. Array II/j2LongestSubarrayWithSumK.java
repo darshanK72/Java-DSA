@@ -50,6 +50,7 @@ public class j2LongestSubarrayWithSumK{
         return maxLength;
     }
 
+    // O(n) -> Optimized for +ve
     public static int longestSubarraySumKEfficientForPositive(int[] arr,int k){
         int i = 0; 
         int j = 0;
