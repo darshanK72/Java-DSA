@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class j22OddAppearingNumber{
+public class j23OddAppearingNumber{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int s = in.nextInt();

@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.HashMap;
 
-public class j8SumOfAllOddLenthSubarrays{
+public class j20SumOfAllOddLenthSubarrays{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

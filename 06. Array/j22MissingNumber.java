@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j21MissingNumber {
+public class j22MissingNumber {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
