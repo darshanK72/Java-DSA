@@ -1,7 +1,6 @@
 import java.util.Scanner;
-import java.util.ArrayList;
 
-public class j6GetAllSubarrays {
+public class j19Subarrays {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
@@ -10,10 +9,23 @@ public class j6GetAllSubarrays {
             arr[i] = in.nextInt();
         }
 
+        printSubarraysNive(arr);
         printAllSubarrays(arr);
         System.out.println();
         System.out.println(getAllSubarrays(arr));
         in.close();
+    }
+
+    // O(n^3)
+    public static void printSubarraysNive(int[] arr){
+        for(int i = 0; i < arr.length; i++){
+            for(int j = i; j < arr.length; j++){
+                for(int k = i; k <= j; k++){
+                    System.out.print(arr[k] + " ");
+                }
+                System.out.println();
+            }
+        }
     }
 
     // O(n^2)
@@ -39,5 +51,4 @@ public class j6GetAllSubarrays {
         }
         return out;
     }
-
 }

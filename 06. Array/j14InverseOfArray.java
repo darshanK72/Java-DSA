@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Arrays;
 
-public class j21InverseOfArray {
+public class j14InverseOfArray {
      public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

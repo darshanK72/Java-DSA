@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j18Subsets {
+public class j20Subsets {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class j16MaximumConsecutive1s{
+public class j18MaximumConsecutive1s{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

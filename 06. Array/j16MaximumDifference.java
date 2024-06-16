@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.lang.Math;
 
-public class j14MaximumDifference{
+public class j16MaximumDifference{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
