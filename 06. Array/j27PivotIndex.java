@@ -14,7 +14,7 @@ public class j27PivotIndex{
 
     }
 
-    public int pivotIndex(int[] nums) {
+    public static int pivotIndex(int[] nums) {
         int n = nums.length;
         int[] preSum = new int[n];
         int[] sufSum = new int[n];
