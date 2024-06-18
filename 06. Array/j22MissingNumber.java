@@ -11,6 +11,7 @@ public class j22MissingNumber {
 
         System.out.println(missingNumber(arr));
         System.out.println(missingNumberEfficient(arr));
+        System.out.println(missingNumberUsingModDiv(arr));
         in.close();
     }
 
@@ -24,6 +25,27 @@ public class j22MissingNumber {
             if(temp[i] == 0) return i;
         }
         return -1;
+    }
+
+    public static int missingNumberUsingModDiv(int[] arr){
+        for(int i = 0; i < arr.length; i++){
+            int original = arr[i] % (arr.length + 1);
+            if(original < arr.length)
+                arr[original] += (arr.length + 1);
+        }
+
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] / (arr.length+1) == 0) return i;
+        }
+        return -1;
+    }
+
+    public  static int missingNumberEasy(int[] arr){
+        int sum =  (arr.length * (arr.length + 1))/2;
+        for(int i = 0; i < arr.length; i++){
+            sum -= arr[i];
+        }
+        return sum;
     }
 
     public static int missingNumberEfficient(int[] arr){
