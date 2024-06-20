@@ -1,5 +1,5 @@
 // Define the list of allowed tags
-const allowedTags = ["Hash Table","Backtracking","Array","Recursion", "Bit Manipulation", "Math", "Brainteaser", "Simulation", "Game Theory"];
+const allowedTags = ["Matrix","Prefix Sum","Array","Recursion", "Bit Manipulation", "Math", "Brainteaser", "Simulation", "Game Theory"];
 
 // Select all table rows
 const rows = document.querySelectorAll("tr");
