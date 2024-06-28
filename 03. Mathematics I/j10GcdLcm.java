@@ -9,7 +9,8 @@ public class j10GcdLcm {
         int a = in.nextInt();
         int b = in.nextInt();
 
-        int hcf = gcdRec(a,b);
+        // int hcf = gcdRec(a,b);
+        int hcf = gcdNive(a,b);
         int lcm = lcm(a,b);
 
         System.out.printf("HCF of (%d,%d) = %d\n",a,b,hcf);
@@ -17,6 +18,17 @@ public class j10GcdLcm {
         
         in.close();
     }  
+
+    public static int gcdNive(int a,int b){
+        while(a != b){
+            if(a > b){
+                a = a - b;
+            }else{
+                b = b - a;
+            }
+        }
+        return a;
+    }
 
     public static int gcdSimple(int a,int b){
         while(b != 0){

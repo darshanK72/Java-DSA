@@ -7,9 +7,11 @@ public class j30DecimalToAnyBase{
         int b = in.nextInt();
 
         System.out.println(decimalToAnyBase(n,b));
+        System.out.println(decimalToAnyBaseEfficient(n,b));
         in.close();
     }
 
+    // only for base 1 to 10
     public static long decimalToAnyBase(int n,int b){
         long out = 0;
         int i = 1;
@@ -20,5 +22,19 @@ public class j30DecimalToAnyBase{
            i *= 10;
         }
         return out;
+    }
+
+    public static String decimalToAnyBaseEfficient(int n,int b){
+        StringBuilder ans = new StringBuilder("");
+        while(n != 0){
+            ans.append(getValue(n % b));
+            n /= b;
+        }
+        return ans.reverse().toString();
+    }
+
+    public static char getValue(int n){
+        if(n < 10) return (char)('0' + n);
+        return (char)('A' + n - 10);
     }
 }
