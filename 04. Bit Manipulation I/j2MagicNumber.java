@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j4MagicNumber{
+public class j2MagicNumber{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
 

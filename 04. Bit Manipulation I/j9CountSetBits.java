@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class j8CountSetBits{
+public class j9CountSetBits{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
@@ -9,7 +9,7 @@ public class j8CountSetBits{
         in.close();
     }
 
-    public static int countSetBits(int n){
+    public static int countSetBitsNive(int n){
         int count = 0;
         while(n > 0){
             count += n & 1;
@@ -18,14 +18,31 @@ public class j8CountSetBits{
         return count;
     }
 
+    public static int countSetBitsEfficient1(int n) {
+        int count = 0;
+        while(n > 0){
+            n -= (n & -n);
+            count++;
+        }
+        return count;
+    }
+
     // Kahingam Algorithms
-    public static int countSetBitsEfficient(int n){
+    public static int countSetBitsEfficient2(int n){
         int count = 0;
         while(n > 0){
             n &= (n-1);
             count++;
         }
         return count;
+    }
+    // Counting setbits of range from 0 to n
+    public int[] countBitsOfRange(int n) {
+        int[] out = new int[n+1];
+        for(int i = 0; i <= n; i++){
+            out[i] = out[(i >> 1)] + (i & 1);
+        }
+        return out;
     }
 
     // Lookup table for number of set bits in a byte

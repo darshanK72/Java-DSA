@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j7PowerOfTwo{
+public class j8PowerOfTwo{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         

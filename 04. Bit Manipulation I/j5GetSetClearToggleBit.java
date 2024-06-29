@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j2GetSetClearToggleBit{
+public class j5GetSetClearToggleBit{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int number = in.nextInt();

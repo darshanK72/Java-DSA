@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class j6FastExponentation{
+public class j4FastExponentation{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         double n = in.nextDouble();

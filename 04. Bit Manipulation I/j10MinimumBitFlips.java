@@ -9,6 +9,8 @@ public class j10MinimumBitFlips{
         in.close();
     }
 
+    // Hamming Distance
+
     // O(number of bits)
     public static int minBitFlips(int start,int goal){
         int count = 0;
@@ -29,5 +31,10 @@ public class j10MinimumBitFlips{
             count++;
         }
         return count;
+    }
+
+    // using bitcount method of java
+    public static int minBitFlipsMethod(int start,int goal){
+        return Integer.bitCount(start ^ goal);
     }
 }

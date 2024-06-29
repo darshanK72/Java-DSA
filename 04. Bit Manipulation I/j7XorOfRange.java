@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j9XorOfRange {
+public class j7XorOfRange {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         // int n = in.nextInt();
