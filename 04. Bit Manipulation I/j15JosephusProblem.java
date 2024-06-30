@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class j13JosephusProblem {
+public class j15JosephusProblem {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
