@@ -1,24 +1,38 @@
-import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class j6GrayCode {
     public static void main(String args[]){
-        Scanner in = new Scanner(System.in);
-
-        System.out.println(getGrayCode(1));
-        System.out.println(generateGrayCode(1));
-        System.out.println(getGrayCode(2));
-        System.out.println(generateGrayCode(2));
-        System.out.println(getGrayCode(3));
-        System.out.println(generateGrayCode(3));
-        System.out.println(getGrayCode(4));
-        System.out.println(generateGrayCode(4));
-        in.close();
+        System.out.println(generateGrayCodeIterative(4));
+        System.out.println(generateGrayCodeBitwise(4));
+        System.out.println(getGrayCodeRecursive(4));
     }
 
-     public static List<String> generateGrayCode(int n) {
+    // O(n x 2^n)
+    public static List<String> generateGrayCodeIterative(int n){
+        List<String> result = new ArrayList<String>();
+        result.add("");
+        for(int i = 0; i < n; i++){
+            List<String> tempList = new ArrayList<String>();
+            for(int j = result.size()-1;j >= 0; j--){
+                tempList.add(result.get(j));
+            }
+
+            for(int j = 0; j < result.size(); j++){
+                result.set(j,"0" + result.get(j));
+            }
+
+            for(int j = 0;j < result.size(); j++){
+                tempList.set(j,"1" + tempList.get(j));
+            }
+            result.addAll(tempList);
+        }
+        return result;
+    }
+
+    // O(2^n x n)
+     public static List<String> generateGrayCodeBitwise(int n) {
         List<String> result = new ArrayList<>();
         int numOfGrayCodes = 1 << n; // 2^n
 
@@ -40,13 +54,14 @@ public class j6GrayCode {
         return padding + binaryString;
     }
 
-    public static List<Integer> getGrayCode(int n){
+    // O(2^n)
+    public static List<Integer> getGrayCodeRecursive(int n){
         if(n == 1){
             return new ArrayList<>(Arrays.asList(0,1));
         }
         else{
 
-            List<Integer> out = getGrayCode(n-1);
+            List<Integer> out = getGrayCodeRecursive(n-1);
             for(int i = out.size()-1; i >= 0; i-- ){
                 out.add(out.get(i) | (1 << (n-1)));
             }

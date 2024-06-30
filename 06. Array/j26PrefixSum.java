@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class j25PrefixSum{
+public class j26PrefixSum{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

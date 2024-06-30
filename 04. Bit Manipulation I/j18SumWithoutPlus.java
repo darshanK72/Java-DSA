@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public class j18SumIntegersWithoutPlus{
+    public static void main(String args[]){
+        Scanner in = new Scanner(System.in);
+        int a = in.nextInt();
+        int b = in.nextInt();
+        System.out.println(getSum(a,b));
+        in.close();
+    }
+
+    public static int getSum(int a, int b){
+        while(b != 0){
+            int carry = (a & b) << 1;
+            a = a ^ b;
+            b = carry;
+        }
+        return a;
+    }
+}
