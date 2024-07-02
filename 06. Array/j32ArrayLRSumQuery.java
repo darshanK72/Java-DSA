@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j31ArrayLRSumQuery{
+public class j32ArrayLRSumQuery{
      public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

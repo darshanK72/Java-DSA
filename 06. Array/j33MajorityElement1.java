@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j30MajorityElement1{
+public class j33MajorityElement1{
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
