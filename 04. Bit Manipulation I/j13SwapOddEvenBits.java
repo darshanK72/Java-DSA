@@ -3,7 +3,7 @@ public class j13SwapOddEvenBits{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
-        int result = swapOddEvenBits(n);
+        int result = swapOddEvenBitsNive(n);
         System.out.println(Integer.toBinaryString(n));
         System.out.println(Integer.toBinaryString(result));
         in.close();

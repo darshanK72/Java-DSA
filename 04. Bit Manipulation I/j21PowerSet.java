@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.lang.Math;
 import java.lang.StringBuilder;
 
-public class j11PowerSet{
+public class j21PowerSet{
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
         String s = in.next();

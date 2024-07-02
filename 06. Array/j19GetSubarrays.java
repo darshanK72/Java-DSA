@@ -1,6 +1,7 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class j19Subarrays {
+public class j19GetSubarrays {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

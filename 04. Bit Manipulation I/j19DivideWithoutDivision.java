@@ -7,11 +7,11 @@ public class j19DivideWithoutDivision {
         int n = in.nextInt();
         int d = in.nextInt();
 
-        System.out.println(divide(n, d));
+        System.out.println(divide1(n, d));
         in.close();
     }
 
-    public static int divide(int dividend, int divisor) {
+    public static int divide1(int dividend, int divisor) {
         
         if (dividend == Integer.MIN_VALUE && divisor == -1)
             return Integer.MAX_VALUE;
@@ -44,5 +44,23 @@ public class j19DivideWithoutDivision {
                 return Integer.MAX_VALUE;
             return (int)sum;
         }
+    }
+
+    public static int divide2(int dividend, int divisor) {
+        if(dividend == Integer.MIN_VALUE && divisor == -1) return Integer.MAX_VALUE;
+        if(dividend == Integer.MIN_VALUE && divisor == 1) return Integer.MIN_VALUE;
+        int sign = (dividend < 0) != (divisor < 0) ? -1 : 1;
+        long dvd = Math.abs((long)dividend);
+        long div = Math.abs((long)divisor);
+        long ans = 0;
+        while(dvd >= div){
+            int count = 0;
+            while(dvd >= (div << (count + 1))){
+                count++;
+            }
+            ans += (1L << count);
+            dvd -= (div << count);
+        }
+        return sign * (int)ans;
     }
 }
