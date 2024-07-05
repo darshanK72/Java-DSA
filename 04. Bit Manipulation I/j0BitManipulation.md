@@ -257,7 +257,7 @@ int rightCircularShift(int x,int shiftBy)
 
 ### Count number of bits to be flipped to convert A to B
 ```java
-__builtin_popcount(a ^ b);
+Integer.bitCount(a ^ b);
 ```
 
 ### Find whether a no is power of two
@@ -399,4 +399,105 @@ while(n){
     counjava;
 }
 
+```
+### Binary to Gray Code
+To convert binary to Gray code, we use the following rule:
+- \( G[i] = B[i] \oplus B[i-1] \)
+
+Where:
+- \( \oplus \) represents the XOR operation.
+- \( B[i] \) is the \(i\)-th bit of the binary number.
+- \( G[i] \) is the \(i\)-th bit of the Gray code.
+
+**Why this works:**
+- The first bit of Gray code (\( G[0] \)) is the same as the first bit of binary (\( B[0] \)).
+- For the subsequent bits, each bit in the Gray code is the result of XORing the current binary bit with the previous binary bit. This ensures that only one bit changes at each step in the sequence, which is the defining property of Gray code.
+
+Example:
+- Binary:  `0110`
+- Gray code:
+  - \( G[0] = B[0] = 0 \)
+  - \( G[1] = B[1] \oplus B[0] = 1 \oplus 0 = 1 \)
+  - \( G[2] = B[2] \oplus B[1] = 1 \oplus 1 = 0 \)
+  - \( G[3] = B[3] \oplus B[2] = 0 \oplus 1 = 1 \)
+- Result: `0101`
+
+### Gray Code to Binary
+To convert Gray code to binary, we use the following rule:
+- \( B[i] = G[i] \oplus B[i-1] \)
+
+**Why this works:**
+- The first bit of binary (\( B[0] \)) is the same as the first bit of Gray code (\( G[0] \)).
+- For the subsequent bits, each bit in the binary code is the result of XORing the current Gray code bit with the previous binary bit. This rule is derived from the reverse process of the Gray code generation.
+
+Example:
+- Gray code: `0101`
+- Binary:
+  - \( B[0] = G[0] = 0 \)
+  - \( B[1] = G[1] \oplus B[0] = 1 \oplus 0 = 1 \)
+  - \( B[2] = G[2] \oplus B[1] = 0 \oplus 1 = 1 \)
+  - \( B[3] = G[3] \oplus B[2] = 1 \oplus 1 = 0 \)
+- Result: `0110`
+
+### Properties of XOR
+- **XORing with the same value results in 0**: \( a \oplus a = 0 \)
+- **XORing with 0 results in the original value**: \( a \oplus 0 = a \)
+- **XOR is commutative and associative**: \( a \oplus b = b \oplus a \)
+
+These properties ensure that the XOR operation can reverse the transformation from binary to Gray code and vice versa, preserving the necessary bit changes and ensuring the correct sequence.
+
+Here is the updated Java code for conversion:
+
+```java
+public class GrayCodeConverter {
+
+    // Function to convert binary to gray code
+    public static String binToGray(String B) {
+        StringBuilder gray = new StringBuilder();
+        
+        // First bit is same
+        gray.append(B.charAt(0));
+        
+        // Compute the remaining bits
+        for (int i = 1; i < B.length(); i++) {
+            char prev = B.charAt(i - 1);
+            char curr = B.charAt(i);
+            gray.append(prev == curr ? '0' : '1');
+        }
+        
+        return gray.toString();
+    }
+
+    // Function to convert gray code to binary
+    public static String grayToBin(String G) {
+        StringBuilder binary = new StringBuilder();
+        
+        // First bit is same
+        binary.append(G.charAt(0));
+        
+        // Compute the remaining bits
+        for (int i = 1; i < G.length(); i++) {
+            char prev = binary.charAt(i - 1);
+            char curr = G.charAt(i);
+            binary.append(prev == curr ? '0' : '1');
+        }
+        
+        return binary.toString();
+    }
+
+    public static void main(String[] args) {
+        // Test cases
+        String B = "0011";
+        String G = "01101";
+        
+        System.out.println(binToGray(B)); // Output: 0010
+        System.out.println(grayToBin(G)); // Output: 01001
+        
+        B = "01001";
+        G = "01101";
+        
+        System.out.println(binToGray(B)); // Output: 01101
+        System.out.println(grayToBin(G)); // Output: 01001
+    }
+}
 ```
