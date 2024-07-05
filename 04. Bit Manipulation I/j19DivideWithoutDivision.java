@@ -50,16 +50,16 @@ public class j19DivideWithoutDivision {
         if(dividend == Integer.MIN_VALUE && divisor == -1) return Integer.MAX_VALUE;
         if(dividend == Integer.MIN_VALUE && divisor == 1) return Integer.MIN_VALUE;
         int sign = (dividend < 0) != (divisor < 0) ? -1 : 1;
-        long dvd = Math.abs((long)dividend);
-        long div = Math.abs((long)divisor);
+        long n = Math.abs((long)dividend);
+        long d = Math.abs((long)divisor);
         long ans = 0;
-        while(dvd >= div){
-            int count = 0;
-            while(dvd >= (div << (count + 1))){
-                count++;
+        while(n >= d){
+            int i = 0;
+            while(n >= (d << (i + 1))){
+                i++;
             }
-            ans += (1L << count);
-            dvd -= (div << count);
+            ans += (1L << i);
+            n -= (d << i);
         }
         return sign * (int)ans;
     }
