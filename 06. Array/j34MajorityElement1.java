@@ -1,6 +1,8 @@
 import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
 
-public class j33MajorityElement1{
+public class j34MajorityElement1{
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
@@ -8,15 +10,16 @@ public class j33MajorityElement1{
         for(int i = 0; i < n; i++){
             arr[i] = in.nextInt();
         }
-        // System.out.println(majorityElement1BruitForce(arr));
+        System.out.println(majorityElement1BruitForce(arr));
+        System.out.println(majorityElement1UsingHashing(arr));
         System.out.println(majorityElement1Efficient(arr));
         in.close();
     }
 
-    // O(n^2)
+    // TC : O(n^2) SC : O(n);
     public static int majorityElement1BruitForce(int[] arr){
         boolean[] visited = new boolean[arr.length];
-        int majorityElement = 0;
+        int majorityElement = -1;
         for(int i = 0; i < arr.length; i++){
             int tempCount = 0;
             for(int j = 0; j < arr.length; j++){
@@ -33,8 +36,27 @@ public class j33MajorityElement1{
         return majorityElement;
     }
 
+    // TC : O(n) SC : O(n)
+    public static int majorityElement1UsingHashing(int[] arr){
+        HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();
+        for(int i = 0; i < arr.length; i++){
+            if(!map.containsKey(arr[i])){
+                map.put(arr[i],0);
+            }
+            map.put(arr[i],map.get(arr[i]) + 1);
+        }
+        int out = -1;
+        for(Map.Entry<Integer,Integer> entry : map.entrySet()){
+            if(entry.getValue() > arr.length / 2){
+                out = entry.getKey();
+                break;
+            }
+        }
+        return out;
+    }
+
     // Boyrs Moore Voting Alrogithm 
-    // O(n)
+    // TC : O(n) SC : O(1)
     public static int majorityElement1Efficient(int[] arr){
         int majority = 0;
         int lead = 0;

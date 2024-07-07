@@ -9,13 +9,15 @@ public class j21LargestSumSubarray{
             arr[i] = in.nextInt();
         }
 
-        System.out.println(getLargestSumSubarrayNive(arr));
-        System.out.println(getLargestSumSubarrayEfficient(arr));
+        System.out.println(getLargestSubarraySumNive(arr));
+        System.out.println(getLargestSubarraySumEfficient1(arr));
+        System.out.println(getLargestSubarraySumEfficient2(arr));
+        System.out.println(Arrays.toString(getSubarrayWithLargestSum(arr)));
         in.close();
     }
 
     // O(n^2)
-    public static int getLargestSumSubarrayNive(int[] arr){
+    public static int getLargestSubarraySumNive(int[] arr){
         int maxSum = 0;
         for(int i = 0; i < arr.length; i++){
             int sum = 0;
@@ -28,7 +30,23 @@ public class j21LargestSumSubarray{
     }
 
     // O(n) -> Kadane’s algorithm
-    public static int getLargestSumSubarrayEfficient(int[] arr){
+    public static int getLargestSubarraySumEfficient1(int[] arr){
+        int maxSum = 0;
+        int sum = 0;
+        for(int i = 0; i < arr.length; i++){
+            sum += arr[i];
+            if(sum > maxSum){
+                maxSum = sum;
+            }
+            if(sum < 0){
+                sum = 0;
+            }
+        }
+        return maxSum;
+    }
+
+    // O(n) -> Kadane’s algorithm easy implementation
+    public static int getLargestSubarraySumEfficient2(int[] arr){
         int maxSum = 0;
         int maxSumBefore = 0;
         for(int i = 0; i < arr.length; i++){
@@ -38,4 +56,32 @@ public class j21LargestSumSubarray{
         return maxSum;
     }
 
+    // O(n) 
+    public static int[] getSubarrayWithLargestSum(int[] arr){
+        int maxSum = 0;
+        int sum = 0;
+        int start = 0;
+        int startIndex = -1;
+        int endIndex = -1;
+        for(int i = 0; i < arr.length; i++){
+            if(sum == 0){
+                start = i;
+            } 
+            sum += arr[i];
+            if(sum > maxSum){
+                maxSum = sum;
+                startIndex = start;
+                endIndex = i;
+            }
+            if(sum < 0){
+                sum = 0;
+            }
+        }
+        int s = endIndex - startIndex + 1;
+        int[] out = new int[s];
+        for(int i = 0; i < s; i++){
+            out[i] = arr[startIndex+i];
+        }
+        return out;
+    }
 }
