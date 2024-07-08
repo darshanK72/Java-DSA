@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
-public class j9GetArraySubsequences {
+public class j6GetArraySubsequences {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

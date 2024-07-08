@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
-public class j8GetStringSubsequences{
+public class j5GetStringSubsequences{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         String s = in.next();

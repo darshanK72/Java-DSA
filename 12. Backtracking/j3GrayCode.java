@@ -2,7 +2,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class j6GrayCode {
+public class j3GrayCode {
     public static void main(String args[]){
         System.out.println(generateGrayCodeIterative(4));
         System.out.println(generateGrayCodeBitwise(4));
@@ -68,5 +68,25 @@ public class j6GrayCode {
             return out;
 
         }
+    }
+
+    public static List<String> generateGrayCodeBacktrack(int n) {
+        List<String> result = new ArrayList<>();
+        if (n <= 0) {
+            return result;
+        }
+        if (n == 1) {
+            result.add("0");
+            result.add("1");
+        } else {
+            List<String> prevGrayCodes = generateGrayCodeBacktrack(n - 1);
+            for (int i = 0; i < prevGrayCodes.size(); i++) {
+                result.add("0" + prevGrayCodes.get(i));
+            }
+            for (int i = prevGrayCodes.size() - 1; i >= 0; i--) {
+                result.add("1" + prevGrayCodes.get(i));
+            }
+        }
+        return result;
     }
 }

@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class j7CutTheRope{
+public class j4CutTheRope{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

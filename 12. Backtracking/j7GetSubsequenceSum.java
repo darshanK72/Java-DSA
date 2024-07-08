@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
-public class j10GetSubsequenceSum{
+public class j7GetSubsequenceSum{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

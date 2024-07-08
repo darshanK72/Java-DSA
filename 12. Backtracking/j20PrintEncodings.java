@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j23PrintEncodings{
+public class j20PrintEncodings{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         String s = in.next();
