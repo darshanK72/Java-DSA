@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class j35MajorityElement2{
+public class j36MajorityElement2{
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
