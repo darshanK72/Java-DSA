@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j34BuySellStocks{
+public class j36BuySellStocks1{
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
@@ -20,17 +20,11 @@ public class j34BuySellStocks{
         prevMin[0] = 0;
         for(int i = 1; i < arr.length; i++){
             prevMin[i] = min;
-            // if(arr[i] < min){
-            //     min = arr[i];
-            // }
             min = Math.min(min,arr[i]);
         }
         int ans = 0;
         for(int i = 1; i < arr.length; i++){
             int m = arr[i] - prevMin[i];
-            // if(m > ans){
-            //     ans = m;
-            // }
             ans = Math.max(ans,m);
         }
         return ans;

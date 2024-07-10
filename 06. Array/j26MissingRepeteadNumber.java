@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class j24MissingRepeteadNumber {
+public class j26MissingRepeteadNumber {
     public static void main(String args[]) {
         int[] arr = new int[] { 1, 2, 3, 2 };
         System.out.println(Arrays.toString(repeatAndMissing(arr)));

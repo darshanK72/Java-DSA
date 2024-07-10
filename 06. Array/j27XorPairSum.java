@@ -1,4 +1,4 @@
-public class j25XorPairSum{
+public class j27XorPairSum{
     public static void main(String args[]){
         int[] arr = new int[]{10,20,30,40,50,60,70,80};
 
