@@ -35,17 +35,19 @@ public class j1LongestConsecutiveSequence{
     public static int longestConsecutiveSequenceUsingSorting(int[] arr){
         Arrays.sort(arr);
         int l = 0;
+        int ans = 0;
         int last = Integer.MAX_VALUE;
         for(int i = 0; i < arr.length; i++){
             if(last == arr[i]-1){
                 l++;
                 last = arr[i];
             }else{
+                ans = Math.max(ans,l);
                 l = 1;
                 last = arr[i];
             }
         }
-        return l;
+        return ans;
     }
 
     // O(n)
