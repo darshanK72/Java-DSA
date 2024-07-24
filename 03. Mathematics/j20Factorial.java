@@ -18,6 +18,15 @@ public class j20Factorial {
         in.close();
     }
 
+    // factorial iterative
+    public static long factorial(long n){
+        long ans = 1;
+        for(long i = 1; i <= n; i++){
+            ans *= i;
+        }
+        return ans;
+    }
+
     // recursive
     public static long fact(long n){
         if(n <= 1){

@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class j18SumIntegersWithoutPlus{
+public class j18SumWithoutPlus{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int a = in.nextInt();

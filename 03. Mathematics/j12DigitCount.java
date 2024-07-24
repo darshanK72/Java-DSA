@@ -19,7 +19,7 @@ public class j12DigitCount {
 
         // System.out.print(" is " + count);
 
-        System.out.println("Number of Digits in " + n + " are " + Math.round(Math.log10(n)));
+        System.out.println("Number of Digits in " + n + " are " + (int) Math.floor(Math.log10(n)) + 1);
 
         in.close();
     }

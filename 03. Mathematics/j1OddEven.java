@@ -1,6 +1,6 @@
 import java.util.Scanner;;
 
-public class j1OddEven1 {
+public class j1OddEven {
     public static void main(String args[]){
        Scanner in = new Scanner(System.in); 
 

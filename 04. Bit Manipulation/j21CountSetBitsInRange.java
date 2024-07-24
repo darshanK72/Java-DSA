@@ -7,12 +7,14 @@ public class j21CountSetBitsInRange {
         int n = in.nextInt();
 
         System.out.println(countSetBitsInRangeNive(n));
-        System.out.println(Arrays.toString(countSetBitsInRagneEfficient(n)));
+        System.out.println(countSetBitsInRangeEfficient1(n));
+        System.out.println(countSetBitsInRangeEfficient2(n));
+        System.out.println(Arrays.toString(countSetBitsInRagneEfficientUsingArray(n)));
 
         in.close();
     }
 
-
+    // O(n * 32)
     public static int countSetBitsInRangeNive(int n){
         int count = 0;
         for(int i = 1; i <= n; i++){
@@ -24,18 +26,35 @@ public class j21CountSetBitsInRange {
         }
         return count;
     }
-    public static int countSetBitsInRangeEfficient(int n){
+
+    // O(n)
+    public static int countSetBitsInRangeEfficient1(int n) {
         int count = 0;
-        int x = 1;
-        int i = 1;
-        while((x << i) <= n){
-            i++;
+        for (int i = 1; i <= n; i++) {
+            count += Integer.bitCount(i);
         }
-        
         return count;
     }
 
-    public static int[] countSetBitsInRagneEfficient(int n){
+    // O(sqrt(n))
+    public static int countSetBitsInRangeEfficient2(int n) {
+        int count = 0;
+        for (int i = 0; (1 << i) <= n; i++) {
+            // Calculate the size of the block where the bit at position i is set
+            int blockSize = 1 << (i + 1);
+            int completeBlocks = n / blockSize;
+            
+            // Count set bits from the complete blocks
+            count += completeBlocks * (blockSize >> 1);
+            
+            // Handle remaining bits after the last complete block
+            int remainder = n % blockSize;
+            count += Math.max(0, remainder - (blockSize >> 1) + 1);
+        }
+        return count;
+    }
+
+    public static int[] countSetBitsInRagneEfficientUsingArray(int n){
         int[] out = new int[n+1];
         for(int i = 0; i <= n; i++){
             out[i] = out[(i >> 1)] + (i & 1);

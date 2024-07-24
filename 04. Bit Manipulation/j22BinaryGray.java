@@ -10,7 +10,9 @@ public class j22BinaryGray {
         in.close();
     }
 
-
+    public static int binaryToGray(int n) {
+        return n ^ (n >> 1);
+    }
 
     public static String binaryToGray(String binary){
         StringBuilder gray = new StringBuilder();
@@ -28,6 +30,14 @@ public class j22BinaryGray {
         return gray.toString();
     } 
 
+    public static int grayToBinary(int gray) {
+        int binary = gray;
+        while ((gray >>= 1) != 0) {
+            binary ^= gray;
+        }
+        return binary;
+    }
+    
     public static String grayToBinary(String gray){
         StringBuilder binary = new StringBuilder();
         

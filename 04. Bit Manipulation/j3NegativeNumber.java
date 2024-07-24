@@ -6,8 +6,6 @@ public class j3NegativeNumber{
 
         int n = in.nextInt();
 
-        System.out.println(toBinaryInt(n));
-
         System.out.println("Positive Number (" + n + ") : " + Integer.toBinaryString(n));
         System.out.println("Negative Number (" + getNegativeNumber(n) + ") : " + Integer.toBinaryString(getNegativeNumber(n)));
 

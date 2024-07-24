@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class j26ModularArithematic {
 
     public static long modAdd(long a, long b, long m) {
@@ -12,20 +14,18 @@ public class j26ModularArithematic {
         return (a % m * b % m) % m;
     }
 
-    public static long fastExponention(long a,long b,long m){
-        long result = 1;
-        while(b > 0){
-            if(/*b % 2 == 1*/ (b & 1) == 1){
-                result = modMul(result, a, m);
-            }
-            a = modMul(a, a, m);
-            // b /= 2;
-            b >>= 2;
-        }
-        return result;
-    }
-
     public static void main(String args[]){
-        System.out.println(fastExponention(5, 2, 7));
+        long mod = 1000000007L;
+
+        Scanner in = new Scanner(System.in);
+
+        long a = in.nextLong();
+        long b = in.nextLong();
+
+        System.out.println(modAdd(a, b, mod));
+        System.out.println(modSub(a, b, mod));
+        System.out.println(modMul(a, b, mod));
+
+        in.close();
     }
 }

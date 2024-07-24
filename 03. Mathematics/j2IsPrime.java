@@ -13,7 +13,7 @@ public class j2IsPrime {
 
     // O(n)
     public static boolean isPrimeNive(int number) {
-        for (int i = 2; i * i <= number; i++) {
+        for (int i = 2; i <= number; i++) {
             if (number % i == 0) {
                 return false;
             }
@@ -31,7 +31,7 @@ public class j2IsPrime {
         return true;
     }
 
-    // every prime number is 6n+1 or 6n-1, where n = 1,2,3,4,...
+    // every prime number is 6n-1 or 6n+1, where n = 1,2,3,4,...
     public static boolean isPrimeMoreEfficient(int number){
         if(number == 1) return false;
         else if(number == 2 || number == 3) return true;
