@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class j32SuffixSum{
+public class j33SuffixSum{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

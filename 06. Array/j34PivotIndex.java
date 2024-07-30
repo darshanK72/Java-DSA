@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class j33PivotIndex{
+public class j34PivotIndex{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

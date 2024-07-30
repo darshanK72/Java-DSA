@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class j28MinimumXorValuePair{
+public class j29MinimumXorValuePair{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

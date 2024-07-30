@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j36BuySellStocks1{
+public class j37BuySellStocks1{
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
