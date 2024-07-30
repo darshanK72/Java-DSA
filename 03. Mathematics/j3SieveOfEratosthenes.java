@@ -20,24 +20,7 @@ public class j3SieveOfEratosthenes {
     public static void printSieveNive(int n, boolean[] primes) {
         for (int i = 2; i * i <= n; i++) {
             if (!primes[i]) {
-                for (int j = 2 * i; j <= n; j += i) {
-                    primes[j] = true;
-                }
-            }
-        }
-        for (int i = 2; i <= n; i++) {
-            if (!primes[i]) {
-                System.out.print(i + " ");
-            }
-        }
-    }
-
-    // O(n * log(log(n)))
-    public static void printSieveEfficient(int n, boolean[] primes) {
-        for (int i = 2; i <= n; i++) {  //n
-            if (!primes[i]) {
-                System.out.print(i + " ");
-                for (int j = i * i; j <= n; j += i) { // Start marking multiples from i * i
+                for (int j = 2 * i; j <= n; j += i) { // Start making multiples from 2 * i
                     primes[j] = true;
                 }
             }
@@ -50,7 +33,7 @@ public class j3SieveOfEratosthenes {
     }
 
      // O(n * log(log(n)))
-     public static void printSieveMoreEfficient(int n, boolean[] primes) {
+     public static void printSieveEfficient(int n, boolean[] primes) {
         for (int i = 2; i * i <= n; i++) {
             if (!primes[i]) {
                 for (int j = i * i; j <= n; j += i) { // Start marking multiples from i * i
