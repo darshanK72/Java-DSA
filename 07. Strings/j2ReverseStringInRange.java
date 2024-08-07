@@ -9,6 +9,7 @@ public class j2ReverseStringInRange {
         in.close();
     }
 
+    // O(str.length())
     public static String reverseStringInRange(String str,int k) {
         char[] out = str.toCharArray();
         for (int i = 0; i < str.length(); i += (2 * k)) {

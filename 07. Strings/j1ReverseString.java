@@ -10,12 +10,14 @@ public class j1ReverseString{
     }
 
     // Using StringBuilder
+    // O(str.length())
     public static String reverse1(String str){
         StringBuilder sb = new StringBuilder(str);
         return sb.reverse().toString();
     }
 
     // Using Two Pointers
+    // O(str.length())
     public static String reverse2(String str){
         int s = 0;
         int e = str.length()-1;

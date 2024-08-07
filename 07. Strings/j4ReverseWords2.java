@@ -23,6 +23,7 @@ public class j4ReverseWords2 {
         return out.toString();
     }
 
+    // O(str.length())
     public static String reverse(String str){
         int s = 0;
         int e = str.length()-1;
@@ -37,6 +38,7 @@ public class j4ReverseWords2 {
         return new String(out);
     }
 
+    // O(str.length())
     public static String reverseWordsTwoPointers(String str){
         StringBuilder out = new StringBuilder("");
         int i = 0;

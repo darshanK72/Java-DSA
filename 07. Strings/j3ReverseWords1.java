@@ -23,6 +23,7 @@ public class j3ReverseWords1 {
         return out.toString();
     }
 
+    // O(str.length())
     public static String reverseWordsTwoPointers(String str){
         StringBuilder out = new StringBuilder();
         int i = str.length()-1;
