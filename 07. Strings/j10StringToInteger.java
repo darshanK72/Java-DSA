@@ -9,6 +9,7 @@ public class j10StringToInteger {
         in.close();
     }
 
+    // O(s.length())
     public static int atoi(String s) {
         if(s.length() == 0) return 0;
         int i = 0;
