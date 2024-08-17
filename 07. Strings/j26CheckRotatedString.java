@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j22CheckRotatedString{
+public class j26CheckRotatedString{
 
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);

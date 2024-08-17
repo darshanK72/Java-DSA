@@ -1,4 +1,4 @@
-public class j20RemoveOutermostParenthesis{
+public class j29RemoveOutermostParenthesis{
     public static void main(String args[]){
         System.out.println(removeOuterParentheses("(()())(())(()(()))"));
     }

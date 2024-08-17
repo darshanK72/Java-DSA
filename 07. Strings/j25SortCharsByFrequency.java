@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j23SortCharsByFrequency {
+public class j25SortCharsByFrequency {
      public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         String s = in.nextLine();

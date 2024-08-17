@@ -1,4 +1,4 @@
-public class j21MakeValidParenthesis {
+public class j30MakeValidParenthesis {
     public static void main(String args[]){
         System.out.println(minAddToMakeValid("()))(())(()(()))"));
     }
