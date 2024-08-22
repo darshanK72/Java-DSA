@@ -29,6 +29,4 @@ public class j4WaveTraversal {
             System.out.println();
         }
     }
-
-
 }
