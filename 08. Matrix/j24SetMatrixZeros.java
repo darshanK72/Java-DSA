@@ -13,31 +13,33 @@ public class j24SetMatrixZeros {
             }
         }
         setMatrixZeros(matrix);
-        System.out.println(Arrays.toString(matrix));
+        for(int[] arr : matrix){
+            System.out.println(Arrays.toString(arr));
+        }
         in.close();
     }
 
     // TC : O(M * N * (M + N)) SP : O(M * N)
     public static void setMatrixZeros(int[][] matrix) {
-        boolean[][] temp = new boolean[matrix.length][matrix[0].length];
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
-                if (matrix[i][j] == 0 && !temp[i][j]) {
+                if (matrix[i][j] == 0) {
                     for (int k = 0; k < matrix.length; k++) {
                         if (matrix[k][j] != 0) {
-                            matrix[k][j] = 0;
-                            temp[k][j] = true;
+                            matrix[k][j] = -1;
                         }
                     }
                     for (int k = 0; k < matrix[0].length; k++) {
                         if (matrix[i][k] != 0) {
-                            matrix[i][k] = 0;
-                            temp[i][k] = true;
+                            matrix[i][k] = -1;
                         }
                     }
-                } else {
-                    continue;
                 }
+            }
+        }
+        for(int i = 0; i < matrix.length; i++){
+            for(int j = 0; j < matrix[0].length; j++){
+                if(matrix[i][j] == -1) matrix[i][j] = 0;
             }
         }
     }
