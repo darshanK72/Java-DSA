@@ -1,8 +1,9 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class j3GetCommonElementsII {
+public class j2IntersectionOfArraysI{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
@@ -15,26 +16,29 @@ public class j3GetCommonElementsII {
         for(int i = 0; i < m; i++){
             arr2[i] = in.nextInt();
         }
-        ArrayList<Integer> common = getCommonElements(arr1,arr2);
-        System.out.println(common);
+        int[] common = intersection(arr1,arr2);
+        System.out.println(Arrays.toString(common));
         in.close();
     }
 
     // O(n + m)
-    public static ArrayList<Integer> getCommonElements(int[] arr1,int[] arr2){
-        HashMap<Integer,Integer> map = new HashMap<>();
+    public static int[] intersection(int[] arr1,int[] arr2){
+        ArrayList<Integer> common = new ArrayList<Integer>();
+        HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();
         for(int i = 0; i < arr1.length; i++){
-            if(!map.containsKey(arr1[i])) map.put(arr1[i],0);
-            map.put(arr1[i],map.get(arr1[i]) + 1);
+            map.put(arr1[i],map.getOrDefault(arr1[i],0));
         }
-        ArrayList<Integer> out = new ArrayList<Integer>();
+
         for(int i = 0; i < arr2.length; i++){
             if(map.containsKey(arr2[i])){
-                if(map.get(arr2[i]) > 0){
-                    out.add(arr2[i]);
-                }
-                map.put(arr2[i],map.get(arr2[i]) - 1);
+                common.add(arr2[i]);
+                map.remove(arr2[i]);
             }
+        }
+
+        int[] out = new int[common.size()];
+        for(int i = 0; i < common.size(); i++){
+            out[i] = common.get(i);
         }
         return out;
     }

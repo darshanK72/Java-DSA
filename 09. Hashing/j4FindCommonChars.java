@@ -79,17 +79,13 @@ public class j4FindCommonChars {
         return out;
     }
 
-    // Well structrued solution
     public static List<String> commonChars(String[] words) {
-        // Count characters in the first word
         int[] last = count(words[0]);
         
-        // Update the count array by intersecting with each subsequent word
         for (int i = 1; i < words.length; i++) {
             last = intersection(last, count(words[i]));
         }
         
-        // Build the result list based on the final count array
         List<String> arr = new ArrayList<>();
         for (int i = 0; i < 26; i++) {
             if (last[i] != 0) {
@@ -104,7 +100,6 @@ public class j4FindCommonChars {
         return arr;
     }
 
-    // Calculate the intersection of two count arrays
     private static int[] intersection(int[] a, int[] b) {
         int[] t = new int[26];
         for (int i = 0; i < 26; i++) {
@@ -113,7 +108,6 @@ public class j4FindCommonChars {
         return t;
     }
 
-    // Count the frequency of each character in a word
     private static int[] count(String str) {
         int[] t = new int[26];
         for (char c : str.toCharArray()) {
