@@ -17,11 +17,11 @@ public class j21ZeroSumSubarray {
     // O(N^2)
     public static boolean findSum(int arr[], int n) {
         for (int i = 0; i < n; i++) {
-            int s = arr[i];
-            for (int j = i + 1; j < n; j++) {
+            int s = 0;
+            for (int j = i; j < n; j++) {
+                s += arr[j];
                 if (s == 0)
                     return true;
-                s += arr[j];
             }
         }
         return false;

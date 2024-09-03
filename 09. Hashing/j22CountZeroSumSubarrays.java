@@ -9,11 +9,26 @@ public class j22CountZeroSumSubarrays {
         for (int i = 0; i < n; i++) {
             arr[i] = in.nextLong();
         }
-        System.out.println(findSubarray(arr, n));
+        System.out.println(countSubarrays(arr, n));
+        System.out.println(countSubarraysHashMap(arr, n));
         in.close();
     }
 
-    public static long findSubarray(long[] arr, int n) {
+     // O(N^2)
+     public static int countSubarrays(long arr[], int n) {
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            long s = 0;
+            for (int j = i; j < n; j++) {
+                s += arr[j];
+                if (s == 0)
+                    count++;
+            }
+        }
+        return count;
+    }
+
+    public static long countSubarraysHashMap(long[] arr, int n) {
         HashMap<Long, Long> map = new HashMap<>();
         long sum = 0;
         int count = 0;
