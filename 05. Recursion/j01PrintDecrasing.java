@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j1PrintDecrasing {
+public class j01PrintDecrasing {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

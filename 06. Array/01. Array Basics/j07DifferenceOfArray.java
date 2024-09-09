@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Arrays;
 
-public class j5DifferenceOfArray {
+public class j07DifferenceOfArray {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n1 = in.nextInt();

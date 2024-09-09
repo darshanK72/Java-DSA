@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class j4SumOfArray {
+public class j06SumOfArray {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n1 = in.nextInt();

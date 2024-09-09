@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class j7SecondLargestElement{
+public class j05SecondLargestElement{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

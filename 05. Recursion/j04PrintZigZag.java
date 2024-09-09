@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j4PrintZigZag {
+public class j04PrintZigZag {
      public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

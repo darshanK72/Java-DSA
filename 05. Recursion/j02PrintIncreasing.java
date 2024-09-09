@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j2PrintIncreasing {
+public class j02PrintIncreasing {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

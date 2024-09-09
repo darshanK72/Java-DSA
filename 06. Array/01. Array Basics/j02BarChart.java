@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j3BarChart {
+public class j02BarChart {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
