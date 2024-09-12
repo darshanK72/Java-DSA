@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class j05CountNicePairs {
+public class j06CountNicePairs {
 
     // You are given an array nums that consists of non-negative integers. Let us
     // define rev(x) as the reverse of the non-negative integer x. For example,
