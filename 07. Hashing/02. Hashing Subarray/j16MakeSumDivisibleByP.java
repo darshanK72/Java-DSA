@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class j15MakeSumDivisibleByP {
+public class j16MakeSumDivisibleByP {
 
     // Given an array of positive integers nums, remove the smallest subarray
     // (possibly empty) such that

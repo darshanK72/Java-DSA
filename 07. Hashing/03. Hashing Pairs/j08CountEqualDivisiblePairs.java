@@ -2,7 +2,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class j04CountEqualDivisiblePairs {
+public class j08CountEqualDivisiblePairs {
+
+    // Given a 0-indexed integer array nums of length n and an integer k, return the
+    // number of pairs (i, j) where 0 <= i < j < n, such that nums[i] == nums[j] and
+    // (i * j) is divisible by k.
+
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

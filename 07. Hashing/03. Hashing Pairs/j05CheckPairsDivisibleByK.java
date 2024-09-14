@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class j07CheckPairsDivisibleByK {
+public class j05CheckPairsDivisibleByK {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

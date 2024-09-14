@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class j14LongestWellPerformInterval {
+public class j15LongestWellPerformInterval {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
