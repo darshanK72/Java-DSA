@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class j11GroupShiftedStrings {
+public class j09GroupShiftedStrings {
     public static void main(String args[]){
         String[] words = new String[]{"abc", "bcd", "acef", "xyz", "az", "ba", "a", "z"};
         System.out.println(gropuShiftedStrings(words));

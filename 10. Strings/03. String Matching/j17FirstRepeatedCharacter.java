@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j16FirstRepeatedCharacter {
+public class j17FirstRepeatedCharacter {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         String s = in.nextLine();

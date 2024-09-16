@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class j12IsomorphicString {
+public class j10IsomorphicString {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         String s1 = in.nextLine();

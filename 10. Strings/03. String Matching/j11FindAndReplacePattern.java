@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class j13FindAndReplacePattern {
+public class j11FindAndReplacePattern {
     public static void main(String args[]){
         String[] words = new String[]{"abc","deq","mee","aqq","dkd","ccc"};
         String pattern = "abb";

@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class j14WordPatternI {
+public class j13WordPatternI {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         String s1 = in.nextLine();

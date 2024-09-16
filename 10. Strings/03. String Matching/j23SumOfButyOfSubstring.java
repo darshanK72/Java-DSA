@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j22SumOfButyOfSubstring {
+public class j23SumOfButyOfSubstring {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         String str = in.nextLine();

@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-public class j10GroupAnagrams {
+public class j08GroupAnagrams {
     public static void main(String args[]) {
         String[] strs = new String[] { "eat", "tea", "tan", "ate", "nat", "bat" };
         System.out.println(groupAnagrams(strs));

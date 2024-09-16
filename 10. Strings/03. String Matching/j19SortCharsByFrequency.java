@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class j18SortCharsByFrequency {
+public class j19SortCharsByFrequency {
      public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         String s = in.nextLine();

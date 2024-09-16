@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class j21UncommonWords {
+public class j22UncommonWords {
 
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
