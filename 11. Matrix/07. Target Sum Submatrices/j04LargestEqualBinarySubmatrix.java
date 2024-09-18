@@ -25,7 +25,7 @@ public class j04LargestEqualBinarySubmatrix {
                 }
 
                 // Find the largest zero-sum subarray in colPrefixSum
-                int area = largestZeroSumSubarray(colPrefixSum, endRow - startRow + 1);
+                int area = largestBinaryArray(colPrefixSum, endRow - startRow + 1);
 
                 // Update the maximum area
                 maxArea = Math.max(maxArea, area);
@@ -38,7 +38,7 @@ public class j04LargestEqualBinarySubmatrix {
     // Helper function to find the largest zero sum subarray in a 1D array
     // Returns the area of the largest zero sum subarray (row count * subarray
     // length)
-    private static int largestZeroSumSubarray(int[] arr, int rowCount) {
+    private static int largestBinaryArray(int[] arr, int rowCount) {
         HashMap<Integer, Integer> map = new HashMap<>();
         int sum = 0;
         int maxLength = 0;
