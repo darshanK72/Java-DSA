@@ -81,34 +81,6 @@ public class j01ThreeSum {
         return out;
     }
 
-    public static void twoSum(int[] nums, int i, ArrayList<ArrayList<Integer>> out) {
-        int j = i + 1;
-        int k = nums.length - 1;
-        int target = 0 - nums[i];
-        while (j < k) {
-            int sum = nums[j] + nums[k];
-            if (sum == target) {
-                ArrayList<Integer> lst = new ArrayList<>();
-                lst.add(nums[i]);
-                lst.add(nums[j]);
-                lst.add(nums[k]);
-                out.add(lst);
-                j++;
-                k--;
-                while (j < k && nums[j] == nums[j - 1]) {
-                    j++;
-                }
-                while (j < k && nums[k] == nums[k + 1]) {
-                    k--;
-                }
-            } else if (sum > target) {
-                k--;
-            } else {
-                j++;
-            }
-        }
-    }
-
     // Modular
     public List<List<Integer>> threeSumModular(int[] nums) {
         List<List<Integer>> out = new ArrayList<>();
