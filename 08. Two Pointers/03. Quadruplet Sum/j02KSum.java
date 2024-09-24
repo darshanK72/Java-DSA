@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class j03KSum {
+public class j02KSum {
     public static void main(String[] args) {
         // Test case
         int[] nums = { 1, 0, -1, 0, -2, 2 };

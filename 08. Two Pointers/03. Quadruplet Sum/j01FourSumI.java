@@ -1,9 +1,23 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 public class j01FourSumI {
+    public static class Pair {
+        int first;
+        int second;
+
+        Pair(int first, int second) {
+            this.first = first;
+            this.second = second;
+        }
+    }
+
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
@@ -14,6 +28,7 @@ public class j01FourSumI {
         int target = in.nextInt();
 
         System.out.println(fourSum(arr, target));
+        System.out.println(fourSumHashMap(arr, target));
         System.out.println(fourSumEfficient(arr, target));
         in.close();
     }
@@ -41,6 +56,50 @@ public class j01FourSumI {
                 }
             }
         }
+        return out;
+    }
+
+    public static List<List<Integer>> fourSumHashMap(int[] nums, int target) {
+        ArrayList<List<Integer>> out = new ArrayList<>();
+        HashMap<Integer, List<Pair>> map = new HashMap<>();
+        int n = nums.length;
+
+        // Store all pairs of sums in the map
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                int sum = nums[i] + nums[j];
+                // Store all pairs with the same sum in the map
+                map.putIfAbsent(sum, new ArrayList<>());
+                map.get(sum).add(new Pair(i, j));
+            }
+        }
+
+        // Set to store unique quadruplets
+        Set<List<Integer>> resultSet = new HashSet<>();
+
+        // Iterate again to find quadruplets
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                int currentSum = nums[i] + nums[j];
+                int complement = target - currentSum;
+
+                // Check if the complement exists in the map
+                if (map.containsKey(complement)) {
+                    // Iterate through the pairs that sum up to complement
+                    for (Pair p : map.get(complement)) {
+                        // Ensure all four indices are unique
+                        if (p.first != i && p.first != j && p.second != i && p.second != j) {
+                            List<Integer> temp = Arrays.asList(nums[i], nums[j], nums[p.first], nums[p.second]);
+                            Collections.sort(temp); // Sort to avoid duplicates
+                            resultSet.add(temp); // Add to the result set
+                        }
+                    }
+                }
+            }
+        }
+
+        // Convert set to list to avoid duplicates
+        out.addAll(resultSet);
         return out;
     }
 
