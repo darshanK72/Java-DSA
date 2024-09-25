@@ -1,7 +1,8 @@
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Scanner;
 
-public class j10FindPairsWithAbsKDifference {
+public class j11FindPairsWithAbsDifferenceK {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
@@ -15,13 +16,23 @@ public class j10FindPairsWithAbsKDifference {
         in.close();
     }
 
-    public static int findPair(int n, int x,int[] arr) {
+    public static int findPair(int n, int x, int[] arr) {
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
                 if (Math.abs(arr[i] - arr[j]) == x) {
                     return 1;
                 }
             }
+        }
+        return -1;
+    }
+
+    public static int countKDifferenceHashSet(int[] nums, int k) {
+        HashSet<Integer> set = new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (set.contains(nums[i] - k) || set.contains(nums[i] + k))
+                return 1;
+            set.add(nums[i]);
         }
         return -1;
     }

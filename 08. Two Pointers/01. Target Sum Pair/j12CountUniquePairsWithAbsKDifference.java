@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class j11CountPairsWithAbsKDifference {
+public class j12CountUniquePairsWithAbsKDifference {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
