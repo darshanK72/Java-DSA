@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j12LongestPositiveSubarrayWithSumK {
+public class j13LongestPositiveSubarrayWithSumK {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

@@ -59,6 +59,26 @@ public class j01FourSumI {
         return out;
     }
 
+    public static List<List<Integer>> fourSumHashSet(int[] nums, int target) {
+        HashSet<List<Integer>> set = new HashSet<>();
+        for(int i = 0; i < nums.length; i++){
+            for(int j = i + 1; j < nums.length; j++){
+                HashSet<Long> tSet = new HashSet<>();
+                for(int k = j + 1; k < nums.length; k++){
+                    long tar = (long)target - ((long)nums[i] + (long)nums[j] + (long)nums[k]);
+                    if(tSet.contains(tar)){
+                        List<Integer> lst = Arrays.asList(nums[i],nums[j],nums[k],(int)tar);
+                        Collections.sort(lst);
+                        set.add(lst);
+                    }
+                    tSet.add((long)nums[k]);
+                }
+            }
+        }
+
+        return new ArrayList<>(set);   
+    }
+
     public static List<List<Integer>> fourSumHashMap(int[] nums, int target) {
         ArrayList<List<Integer>> out = new ArrayList<>();
         HashMap<Integer, List<Pair>> map = new HashMap<>();
