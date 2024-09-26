@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class j2IntersectionOfSortedArrays {
+public class j07IntersectionOfSortedArrays {
      public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
@@ -11,15 +11,13 @@ public class j2IntersectionOfSortedArrays {
         for(int i = 0; i < n; i++){
             arr1[i] = in.nextInt();
         }
-
         for(int i = 0; i < m; i++){
             arr2[i] = in.nextInt();
         }
-
         System.out.println(intersectionOfArrays(arr1,arr2));
         System.out.println(intersectionOfArraysEfficient(arr1, arr2));
-        System.out.println(intersectionOfArrayTwoPointers(arr1, arr2));
-
+        System.out.println(intersectionOfArrayTwoPointers1(arr1, arr2));
+        System.out.println(intersectionOfArrayTwoPointers2(arr1, arr2));
         in.close();
     }
 
@@ -58,7 +56,8 @@ public class j2IntersectionOfSortedArrays {
         return output;
     }
 
-    public static ArrayList<Integer> intersectionOfArrayTwoPointers(int[] arr1,int arr2[]){
+    // Considers duplicate elements
+    public static ArrayList<Integer> intersectionOfArrayTwoPointers1(int[] arr1,int arr2[]){
         ArrayList<Integer> output = new ArrayList<>();
         int i = 0;
         int j = 0;
@@ -75,4 +74,30 @@ public class j2IntersectionOfSortedArrays {
         }
         return output;
     }
+
+    // Do Not considers douplicate elements
+    public static ArrayList<Integer> intersectionOfArrayTwoPointers2(int[] arr1,int[] arr2){
+        ArrayList<Integer> output = new ArrayList<>();
+        int i = 0;
+        int j = 0;
+        while(i < arr1.length && j < arr2.length){
+            if(arr1[i] < arr2[j]){
+                i++;
+            }else if(arr1[i] > arr2[j]){
+                j++;
+            }else{
+                output.add(arr1[i]);
+                while(i + 1 < arr1.length && arr1[i + 1] == arr1[i]){
+                    i++;
+                }
+                while(j + 1 < arr2.length && arr2[j + 1] == arr2[j]){
+                    j++;
+                }
+                i++;
+                j++;
+            }
+        }
+        return output;
+    }
+    
 }

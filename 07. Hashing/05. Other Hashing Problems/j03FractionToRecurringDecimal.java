@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class j04FractionToRecurringDecimal {
+public class j03FractionToRecurringDecimal {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         int num = in.nextInt();

@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class j1UnionOfSortedArrays {
+public class j06UnionOfSortedArrays {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
@@ -12,24 +12,19 @@ public class j1UnionOfSortedArrays {
         for (int i = 0; i < n; i++) {
             arr1[i] = in.nextInt();
         }
-
         for (int i = 0; i < m; i++) {
             arr2[i] = in.nextInt();
         }
-
         System.out.println(unionOfArrays(arr1, arr2));
         System.out.println(unionOfArrayEfficient(arr1, arr2));
-
         in.close();
     }
 
     public static ArrayList<Integer> unionOfArrays(int[] arr1, int[] arr2) {
         HashSet<Integer> set = new HashSet<>();
-
         for (int i = 0; i < arr1.length; i++) {
             set.add(arr1[i]);
         }
-
         for (int i = 0; i < arr2.length; i++) {
             set.add(arr2[i]);
         }
@@ -42,7 +37,6 @@ public class j1UnionOfSortedArrays {
 
     public static ArrayList<Integer> unionOfArrayEfficient(int[] arr1, int[] arr2) {
         ArrayList<Integer> output = new ArrayList<Integer>();
-
         int i = 0;
         int j = 0;
         while (i < arr1.length && j < arr2.length) {
@@ -56,7 +50,6 @@ public class j1UnionOfSortedArrays {
                 j++;
             }
         }
-
         if (i == arr1.length) {
             for (; j < arr2.length; j++) {
                 if (output.get(output.size() - 1) != arr2[j])
