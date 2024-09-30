@@ -12,7 +12,7 @@ public class j06ContainsDuplicatesIII {
         int indexDiff = in.nextInt();
         int valueDiff = in.nextInt();
 
-        System.out.println(containsNearbyAlmostDuplicate(arr, indexDiff,valueDiff));
+        System.out.println(containsNearbyAlmostDuplicate(arr, indexDiff, valueDiff));
         in.close();
     }
 
