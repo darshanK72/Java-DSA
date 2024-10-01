@@ -11,7 +11,8 @@ public class j01MaxSumSubarraySizeK {
         }
         int k = in.nextInt();
         System.out.println(maximumSumSubarray(k, Arr, N));
-        System.out.println(maximumSumSubarrayEfficient(k, Arr, N));
+        System.out.println(maximumSumSubarrayEfficient1(k, Arr, N));
+        System.out.println(maximumSumSubarrayEfficient2(k, Arr, N));
         in.close();
     }
 
@@ -27,7 +28,7 @@ public class j01MaxSumSubarraySizeK {
         return ans;
     }
 
-    public static long maximumSumSubarrayEfficient(int k, ArrayList<Integer> Arr, int N) {
+    public static long maximumSumSubarrayEfficient1(int k, ArrayList<Integer> Arr, int N) {
         long maxSum = 0;
         long sum = 0;
         for (int i = 0; i < k; i++) {
@@ -38,6 +39,21 @@ public class j01MaxSumSubarraySizeK {
             sum -= Arr.get(i - k);
             sum += Arr.get(i);
             maxSum = Math.max(maxSum, sum);
+        }
+        return maxSum;
+    }
+
+    public static long maximumSumSubarrayEfficient2(int k, ArrayList<Integer> Arr, int N) {
+        long sum = 0;
+        long maxSum = 0;
+        int j = 0;
+        for (int i = 0; i < N; i++) {
+            sum += Arr.get(i);
+            if (i - j + 1 == k) {
+                maxSum = Math.max(maxSum, sum);
+                sum -= Arr.get(j);
+                j++;
+            }
         }
         return maxSum;
     }
