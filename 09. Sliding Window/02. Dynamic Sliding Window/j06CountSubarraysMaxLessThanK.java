@@ -9,7 +9,7 @@ public class j06CountSubarraysMaxLessThanK {
             arr[i] = in.nextInt();
         }
         int k = in.nextInt();
-        System.out.println(countSubarrayMaxLessThanK(arr,n,k));
+        System.out.println(countSubarrayMaxLessThanK(arr, n, k));
         in.close();
     }
 
