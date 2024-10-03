@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j10ZigZagConversion {
+public class j13ZigZagConversion {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         String s = in.nextLine();

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j09CompareVersions {
+public class j12CompareVersions {
      public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         String s1 = in.nextLine();

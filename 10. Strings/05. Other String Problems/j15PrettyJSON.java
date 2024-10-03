@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class j12PrettyJSON {
+public class j15PrettyJSON {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         String s = in.nextLine();

@@ -1,4 +1,4 @@
-public class j08LongestCommonPrefix {
+public class j11LongestCommonPrefix {
     public static void main(String args[]) {
         String[] strs = new String[] { "flower","flow","flight"};
         System.out.println(longestCommonPrefix(strs));
