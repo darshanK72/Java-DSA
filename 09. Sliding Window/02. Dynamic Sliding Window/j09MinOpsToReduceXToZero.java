@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class j17MinOpsToReduceXToZero {
+public class j09MinOpsToReduceXToZero {
      public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
@@ -11,6 +11,7 @@ public class j17MinOpsToReduceXToZero {
         }
         int k = in.nextInt();
         System.out.println(minOperations(arr,k));
+        System.out.println(minOperationsEfficient(arr,k));
         in.close();
     }
 
@@ -35,5 +36,27 @@ public class j17MinOpsToReduceXToZero {
         }
         
         return maxL == -1 ? maxL : nums.length - maxL;
+    }
+
+    public static int minOperationsEfficient(int[] nums, int x) {
+        int target = 0;
+        for(int n : nums) target += n;
+        int k = target - x;
+        if(k == 0) return nums.length;
+        if(k < 0) return -1;
+        int j = 0;
+        int sum = 0;
+        int maxL = -1;
+        for(int i = 0; i < nums.length; i++){
+            sum += nums[i];
+            while(sum > k && j <= i){
+                sum -= nums[j];
+                j++;
+            }
+            if(sum == k){
+                maxL = Math.max(maxL,i - j + 1);
+            }
+        }
+        return maxL == -1 ? -1 : nums.length - maxL;
     }
 }

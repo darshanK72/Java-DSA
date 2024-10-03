@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class j18LargestContigousSubarray {
+public class j17LargestContigousSubarray {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
