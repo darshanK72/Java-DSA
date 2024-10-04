@@ -3,7 +3,7 @@ import java.util.Scanner;
 // The score of an array is defined as the product of its sum and its length.
 // For example, the score of [1, 2, 3, 4, 5] is (1 + 2 + 3 + 4 + 5) * 5 = 75.
 
-public class j04CountSubarraysScoreLessThanK {
+public class j05CountSubarraysScoreLessThanK {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

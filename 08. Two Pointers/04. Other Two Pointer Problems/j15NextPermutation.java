@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class j16NextPermutation {
+public class j15NextPermutation {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

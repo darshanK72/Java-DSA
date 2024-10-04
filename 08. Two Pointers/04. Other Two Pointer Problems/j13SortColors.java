@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j14SortColors {
+public class j13SortColors {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

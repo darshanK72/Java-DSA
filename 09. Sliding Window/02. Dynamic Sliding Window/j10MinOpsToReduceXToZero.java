@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class j09MinOpsToReduceXToZero {
+public class j10MinOpsToReduceXToZero {
      public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j11CountSubarraysWithKOddIntegers {
+public class j12CountSubarraysWithKOddIntegers {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

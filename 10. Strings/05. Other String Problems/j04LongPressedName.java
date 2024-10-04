@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
 public class j04LongPressedName {
-     public static void main(String args[]) {
+    public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         String name = in.nextLine();
         String typed = in.nextLine();
-        System.out.println(isLongPressedName(name,typed));
+        System.out.println(isLongPressedName(name, typed));
         in.close();
     }
 

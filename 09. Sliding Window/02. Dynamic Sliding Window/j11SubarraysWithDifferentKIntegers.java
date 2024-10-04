@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class j10SubarraysWithDifferentKIntegers {
+public class j11SubarraysWithDifferentKIntegers {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j05SubarrayProductLessThanK {
+public class j06SubarrayProductLessThanK {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

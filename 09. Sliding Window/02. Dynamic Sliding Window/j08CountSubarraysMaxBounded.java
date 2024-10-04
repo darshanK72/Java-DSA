@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j07CountSubarraysMaxBounded {
+public class j08CountSubarraysMaxBounded {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
