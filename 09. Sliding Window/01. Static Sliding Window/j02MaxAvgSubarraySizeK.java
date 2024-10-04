@@ -21,7 +21,7 @@ public class j02MaxAvgSubarraySizeK {
             for (int j = i; i < k; i++) {
                 sum += nums[j];
             }
-            ans = Math.max(sum, ans);
+            ans = Math.max(sum/k, ans);
         }
         return ans;
     }

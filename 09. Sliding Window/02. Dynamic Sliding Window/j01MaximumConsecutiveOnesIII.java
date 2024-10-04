@@ -10,7 +10,24 @@ public class j01MaximumConsecutiveOnesIII {
         }
         int k = in.nextInt();
         System.out.println(maxConsOnesAfterKFlips(arr, k));
+        System.out.println(maxConsOnesAfter1Flips(arr, k));
+        System.out.println(maxConsOnesAfterKFlipsEfficient(arr, k));
         in.close();
+    }
+
+    public static int maxConsOnesAfterKFlips(int[] arr, int k) {
+        int maxL = 0;
+        for(int i = 0; i < arr.length; i++){
+            int zeros = 0;
+            for(int j = i; j < arr.length; j++){
+                if(arr[j] == 0) zeros++;
+                if(zeros > k) break;
+                else{
+                    maxL = Math.max(maxL,j - i + 1);
+                } 
+            }
+        }
+        return maxL;
     }
 
     public static int maxConsOnesAfter1Flips(int[] arr, int k) {
@@ -31,7 +48,7 @@ public class j01MaximumConsecutiveOnesIII {
         return maxL;
     }
 
-    public static int maxConsOnesAfterKFlips(int[] arr, int k) {
+    public static int maxConsOnesAfterKFlipsEfficient(int[] arr, int k) {
         int maxL = 0;
         int zeros = 0;
         int j = 0;
