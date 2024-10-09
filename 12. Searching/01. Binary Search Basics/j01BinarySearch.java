@@ -18,7 +18,7 @@ public class j01BinarySearch {
         int s = 0;
         int e = nums.length - 1;
         while (s <= e) {
-            int mid = (s + e) / 2;
+            int mid = (s + e) / 2; // s + (e - s)/2
             if (nums[mid] == target) {
                 return mid;
             } else if (nums[mid] > target) {
