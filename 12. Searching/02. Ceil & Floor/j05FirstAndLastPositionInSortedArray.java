@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j05FirstAndLastInSortedArray {
+public class j05FirstAndLastPositionInSortedArray {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
@@ -9,7 +9,7 @@ public class j05FirstAndLastInSortedArray {
             arr[i] = in.nextInt();
         }
         int target = in.nextInt();
-        int[] out = searchRange(arr,target);
+        int[] out = searchRange(arr, target);
         System.out.println("first : " + out[0]);
         System.out.println("last : " + out[1]);
         in.close();

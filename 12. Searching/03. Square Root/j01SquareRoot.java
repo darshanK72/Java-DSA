@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 // Complexity : O(log N)
 
-public class j22SquareRoot {
+public class j01SquareRoot {
     public static void main(String args[])
     {
         Scanner in = new Scanner(System.in);

@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class j06CountAllPositionsInSortedArray {
-      public static void main(String args[]) {
+    public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         int[] arr = new int[n];
@@ -9,7 +9,7 @@ public class j06CountAllPositionsInSortedArray {
             arr[i] = in.nextInt();
         }
         int target = in.nextInt();
-        System.out.println(countAll(arr,n,target));
+        System.out.println(countAll(arr, n, target));
         in.close();
     }
 
@@ -40,7 +40,8 @@ public class j06CountAllPositionsInSortedArray {
         }
         last = e;
 
-        if (first > last) return 0;
+        if (first > last)
+            return 0;
         return last - first + 1;
     }
 }
