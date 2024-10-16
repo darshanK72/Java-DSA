@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j06CountAllPositionsInSortedArray {
+public class j07CountAllPositionsInSortedArray {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

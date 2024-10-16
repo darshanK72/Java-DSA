@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j04GetFloorAndCeil {
+public class j05GetFloorAndCeil {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

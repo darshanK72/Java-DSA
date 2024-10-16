@@ -9,11 +9,12 @@ public class j04SearchInRotatedSortedArrayI {
             arr[i] = in.nextInt();
         }
         int target = in.nextInt();
-        System.out.println(search(arr, target));
+        System.out.println(search1(arr, target));
+        System.out.println(search2(arr, target));
         in.close();
     }
 
-    public static int search(int[] nums, int target) {
+    public static int search1(int[] nums, int target) {
         int s = 0;
         int e = nums.length - 1;
         while (s <= e) {
@@ -30,6 +31,26 @@ public class j04SearchInRotatedSortedArrayI {
             return binarySearch(nums, 0, e, target);
         } else {
             return binarySearch(nums, s, nums.length - 1, target);
+        }
+    }
+
+    public static int search2(int[] nums, int target) {
+        int s = 0;
+        int e = nums.length - 1;
+        while(s < e){
+            int mid = s + (e - s)/2;
+            if(nums[mid] > nums[e]){
+                s = mid + 1;
+            }else if(nums[mid] < nums[e]){
+                e = mid;
+            }else{
+                e--;
+            }
+        }
+        if(target > nums[nums.length - 1]){
+            return binarySearch(nums,0,e,target);
+        }else{
+            return binarySearch(nums,s,nums.length - 1,target);
         }
     }
 
