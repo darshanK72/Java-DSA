@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j14ReduceNumberToOne{
+public class j10ReduceNumberToOne{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

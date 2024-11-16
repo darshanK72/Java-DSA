@@ -2,11 +2,17 @@ import java.util.Scanner;
 
 public class j07ValidPalindrome1 {
 
-    public static void main(String args[]){
+    public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         String s = in.nextLine();
         System.out.println(isPalindrome(s));
         in.close();
+    }
+
+    public static boolean isPalindrome(String str, int s, int e) {
+        if (s >= e)
+            return true;
+        return (str.charAt(s) == str.charAt(e)) && isPalindrome(str, ++s, --e);
     }
 
     // O(str.length())

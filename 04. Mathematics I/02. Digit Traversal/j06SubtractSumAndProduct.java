@@ -7,15 +7,21 @@ public class j06SubtractSumAndProduct {
         System.out.println(subtractProductAndSum(n));
         in.close();
     }
-    
+
     public static int subtractProductAndSum(int n) {
         int sum = 0;
         int product = 1;
-        while(n > 0){
+        while (n > 0) {
             sum += n % 10;
-            product *= (n%10);
+            product *= (n % 10);
             n /= 10;
         }
         return product - sum;
+    }
+
+    public static int sumOfDigits(int n) {
+        if (n <= 0)
+            return 0;
+        return sumOfDigits(n / 10) + n % 10;
     }
 }

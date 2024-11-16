@@ -24,4 +24,12 @@ public class j25FibonacciNumber {
     }
     return c;
   }
+
+  public static int nthFibRec(int n) {
+    if (n == 1)
+      return 0;
+    if (n == 2)
+      return 1;
+    return nthFibRec(n - 1) + nthFibRec(n - 2);
+  }
 }
