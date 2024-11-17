@@ -15,19 +15,27 @@ public class j05DivisibleBy7 {
     // Example: the number 371: 37 – (2×1) = 37 – 2 = 35; 3 – (2 × 5) = 3 – 10 = -7;
     // thus, since -7 is divisible by 7, 371 is divisible by 7.
 
-    static boolean isDivisibleBy7(int num)
-    {
-        if( num < 0 )
-            return isDivisibleBy7( -num );
-        if( num == 0 || num == 7 )
+    static boolean isDivisibleBy7(int num) {
+        if (num < 0)
+            return isDivisibleBy7(-num);
+        if (num == 0 || num == 7)
             return true;
-        if( num < 10 )
+        if (num < 10)
             return false;
-        return isDivisibleBy7( num / 10 - 2 * ( num - num / 10 * 10 ) );
+        return isDivisibleBy7(num / 10 - 2 * (num - num / 10 * 10));
     }
 
     public static boolean isDivisibleBy7(String numStr) {
         long num = Long.parseLong(numStr);
         return num % 7 == 0;
+    }
+
+    public static boolean isDivisible7Efficient(String num) {
+        int result = 0;
+        for (int i = 0; i < num.length(); i++) {
+            int digit = num.charAt(i) - '0';
+            result = (result * 10 + digit) % 7;
+        }
+        return (result == 0);
     }
 }
