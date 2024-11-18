@@ -19,7 +19,7 @@ public class j07DivisibleBy11 {
             else
                 evenDigSum += (str.charAt(i) - '0');
         }
-        
+
         return ((oddDigSum - evenDigSum) % 11 == 0);
     }
 
