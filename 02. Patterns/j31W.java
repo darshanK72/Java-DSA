@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j35W {
+public class j31W {
    public static void main(String args[]){
     Scanner in = new Scanner(System.in);
 

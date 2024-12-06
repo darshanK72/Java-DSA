@@ -1,5 +1,6 @@
 import java.util.Scanner;
-public class j30RightDiagonal {
+
+public class j23LeftDiagonal {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
 
@@ -7,7 +8,7 @@ public class j30RightDiagonal {
 
         for(int i = 1; i <= n; i++){
             for(int j = 1; j <= n; j++){
-                if(i+j == n+1){
+                if(i == j){
                     System.out.print("* ");
                 }
                 else{
@@ -16,14 +17,13 @@ public class j30RightDiagonal {
             }
             System.out.println();
         }
+
         in.close();
     }
 }
 
-//             *
-//           *
-//         *
-//       *
-//     *
-//   *
 // *
+//   *       
+//     *     
+//       *   
+//         *

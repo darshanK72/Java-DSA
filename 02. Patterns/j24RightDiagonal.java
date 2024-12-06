@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class j31DiagonalCross {
+public class j24RightDiagonal {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
 
@@ -7,7 +7,7 @@ public class j31DiagonalCross {
 
         for(int i = 1; i <= n; i++){
             for(int j = 1; j <= n; j++){
-                if(i+j == n+1 || i == j){
+                if(i+j == n+1){
                     System.out.print("* ");
                 }
                 else{
@@ -20,8 +20,10 @@ public class j31DiagonalCross {
     }
 }
 
-// *       *
-//   *   *
+//             *
+//           *
+//         *
+//       *
 //     *
-//   *   *
-// *       *
+//   *
+// *

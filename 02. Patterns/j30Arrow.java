@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j33Arrow {
+public class j30Arrow {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
 

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j24CapitalAlphabetInvertedTriangle {
+public class j26CapitalAlphabetInvertedTriangle {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
 

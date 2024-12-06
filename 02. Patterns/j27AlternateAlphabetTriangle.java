@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j25AlternateAlphabetTriangle {
+public class j27AlternateAlphabetTriangle {
     public static void main(String args[]){
 
         Scanner in = new Scanner(System.in);

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j28HollowDiamondRactangle2 {
+public class j22HollowDiamondRactangle2 {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
 
