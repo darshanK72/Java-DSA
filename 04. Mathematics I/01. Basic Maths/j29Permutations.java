@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j27Permutations {
+public class j29Permutations {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
 

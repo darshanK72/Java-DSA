@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j33Power {
+public class j34Power {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
 

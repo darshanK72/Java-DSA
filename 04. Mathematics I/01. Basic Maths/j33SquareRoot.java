@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 
 // Complexity : O(log N * f(N))
-public class j34SquareRoot {
+public class j33SquareRoot {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 // Complexity : O(n)
-public class j30Factorial {
+public class j28Factorial {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
 

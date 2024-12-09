@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class j28Combinations {
+public class j30Combinations {
      public static void main(String args[]){
         Scanner in = new Scanner(System.in);
 

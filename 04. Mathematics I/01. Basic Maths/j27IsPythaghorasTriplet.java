@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 // Complexity : O(1)
 
-public class j29IsPythaghorasTriplet {
+public class j27IsPythaghorasTriplet {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
 
