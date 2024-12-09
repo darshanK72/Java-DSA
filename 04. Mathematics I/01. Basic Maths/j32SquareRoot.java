@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 
 // Complexity : O(log N * f(N))
-public class j33SquareRoot {
+public class j32SquareRoot {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
@@ -16,7 +16,7 @@ public class j33SquareRoot {
         double root;
         while(true){
             root = 0.5 * (x + (n/x));
-            if(Math.abs(root - x) <= 0.5){
+            if(Math.abs(root - x) <= 1e-6){
                 break;
             }
             x = root;
