@@ -1,20 +1,38 @@
-
-/**
+/*- 
  * Problem Statement:
- * Determine whether a given number is a prime number.
- * A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself.
- *
+ * 
+ *     Determine whether a given number is a prime number.
+ *     A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself.
+ * 
  * Input:
- * - A single integer n (1 <= n <= 1,000,000).
- *
+ *     - A single integer `n` (1 <= n <= 1,000,000).
+ * 
  * Output:
- * - Print whether the number is "Prime" or "Composite".
+ *     - Print whether the number is "Prime" or "Composite".
+ * 
+ * Example:
+ *     Input:
+ *     7
+ *     Output:
+ *     Prime
+ * 
+ *     Explanation:
+ *     - 7 is a prime number because its only divisors are 1 and 7.
+ * 
+ *     Input:
+ *     10
+ *     Output:
+ *     Composite
+ * 
+ *     Explanation:
+ *     - 10 is not a prime number because it has divisors 1, 2, 5, and 10.
  */
 
 import java.util.Scanner;
 
 public class j01IsPrime {
     public static void main(String args[]) {
+        // Reading input
         Scanner in = new Scanner(System.in);
 
         // Read the input number
@@ -23,15 +41,24 @@ public class j01IsPrime {
         // Determine if the number is prime using the naive method and print the result
         System.out.println("Number " + n + " is " + (isPrimeNaive(n) ? "Prime" : "Composite"));
 
-        in.close(); // Close the scanner to release resources
+        // Close the scanner
+        in.close();
     }
 
-    /**
-     * Naive method to check if a number is prime.
-     *
-     * Time Complexity: O(n), where n is the input number.
-     * Space Complexity: O(1), no extra space used.
-     *
+    /*- 
+     * Approach: Naive method to check if a number is prime.
+     * 
+     * Intuition:
+     * - Iterate from 2 to n-1 and check if the number is divisible by any number.
+     * - If divisible by any number, it is not a prime number.
+     * - If no divisors found, it is a prime number.
+     * 
+     * Time Complexity:
+     * - O(n), where n is the input number.
+     * 
+     * Space Complexity:
+     * - O(1), no extra space used.
+     * 
      * @param number The input number to check.
      * @return True if the number is prime, otherwise false.
      */
@@ -44,13 +71,19 @@ public class j01IsPrime {
         return true; // Prime number
     }
 
-    /**
-     * Efficient method to check if a number is prime using square root
-     * optimization.
-     *
-     * Time Complexity: O(sqrt(n)), where n is the input number.
-     * Space Complexity: O(1), no extra space used.
-     *
+    /*- 
+     * Approach: Efficient method to check if a number is prime using square root optimization.
+     * 
+     * Intuition:
+     * - Only check divisors up to the square root of the number.
+     * - If the number is divisible by any divisor in this range, it is not a prime number.
+     * 
+     * Time Complexity:
+     * - O(sqrt(n)), where n is the input number.
+     * 
+     * Space Complexity:
+     * - O(1), no extra space used.
+     * 
      * @param number The input number to check.
      * @return True if the number is prime, otherwise false.
      */
@@ -63,13 +96,19 @@ public class j01IsPrime {
         return true; // Prime number
     }
 
-    /**
-     * More efficient method to check primality using properties of primes.
-     * Every prime number greater than 3 can be expressed as 6n ± 1.
-     *
-     * Time Complexity: O(sqrt(n)), where n is the input number.
-     * Space Complexity: O(1), no extra space used.
-     *
+    /*- 
+     * Approach: More efficient method to check primality using properties of primes.
+     * 
+     * Intuition:
+     * - Every prime number greater than 3 can be expressed as 6n ± 1.
+     * - First check if number is divisible by 2 or 3, then check divisors of the form 6n ± 1.
+     * 
+     * Time Complexity:
+     * - O(sqrt(n)), where n is the input number.
+     * 
+     * Space Complexity:
+     * - O(1), no extra space used.
+     * 
      * @param number The input number to check.
      * @return True if the number is prime, otherwise false.
      */

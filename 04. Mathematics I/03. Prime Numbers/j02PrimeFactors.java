@@ -1,29 +1,29 @@
-
-/**
+/*- 
  * Problem Statement:
- *   Given an integer `n`, find the prime factors of `n`.
- *   A prime factor is a factor of a number that is a prime number.
- *   The output should include:
- *   - All prime factors of the number, including their multiplicities.
- *   - The unique prime factors of the number.
- *
+ * 
+ *     Given an integer `n`, find the prime factors of `n`.
+ *     A prime factor is a factor of a number that is a prime number.
+ *     The output should include:
+ *     - All prime factors of the number, including their multiplicities.
+ *     - The unique prime factors of the number.
+ * 
  * Input:
- *   - An integer `n` (1 <= n <= 10^6).
- *
+ *     - An integer `n` (1 <= n <= 10^6).
+ * 
  * Output:
- *   - A list of all prime factors with multiplicity.
- *   - A list of distinct prime factors of the number.
- *
+ *     - A list of all prime factors with multiplicity.
+ *     - A list of distinct prime factors.
+ * 
  * Example:
- *   Input:
- *       28
- *   Output:
- *       [2, 2, 7] (All prime factors with multiplicity)
- *       [2, 7] (Unique prime factors)
- *
- * Explanation:
- *   - The prime factors of 28 are 2 and 7. Since 28 = 2 * 2 * 7,
- *     the output includes [2, 2, 7] for all prime factors and [2, 7] for unique factors.
+ *     Input:
+ *     28
+ *     Output:
+ *     [2, 2, 7] (All prime factors with multiplicity)
+ *     [2, 7] (Unique prime factors)
+ * 
+ *     Explanation:
+ *     - The prime factors of 28 are 2 and 7. Since 28 = 2 * 2 * 7,
+ *       the output includes [2, 2, 7] for all prime factors and [2, 7] for unique factors.
  */
 
 import java.util.ArrayList;
@@ -54,9 +54,19 @@ public class j02PrimeFactors {
         in.close();
     }
 
-    /**
-     * Finds all prime factors of a number using a naive approach.
-     *
+    /*- 
+     * Approach: Naive method to find all prime factors of a number.
+     * 
+     * Intuition:
+     * - Iterate through all numbers up to the input number and check if the number is prime.
+     * - If it is a prime, keep dividing the number by that prime factor and add it to the result.
+     * 
+     * Time Complexity:
+     * - O(n), where n is the input number.
+     * 
+     * Space Complexity:
+     * - O(n), the space used for storing the list of prime factors.
+     * 
      * @param number The input number.
      * @return A list of all prime factors, including multiplicity.
      */
@@ -95,9 +105,19 @@ public class j02PrimeFactors {
         return true;
     }
 
-    /**
-     * Finds all prime factors of a number using an efficient approach.
-     *
+    /*- 
+     * Approach: Efficient method to find all prime factors using trial division up to sqrt(n).
+     * 
+     * Intuition:
+     * - Iterate through numbers up to sqrt(n) to check divisibility.
+     * - If divisible, repeatedly divide the number by the prime factor and add it to the result.
+     * 
+     * Time Complexity:
+     * - O(sqrt(n)), where n is the input number.
+     * 
+     * Space Complexity:
+     * - O(n), the space used for storing the list of prime factors.
+     * 
      * @param number The input number.
      * @return A list of all prime factors, including multiplicity.
      */
@@ -126,9 +146,19 @@ public class j02PrimeFactors {
         return out;
     }
 
-    /**
-     * Finds the unique prime factors of a number.
-     *
+    /*- 
+     * Approach: Method to find the unique prime factors of a number.
+     * 
+     * Intuition:
+     * - Use trial division up to sqrt(n), ensuring that each prime factor is only added once.
+     * - After dividing out all occurrences of each prime factor, the number left is the last prime factor.
+     * 
+     * Time Complexity:
+     * - O(sqrt(n)), where n is the input number.
+     * 
+     * Space Complexity:
+     * - O(n), the space used for storing the list of unique prime factors.
+     * 
      * @param n The input number.
      * @return A list of distinct prime factors.
      */
