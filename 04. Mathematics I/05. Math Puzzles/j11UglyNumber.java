@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     An ugly number is a number whose prime factors only include 2, 3, or 5. 
@@ -40,7 +40,7 @@ public class j11UglyNumber {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Iterative division by prime factors
      * 
      * Intuition:

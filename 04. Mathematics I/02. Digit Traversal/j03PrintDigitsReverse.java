@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *     Given an integer `n`, print each digit of the number in reverse order, each on a new line.
  * 
@@ -38,7 +38,7 @@ public class j03PrintDigitsReverse {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Iterative Calculation
      * 
      * Intuition:

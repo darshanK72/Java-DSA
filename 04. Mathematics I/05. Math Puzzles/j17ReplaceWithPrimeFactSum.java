@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     You are given an integer `n`. The task is to repeatedly replace `n` with the sum of its prime 
@@ -35,7 +35,7 @@ public class j17ReplaceWithPrimeFactSum {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Repeated Prime Factorization and Summing
      * 
      * Intuition:
@@ -64,7 +64,7 @@ public class j17ReplaceWithPrimeFactSum {
         }
     }
 
-    /*-
+    /**
      * Helper Method: reduce
      * 
      * Intuition:

@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given two non-negative integers `n1` and `n2`, represented as numbers in base `b`, 
@@ -41,7 +41,7 @@ public class j09AnyBaseSubtraction {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Subtraction of two numbers in any base.
      * 
      * Intuition:

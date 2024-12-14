@@ -1,4 +1,4 @@
-/*- 
+/** 
  * Problem Statement:
  * 
  *     Given an integer `n`, find the prime factors of `n`.
@@ -54,7 +54,7 @@ public class j02PrimeFactors {
         in.close();
     }
 
-    /*- 
+    /** 
      * Approach: Naive method to find all prime factors of a number.
      * 
      * Intuition:
@@ -105,7 +105,7 @@ public class j02PrimeFactors {
         return true;
     }
 
-    /*- 
+    /** 
      * Approach: Efficient method to find all prime factors using trial division up to sqrt(n).
      * 
      * Intuition:
@@ -146,7 +146,7 @@ public class j02PrimeFactors {
         return out;
     }
 
-    /*- 
+    /** 
      * Approach: Method to find the unique prime factors of a number.
      * 
      * Intuition:

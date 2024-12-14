@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     You are given an integer `num`. Your task is to count how many numbers from 1 to `num` have an even sum of digits. 
@@ -43,7 +43,7 @@ public class j16CountIntWithEvenDigitSum {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Iterative Digit Sum Calculation
      * 
      * Intuition:

@@ -1,4 +1,4 @@
-/*- 
+/** 
  * Problem Statement:
  * 
  *     Determine whether a given number is a prime number.
@@ -45,7 +45,7 @@ public class j01IsPrime {
         in.close();
     }
 
-    /*- 
+    /** 
      * Approach: Naive method to check if a number is prime.
      * 
      * Intuition:
@@ -71,7 +71,7 @@ public class j01IsPrime {
         return true; // Prime number
     }
 
-    /*- 
+    /** 
      * Approach: Efficient method to check if a number is prime using square root optimization.
      * 
      * Intuition:
@@ -96,7 +96,7 @@ public class j01IsPrime {
         return true; // Prime number
     }
 
-    /*- 
+    /** 
      * Approach: More efficient method to check primality using properties of primes.
      * 
      * Intuition:

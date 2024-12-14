@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given two non-negative integers `n1` and `n2`, represented as numbers in base `b`, 
@@ -42,7 +42,7 @@ public class j10AnyBaseMultiplication {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Multiplication of two numbers in any base.
      * 
      * Intuition:
@@ -93,7 +93,7 @@ public class j10AnyBaseMultiplication {
         return finalAns; // Return the final multiplication result
     }
 
-    /*-
+    /**
      * Approach: Addition of two numbers in any base.
      * 
      * Intuition:

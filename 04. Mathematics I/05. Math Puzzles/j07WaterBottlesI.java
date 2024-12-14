@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     You have `numBottles` full water bottles, and you can exchange `numExchange` empty bottles for one full bottle of water. 
@@ -38,7 +38,7 @@ public class j07WaterBottlesI {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: We keep drinking full bottles and exchanging empty ones as long as possible.
      * 
      * Intuition:
@@ -69,7 +69,7 @@ public class j07WaterBottlesI {
         return ans; // Return the total number of bottles drunk
     }
 
-    /*-
+    /**
      * Alternative Approach: Optimized Simulation with Modular Arithmetic
      * 
      * Intuition:

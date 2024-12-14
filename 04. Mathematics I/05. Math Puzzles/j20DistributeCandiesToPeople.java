@@ -1,5 +1,5 @@
 
-/*-
+/**
  * Problem Statement:
  * 
  *     You are given an integer `candies` representing the total number of candies and an integer `num_people` 
@@ -54,7 +54,7 @@ public class j20DistributeCandiesToPeople {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Distribute Candies Using Simple Iteration
      * 
      * Intuition:

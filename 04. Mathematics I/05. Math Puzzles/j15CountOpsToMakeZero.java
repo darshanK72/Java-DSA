@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     You are given two integers `num1` and `num2`. In each operation, you subtract the smaller number from the larger one, and you continue this process until either one or both numbers become zero.
@@ -37,7 +37,7 @@ public class j15CountOpsToMakeZero {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Iterative Subtraction
      * 
      * Intuition:
@@ -68,7 +68,7 @@ public class j15CountOpsToMakeZero {
         return op; // Return the total number of operations
     }
 
-    /*-
+    /**
      * Approach 2: Recursive Subtraction
      * 
      * Intuition:

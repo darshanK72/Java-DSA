@@ -1,4 +1,4 @@
-/*- 
+/** 
  * Problem Statement:
  * 
  *     A happy number is a number that eventually reaches 1 when replaced by the sum of the square of each digit.
@@ -58,7 +58,7 @@ public class j13HappyNumber {
         in.close();
     }
 
-    /*- 
+    /** 
      * Approach: Check if the number eventually leads to 1 or enters a cycle.
      * 
      * Intuition:

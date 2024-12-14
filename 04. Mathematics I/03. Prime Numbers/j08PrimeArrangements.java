@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an integer `n`, find the number of prime arrangements for `n` numbers. The prime arrangements are the ways in which the primes can be arranged in the first `n` positions while keeping non-primes in the rest.
@@ -31,7 +31,7 @@ public class j08PrimeArrangements {
         in.close(); // Close the scanner to release resources
     }
 
-    /*-
+    /**
      * Approach: Counting Primes and Using Factorial to Calculate Arrangements
      * 
      * Intuition:
@@ -73,7 +73,7 @@ public class j08PrimeArrangements {
         return (int) (fact(count) * fact(n - count) % 1000000007);
     }
 
-    /*-
+    /**
      * Helper function to calculate the factorial modulo 1000000007.
      * 
      * Intuition:

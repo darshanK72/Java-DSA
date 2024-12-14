@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     The Nim Game is a two-player game where players take turns removing stones from piles. On each turn, 
@@ -35,7 +35,7 @@ public class j01NimGame {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Check if the current player can win based on the number of stones.
      * 
      * Intuition:

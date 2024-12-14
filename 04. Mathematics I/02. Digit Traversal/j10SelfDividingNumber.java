@@ -1,4 +1,4 @@
-/*- 
+/** 
  * Problem Statement:
  * 
  *     A self-dividing number is a number that is divisible by each of its digits. For example, 128 is a self-dividing 
@@ -44,7 +44,7 @@ public class j10SelfDividingNumber {
         in.close();
     }
 
-    /*- 
+    /** 
      * Approach: Iterate through the given range and check for self-dividing numbers.
      * 
      * Intuition:

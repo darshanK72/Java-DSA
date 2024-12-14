@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given a non-negative integer `num`, repeatedly add all its digits until the result has only one digit.
@@ -33,7 +33,7 @@
          in.close();
      }
 
-     /*-
+     /**
       * Approach 1: Iterative Approach (Sum of Digits)
       * 
       * Intuition:
@@ -63,7 +63,7 @@
         return num;
     }
  
-     /*-
+     /**
       * Approach 2: Using Mathematical Formula (Digital Root)
       * 
       * Intuition:

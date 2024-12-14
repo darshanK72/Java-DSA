@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given a number `n`, count all the Pythagorean triplets `(a, b, c)` such that:
@@ -38,7 +38,7 @@ public class j09CountPythaghorianTriplets {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Brute force to find all pairs (a, b) and check if a corresponding c exists
      * 
      * Intuition:
@@ -69,7 +69,7 @@ public class j09CountPythaghorianTriplets {
         return c; // Return the total count of valid triplets
     }
 
-    /*-
+    /**
      * Approach 2: Optimized approach using integer check for triplets
      * 
      * Intuition:

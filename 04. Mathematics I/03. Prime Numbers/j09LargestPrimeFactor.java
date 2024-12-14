@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an integer `n`, find the largest prime factor of `n`.
@@ -30,7 +30,7 @@ public class j09LargestPrimeFactor {
         in.close(); // Close the scanner to release resources
     }
 
-    /*-
+    /**
      * Approach: Trial Division to Find Largest Prime Factor
      * 
      * Intuition:

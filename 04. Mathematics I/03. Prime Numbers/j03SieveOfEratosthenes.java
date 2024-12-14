@@ -1,4 +1,4 @@
-/*- 
+/** 
  * Problem Statement:
  * 
  *     Given an integer `n`, find all the prime numbers less than or equal to `n`.
@@ -43,7 +43,7 @@ public class j03SieveOfEratosthenes {
         in.close();
     }
 
-    /*- 
+    /** 
      * Approach: Naive Sieve of Eratosthenes
      * 
      * Time Complexity: O(N * log(log N)) where N is the input value.
@@ -75,7 +75,7 @@ public class j03SieveOfEratosthenes {
         System.out.println(); // For formatting
     }
 
-    /*- 
+    /** 
      * Approach: Efficient Sieve of Eratosthenes
      * 
      * Time Complexity: O(N * log(log N)) where N is the input value.

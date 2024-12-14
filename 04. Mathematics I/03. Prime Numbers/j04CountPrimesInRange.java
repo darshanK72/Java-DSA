@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given a range of integers for multiple queries, find the number of prime numbers within each specified range.
@@ -49,7 +49,7 @@ public class j04CountPrimesInRange {
         in.close(); // Close the scanner to release resources
     }
 
-    /*-
+    /**
      * Approach : Using Sieve of Eratosthenes and Prefix Sum Array
      * 
      * Intuition:
@@ -90,7 +90,7 @@ public class j04CountPrimesInRange {
         return out; // Return the results
     }
 
-    /*-
+    /**
      * Seive Helper : Sieve of Eratosthenes
      * 
      * Intuition:

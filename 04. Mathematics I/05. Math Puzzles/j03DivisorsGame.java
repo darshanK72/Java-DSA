@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     In the Divisors Game, two players take turns to choose a divisor `x` of the current number `n` such that `1 < x < n`. 
@@ -35,7 +35,7 @@ public class j03DivisorsGame {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: The winner is determined by whether the number n is even or odd.
      * 
      * Intuition:

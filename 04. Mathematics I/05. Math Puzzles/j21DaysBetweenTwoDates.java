@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given two dates in the format "yyyy-mm-dd", calculate the number of days between the two dates. 
@@ -34,7 +34,7 @@ public class j21DaysBetweenTwoDates {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Calculate the number of days between the two given dates.
      * 
      * Intuition:
@@ -88,7 +88,7 @@ public class j21DaysBetweenTwoDates {
         return Math.abs(daysTillDate2 - daysTillDate1);
     }
 
-    /*-
+    /**
      * Helper Function: Count the number of leap years before the given year.
      * 
      * Intuition:

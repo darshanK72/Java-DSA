@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an integer n, convert it to its representation in base -2 (negative base).
@@ -35,7 +35,7 @@ public class j05ConvertToNegativeBase2 {
         in.close(); // Close the scanner to release resources
     }
 
-    /*-
+    /**
      * Approach 1: Convert a number to base -2
      * 
      * Intuition:

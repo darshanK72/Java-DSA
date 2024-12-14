@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *
  *     You are given a date consisting of the day, month, and year. The task is to return the day of the week for that specific date.
@@ -30,7 +30,7 @@ public class j23DayOfWeek {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Days Calculation Tll the Date
      * 
      * Intuition:
@@ -77,7 +77,7 @@ public class j23DayOfWeek {
         return days[countDays % 7];
     }
 
-    /*-
+    /**
      * Approach: Zeller's Algorithm for Day of the Week Calculation.
      * 
      * Intuition:

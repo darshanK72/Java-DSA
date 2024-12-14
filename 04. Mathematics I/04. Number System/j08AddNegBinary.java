@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given two non-empty arrays of digits representing two numbers in base -2, 
@@ -53,7 +53,7 @@ public class j08AddNegBinary {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Adding two numbers in base -2.
      * 
      * Intuition:

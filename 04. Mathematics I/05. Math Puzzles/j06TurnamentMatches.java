@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     A tournament is held with `n` teams. In each match, one team wins and the other team is eliminated. 
@@ -36,7 +36,7 @@ public class j06TurnamentMatches {
         in.close();
     }
 
-    /*-
+    /**
      * Alternative Approach: Simulation of the Tournament Rounds
      * 
      * Intuition:
@@ -63,7 +63,7 @@ public class j06TurnamentMatches {
         return matches;
     }
 
-    /*-
+    /**
     * Approach: The number of matches required is always `n - 1`, because each match eliminates exactly one team. 
     *     To reduce from `n` teams to 1 winner, we need to eliminate `n - 1` teams. Hence, the number of matches played will be `n - 1`.
     * 

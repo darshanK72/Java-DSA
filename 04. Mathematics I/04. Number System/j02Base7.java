@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an integer `n`, convert it to a base 7 representation and return the result as a string.
@@ -34,7 +34,7 @@ public class j02Base7 {
         in.close(); // Close the scanner to release resources
     }
 
-    /*-
+    /**
      * Approach: Convert Decimal to Base 7 (Custom Implementation)
      * 
      * Intuition:

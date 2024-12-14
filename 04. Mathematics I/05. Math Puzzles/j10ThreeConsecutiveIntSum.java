@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an integer `n`, check if `n` can be represented as the sum of three consecutive integers.
@@ -44,7 +44,7 @@ public class j10ThreeConsecutiveIntSum {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Direct check using modulus and division
      * 
      * Intuition:

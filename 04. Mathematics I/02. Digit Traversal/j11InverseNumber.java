@@ -1,4 +1,4 @@
-/*- 
+/** 
  * Problem Statement:
  * 
  *     The inverse of a number is obtained by reversing the positions of its digits. 
@@ -44,7 +44,7 @@ public class j11InverseNumber {
         in.close();
     }
 
-    /*- 
+    /** 
      * Approach: Reverse the digits of the number based on the position of each digit.
      * 
      * Intuition:

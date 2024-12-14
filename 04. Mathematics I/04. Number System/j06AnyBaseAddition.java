@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given two numbers `n1` and `n2` in a given base `b`, find their sum and return it in the same base `b`.
@@ -38,7 +38,7 @@ public class j06AnyBaseAddition {
         in.close(); // Close the scanner to release resources
     }
 
-    /*-
+    /**
      * Approach 1: Add numbers in any base
      * 
      * Intuition:

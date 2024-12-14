@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given a number `n`, find the smallest prime factor (SPF) for each number from 1 to `n`.
@@ -51,7 +51,7 @@ public class j05SmallestPrimeFactor {
         in.close(); // Close the scanner to release resources
     }
 
-    /*-
+    /**
      * Approach: Using Sieve to Find Smallest Prime Factor (SPF)
      * 
      * Intuition:

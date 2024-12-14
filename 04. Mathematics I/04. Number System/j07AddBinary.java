@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given two binary strings `a` and `b`, return their sum as a binary string.
@@ -36,7 +36,7 @@ public class j07AddBinary {
         in.close(); // Close the scanner to release resources
     }
 
-    /*-
+    /**
      * Approach: Binary Addition
      * 
      * Intuition:

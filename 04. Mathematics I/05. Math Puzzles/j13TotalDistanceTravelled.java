@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     You are given two integers: `mainTank` and `additionalTank`. The `mainTank` is the main fuel tank of a vehicle, and the `additionalTank` is an extra fuel reserve. The vehicle consumes 5 units of fuel for every 50 kilometers it travels. If the `mainTank` has less than 5 units of fuel, the vehicle can only travel the distance corresponding to the remaining fuel in the `mainTank`.
@@ -39,7 +39,7 @@ public class j13TotalDistanceTravelled {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Greedy Approach
      * 
      * Intuition:

@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given a string `n` representing a number in any base `b` (1 <= b <= 16), convert it to a decimal (base 10) number and return the result.
@@ -35,7 +35,7 @@ public class j03AnyBaseToDecimal {
         in.close(); // Close the scanner to release resources
     }
 
-    /*-
+    /**
      * Approach: Convert Any Base to Decimal (Efficient Method)
      * 
      * Intuition:

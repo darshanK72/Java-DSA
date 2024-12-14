@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an integer `n`, convert it to any base `b` (where 2 <= b <= 36). The output should be the number `n` represented in the specified base `b`.
@@ -36,7 +36,7 @@ public class j01DecimalToAnyBase {
         in.close(); // Close the scanner to release resources
     }
 
-    /*-
+    /**
      * Approach 1: Convert Decimal to Any Base (Base 1 to 10)
      * 
      * Intuition:
@@ -65,7 +65,7 @@ public class j01DecimalToAnyBase {
         return out; // Return the result
     }
 
-    /*-
+    /**
      * Approach 2: Efficient Conversion to Any Base (Base 2 to 36)
      * 
      * Intuition:

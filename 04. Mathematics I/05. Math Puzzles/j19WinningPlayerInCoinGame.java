@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Alice and Bob are playing a game. Each turn, starting with Alice, the player must pick up coins 
@@ -45,7 +45,7 @@ public class j19WinningPlayerInCoinGame {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Greedy Simulation Approach
      * 
      * Intuition:
@@ -85,7 +85,7 @@ public class j19WinningPlayerInCoinGame {
         return isAliceTurn ? "Bob" : "Alice";
     }
 
-    /*-
+    /**
      * Approach 1: Optimized Solution for Determining the Losing Player
      * 
      * Intuition:

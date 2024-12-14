@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given multiple queries, each consisting of a range `[s, e]` and a number `n`, find the count of numbers in the range `[s, e]` that have exactly `n` distinct prime factors.
@@ -54,7 +54,7 @@ public class j07CountNumbersWithNFactors {
         in.close(); // Close the scanner to release resources
     }
 
-    /*-
+    /**
      * Approach: Iterating Over Each Range and Counting Numbers with Exact Prime Factors
      * 
      * Intuition:
@@ -86,7 +86,7 @@ public class j07CountNumbersWithNFactors {
         return output; // Return the list of results for all queries
     }
 
-    /*-
+    /**
      * Helper function to check if a number has exactly `n` distinct prime factors.
      * 
      * Intuition:

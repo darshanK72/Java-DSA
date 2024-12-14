@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an integer `n`, find the `n`th prime number. The prime numbers are the numbers that are greater than 1 and are divisible only by 1 and themselves.
@@ -30,7 +30,7 @@ public class j06NthPrimeNumber {
         in.close(); // Close the scanner to release resources
     }
 
-    /*-
+    /**
      * Approach: Using Sieve of Eratosthenes to Find the nth Prime Number
      * 
      * Intuition:

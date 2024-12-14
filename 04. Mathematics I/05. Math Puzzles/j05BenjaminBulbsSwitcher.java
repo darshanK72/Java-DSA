@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     There are `n` bulbs in a row, initially all turned off. You have to perform `n` rounds of operations.
@@ -37,7 +37,7 @@ public class j05BenjaminBulbsSwitcher {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: The problem can be reduced to finding the number of perfect squares less than or equal to `n`.
      * 
      * Intuition:
@@ -65,7 +65,7 @@ public class j05BenjaminBulbsSwitcher {
         return c;
     }
 
-    /*-
+    /**
      * Alternative Approach: Using the property of perfect squares directly without a loop.
      * 
      * Intuition:

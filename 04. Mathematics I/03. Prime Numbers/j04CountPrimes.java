@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an integer n, return the number of prime numbers that are strictly less than n.
@@ -32,7 +32,7 @@ public class j04CountPrimes {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Sieve of Eratosthenes
      * 
      * Intuition:
@@ -73,7 +73,7 @@ public class j04CountPrimes {
         return count;
     }
 
-    /*-
+    /**
      * Approach 2: Optimized Sieve of Eratosthenes (if applicable)
      * 
      * Intuition:
@@ -109,7 +109,7 @@ public class j04CountPrimes {
         return count;
     }
 
-    /*-
+    /**
      * Alternative Approach: Brute-force Checking
      * 
      * Intuition:

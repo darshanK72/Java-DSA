@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     You are given three distinct integers `a`, `b`, and `c` representing positions of three stones on a number line. 
@@ -41,7 +41,7 @@ public class j02MovingStonesUntilConsecutive {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Calculate the minimum and maximum number of moves to make the stones consecutive.
      * 
      * Intuition:

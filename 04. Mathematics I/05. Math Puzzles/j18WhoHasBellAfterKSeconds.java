@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     You are given a number `n`, representing the number of children standing in a circle, and a number 
@@ -43,7 +43,7 @@ public class j18WhoHasBellAfterKSeconds {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Simulate the Bell Passing
      * 
      * Intuition:

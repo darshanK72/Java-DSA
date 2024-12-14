@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     You are given two integers: `memory1` and `memory2`, representing two different memory segments in a system. At each step, the system consumes a certain amount of memory, starting with 1 unit. After each consumption, the amount of memory that is consumed increases by 1 for the next step.
@@ -43,7 +43,7 @@ public class j14InternalMemoryLeak {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Simulation of Memory Consumption
      * 
      * Intuition:

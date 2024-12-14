@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     A **perfect number** is a positive integer that is equal to the sum of its proper divisors, excluding itself.
@@ -35,7 +35,7 @@ public class j20PerfectNumber {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Brute Force Approach to Check if a Number is Perfect
      * 
      * Intuition:

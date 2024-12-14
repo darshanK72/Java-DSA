@@ -1,4 +1,4 @@
-/*- 
+/** 
  * Problem Statement:
  * 
  *     Given an integer `n` and a number `k`, the task is to rotate the digits of `n` by `k` positions to the right.
@@ -47,7 +47,7 @@ import java.util.Scanner;
          in.close();
      }
  
-     /*- 
+     /** 
       * Approach: Rotate the digits of the number based on `k`.
       * 
       * Intuition:

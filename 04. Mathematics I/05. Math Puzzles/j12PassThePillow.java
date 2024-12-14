@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     There are `n` players standing in a circle, and a pillow is passed between them every second. 
@@ -46,7 +46,7 @@ public class j12PassThePillow {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Using Modulo Arithmetic to Determine Final Position
      * 
      * Intuition:

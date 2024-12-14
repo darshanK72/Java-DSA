@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given a number `n` in base `b1`, convert it to base `b2` and return the result.
@@ -37,7 +37,7 @@ public class j04AnyBaseToAnyBase {
         in.close(); // Close the scanner to release resources
     }
 
-    /*-
+    /**
      * Helper : Convert Any Base to Decimal
      * 
      * Intuition:
@@ -67,7 +67,7 @@ public class j04AnyBaseToAnyBase {
         return dec; // Return the decimal equivalent
     }
 
-    /*-
+    /**
      * Helper : Convert Decimal to Any Base
      * 
      * Intuition:
