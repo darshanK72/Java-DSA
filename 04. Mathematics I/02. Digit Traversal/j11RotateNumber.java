@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 // Complexity : O(1)
 
-public class j12RotateNumber {
+public class j11RotateNumber {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
