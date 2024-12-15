@@ -1,0 +1,118 @@
+/*-
+ * Problem Statement:
+ * 
+ *     <Insert Problem Statement Here>
+ * 
+ * Input:
+ *     - An integer `n` (1 <= n <= 10^4), representing the size of the array.
+ *     - An array `nums` of size `n` where each element satisfies (1 <= nums[i] <= 10^5).
+ * 
+ * Output:
+ *     - <Insert Output Description Here>
+ * 
+ * Example:
+ *     Input:
+ *     <Insert Example Input Here>
+ *     Output:
+ *     <Insert Example Output Here>
+ * 
+ *     Explanation:
+ *     <Insert Explanation Here>
+ */
+
+import java.util.Scanner;
+
+public class YourClassName {
+
+    public static void main(String args[]) {
+        // Reading input
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt(); // Input: the size of the array
+        int[] nums = new int[n];
+        for (int i = 0; i < n; i++) {
+            nums[i] = in.nextInt(); // Input: elements of the array
+        }
+
+        // Call your solution
+        System.out.printf("Your Solution: <Description of your solution>\n", solutionMethod(nums));
+
+        // Call optimized solution (if applicable)
+        System.out.printf("Optimized Solution: <Description of optimized solution>\n", optimizedSolutionMethod(nums));
+
+        in.close();
+    }
+
+    /*-
+     * Approach 1: <Description of Approach 1>
+     * 
+     * Intuition:
+     * - <Explain the intuition behind the approach>
+     * 
+     * Time Complexity:
+     * - O(<complexity analysis>).
+     * 
+     * Space Complexity:
+     * - O(<space complexity analysis>).
+     * 
+     * @param nums The input array of numbers.
+     * @return <The result based on this approach>.
+     */
+    public static int solutionMethod(int[] nums) {
+        int result = 0; // Initialize the result
+        // Your solution logic
+        return result;
+    }
+
+    /*-
+     * Approach 2: <Description of Approach 2>
+     * 
+     * Intuition:
+     * - <Explain the intuition behind the optimized approach>
+     * 
+     * Time Complexity:
+     * - O(<optimized time complexity analysis>).
+     * 
+     * Space Complexity:
+     * - O(<optimized space complexity analysis>).
+     * 
+     * @param nums The input array of numbers.
+     * @return <The result based on this optimized approach>.
+     */
+    public static int optimizedSolutionMethod(int[] nums) {
+        int result = 0; // Initialize the result
+        // Optimized solution logic
+        return result;
+    }
+
+    /*-
+     * Approach 3: <Description of Approach 3 (if applicable)>
+     * 
+     * Intuition:
+     * - <Explain the intuition behind this approach>
+     * 
+     * Time Complexity:
+     * - O(<time complexity analysis>).
+     * 
+     * Space Complexity:
+     * - O(<space complexity analysis>).
+     * 
+     * @param nums The input array of numbers.
+     * @return <The result based on this approach>.
+     */
+    public static int alternativeSolutionMethod(int[] nums) {
+        int result = 0; // Initialize the result
+        // Additional approach logic
+        return result;
+    }
+}
+
+I am solving problems using java on leetcode and geeksforgeeks and learning DSA, i have maintain a 
+code repository where I am maintaining java code files, I want to format that files in above structure as it is, indentention will be also as it is from file, also multiline comments will have 
+to be same with /*- start.
+
+if there is only on approach for that problem then give heading as Approach. if there are some more approaches present for that problem then please provide from your side with same format given.
+
+Try to get problem statement from leetcode or Geeksforgeeks where yo can find, where you cannot find create a problem statement based on given input code.
+
+Now remember this for each and every promt I will provide in this conversation, start giving your output from my next promt.
+if there are any efficient approach or any other approach present for question, then also provide it from your side in same format
