@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an array of integers, `arr[]`, find the index of the smallest element in the array.
@@ -44,7 +44,7 @@ public class j03SmallestElement {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Linear Search (Iterative) for Index of Minimum Element
      * 
      * Intuition:
@@ -70,7 +70,7 @@ public class j03SmallestElement {
         return index;
     }
 
-    /*-
+    /**
      * Approach 2: Recursive Search for Minimum Element
      * 
      * Intuition:

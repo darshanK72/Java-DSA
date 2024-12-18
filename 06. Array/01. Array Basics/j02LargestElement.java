@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an array of integers, `arr[]`, find the index of the largest element in the array.
@@ -44,7 +44,7 @@ public class j02LargestElement {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Linear Search (Iterative) for Index of Maximum Element
      * 
      * Intuition:
@@ -70,7 +70,7 @@ public class j02LargestElement {
         return index;
     }
 
-    /*-
+    /**
      * Approach 2: Recursive Search for Maximum Element
      * 
      * Intuition:

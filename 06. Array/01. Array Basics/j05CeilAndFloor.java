@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an array of integers, `arr[]`, and an integer `k`, find the ceiling and floor of `k` in the array.
@@ -48,7 +48,7 @@ public class j05CeilAndFloor {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Iterative Search for Ceil and Floor
      * 
      * Intuition:

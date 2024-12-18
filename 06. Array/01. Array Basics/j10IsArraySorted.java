@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Write a program to check if a given array is sorted in non-decreasing order. 
@@ -54,7 +54,7 @@ public class j10IsArraySorted {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Iterative Check for Sorted Array
      * 
      * Intuition:
@@ -83,7 +83,7 @@ public class j10IsArraySorted {
         return true; // All pairs are sorted
     }
 
-    /*-
+    /**
      * Approach 2: Recursive Check for Sorted Array
      * 
      * Intuition:

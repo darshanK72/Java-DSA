@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an array of integers, `arr[]`, find the maximum product of two elements such that the product is 
@@ -49,7 +49,7 @@ public class j07MaxProductOfPair {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Brute Force Approach (Nested Loops)
      * 
      * Intuition:
@@ -78,7 +78,7 @@ public class j07MaxProductOfPair {
         return maxProd; // Return the maximum product
     }
 
-    /*-
+    /**
      * Approach 2: Optimized Approach (Find Maximum and Second Maximum)
      * 
      * Intuition:

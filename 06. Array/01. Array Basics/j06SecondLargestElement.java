@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an array of integers, `arr[]`, find the index of the second largest element in the array.
@@ -48,7 +48,7 @@ public class j06SecondLargestElement {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Find the Second Largest Element (Iterative Approach)
      * 
      * Intuition:

@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an array of integers, `arr[]`, find the span of the array.
@@ -41,7 +41,7 @@ public class j04SpanOfArray {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Find the Span (Iterative Approach)
      * 
      * Intuition:

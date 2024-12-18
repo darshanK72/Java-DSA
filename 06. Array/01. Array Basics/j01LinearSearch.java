@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an array of integers, `arr[]`, and a target integer `k`, perform the following operations:
@@ -72,7 +72,7 @@ public class j01LinearSearch {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Linear Search (Iterative)
      * 
      * Intuition:
@@ -98,7 +98,7 @@ public class j01LinearSearch {
         return -1;
     }
 
-    /*-
+    /**
      * Approach 2: Recursive Search (First Occurrence)
      * 
      * Intuition:
@@ -124,7 +124,7 @@ public class j01LinearSearch {
         return findFirstRecursive(arr, index + 1, k);
     }
 
-    /*-
+    /**
      * Approach 3: Linear Search (Last Occurrence)
      * 
      * Intuition:
@@ -150,7 +150,7 @@ public class j01LinearSearch {
         return -1;
     }
 
-    /*-
+    /**
      * Approach 4: Recursive Search (Last Occurrence)
      * 
      * Intuition:
@@ -176,7 +176,7 @@ public class j01LinearSearch {
         return findFirstRecursive(arr, index - 1, k);
     }
 
-    /*-
+    /**
      * Approach 5: Find First and Last Occurrence
      * 
      * Intuition:
@@ -206,7 +206,7 @@ public class j01LinearSearch {
         return result;
     }
 
-    /*-
+    /**
      * Approach 6: Find All Occurrences (Linear Search)
      * 
      * Intuition:
@@ -232,7 +232,7 @@ public class j01LinearSearch {
         return out;
     }
 
-    /*-
+    /**
      * Approach 7: Find All Occurrences (Recursive Search)
      * 
      * Intuition:

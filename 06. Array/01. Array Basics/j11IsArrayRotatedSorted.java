@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Determine whether a given array is a rotated version of a non-decreasing sorted array. 
@@ -51,7 +51,7 @@ public class j11IsArrayRotatedSorted {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Check Rotated Sorted Array
      * 
      * Intuition:

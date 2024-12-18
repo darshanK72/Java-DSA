@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an array `nums` of integers and an integer `k`, modify each element of the array in operations, 
@@ -49,7 +49,7 @@ public class j08SmallestRangeI {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Simple Min-Max Adjustment
      * 
      * Intuition:

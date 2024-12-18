@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an integer array `arr` representing heights of bars in a bar chart, display the bar chart 
@@ -49,7 +49,7 @@ public class j09BarChart {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Vertical Bar Chart Generation
      * 
      * Intuition:
