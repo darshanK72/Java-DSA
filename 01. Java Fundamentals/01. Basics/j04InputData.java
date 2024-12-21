@@ -1,36 +1,59 @@
+/**
+ * This class demonstrates different ways to take input in Java
+ * using various Scanner methods for different data types
+ */
+
 import java.util.Scanner;
+
 public class j04InputData {
-    public static void main(String args[])
-    {
+    public static void main(String args[]) {
+        // Create Scanner object to read input from standard input (keyboard)
         Scanner in = new Scanner(System.in);
 
-        boolean b = in.nextBoolean();
-        System.out.println(b);
+        // Reading boolean input (true/false)
+        System.out.print("Enter a boolean value (true/false): ");
+        boolean b = in.nextBoolean(); // Accepts "true" or "false" (case-insensitive)
+        System.out.println("Boolean: " + b);
 
-        byte bb = in.nextByte();
-        System.out.println(bb);
+        // Reading byte input
+        System.out.print("Enter a byte (-128 to 127): ");
+        byte bb = in.nextByte(); // Throws exception if input is out of range
+        System.out.println("Byte: " + bb);
 
-        char c = in.next().charAt(0);
-        System.out.println(c);
+        // Reading character input
+        System.out.print("Enter a character: ");
+        char c = in.next().charAt(0); // Takes first character of input string
+        System.out.println("Character: " + c);
 
-        int integer = in.nextInt();
-        System.out.println(integer);
+        // Reading integer input
+        System.out.print("Enter an integer: ");
+        int integer = in.nextInt(); // Reads a 32-bit integer
+        System.out.println("Integer: " + integer);
 
-        long lng = in.nextLong();
-        System.out.println(lng);
+        // Reading long input
+        System.out.print("Enter a long number: ");
+        long lng = in.nextLong(); // Reads a 64-bit integer
+        System.out.println("Long: " + lng);
 
-        float f = in.nextFloat();
-        System.out.println(f);
+        // Reading float input
+        System.out.print("Enter a float number: ");
+        float f = in.nextFloat(); // Reads decimal number (32-bit)
+        System.out.println("Float: " + f);
 
-        double d = in.nextDouble();
-        System.out.println(d);
+        // Reading double input
+        System.out.print("Enter a double number: ");
+        double d = in.nextDouble(); // Reads decimal number (64-bit)
+        System.out.println("Double: " + d);
 
-        in.nextLine(); // to ignore string before taking actual input
-        String str = in.nextLine();
-        System.out.println(str);
+        // Important: nextLine() to handle the leftover newline character
+        in.nextLine(); // Consumes the leftover newline character
 
+        // Reading string input
+        System.out.print("Enter a string: ");
+        String str = in.nextLine(); // Reads entire line including spaces
+        System.out.println("String: " + str);
+
+        // Close scanner to prevent resource leak
         in.close();
-
     }
-    
 }

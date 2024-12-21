@@ -1,39 +1,51 @@
+/*-
+ * Topic: Types of Inheritance in Java
+ * Inheritance in Java allows one class to inherit the properties and behaviors of another class. There are different types of inheritance:
+ * 
+ * 1) **Multilevel Inheritance**: A class inherits from another class, and that class itself inherits from another class.
+ * 2) **Multiple Inheritance**: A class inherits from more than one class (not supported directly in Java using classes but can be done using interfaces).
+ * 3) **Diamond Inheritance**: A class inherits from two classes that share the same methods, leading to ambiguity (handled by interfaces in Java).
+ */
+
 public class j08TypeOfInheritence {
 
 	public static void main(String[] args) {
-		
-		Ractangle r1 = new Ractangle(4,20,30);
-		
+
+		// Creating an object of the Rectangle class and calculating the area
+		Ractangle r1 = new Ractangle(4, 20, 30);
 		System.out.println(r1.area());
-		
-		Triangle t1 = new Triangle(3,8,9,3);
+
+		// Creating an object of the Triangle class and calculating the area
+		Triangle t1 = new Triangle(3, 8, 9, 3);
 		System.out.println(t1.area());
 	}
-
 }
 
 /*
- * Type of Inheritence
- * 1) Multilevel Inheritence --> when class is inerited from other class which is also inheritted from another one
- * 2) Multiple Inheritence --> when class is inheritted by many 
- * 3) Dimond Inheritence --> when a class is inheritted from other two class, and has same methods in both of them.
- * it causes ambiguity, to eliminate that problem Interfaces are used
+ * The Shape1 class is a base class with a single field 'sides' which is
+ * inherited by both Rectangle and Triangle classes.
+ * 
+ * In this example:
+ * - Rectangle inherits from Shape1 and calculates the area of the rectangle.
+ * - Triangle inherits from Shape1 and calculates the area of the triangle using
+ * Heron's formula.
  */
 
-class Shape1
-{
+// Base class Shape1
+class Shape1 {
 	private int sides;
-	
-	public Shape1()
-	{
-		
+
+	// Default constructor
+	public Shape1() {
 	}
 
+	// Constructor with sides initialization
 	public Shape1(int sides) {
 		super();
 		this.setSides(sides);
 	}
 
+	// Getter and Setter for sides
 	public int getSides() {
 		return sides;
 	}
@@ -41,51 +53,45 @@ class Shape1
 	public void setSides(int sides) {
 		this.sides = sides;
 	}
-	
 }
 
-
-// Using extends keyword we can derive properties of parent class in child class
-/*
- * Inheritence is known as deriving propert
- */
-class Ractangle extends Shape1
-{
+// Rectangle class inherits from Shape1
+class Ractangle extends Shape1 {
 	private int length;
 	private int breadth;
-	
-	public Ractangle(int sides,int length,int breadth)
-	{
-		super(sides);
+
+	// Constructor to initialize sides, length, and breadth
+	public Ractangle(int sides, int length, int breadth) {
+		super(sides); // calling the parent class constructor
 		this.length = length;
 		this.breadth = breadth;
 	}
-	
-	public float area()
-	{
-		return this.length*this.breadth;
+
+	// Method to calculate the area of the rectangle
+	public float area() {
+		return this.length * this.breadth;
 	}
 }
 
-class Triangle extends Shape1
-{
+// Triangle class inherits from Shape1
+class Triangle extends Shape1 {
 	private int side_1;
 	private int side_2;
 	private int side_3;
-	
-	public Triangle(int side,int side_1, int side_2, int side_3) {
-		super(side);
+
+	// Constructor to initialize sides and the three sides of the triangle
+	public Triangle(int side, int side_1, int side_2, int side_3) {
+		super(side); // calling the parent class constructor
 		this.side_1 = side_1;
 		this.side_2 = side_2;
 		this.side_3 = side_3;
 	}
-	
-	public float area()
-	{
-		float f = (this.side_1 + this.side_2 + this.side_2) / 2;
-		System.out.println(f);
-		return (float) Math.sqrt(f*(f-this.side_1)*(f-this.side_2)*(f-this.side_3));
+
+	// Method to calculate the area of the triangle using Heron's formula
+	public float area() {
+		float semiPerimeter = (this.side_1 + this.side_2 + this.side_3) / 2;
+		System.out.println(semiPerimeter);
+		return (float) Math.sqrt(semiPerimeter * (semiPerimeter - this.side_1) * (semiPerimeter - this.side_2)
+				* (semiPerimeter - this.side_3));
 	}
-	
-	
 }
