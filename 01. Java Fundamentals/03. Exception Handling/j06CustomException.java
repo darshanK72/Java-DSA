@@ -1,3 +1,9 @@
+/**
+ * Demonstration of Custom Exception Handling in Java
+ * This program implements a simple calculator with custom exception handling
+ * for invalid operators
+ */
+
 import java.util.Scanner;
 
 public class j06CustomException {
@@ -33,17 +39,23 @@ public class j06CustomException {
                     break;
                 
                 default:
-                    throw new InvalidOperatorException("Incorect Operator");
+                    // Throwing custom exception for invalid operator
+                    throw new InvalidOperatorException("Invalid operator. Please use +, -, *, or /");
         
             }
         }
         catch(InvalidOperatorException ex)
         {
-            System.out.println(ex.getMessage());
+            System.out.println("Custom Exception: " + ex.getMessage());
         }
         catch(ArithmeticException ex)
         {
-            System.out.print(ex.getMessage());
+            System.out.println("Math Error: " + ex.getMessage());
+        }
+        catch(Exception ex)
+        {
+            // Generic exception handler
+            System.out.println("Unexpected error: " + ex.getMessage());
         }
         finally
         {
@@ -52,6 +64,9 @@ public class j06CustomException {
     }
 }
 
+/**
+ * Custom Exception class for handling invalid operator inputs
+ */
 class InvalidOperatorException extends Exception{
 
     InvalidOperatorException(String message)

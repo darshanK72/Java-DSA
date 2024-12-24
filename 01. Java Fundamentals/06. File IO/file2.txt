@@ -1,2 +1,7 @@
 My name is Darshan
 I am from Malegaon
+Hello using BufferedWriter!
+This is buffered writing.
+Line 1
+Line 2
+Line 3

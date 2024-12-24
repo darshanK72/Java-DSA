@@ -1,1 +1,6 @@
-Hello world this is new file 3
+Formatted number: 42
+This is a new line
+This stays on same lineThis is after
+42
+3.14
+true
