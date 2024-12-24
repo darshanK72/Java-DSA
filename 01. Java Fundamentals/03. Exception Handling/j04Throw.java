@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 public class j04Throw {
 
-	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		Scanner in = new Scanner(System.in);
