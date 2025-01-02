@@ -1,4 +1,4 @@
-/*-
+/**
  * Topic: Polymorphism in Java
  * Polymorphism in Java refers to the ability of a single function, method, or operator to operate on different types of data.
  * There are two main types of polymorphism in Java:

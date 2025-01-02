@@ -1,4 +1,4 @@
-/*-
+/**
  * Topic: String Manipulation in Java
  * - Strings in Java are objects, not primitive types, and are immutable.
  * - Java provides a rich set of methods to manipulate strings.

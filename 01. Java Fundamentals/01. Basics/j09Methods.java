@@ -1,4 +1,4 @@
-/*-
+/**
  * Topic: Methods in Java
  * - A method is a block of code that performs a specific task. It allows code reuse, modularity, and makes programs more organized.
  * - In Java, methods are defined within a class and can have various types:
@@ -42,8 +42,8 @@ public class j09Methods {
         // Call by value demonstration: swap values of a and b
         System.out.printf("Before Swap: a = %d, b = %d\n", a, b);
         swap(a, b);
-        System.out.printf("After Swap: a = %d, b = %d\n", a, b); // Values of a and b remain unchanged because of call
-                                                                 // by value
+        // Values of a and b remain unchanged because of call by value
+        System.out.printf("After Swap: a = %d, b = %d\n", a, b);
 
         // Call by reference demonstration with an array (mutable object)
         int[] arr = { 1, 2, 3, 4, 5, 6 };

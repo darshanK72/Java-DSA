@@ -1,4 +1,4 @@
-/*-
+/**
  * Topic: 2D Arrays in Java
  * - A 2D array is an array of arrays, which can be used to represent matrices or grids.
  * - It is a more complex version of the basic array and can store data in rows and columns.

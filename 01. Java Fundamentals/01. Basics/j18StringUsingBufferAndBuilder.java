@@ -1,4 +1,4 @@
-/*-
+/**
  * Topic: StringBuffer and StringBuilder in Java
  * - Both StringBuffer and StringBuilder are mutable classes that allow modification of strings without creating new objects.
  * - StringBuffer is synchronized, meaning it is thread-safe, but it is slower than StringBuilder.

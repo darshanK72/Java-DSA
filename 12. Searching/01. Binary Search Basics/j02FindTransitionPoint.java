@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     You are given an array `arr[]` of size `n` consisting of only 0s and 1s. 
@@ -44,7 +44,7 @@ public class j02FindTransitionPoint {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Transition Point (Basic Binary Search)
      * 
      * Intuition:
@@ -87,7 +87,7 @@ public class j02FindTransitionPoint {
         return -1; // Return -1 if no transition point is found
     }
 
-    /*-
+    /**
      * Approach 2: Efficient Transition Point Search (Optimized Binary Search)
      * 
      * Intuition:

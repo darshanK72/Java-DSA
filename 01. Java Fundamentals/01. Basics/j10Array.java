@@ -1,4 +1,4 @@
-/*-
+/**
  * Topic: Arrays in Java
  * - An array in Java is a container object that holds a fixed number of values of a single type.
  * - Arrays are zero-indexed, meaning the first element is at index 0, the second at index 1, and so on.

@@ -1,4 +1,4 @@
-/*-
+/**
  * Topic: Static Variables and Methods in Java
  * - **Static variables** are shared among all instances of a class, meaning they belong to the class rather than to any specific object.
  * - **Static methods** can be called using the class name, and they can only access static members of the class.

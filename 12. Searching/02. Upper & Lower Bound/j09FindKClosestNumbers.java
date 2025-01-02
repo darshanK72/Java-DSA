@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *
  *     Given a sorted array `arr` of integers and a target integer `x`, find the `k` closest integers 
@@ -47,7 +47,7 @@ public class j09FindKClosestNumbers {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Binary Search and Two-Pointer Technique
      * 
      * Intuition:

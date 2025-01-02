@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *
  *     Given a sorted array `arr` of integers and a target integer `k`, find the closest 
@@ -44,7 +44,7 @@ public class j08ClosestNumber {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Binary Search for Closest Number
      * 
      * Intuition:

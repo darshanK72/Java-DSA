@@ -1,4 +1,4 @@
-/*-
+/**
  * Topic: StringBuilder in Java
  * - The StringBuilder class is used to create mutable (modifiable) strings.
  * - Unlike the String class, which creates immutable strings, StringBuilder allows modifying the string without creating new objects.

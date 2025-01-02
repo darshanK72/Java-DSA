@@ -1,4 +1,4 @@
-/*-
+/**
  * Topic: Literals in Java
  * - Literals are fixed values that are directly used in Java programs.
  * - Java supports different types of literals: integer literals, floating-point literals, boolean literals, character literals, and string literals.

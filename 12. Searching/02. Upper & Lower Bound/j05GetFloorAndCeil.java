@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given a sorted array of integers `a[]` and a target value `x`, we need to find:
@@ -48,7 +48,7 @@ public class j05GetFloorAndCeil {
         in.close();
     }
 
-    /*-
+    /**
      * Approach:
      * 
      * - We will use binary search to efficiently find the floor and ceiling.

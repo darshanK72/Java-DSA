@@ -1,4 +1,4 @@
-/*-
+/**
  * Topic: Static Polymorphism (Method Overloading) in Java
  * Static polymorphism, also known as compile-time polymorphism, occurs when a method is defined multiple times in the same class with different parameters (either in number or type). 
  * Java resolves the method to call at compile time based on the method signature.

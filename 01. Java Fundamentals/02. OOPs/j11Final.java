@@ -1,4 +1,4 @@
-/*-
+/**
  * Topic: `final` Keyword in Java
  * The `final` keyword in Java is used to define constants, prevent method overriding, and prevent class inheritance.
  * 

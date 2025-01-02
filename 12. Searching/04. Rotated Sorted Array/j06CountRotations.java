@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     You are given a rotated sorted array `arr`. The array is initially sorted in ascending order 
@@ -54,7 +54,7 @@ public class j06CountRotations {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Binary Search for Unique Elements
      * 
      * Intuition:
@@ -92,7 +92,7 @@ public class j06CountRotations {
         return s; // The index of the minimum element is the number of rotations
     }
 
-    /*-
+    /**
      * Approach 2: Binary Search with Duplicates
      * 
      * Intuition:

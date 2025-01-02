@@ -1,4 +1,4 @@
-/*-
+/**
  * Topic: Types of Inheritance in Java
  * Inheritance in Java allows one class to inherit the properties and behaviors of another class. There are different types of inheritance:
  * 

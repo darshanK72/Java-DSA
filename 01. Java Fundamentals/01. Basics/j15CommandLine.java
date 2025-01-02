@@ -1,4 +1,4 @@
-/*-
+/**
  * Topic: Command Line Arguments in Java
  * - Command-line arguments are passed to the Java program when it is executed.
  * - These arguments are received in the `args` array in the `main` method of the Java program.

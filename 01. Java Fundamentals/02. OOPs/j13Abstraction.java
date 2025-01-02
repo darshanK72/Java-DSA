@@ -1,4 +1,4 @@
-/*-
+/**
  * Topic: **Abstraction in Java**
  * Abstraction is a process of hiding implementation details and showing only functionality to the user.
  * It can be achieved through abstract classes and interfaces.

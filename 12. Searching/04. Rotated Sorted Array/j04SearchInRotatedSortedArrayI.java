@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *
  *     Given a rotated sorted array, search for a target element in the array.
@@ -47,7 +47,7 @@ public class j04SearchInRotatedSortedArrayI {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Rotated Search with Binary Search
      * 
      * Intuition:
@@ -93,7 +93,7 @@ public class j04SearchInRotatedSortedArrayI {
         }
     }
 
-    /*-
+    /**
      * Approach 2: Optimized Binary Search with Duplicates Handling
      * 
      * Intuition:
@@ -137,7 +137,7 @@ public class j04SearchInRotatedSortedArrayI {
         }
     }
 
-    /*-
+    /**
      * Approach 3: Standard Binary Search for Rotated Sorted Array
      * 
      * Intuition:
@@ -184,7 +184,7 @@ public class j04SearchInRotatedSortedArrayI {
         return -1;
     }
 
-    /*-
+    /**
      * Helper function: Binary Search
      * 
      * Intuition:

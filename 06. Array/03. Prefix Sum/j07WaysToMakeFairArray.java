@@ -1,7 +1,10 @@
+
 /**
  * Problem Statement:
  * 
- *     Given an array of integers, we need to determine how many ways we can remove one element from the array such that the sum of the elements at even indices equals the sum of the elements at odd indices in the remaining array.
+ *     Given an array of integers, we need to determine how many ways we can remove one element from 
+ *     the array such that the sum of the elements at even indices equals the sum of the elements at odd 
+ *     indices in the remaining array.
  * 
  * Input:
  *     - An integer `n` (1 <= n <= 10^5), representing the size of the array.
@@ -103,7 +106,8 @@ public class j07WaysToMakeFairArray {
      * Approach 2: Optimized Prefix Sum Calculation
      * 
      * Intuition:
-     * - Instead of calculating prefix sums for every possible combination, we can maintain running sums of odd and even indexed elements and update them as we iterate through the array.
+     * - Instead of calculating prefix sums for every possible combination, we can maintain running sums 
+     *   of odd and even indexed elements and update them as we iterate through the array.
      * - This will reduce redundant calculations.
      * 
      * Time Complexity:

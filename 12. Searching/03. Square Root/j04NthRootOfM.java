@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given two integers `n` and `m`, find the `n`th root of `m`. The `n`th root of `m` is a number `x` such that 
@@ -34,7 +34,7 @@ public class j04NthRootOfM {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Binary Search to Find nth Root
      * 
      * Intuition:
@@ -71,7 +71,7 @@ public class j04NthRootOfM {
         return -1; // If no such integer exists, return -1
     }
 
-    /*-
+    /**
      * Helper function to compute base^exp. 
      * We use this to compute mid^n efficiently.
      * 

@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     You have `n` coins and you need to arrange them in a staircase pattern.
@@ -36,7 +36,7 @@ public class j05ArrangeCoins {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Binary Search to Find the Maximum Number of Complete Rows
      * 
      * Intuition:

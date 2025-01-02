@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given a sorted array of distinct integers and a target value `x`, 
@@ -43,7 +43,7 @@ public class j02FloorIndexInSortedArray {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Binary Search for Floor Index
      * 
      * Intuition:

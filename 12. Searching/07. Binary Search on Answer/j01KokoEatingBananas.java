@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *
  *     Koko loves bananas, and she has `n` piles of bananas in front of her. Each pile has a certain number of bananas, 
@@ -53,7 +53,7 @@ public class j01KokoEatingBananas {
         in.close();
     }
 
-    /*-
+    /**
      * Brute force approach to find the minimum eating speed.
      * We try each possible speed from 1 to a very large value, checking if Koko can finish all the bananas in `h` hours.
      *
@@ -74,7 +74,7 @@ public class j01KokoEatingBananas {
         return -1; // If no such speed exists
     }
 
-    /*-
+    /**
      * Optimized approach using binary search to find the minimum eating speed.
      * The idea is to use binary search on possible eating speeds between 1 and the maximum pile size.
      *
@@ -111,7 +111,7 @@ public class j01KokoEatingBananas {
         return min; // The minimum speed at which Koko can finish the bananas
     }
 
-    /*-
+    /**
      * Helper function to check if Koko can finish all bananas with a given eating speed.
      *
      * @param piles Array of banana piles.

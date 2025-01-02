@@ -1,4 +1,4 @@
-/*-
+/**
  * Topic: **Interfaces in Java**
  * An interface in Java is a blueprint of a class that contains abstract methods.
  * It represents a contract that implementing classes must fulfill by providing concrete implementations of all declared methods.

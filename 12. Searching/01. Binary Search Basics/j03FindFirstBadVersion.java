@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     You are given a version control system where some versions are known to be good and others are bad. 
@@ -44,7 +44,7 @@ public class j03FindFirstBadVersion {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Binary Search for First Bad Version
      * 
      * Intuition:
@@ -78,7 +78,7 @@ public class j03FindFirstBadVersion {
         return s; // The first bad version is found at index s
     }
 
-    /*-
+    /**
      * Helper Function: isBadVersion
      * 
      * This function simulates the check to see if a version is bad. In the context of the problem,

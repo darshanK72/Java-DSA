@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *
  *     Given a sorted array `arr` of integers and a target integer `target`, 
@@ -43,7 +43,7 @@ public class j07CountAllPositionsInSortedArray {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Binary Search for First and Last Occurrences
      * 
      * Intuition:

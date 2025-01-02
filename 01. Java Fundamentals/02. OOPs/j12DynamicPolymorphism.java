@@ -1,4 +1,4 @@
-/*-
+/**
  * Topic: **Dynamic Polymorphism (Method Overriding) in Java**
  * Dynamic polymorphism, also known as runtime polymorphism, is a process in which a call to an overridden method is resolved at runtime.
  * This is done through method overriding, where a subclass provides its own implementation of a method that is already defined in the parent class.

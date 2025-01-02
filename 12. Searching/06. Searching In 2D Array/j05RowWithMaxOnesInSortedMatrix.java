@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     You are given a binary matrix of size m x n where each row is sorted in non-decreasing order.
@@ -48,7 +48,7 @@ public class j05RowWithMaxOnesInSortedMatrix {
         in.close();
     }
 
-    /*-
+    /**
      * Approach:
      * 
      * Intuition:
@@ -85,7 +85,7 @@ public class j05RowWithMaxOnesInSortedMatrix {
         return ans;
     }
 
-    /*-
+    /**
      * Binary Search to count the number of 1's in a row.
      * 
      * The row is sorted, so we can use binary search to find the first occurrence of 1.

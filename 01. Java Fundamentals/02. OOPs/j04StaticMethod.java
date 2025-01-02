@@ -1,8 +1,11 @@
-/*-
+/**
  * Topic: Static Methods in Java
- * - **Static methods** are methods that belong to the class, not instances of the class. They can be called using the class name, and they can only access **static** variables or other **static** methods.
- * - A static method cannot refer to instance variables or instance methods directly. This is because instance members belong to specific objects, while static methods belong to the class itself.
- * - In the example, the `get_count_of_teachers()` method is static, which allows it to return the count of `Teacher` objects created without needing an instance.
+ * - **Static methods** are methods that belong to the class, not instances of the class. They can be 
+ *    called using the class name, and they can only access **static** variables or other **static** methods.
+ * - A static method cannot refer to instance variables or instance methods directly. This is because 
+ *   instance members belong to specific objects, while static methods belong to the class itself.
+ * - In the example, the `get_count_of_teachers()` method is static, which allows it to return the count 
+ *   of `Teacher` objects created without needing an instance.
  */
 
 public class j04StaticMethod {

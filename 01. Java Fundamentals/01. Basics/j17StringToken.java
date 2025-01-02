@@ -1,4 +1,4 @@
-/*-
+/**
  * Topic: StringTokenizer in Java
  * - The StringTokenizer class is used to split a string into tokens based on specified delimiters.
  * - It provides a simple way to break a string into smaller pieces (tokens).

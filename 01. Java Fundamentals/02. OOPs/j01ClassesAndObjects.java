@@ -1,4 +1,4 @@
-/*-
+/**
  * Topic: Classes and Objects in Java
  * - A class is a blueprint for creating objects in Java.
  * - Objects are instances of classes that hold data (fields) and behavior (methods).

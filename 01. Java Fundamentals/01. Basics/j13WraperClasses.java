@@ -1,4 +1,4 @@
-/*-
+/**
  * Topic: Wrapper Classes in Java
  * - Wrapper classes are used to convert primitive types into objects.
  * - Each primitive type (like `int`, `char`, `boolean`) has a corresponding wrapper class.

@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *
  *     Given a rotated sorted array of distinct integers, find the minimum element in the array.
@@ -44,7 +44,7 @@ public class j02MinimumInRotatedSortedArrayI {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Linear Search (Brute Force Approach)
      * 
      * Intuition:
@@ -86,7 +86,7 @@ public class j02MinimumInRotatedSortedArrayI {
         return nums[s]; // Return the smallest element found
     }
 
-    /*-
+    /**
      * Approach 2: Optimized Binary Search
      * 
      * Intuition:
@@ -126,7 +126,7 @@ public class j02MinimumInRotatedSortedArrayI {
         return nums[s]; // The minimum element will be at index s after the loop ends
     }
 
-    /*-
+    /**
      * Approach 3: Optimized Binary Search with Comparison
      * 
      * Intuition:

@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given a sorted array of integers and a target value `x`, 
@@ -43,7 +43,7 @@ public class j03UpperBound {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Binary Search for Upper Bound
      * 
      * Intuition:
