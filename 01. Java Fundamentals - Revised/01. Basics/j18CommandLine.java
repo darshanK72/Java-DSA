@@ -6,7 +6,7 @@
  * - Command-line arguments are typically used to allow the user to pass input to a program at runtime.
  */
 
-public class j15CommandLine {
+public class j18CommandLine {
 
 	public static void main(String[] args) {
 		// Iterating through the command-line arguments

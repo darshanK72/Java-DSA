@@ -1,9 +1,12 @@
 /**
  * Topic: Inner Classes in Java
- * - An **inner class** is a class defined within another class. Inner classes can be static or non-static, depending on whether the inner class is associated with the instance of the outer class or not.
- * - In this example, the `Shape` class is a **static inner class** because it is defined within the `j07InnerClasses` class and marked as `static`. This allows it to be instantiated independently of the outer class.
+ * - An **inner class** is a class defined within another class. Inner classes can be static or non-static, depending on 
+ *   whether the inner class is associated with the instance of the outer class or not.
+ * - In this example, the `Shape` class is a **static inner class** because it is defined within the `j07InnerClasses` class 
+ *   and marked as `static`. This allows it to be instantiated independently of the outer class.
  * - Non-static inner classes require an instance of the outer class to be instantiated.
- * - The outer class (`j07InnerClasses`) itself cannot be static, as the instance of the outer class is needed to instantiate a non-static inner class.
+ * - The outer class (`j07InnerClasses`) itself cannot be static, as the instance of the outer class is needed to instantiate 
+ *   a non-static inner class.
  */
 
 public class j07InnerClasses {

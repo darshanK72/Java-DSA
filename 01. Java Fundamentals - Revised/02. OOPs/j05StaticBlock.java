@@ -1,8 +1,10 @@
 /**
  * Topic: Static Blocks in Java
- * - A **static block** in Java is a block of code that is executed once, when the class is loaded into memory. It is used to initialize static variables or perform any setup required before an instance of the class is created.
+ * - A **static block** in Java is a block of code that is executed once, when the class is loaded into memory. 
+ *   It is used to initialize static variables or perform any setup required before an instance of the class is created.
  * - The static block is executed only once during the class loading, regardless of how many objects are created.
- * - In this example, the static block is used to initialize the static variable `population` to 200. Every time a new `Human` object is created, the `population` counter is incremented.
+ * - In this example, the static block is used to initialize the static variable `population` to 200. Every time a new 
+ *   `Human` object is created, the `population` counter is incremented.
  */
 
 public class j05StaticBlock {

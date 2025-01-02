@@ -7,7 +7,7 @@
  * - The StringBuffer and StringBuilder classes are used when frequent modifications to a string are required, providing better performance than using String concatenation in loops.
  */
 
-public class j18StringUsingBufferAndBuilder {
+public class j15StringBuffer {
 
 	public static void main(String[] args) {
 		/*

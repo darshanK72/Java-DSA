@@ -9,7 +9,7 @@
 
 import java.util.StringTokenizer;
 
-public class j17StringToken {
+public class j16StringTokenizer {
 
 	public static void main(String[] args) {
 		// Creating a StringTokenizer object to tokenize the sentence

@@ -6,7 +6,7 @@
  * - String literals represent sequences of characters enclosed in double quotes.
  */
 
-public class j16Literals {
+public class j17Literals {
 
 	public static void main(String[] args) {
 

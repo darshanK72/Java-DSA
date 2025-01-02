@@ -1,7 +1,8 @@
 /**
  * Problem Statement:
  * 
- *     You are given two integers `num1` and `num2`. In each operation, you subtract the smaller number from the larger one, and you continue this process until either one or both numbers become zero.
+ *     You are given two integers `num1` and `num2`. In each operation, you subtract the smaller number from the larger one, 
+ *     and you continue this process until either one or both numbers become zero.
  * 
  *     The task is to count the minimum number of operations required to make one or both of the integers zero.
  * 

@@ -1,9 +1,14 @@
+
 /**
  * Problem Statement:
  * 
- *     You are given two integers: `memory1` and `memory2`, representing two different memory segments in a system. At each step, the system consumes a certain amount of memory, starting with 1 unit. After each consumption, the amount of memory that is consumed increases by 1 for the next step.
+ *     You are given two integers: `memory1` and `memory2`, representing two different memory segments in a system. At each step,
+ *     the system consumes a certain amount of memory, starting with 1 unit. After each consumption, the amount of memory that is 
+ *     consumed increases by 1 for the next step.
  * 
- *     The system will keep consuming memory from the larger memory segment (either `memory1` or `memory2`). If both segments have the same amount of memory, it will consume from `memory1` first. The process continues until neither segment can provide the required memory for the next step.
+ *     The system will keep consuming memory from the larger memory segment (either `memory1` or `memory2`). If both segments 
+ *     have the same amount of memory, it will consume from `memory1` first. The process continues until neither segment can 
+ *     provide the required memory for the next step.
  * 
  *     The task is to determine after how many steps the memory consumption stops, and what the remaining memory in each segment is.
  * 
@@ -12,7 +17,8 @@
  *     - An integer `memory2` (1 <= memory2 <= 10^4), the amount of memory in the second segment.
  * 
  * Output:
- *     - An array of three integers: the total number of steps taken, the remaining memory in `memory1`, and the remaining memory in `memory2`.
+ *     - An array of three integers: the total number of steps taken, the remaining memory in `memory1`, and the remaining memory 
+ *       in `memory2`.
  * 
  * Example:
  *     Input:
@@ -52,14 +58,16 @@ public class j14InternalMemoryLeak {
      * - Continue until neither segment can provide enough memory for the next step.
      * 
      * Time Complexity:
-     * - O(n), where n is the total number of steps until the memory consumption stops. This depends on the initial memory sizes and grows incrementally with each step.
+     * - O(n), where n is the total number of steps until the memory consumption stops. This depends on the initial memory sizes 
+     *   and grows incrementally with each step.
      * 
      * Space Complexity:
      * - O(1), as we only use a constant amount of extra space for variables.
      * 
      * @param memory1 The initial amount of memory in the first segment.
      * @param memory2 The initial amount of memory in the second segment.
-     * @return An array of three integers: the number of steps taken, the remaining memory in the first segment, and the remaining memory in the second segment.
+     * @return An array of three integers: the number of steps taken, the remaining memory in the first segment, and the remaining 
+     * memory in the second segment.
      */
     public static int[] memLeak(int memory1, int memory2) {
         int crash = 1; // Initialize the memory consumption step

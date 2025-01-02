@@ -1,8 +1,11 @@
 /**
  * Topic: Inheritance in Java
- * - **Inheritance** is a mechanism where one class acquires the properties and behaviors (fields and methods) of another class. In Java, a class can inherit from another using the `extends` keyword.
- * - In this example, the `Circle` class extends the `Shape` class, meaning it inherits the `vertices` and `edges` properties from `Shape` and adds its own property `circumference`.
- * - The main advantage of inheritance is **code reusability**, as the child class doesn't need to rewrite the code for the properties of the parent class.
+ * - **Inheritance** is a mechanism where one class acquires the properties and behaviors (fields and methods) of another class. 
+ *   In Java, a class can inherit from another using the `extends` keyword.
+ * - In this example, the `Circle` class extends the `Shape` class, meaning it inherits the `vertices` and `edges` properties 
+ *   from `Shape` and adds its own property `circumference`.
+ * - The main advantage of inheritance is **code reusability**, as the child class doesn't need to rewrite the code for the 
+ *   properties of the parent class.
  */
 
 public class j06Inheritence {

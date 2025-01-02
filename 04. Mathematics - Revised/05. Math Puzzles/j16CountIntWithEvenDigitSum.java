@@ -53,7 +53,8 @@ public class j16CountIntWithEvenDigitSum {
      * - If it is even, we increment a counter.
      * 
      * Time Complexity:
-     * - O(num * d), where num is the input number, and d is the average number of digits in the numbers from 1 to num. The digit extraction operation takes O(d) time for each number.
+     * - O(num * d), where num is the input number, and d is the average number of digits in the numbers from 1 to num. 
+     *   The digit extraction operation takes O(d) time for each number.
      * - Since d is logarithmic in the size of the number, this can be considered approximately O(num * log(num)).
      * 
      * Space Complexity:
