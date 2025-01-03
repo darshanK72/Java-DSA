@@ -1,7 +1,9 @@
+
 /**
  * Problem Statement:
  * 
- *     Given a 32-bit unsigned integer `n`, reverse the bits of `n` and return the modified integer with the bits reversed. The output should preserve the reversed bit order, and the result should be the number formed by reversing the binary representation of `n`.
+ *     Given a 32-bit unsigned integer `n`, reverse the bits of `n` and return the modified integer with the bits reversed. 
+ *     The output should preserve the reversed bit order, and the result should be the number formed by reversing the binary representation of `n`.
  * 
  * Input:
  *     - An integer `n` (0 <= n <= 2^32 - 1), representing the unsigned 32-bit integer.
