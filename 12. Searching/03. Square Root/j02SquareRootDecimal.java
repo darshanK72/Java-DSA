@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given a non-negative integer `n` and a precision value `p`, calculate the square root of `n` up to `p` decimal places.
@@ -37,7 +37,7 @@ public class j02SquareRootDecimal {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Binary Search with Precision Adjustment
      * 
      * Intuition:

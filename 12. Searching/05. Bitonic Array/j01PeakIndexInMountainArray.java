@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given a mountain array `arr`, where:
@@ -52,7 +52,7 @@ public class j01PeakIndexInMountainArray {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Brute Force Approach
      * 
      * Intuition:
@@ -79,7 +79,7 @@ public class j01PeakIndexInMountainArray {
                    // statement).
     }
 
-    /*-
+    /**
      * Approach 2: Binary Search Approach (Efficient)
      * 
      * Intuition:

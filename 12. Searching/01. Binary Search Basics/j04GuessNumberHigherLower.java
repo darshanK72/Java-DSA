@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     In this problem, you are playing a game where you are trying to guess a number.
@@ -47,7 +47,7 @@ public class j04GuessNumberHigherLower {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Binary Search to Guess the Number
      * 
      * Intuition:
@@ -83,7 +83,7 @@ public class j04GuessNumberHigherLower {
         return -1; // This line is never reached if the input is valid
     }
 
-    /*-
+    /**
      * Helper Function: guess
      * 
      * This function simulates the feedback mechanism after each guess. 

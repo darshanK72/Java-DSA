@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *
  *     Given a rotated sorted array with possible duplicates, find the minimum element in the array.
@@ -43,7 +43,7 @@ public class j03MinimumInRotatedSortedArrayII {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Optimized Binary Search with Handling Duplicates
      * 
      * Intuition:

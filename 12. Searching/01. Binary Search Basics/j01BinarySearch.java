@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     You are given an integer `n`, the size of the array, and an array of `n` integers. 
@@ -47,7 +47,7 @@ public class j01BinarySearch {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Binary Search (Ascending Order)
      * 
      * Intuition:
@@ -82,7 +82,7 @@ public class j01BinarySearch {
         return -1; // Return -1 if target is not found
     }
 
-    /*-
+    /**
      * Approach 2: Binary Search for Any Order (Ascending or Descending)
      * 
      * Intuition:

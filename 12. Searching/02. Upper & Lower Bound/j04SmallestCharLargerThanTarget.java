@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given a sorted array of characters `letters` and a target character `target`, 
@@ -43,7 +43,7 @@ public class j04SmallestCharLargerThanTarget {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Binary Search to Find the Smallest Character Larger Than Target
      * 
      * Intuition:

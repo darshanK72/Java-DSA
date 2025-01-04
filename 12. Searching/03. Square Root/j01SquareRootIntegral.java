@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given a non-negative integer `n`, find the integer part of its square root.
@@ -35,7 +35,7 @@ public class j01SquareRootIntegral {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Brute Force Method
      * 
      * Intuition:
@@ -64,7 +64,7 @@ public class j01SquareRootIntegral {
         return (int) ans; // Return the integer part of the square root
     }
 
-    /*-
+    /**
      * Approach 2: Efficient Method (Binary Search)
      * 
      * Intuition:

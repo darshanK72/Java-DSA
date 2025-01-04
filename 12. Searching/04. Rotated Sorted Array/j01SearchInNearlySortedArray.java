@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *
  *     Given a nearly sorted (also called "almost sorted") array of integers, 
@@ -44,7 +44,7 @@ public class j01SearchInNearlySortedArray {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Linear Search (Brute Force Approach)
      * 
      * Intuition:
@@ -73,7 +73,7 @@ public class j01SearchInNearlySortedArray {
         return -1; // Target not found
     }
 
-    /*-
+    /**
      * Approach 2: Optimized Search in Nearly Sorted Array (Binary Search Approach)
      * 
      * Intuition:

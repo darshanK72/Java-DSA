@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given a sorted array of distinct integers and a target value, return the index if the target is found. 
@@ -50,7 +50,7 @@ public class j01SearchInsertPosition {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Binary Search to Find Insert Position
      * 
      * Intuition:

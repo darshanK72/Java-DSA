@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an integer array `nums` sorted in non-decreasing order, it is rotated at an unknown pivot index. 
@@ -48,7 +48,7 @@ public class j05SearchInRotatedSortedArrayII {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Binary Search with Handling of Duplicates
      * 
      * Intuition:

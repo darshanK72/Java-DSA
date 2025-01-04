@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     You are given a bitonic array, which is an array that first increases and then decreases. 
@@ -55,7 +55,7 @@ public class j02SearchInBitonicArray {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Find the Pivot, then Perform Binary Search
      * 
      * Intuition:
@@ -108,7 +108,7 @@ public class j02SearchInBitonicArray {
         }
     }
 
-    /*-
+    /**
      * Helper Method: Binary Search
      * 
      * Intuition:

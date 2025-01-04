@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *
  *     Given an array of integers, you are required to remove the minimum number of elements
@@ -43,7 +43,7 @@ public class j11RemoveMinimumlElement {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Sorting and Binary Search
      * 
      * Intuition:
@@ -74,7 +74,7 @@ public class j11RemoveMinimumlElement {
         return arr.length - maxL; // Return the number of elements to remove
     }
 
-    /*-
+    /**
      * Helper Function: Binary Search for the ceiling index
      * 
      * Intuition:

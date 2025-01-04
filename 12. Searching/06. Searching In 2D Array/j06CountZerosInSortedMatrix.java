@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an n x n binary matrix where each row is sorted in non-decreasing order, write a function to 
@@ -51,7 +51,7 @@ public class j06CountZerosInSortedMatrix {
         in.close();
     }
 
-    /*-
+    /**
      * Approach:
      * 
      * Intuition:
@@ -83,7 +83,7 @@ public class j06CountZerosInSortedMatrix {
         return N * N - ans;
     }
 
-    /*-
+    /**
      * Binary Search to count the number of 1's in a row.
      * 
      * The row is sorted, so we can use binary search to find the first occurrence of 1.
@@ -118,7 +118,7 @@ public class j06CountZerosInSortedMatrix {
         return arr.length - s;
     }
 
-    /*-
+    /**
      * Efficient method using the Staircase Algorithm to count the number of zeros.
      * 
      * We start from the top-right corner of the matrix and move left if the element is 1, 

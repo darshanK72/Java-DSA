@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     You are given a sorted array `nums` where every element appears exactly twice, except for one element which appears only once. 
@@ -48,7 +48,7 @@ public class j04SingleElementInSortedArray {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Binary Search for Single Non-Duplicate Element
      * 
      * Intuition:

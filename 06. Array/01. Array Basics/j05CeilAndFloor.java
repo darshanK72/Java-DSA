@@ -1,3 +1,4 @@
+
 /**
  * Problem Statement:
  * 
@@ -52,33 +53,36 @@ public class j05CeilAndFloor {
      * Approach 1: Iterative Search for Ceil and Floor
      * 
      * Intuition:
-     * - Traverse the array and check for elements greater than or equal to `k` for the ceiling.
+     * - Traverse the array and check for elements greater than or equal to `k` for
+     * the ceiling.
      * - Similarly, check for elements less than or equal to `k` for the floor.
-     * - Keep track of the smallest element greater than or equal to `k` (ceil) and the largest element less than or equal to `k` (floor).
+     * - Keep track of the smallest element greater than or equal to `k` (ceil) and
+     * the largest element less than or equal to `k` (floor).
      * 
      * Time Complexity:
      * - O(n), where `n` is the size of the array. We scan the array once.
      * 
      * Space Complexity:
-     * - O(1), since only a constant amount of space is used for storing the `ceil` and `floor` values.
+     * - O(1), since only a constant amount of space is used for storing the `ceil`
+     * and `floor` values.
      * 
      * @param arr The input array of numbers.
-     * @param k The value for which we need to find the ceiling and floor.
+     * @param k   The value for which we need to find the ceiling and floor.
      * @return An array containing the ceiling and floor of `k`.
      */
     public static int[] ceilAndFloor(int[] arr, int k) {
-        int ceil = Integer.MIN_VALUE;
-        int floor = Integer.MAX_VALUE;
+        int ceil = Integer.MAX_VALUE ;
+        int floor = Integer.MIN_VALUE;
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] >= k && arr[i] <= floor) {
+            if (arr[i] <= k && arr[i] >= floor) {
                 floor = arr[i]; // Update floor if arr[i] is greater than or equal to k and less than current
                                 // floor
             }
-            if (arr[i] <= k && arr[i] >= ceil) {
+            if (arr[i] >= k && arr[i] <= ceil) {
                 ceil = arr[i]; // Update ceil if arr[i] is less than or equal to k and greater than current
                                // ceil
             }
         }
-        return new int[] { ceil, floor }; // Return an array with [ceil, floor]
+        return new int[] { floor, ceil }; // Return an array with [ceil, floor]
     }
 }

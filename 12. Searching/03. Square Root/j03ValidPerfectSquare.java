@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given a non-negative integer `num`, determine if it is a perfect square. A number is a perfect square if there exists 
@@ -33,7 +33,7 @@ public class j03ValidPerfectSquare {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Binary Search to Check for Perfect Square
      * 
      * Intuition:

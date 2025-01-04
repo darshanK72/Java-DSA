@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     You are given a sorted array of integers. A fixed point is an index `i` such that `arr[i] = i`.
@@ -38,7 +38,7 @@ public class j06IndexFixedPoint {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Binary Search for Fixed Point
      * 
      * Intuition:

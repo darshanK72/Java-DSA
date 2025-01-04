@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     A peak element in an array is an element that is strictly greater than its neighbors. 
@@ -49,7 +49,7 @@ public class j03FindPeakElement {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Binary Search for Peak Element
      * 
      * Intuition:

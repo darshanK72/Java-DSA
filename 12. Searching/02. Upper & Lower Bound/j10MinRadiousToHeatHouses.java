@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *
  *     Given a list of houses and a list of heaters, each represented by their positions on a number line,
@@ -53,7 +53,7 @@ public class j10MinRadiousToHeatHouses {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Binary Search and Distance Calculation
      * 
      * Intuition:
@@ -86,7 +86,7 @@ public class j10MinRadiousToHeatHouses {
         return minRadius;
     }
 
-    /*-
+    /**
      * Helper Function: Find the closest heater for a given house
      * 
      * Intuition:

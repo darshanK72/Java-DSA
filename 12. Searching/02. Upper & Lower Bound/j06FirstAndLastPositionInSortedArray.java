@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given a sorted array `nums[]` and a target value `target`, we need to find:
@@ -48,7 +48,7 @@ public class j06FirstAndLastPositionInSortedArray {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Searching first and last position separately.
      * 
      * - First, we find the first occurrence of the target.
@@ -95,7 +95,7 @@ public class j06FirstAndLastPositionInSortedArray {
         return new int[] { first, last };
     }
 
-    /*-
+    /**
      * Approach 2: Using a helper function to find first and last positions.
      * 
      * - We reuse the binary search approach for both the first and last occurrence by passing a flag `findFirst`.
@@ -111,7 +111,7 @@ public class j06FirstAndLastPositionInSortedArray {
         return ans;
     }
 
-    /*-
+    /**
      * Helper function for binary search.
      * - `findFirst`: If true, find the first occurrence, otherwise find the last occurrence.
      */

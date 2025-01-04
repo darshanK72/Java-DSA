@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *
  *     A peak element in a 2D grid is an element that is strictly greater than its adjacent elements. 
@@ -50,7 +50,7 @@ public class j07FindPeakElementII {
         in.close();
     }
 
-    /*-
+    /**
      * Brute force approach to find the peak element.
      * We iterate through all elements and check if they are greater than their neighbors.
      *
@@ -76,7 +76,7 @@ public class j07FindPeakElementII {
         return new int[] { -1, -1 }; // If no peak is found (not expected for valid input)
     }
 
-    /*-
+    /**
      * Optimized approach using a binary search strategy on the columns.
      * We choose a middle column, find the maximum element in that column,
      * and then check its neighbors to decide which direction to move.
@@ -112,7 +112,7 @@ public class j07FindPeakElementII {
         return new int[] { -1, -1 }; // If no peak is found (not expected for valid input)
     }
 
-    /*-
+    /**
      * Helper function to find the index of the maximum element in a given column.
      *
      * @param mat The input 2D grid.

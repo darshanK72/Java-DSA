@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an `n x n` matrix `arr` where each row is sorted in increasing order and each column is also sorted in increasing order, 
@@ -58,7 +58,7 @@ public class j01SearchInRowSortedMatrix {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Search Target in Row-Sorted Matrix
      * 
      * Intuition:
@@ -94,7 +94,7 @@ public class j01SearchInRowSortedMatrix {
         return new int[] { -1, -1 }; // Return [-1, -1] if target is not found
     }
 
-    /*-
+    /**
      * Helper Method: Binary Search
      * 
      * Intuition:
