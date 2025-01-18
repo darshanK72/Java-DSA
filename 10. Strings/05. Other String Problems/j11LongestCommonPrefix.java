@@ -29,6 +29,51 @@ public class j11LongestCommonPrefix {
         System.out.println(longestCommonPrefix(strs));
     }
 
+     /**
+     * Approach 1: Brute Force
+     * 
+     * Intuition:
+     * - The idea is to compare each string in the array with the current longest common prefix:
+     * - Start with the first string as the initial prefix.
+     * - Iterate over each string in the array, progressively shortening the current prefix until it matches 
+     *   the start of the string.
+     * - If at any point the prefix becomes an empty string, it means there is no  common prefix.
+     * - Continue this process until all strings are processed.
+     * 
+     * Time Complexity: 
+     *  - O(S), where S is the sum of all characters in all strings.
+     * Space Complexity: O(1), 
+     *  - since we only store the prefix and a few variables for comparisons.
+     */
+    public static String longestCommonPrefixBruitForce(String[] strs) {
+        // Start with the first string as the prefix.
+        String prefix = strs[0];
+
+        // Iterate through each string in the array
+        for (String str : strs) {
+            StringBuilder tempPrefix = new StringBuilder();
+            int i = 0;
+            int j = 0;
+
+            // Compare characters of the current prefix and the current string
+            while (i < prefix.length() && j < str.length()) {
+                if (prefix.charAt(i) == str.charAt(j)) {
+                    tempPrefix.append(prefix.charAt(i));
+                } else {
+                    break;
+                }
+                i++;
+                j++;
+            }
+
+            // Update the prefix with the common part found
+            prefix = tempPrefix.toString();
+        }
+
+        return prefix;
+    }
+
+
     /**
      * Approach: Horizontal Scanning (Iterative Comparison)
      * 

@@ -76,40 +76,4 @@ public class j04FindXorTriplets {
         }
         return count;
     }
-
-    /**
-     * Approach 2: Prefix XOR with HashMap (Optimized Approach)
-     * 
-     * Intuition:
-     * - Instead of checking every triplet directly, we can use a more efficient approach.
-     * - We can keep track of the XOR of the array up to each index using a prefix XOR array.
-     * - The XOR of any subarray can be computed using the formula:
-     *     XOR(i, j) = prefixXor[j] ^ prefixXor[i-1]
-     * - If the XOR of the subarray is 0, then the subarray from i to j is a valid triplet.
-     * - We store previously seen XORs in a HashMap and count the valid triplets.
-     * 
-     * Time Complexity:
-     * - O(n), since we are using a single loop to calculate XOR values and lookups in the HashMap are constant time.
-     * 
-     * Space Complexity:
-     * - O(n), as we need extra space to store the prefix XOR values in a HashMap.
-     * 
-     * @param arr The input array of numbers.
-     * @return The count of triplets where XOR of elements between i and k is 0.
-     */
-    public static int optimizedFindXorTriplets(int[] arr) {
-        int count = 0;
-        int xor = 0;
-        java.util.Map<Integer, Integer> map = new java.util.HashMap<>();
-        map.put(0, 1); // Initialize with the case for zero XOR
-
-        for (int num : arr) {
-            xor ^= num; // Update current prefix XOR
-            if (map.containsKey(xor)) {
-                count += map.get(xor); // Add the number of times this XOR value has appeared
-            }
-            map.put(xor, map.getOrDefault(xor, 0) + 1); // Store/update XOR frequency in the map
-        }
-        return count;
-    }
 }
