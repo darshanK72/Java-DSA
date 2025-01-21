@@ -1,3 +1,4 @@
+
 /**
  * Problem Statement:
  * 
@@ -59,10 +60,12 @@ public class j02BookAllocations {
      * Approach: Binary Search on Answer
      * 
      * Intuition:
-     * - The problem can be solved using binary search on the answer. We need to find the minimum
-     *   maximum number of pages assigned to any student.
-     * - We start with the minimum possible pages as the maximum number of pages in any book and the
-     *   maximum possible pages as the sum of all pages.
+     * - The problem can be solved using binary search on the answer. We need to
+     * find the minimum
+     * maximum number of pages assigned to any student.
+     * - We start with the minimum possible pages as the maximum number of pages in
+     * any book and the
+     * maximum possible pages as the sum of all pages.
      * - We perform binary search to find the optimal allocation.
      * 
      * Time Complexity:
@@ -72,7 +75,7 @@ public class j02BookAllocations {
      * - O(1).
      * 
      * @param arr The input array of books.
-     * @param k The number of students.
+     * @param k   The number of students.
      * @return The minimized maximum number of pages assigned to any student.
      */
     public static int findPages(int[] arr, int k) {
@@ -87,7 +90,7 @@ public class j02BookAllocations {
 
         while (left <= right) {
             long mid = left + (right - left) / 2;
-            if (isPossible(arr, mid,k)) {
+            if (isPossible(arr, mid, k)) {
                 right = mid - 1;
             } else {
                 left = mid + 1;
@@ -97,26 +100,29 @@ public class j02BookAllocations {
     }
 
     /**
-     * Helper method to check if books can be allocated to students such that the maximum pages
+     * Helper method to check if books can be allocated to students such that the
+     * maximum pages
      * assigned to any student is less than or equal to `x`.
      * 
      * @param arr The input array of books.
-     * @param k The number of students.
-     * @param x The maximum pages to check.
+     * @param k   The number of students.
+     * @param x   The maximum pages to check.
      * @return True if allocation is possible, otherwise false.
      */
-    public static boolean isPossible(int[] books,long maxLoad,int students){
+    public static boolean isPossible(int[] books, long maxLoad, int students) {
         int currentLoad = 0;
         int reqStudents = 1;
-        for(int book : books){
-            if((currentLoad + book) <= maxLoad){
+        for (int book : books) {
+            if (book > maxLoad)
+                return false;
+            if ((currentLoad + book) <= maxLoad) {
                 currentLoad += book;
-            }else{
+            } else {
                 reqStudents++;
                 currentLoad = book;
             }
         }
-    
+
         return (reqStudents <= students);
     }
 }
