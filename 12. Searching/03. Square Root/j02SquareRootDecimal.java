@@ -33,7 +33,9 @@ public class j02SquareRootDecimal {
         int n = in.nextInt(); // Input: the number for which we need to find the square root
         int p = in.nextInt(); // Input: the precision (number of decimal places)
         System.out.printf("Square Root of %d is %f\n", n, squareRoot(n, p)); // Calling the method for square root
-                                                                             // calculation
+        
+        System.out.printf("Square Root Efficient of %d is %f\n", n, squareRootEfficient(n, p)); // Calling the method for square root
+          // calculation
         in.close();
     }
 
@@ -90,5 +92,43 @@ public class j02SquareRootDecimal {
         }
 
         return root; // Return the square root with the required precision
+    }
+
+        /**
+     * Approach: Binary Search with Precision
+     * 
+     * Intuition:
+     * - The problem can be solved using binary search to find the square root with
+     *   a high degree of precision. We start with a range [1, n] and iteratively
+     *   narrow it down until the difference between the left and right bounds is
+     *   very small (less than 1e-9).
+     * - At each step, we calculate the midpoint and check if its square is less
+     *   than or equal to `n`. If it is, we move the left bound to the midpoint;
+     *   otherwise, we move the right bound to the midpoint.
+     * 
+     * Time Complexity:
+     * - O(log(n) * log(precision)). This is because we perform binary search on
+     *   the range [1, n] and continue until the difference between the left and
+     *   right bounds is less than the desired precision.
+     * 
+     * Space Complexity:
+     * - O(1). We only use a few extra variables for the binary search.
+     * 
+     * @param n The number to find the square root of.
+     * @param p The precision required for the square root.
+     * @return The square root of `n` with the required precision.
+     */
+    public static double squareRootEfficient(long n, int p) {
+        double left = 1;
+        double right = n;
+        while (right - left > 1e-9) {
+            double mid = left + (right - left) / 2;
+            if (mid * mid <= n) {
+                left = mid;
+            } else {
+                right = mid;
+            }
+        }
+        return left;
     }
 }
