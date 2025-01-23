@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an array of integers `nums` and an integer `k`, you need to divide the array into `k` non-empty

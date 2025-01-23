@@ -32,7 +32,7 @@
  */
 import java.util.Scanner;
 
-public class j13MinimizeMaxDistBetweenStations {
+public class j14MinimizeMaxDistBetweenStations {
 
     public static void main(String args[]) {
         // Input reading

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/*-
+/**
  * Problem Statement:
  * 
  *     Given `n` boards and `k` painters, where each painter takes `t` units of
@@ -94,7 +94,7 @@ public class j05PaintersPartitionProblem {
         return minBlocks * B;
     }
 
-    /*-
+    /**
      * Helper method to check if it is possible to paint all boards within the
      * given time with the given number of painters.
      * 

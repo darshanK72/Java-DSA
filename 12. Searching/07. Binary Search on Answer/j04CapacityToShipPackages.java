@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an array of weights and a number of days, find the minimum capacity
@@ -48,7 +48,7 @@ public class j04CapacityToShipPackages {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Binary Search on Answer
      * 
      * Intuition:
