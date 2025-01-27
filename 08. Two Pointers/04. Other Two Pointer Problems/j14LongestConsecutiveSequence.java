@@ -26,7 +26,7 @@ import java.util.Scanner;
 import java.util.Arrays;
 import java.util.HashSet;
 
-public class j11LongestConsecutiveSequence {
+public class j14LongestConsecutiveSequence {
     public static void main(String args[]) {
         // Reading input
         Scanner in = new Scanner(System.in);

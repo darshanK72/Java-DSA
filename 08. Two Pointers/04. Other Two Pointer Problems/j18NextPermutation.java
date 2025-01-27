@@ -26,7 +26,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class j15NextPermutation {
+public class j18NextPermutation {
     public static void main(String args[]) {
         // Reading input
         Scanner in = new Scanner(System.in);

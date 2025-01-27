@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class j17InsertInterval {
+public class j20InsertInterval {
     public static void main(String args[]) {
         // Reading input
         Scanner in = new Scanner(System.in);

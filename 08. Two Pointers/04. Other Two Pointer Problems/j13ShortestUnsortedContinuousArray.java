@@ -29,7 +29,7 @@
 
 import java.util.Scanner;
 
-public class j10ShortestUnsortedContinuousArray {
+public class j13ShortestUnsortedContinuousArray {
 
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);

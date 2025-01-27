@@ -27,7 +27,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class j12ThirdMaximumNumber {
+public class j15ThirdMaximumNumber {
     public static void main(String args[]) {
         // Reading input
         Scanner in = new Scanner(System.in);

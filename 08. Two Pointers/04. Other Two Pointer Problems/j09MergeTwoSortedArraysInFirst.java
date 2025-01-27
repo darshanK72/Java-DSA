@@ -28,7 +28,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class j08MergeTwoSortedArraysInFirst {
+public class j09MergeTwoSortedArraysInFirst {
 
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);

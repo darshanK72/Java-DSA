@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class j16MergeIntervals {
+public class j19MergeIntervals {
     public static void main(String args[]) {
         // Reading input
         Scanner in = new Scanner(System.in);
