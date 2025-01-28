@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given three sorted arrays, find the common elements between all three arrays.
@@ -74,7 +74,7 @@ public class j10CommonOf3SortedArrays {
         sc.close();
     }
 
-    /*-
+    /**
      * Approach 1: Three Pointer Approach
      * 
      * Intuition:

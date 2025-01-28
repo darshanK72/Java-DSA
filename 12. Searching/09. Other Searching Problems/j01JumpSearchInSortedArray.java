@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *      Implement the Jump Search algorithm to efficiently search for a target element 
@@ -42,7 +42,7 @@ public class j01JumpSearchInSortedArray {
         }
     }
 
-    /*-
+    /**
      * Jump Search Algorithm
      * 
      * Intuition:

@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given two integer arrays `nums1` and `nums2`, return a list of two lists:
@@ -48,7 +48,7 @@ public class j12FindDifferenceBetweenTwoArrays {
         System.out.println("Using Two Pointers Approach: " + result2);
     }
 
-    /*-
+    /**
      * Approach 1: Using HashSets
      * 
      * Intuition:
@@ -104,7 +104,7 @@ public class j12FindDifferenceBetweenTwoArrays {
         return out;
     }
 
-    /*-
+    /**
      * Approach 2: Using Two Pointers After Sorting
      * 
      * Intuition:

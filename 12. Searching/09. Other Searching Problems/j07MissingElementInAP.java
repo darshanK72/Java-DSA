@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an arithmetic progression (AP) sequence of integers with exactly one missing element, find the missing element.
@@ -42,7 +42,7 @@ public class j07MissingElementInAP {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Binary Search to Find the Missing Element in AP
      * 
      * Intuition:

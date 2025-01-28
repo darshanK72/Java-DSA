@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an integer array `nums` sorted in non-decreasing order, return an array of the squares of each 
@@ -42,7 +42,7 @@ public class j11SqauresOfSortedArray {
         System.out.println("]");
     }
 
-    /*-
+    /**
      * Approach 1: Two Pointer Approach
      * 
      * Intuition:

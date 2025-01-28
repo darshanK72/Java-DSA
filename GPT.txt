@@ -42,7 +42,7 @@ public class YourClassName {
         in.close();
     }
 
-    /**
+    /*-
      * Approach 1: <Description of Approach 1>
      * 
      * Intuition:
@@ -63,7 +63,7 @@ public class YourClassName {
         return result;
     }
 
-    /**
+    /*-
      * Approach 2: <Description of Approach 2>
      * 
      * Intuition:
@@ -84,7 +84,7 @@ public class YourClassName {
         return result;
     }
 
-    /**
+    /*-
      * Approach 3: <Description of Approach 3 (if applicable)>
      * 
      * Intuition:

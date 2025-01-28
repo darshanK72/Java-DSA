@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *      Given an array `arr` where the difference between adjacent elements is at most `k`, 
@@ -67,7 +67,7 @@ public class j02SearchInArrayAdjecentDiffAtMostK {
         System.out.println("Test case 6: " + findStepKeyIndex(arr6, k6, x6)); // Expected output: 6
     }
 
-    /*-
+    /**
      * Efficient Search in Array with Adjacent Difference At Most K
      * 
      * Intuition:

@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given two sorted arrays `arr1` and `arr2` of sizes `m` and `n` respectively,
@@ -55,7 +55,7 @@ public class j08MergeTwoSortedArraysInThird {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Two-pointer Technique
      * 
      * Intuition:
