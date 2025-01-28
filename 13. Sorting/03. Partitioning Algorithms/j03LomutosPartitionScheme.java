@@ -42,14 +42,19 @@ public class j03LomutosPartitionScheme {
         for (int i = 0; i < n; i++) {
             arr[i] = in.nextInt(); // Input: elements of the array
         }
+        int[] arr2 = Arrays.copyOf(arr, n);
         System.out.print("Enter the pivot Index: ");
         int pivotIndex = in.nextInt();
+        int pivot = in.nextInt();
 
+        System.out.print("Enter the pivot element: ");
         // Calling the partitioning method
-        lomutosPartition(arr, pivotIndex);
+        lomutosPartition1(arr, pivotIndex);
+        lomutosPartition2(arr2, pivot);
 
         // Output the rearranged array
         System.out.println("Partitioned array: " + Arrays.toString(arr));
+        System.out.println("Partitioned array: " + Arrays.toString(arr2));
 
         in.close();
     }
@@ -83,7 +88,7 @@ public class j03LomutosPartitionScheme {
      * @param arr The array to be partitioned.
      * @param pivotIndex The index of the pivot element.
      */
-    public static void lomutosPartition(int[] arr, int pivotIndex) {
+    public static void lomutosPartition1(int[] arr, int pivotIndex) {
         int low = 0;
         int high = arr.length - 1;
 
@@ -103,6 +108,50 @@ public class j03LomutosPartitionScheme {
 
         // Place the pivot element in its correct position
         swap(arr, high, i + 1);
+    }
+
+    /*-
+    * Approach: Lomuto Partitioning Scheme (Using Pivot Element)
+    * 
+    * Intuition:
+    * - The Lomuto partitioning algorithm selects a pivot element and rearranges the array such that:
+    *   - All elements smaller than or equal to the pivot are placed to its left.
+    *   - All elements greater than the pivot are placed to its right.
+    * - This method directly uses the pivot element provided as input.
+    * 
+    * Time Complexity:
+    * - O(n), where n is the number of elements in the array.
+    * 
+    * Space Complexity:
+    * - O(1), as it performs partitioning in place.
+    * 
+    * Difference:
+    * - `lomutosPartition1` uses the pivot index to determine the pivot element.
+    * - `lomutosPartition2` directly uses the pivot element provided as input.
+    * 
+    * @param arr The input array to be partitioned.
+    * @param pivot The pivot element.
+    */
+    public static void lomutosPartition2(int[] arr, int pivot) {
+        int low = 0; // Points to where the next < pivot element should go
+        int high = arr.length - 1; // Points to where the next > pivot element should go
+        int current = 0; // Current element being processed
+
+        while (current <= high) {
+            if (arr[current] < pivot) {
+                // Swap the current element with the low pointer
+                swap(arr, low, current);
+                low++;
+                current++;
+            } else if (arr[current] > pivot) {
+                // Swap the current element with the high pointer
+                swap(arr, current, high);
+                high--;
+            } else {
+                // Move to the next element if it is equal to the pivot
+                current++;
+            }
+        }
     }
 
     /*-
