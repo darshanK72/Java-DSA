@@ -24,7 +24,7 @@
 
 import java.util.Scanner;
 
-public class j03SortColors {
+public class j04SortColors {
     public static void main(String args[]) {
         // Reading input
         Scanner in = new Scanner(System.in);

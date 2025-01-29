@@ -26,7 +26,7 @@
 
 import java.util.Scanner;
 
-public class j05RearrangeArrayBySign {
+public class j09RearrangeArrayBySign {
     public static void main(String args[]) {
         // Reading input
         Scanner in = new Scanner(System.in);

@@ -30,7 +30,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class j01SortArrayAroundPivot {
+public class j01PartitioningAroundPivotUnstable {
 
     public static void main(String[] args) {
         // Reading input
@@ -56,8 +56,8 @@ public class j01SortArrayAroundPivot {
     }
 
     /*-
-     * Approach: Partition Around Pivot
-     * 
+     * Approach 1: Partition Around Pivot
+     *  
      * Intuition:
      * - This approach divides the array into two partitions: one with elements less than 
      *   or equal to the pivot and the other with elements greater than the pivot.
@@ -88,88 +88,37 @@ public class j01SortArrayAroundPivot {
             if (arr[right] <= pivot) {
                 // Swap elements if current element <= pivot
                 swap(arr, right, left);
-                right++;
-                left++;
-            } else {
-                // Move the right pointer if current element > pivot
-                right++;
+                left++; // Move the left pointer to the next element
             }
+            // Move the right pointer to the next element
+            right++;
+
         }
     }
 
-    /*-
-     * Approach: Lomuto Partitioning Scheme
+    /**
+     * Approach: Dutch National Flag Algorithm
      * 
      * Intuition:
-     * - The Lomuto partitioning algorithm selects a pivot element and rearranges the array such that:
-     *   - All elements smaller than or equal to the pivot are placed to its left.
-     *   - All elements greater than the pivot are placed to its right.
-     * - This is achieved in a single pass through the array using two pointers:
-     *   - `i` keeps track of the position for elements <= pivot.
-     *   - `j` traverses the array to compare elements with the pivot.
-     * 
-     * Steps:
-     * 1. Move the pivot element to the end of the array.
-     * 2. Traverse the array and swap elements smaller than or equal to the pivot to the left.
-     * 3. Finally, place the pivot in its correct position.
-     * 
-     * Why This Works:
-     * - The pivot element acts as a reference for partitioning.
-     * - The use of two pointers ensures that elements are rearranged in a single traversal.
+     * - This method partitions the array into three parts:
+     *   - Elements less than the pivot.
+     *   - Elements equal to the pivot.
+     *   - Elements greater than the pivot.
+     * - It uses three pointers: low, high, and current to achieve this partitioning.
      * 
      * Time Complexity:
-     * - O(n): Single traversal of the array to partition it.
+     * - O(n), where n is the number of elements in the array.
      * 
      * Space Complexity:
-     * - O(1): In-place partitioning without requiring extra memory.
+     * - O(1), as it performs partitioning in place.
      * 
-     * @param arr The array to be partitioned.
-     * @param pivotIndex The index of the pivot element.
+     * Difference:
+     * - `sortAroundPivot` partitions the array into two parts: elements less than or equal to the pivot and elements greater than the pivot.
+     * - `duchNationalFlag` partitions the array into three parts: elements less than the pivot, elements equal to the pivot, and elements greater than the pivot.
+     * 
+     * @param arr The input array to be partitioned.
+     * @param pivot The pivot element.
      */
-    public static void lomutosPartition(int[] arr, int pivotIndex) {
-        int low = 0;
-        int high = arr.length - 1;
-
-        // Move the pivot element to the end of the array
-        swap(arr, high, pivotIndex);
-
-        int pivot = arr[high]; // Pivot element
-        int i = low - 1;
-
-        // Partitioning process
-        for (int j = low; j < high; j++) {
-            if (arr[j] <= pivot) {
-                i++;
-                swap(arr, i, j);
-            }
-        }
-
-        // Place the pivot element in its correct position
-        swap(arr, high, i + 1);
-    }
-
-    /*-
-    * Approach: Dutch National Flag Algorithm (Using Pivot Element)
-    * 
-    * Intuition:
-    * - The Lomuto partitioning algorithm selects a pivot element and rearranges the array such that:
-    *   - All elements smaller than or equal to the pivot are placed to its left.
-    *   - All elements greater than the pivot are placed to its right.
-    * - This method directly uses the pivot element provided as input.
-    * 
-    * Time Complexity:
-    * - O(n), where n is the number of elements in the array.
-    * 
-    * Space Complexity:
-    * - O(1), as it performs partitioning in place.
-    * 
-    * Difference:
-    * - `lomutosPartition1` uses the pivot index to determine the pivot element.
-    * - `lomutosPartition2` directly uses the pivot element provided as input.
-    * 
-    * @param arr The input array to be partitioned.
-    * @param pivot The pivot element.
-    */
     public static void duchNationalFlag(int[] arr, int pivot) {
         int low = 0; // Points to where the next < pivot element should go
         int high = arr.length - 1; // Points to where the next > pivot element should go
