@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Implement the Lomuto Partitioning Scheme, which is used in quicksort 
@@ -59,7 +59,7 @@ public class j02LomutoPartitioningScheme {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Lomuto Partitioning Scheme
      * 
      * Intuition:
@@ -111,7 +111,7 @@ public class j02LomutoPartitioningScheme {
         swap(arr, high, i + 1);
     }
 
-    /*-
+    /**
      * Helper Function: Swap
      * 
      * Intuition:

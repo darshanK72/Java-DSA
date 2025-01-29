@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an array `nums` and an integer `pivot`, partition the array around 
@@ -61,7 +61,7 @@ public class j05PartitioningAroundPivotStable {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Stable Partitioning (Using Extra Arrays)
      * 
      * Intuition:
@@ -120,7 +120,7 @@ public class j05PartitioningAroundPivotStable {
         return nums;
     }
 
-    /*-
+    /**
      * Approach 2: Optimized Stable Partitioning (Using Single Array)
      * 
      * Intuition:

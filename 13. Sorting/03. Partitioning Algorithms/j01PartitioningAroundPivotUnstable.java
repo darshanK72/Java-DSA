@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *      Given an array and a pivot element, rearrange the array such that all elements less than 
@@ -55,7 +55,7 @@ public class j01PartitioningAroundPivotUnstable {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Partition Around Pivot
      *  
      * Intuition:
@@ -141,7 +141,7 @@ public class j01PartitioningAroundPivotUnstable {
         }
     }
 
-    /*-
+    /**
      * Helper Function: Swap
      * 
      * Intuition:

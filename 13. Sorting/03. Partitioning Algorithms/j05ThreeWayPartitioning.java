@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an array `arr` of size `n` and two integers `a` and `b`, partition 
@@ -62,7 +62,7 @@ public class j05ThreeWayPartitioning {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Three-Way Partitioning (Dutch National Flag Algorithm)
      * 
      * Intuition:
@@ -109,7 +109,7 @@ public class j05ThreeWayPartitioning {
         }
     }
 
-    /*-
+    /**
      * Helper Function: Swap
      * 
      * Intuition:

@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *      Given a binary array (containing only 0s and 1s), sort the array such that all 0s appear 
@@ -48,7 +48,7 @@ public class j03BinaryArraySorting {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Two Pointer Technique
      * 
      * Intuition:
@@ -86,7 +86,7 @@ public class j03BinaryArraySorting {
         }
     }
 
-    /*-
+    /**
      * Helper Function: Swap
      * 
      * Intuition:

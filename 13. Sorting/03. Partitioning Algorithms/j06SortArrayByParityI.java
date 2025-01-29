@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an integer array `nums`, move all even numbers to the beginning 
@@ -50,7 +50,7 @@ public class j06SortArrayByParityI {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Two-Pointer Partitioning
      * 
      * Intuition:
@@ -89,7 +89,7 @@ public class j06SortArrayByParityI {
         return nums;
     }
 
-    /*-
+    /**
      * Helper Function: Swap
      * 
      * Intuition:

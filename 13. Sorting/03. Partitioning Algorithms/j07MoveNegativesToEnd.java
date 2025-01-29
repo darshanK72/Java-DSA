@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an array of integers, the task is to rearrange the array such that all the negative numbers 
@@ -49,7 +49,7 @@ public class j07MoveNegativesToEnd {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Naive Partitioning Approach (In-Place)
      * 
      * Intuition:
@@ -110,7 +110,7 @@ public class j07MoveNegativesToEnd {
         }
     }
 
-    /*-
+    /**
      * Approach 3: Efficient Two-Pass Approach (Using Extra Space)
      * 
      * Intuition:
@@ -147,7 +147,7 @@ public class j07MoveNegativesToEnd {
         }
     }
 
-    /*-
+    /**
      * Helper Function: Swap
      * 
      * Intuition:

@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an array `nums` of integers, sort it such that:
@@ -50,7 +50,7 @@ public class j08SortArrayByParityII {
         in.close();
     }
     
-    /*-
+    /**
      * Approach: Sorting Array by Parity with Two Pointers
      * 
      * Intuition:

@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Implement the QuickSort algorithm to sort an array of integers.
@@ -49,7 +49,7 @@ public class j01QuickSort {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Quick Sort Algorithm
      * 
      * Intuition:
@@ -85,7 +85,7 @@ public class j01QuickSort {
         quickSort(nums, mid + 1, right); // Recursively sort the right subarray
     }
 
-    /*-
+    /**
      * Helper Function: Partition
      * 
      * Intuition:
@@ -118,7 +118,7 @@ public class j01QuickSort {
         return i - 1; // Return the pivot's final position
     }
 
-    /*-
+    /**
      * Helper Function: Swap
      * 
      * Intuition:
