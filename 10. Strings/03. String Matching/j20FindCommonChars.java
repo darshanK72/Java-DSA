@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class j21FindCommonChars {
+public class j20FindCommonChars {
     public static void main(String args[]) {
         // Reading input
         Scanner in = new Scanner(System.in);

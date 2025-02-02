@@ -22,7 +22,7 @@
 
 import java.util.Scanner;
 
-public class j20RemoveDuplicates {
+public class j19RemoveDuplicates {
     public static void main(String args[]) {
         // Reading input
         Scanner in = new Scanner(System.in);

@@ -27,7 +27,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class j22UncommonWords {
+public class j21UncommonWords {
 
     public static void main(String args[]) {
         // Reading input sentences

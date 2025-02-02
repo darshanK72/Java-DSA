@@ -28,7 +28,7 @@
 
 import java.util.Scanner;
 
-public class j23SumOfButyOfSubstring {
+public class j22SumOfButyOfSubstring {
 
     public static void main(String args[]) {
         // Reading input string
