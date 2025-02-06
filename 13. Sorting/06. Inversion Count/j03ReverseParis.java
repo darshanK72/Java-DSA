@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an array of integers, the task is to count the number of reverse pairs in the array.
@@ -46,7 +46,7 @@ public class j03ReverseParis {
         System.out.println("Reverse pairs for arr4: " + reversePairs(arr4)); // Expected: 3
     }
 
-    /*-
+    /**
      * Approach: Merge Sort-based Count of Reverse Pairs
      * 
      * Intuition:
@@ -67,7 +67,7 @@ public class j03ReverseParis {
         return mergeSortAndCount(nums, 0, nums.length - 1);
     }
 
-    /*-
+    /**
      * Helper function: Performs merge sort and counts the reverse pairs.
      * 
      * Intuition:
@@ -94,7 +94,7 @@ public class j03ReverseParis {
         return count;
     }
 
-    /*-
+    /**
      * Helper function: Counts the reverse pairs between two sorted subarrays.
      * 
      * Intuition:
@@ -128,7 +128,7 @@ public class j03ReverseParis {
         return count;
     }
 
-    /*-
+    /**
      * Helper function: Merges two sorted subarrays and counts the reverse pairs.
      * 
      * Intuition:

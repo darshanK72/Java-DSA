@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an array of positive integers, rearrange the array elements 
@@ -54,7 +54,7 @@ public class j03RearrangeArrayAlternatively {
         System.out.println("Rearrange Test 4: " + Arrays.toString(arr4));
     }
 
-    /*-
+    /**
      * Approach: Sorting with Two Pointers
      * 
      * Intuition:

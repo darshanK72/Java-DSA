@@ -207,7 +207,45 @@ public class j01LinearSearch {
     }
 
     /**
-     * Approach 6: Find All Occurrences (Linear Search)
+     * Approach 6: Find First and Last Occurrence
+     * 
+     * Intuition:
+     * - Use recursion to find the first and last occurrence of `k` in the array.
+     * - The function calls itself with the next index until it reaches the end of the array.
+     * - If the current element matches `k`, it updates the first and last occurrence indices.
+     * - The first occurrence is updated only if it hasn't been set yet.
+     * - The last occurrence is updated every time `k` is found.
+     * 
+     * Time Complexity:
+     * - O(n), where `n` is the size of the array.
+     * 
+     * Space Complexity:
+     * - O(n) due to the recursive call stack.
+     * 
+     * @param arr The input array of numbers.
+     * @param index The current index to check.
+     * @param k The target element to search for.
+     * @return An array containing the first and last indices of `k`.
+     */
+    public static int[] firstAndLastRecursive(int[] arr, int index, int k) {
+        if (index == arr.length) {
+            return new int[] { -1, -1 };
+        }
+    
+        int[] res = firstAndLastRecursive(arr, index + 1, k);
+    
+        if (arr[index] == k) {
+            if (res[0] == -1) {
+                res[0] = index;
+            }
+            res[1] = index;
+        }
+    
+        return res;
+    }
+
+    /**
+     * Approach 7: Find All Occurrences (Linear Search)
      * 
      * Intuition:
      * - Traverse the array and collect all indices where `k` occurs.
@@ -233,7 +271,7 @@ public class j01LinearSearch {
     }
 
     /**
-     * Approach 7: Find All Occurrences (Recursive Search)
+     * Approach 8: Find All Occurrences (Recursive Search)
      * 
      * Intuition:
      * - Use recursion to find all occurrences of `k` by accumulating indices in a list.
@@ -258,5 +296,40 @@ public class j01LinearSearch {
             res.add(0, index);
         }
         return res;
+    }
+
+   /**
+     * Approach 9: Find All Occurrences (Recursive Search with Array)
+     * 
+     * Intuition:
+     * - Use recursion to find all occurrences of `k` by accumulating indices in an array.
+     * - The function calls itself with the next index until it reaches the end of the array.
+     * - If the current element matches `k`, its index is added to the result array.
+     * - The `csf` parameter keeps track of the count of found indices so far.
+     * 
+     * Time Complexity:
+     * - O(n), where `n` is the size of the array.
+     * 
+     * Space Complexity:
+     * - O(m), where `m` is the number of occurrences of `k` in the array, plus the recursive call stack.
+     * 
+     * @param arr The input array of numbers.
+     * @param index The current index to check.
+     * @param k The target element to search for.
+     * @param csf The count of found indices so far.
+     * @return An array of all indices where `k` appears.
+     */
+    public static int[] findAll(int[] arr, int index, int k, int csf) {
+        if (index == arr.length) {
+            return new int[csf];
+        }
+        if (arr[index] == k) {
+            int[] indexes = findAll(arr, index + 1, k, csf + 1);
+            indexes[csf] = index;
+            return indexes;
+        } else {
+            int[] indexes = findAll(arr, index + 1, k, csf);
+            return indexes;
+        }
     }
 }

@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  * You are given two arrays: `processingOrder` and `executionOrder`. The first array,
@@ -48,7 +48,7 @@ public class j06ProcessOrderViolations {
                 "Number of Violations (Efficient): " + countViolationsEfficient(processingOrder, executionOrder));
     }
 
-    /*-
+    /**
      * Approach 1: Brute Force Solution
      * 
      * Intuition:
@@ -102,7 +102,7 @@ public class j06ProcessOrderViolations {
         return ans;
     }
 
-    /*-
+    /**
      * Approach 2: Efficient Solution Using HashMap
      * 
      * Intuition:

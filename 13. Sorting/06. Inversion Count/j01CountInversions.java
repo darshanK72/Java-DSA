@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an array of integers, find the number of inversions in the array.
@@ -49,7 +49,7 @@ public class j01CountInversions {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Brute Force
      * 
      * Intuition:
@@ -84,7 +84,7 @@ public class j01CountInversions {
         return count;
     }
 
-    /*-
+    /**
      * Approach 2: Merge Sort (Efficient Approach)
      * 
      * Intuition:
@@ -114,7 +114,7 @@ public class j01CountInversions {
         return mergeSortAndCount(arr, 0, arr.length - 1);
     }
 
-    /*-
+    /**
     * Helper Method: mergeSortAndCount
     * 
     * Intuition:
@@ -146,7 +146,7 @@ public class j01CountInversions {
         return count;
     }
 
-    /*-
+    /**
     * Helper Method: mergeAndCount
     * 
     * Intuition:

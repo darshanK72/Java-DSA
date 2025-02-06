@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given a sorted array `arr[]` of distinct integers, transform the array 
@@ -64,7 +64,7 @@ public class j06WaveSortLexographically {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Swap Adjacent Elements
      * 
      * Intuition:

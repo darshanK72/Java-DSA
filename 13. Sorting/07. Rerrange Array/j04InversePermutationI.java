@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an array arr[] containing integers in the range from 1 to n. We need to find the inverse permutation of that array.
@@ -52,7 +52,7 @@ public class j04InversePermutationI {
         System.out.println("Inverse Permutation Efficient Test 2: " + result4);
     }
 
-    /*-
+    /**
      * Approach 1: Basic Approach (O(n) time complexity)
      * 
      * Intuition:
@@ -81,7 +81,7 @@ public class j04InversePermutationI {
         return out; // Return the inverse permutation
     }
 
-    /*-
+    /**
      * Approach 2: Efficient Approach (O(n) time complexity, O(n) space complexity)
      * 
      * Intuition:

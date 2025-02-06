@@ -224,11 +224,47 @@ public class j33Power {
         if (p == 0)
             return 1; // Base case
         int halfPower = powerMoreEfficient(n, p / 2); // Compute half power
-        if ((p % 2 ) == 0) {
+        if ((p % 2) == 0) {
             return halfPower * halfPower;
         } else {
             return n * halfPower * halfPower;
         }
+    }
+/**
+ * This method calculates x raised to the power n.
+ * If n is negative, it calculates the reciprocal of x raised to the power -n.
+ * Otherwise, it directly calculates x raised to the power n using the pow method.
+ *
+ * @param x the base
+ * @param n the exponent
+ * @return the result of x raised to the power n
+ */
+public double myPow(double x, int n) {
+    if (n < 0) {
+        return 1.0 / pow(x, -1L * n);
+    }
+    return pow(x, n);
+}
+
+    /**
+     * This method calculates x raised to the power n using recursion.
+     * If n is 0, it returns 1.0 as any number raised to the power 0 is 1.
+     * If n is odd, it multiplies x with the result of x raised to the power (n-1).
+     * If n is even, it calculates the result of x raised to the power (n/2) and squares it.
+     *
+     * @param x the base
+     * @param n the exponent
+     * @return the result of x raised to the power n
+     */
+    public double pow(double x, long n) {
+        if (n == 0) return 1.0;
+        if (n % 2 == 1) {
+            double sans = pow(x, n - 1);
+            return sans * x;
+        }
+
+        double sans = pow(x, n / 2);
+        return sans * sans;
     }
 
     /**

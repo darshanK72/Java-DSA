@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *      Given an integer array `nums`, return an integer array `counts` where
@@ -30,7 +30,7 @@ import java.util.List;
 
 public class j05CountOfSmallerNumAfterItself {
 
-    /*-
+    /**
      * Approach: Merge Sort Based Solution
      * 
      * Intuition:
@@ -84,7 +84,7 @@ public class j05CountOfSmallerNumAfterItself {
         return result;
     }
 
-    /*-
+    /**
      * Helper Method: mergeSort
      * 
      * Intuition:
@@ -111,7 +111,7 @@ public class j05CountOfSmallerNumAfterItself {
         mergeAndCount(pairs, start, mid, end, out);
     }
 
-    /*-
+    /**
      * Helper Method: mergeAndCount
      * 
      * Intuition:

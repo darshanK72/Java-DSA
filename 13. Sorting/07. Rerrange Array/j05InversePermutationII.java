@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an array arr[] of size N where every element is in the range 
@@ -67,7 +67,7 @@ public class j05InversePermutationII {
         in.close();
     }
 
-    /*-
+    /**
      * Approach 1: Using Extra Space
      * 
      * Intuition:
@@ -94,7 +94,7 @@ public class j05InversePermutationII {
         }
     }
 
-    /*-
+    /**
      * Approach 2: Optimized In-Place Transformation (O(1) Extra Space)
      * 
      * Intuition:

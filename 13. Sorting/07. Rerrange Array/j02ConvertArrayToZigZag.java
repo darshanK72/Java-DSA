@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an array of integers, rearrange the elements such that they follow a 
@@ -49,7 +49,7 @@ public class j02ConvertArrayToZigZag {
         System.out.println("zigZagEfficient Test 2: " + Arrays.toString(arr4));
     }
 
-    /*-
+    /**
      * Approach 1: Two Pointers with Sorting
      * 
      * Intuition:
@@ -87,7 +87,7 @@ public class j02ConvertArrayToZigZag {
         }
     }
 
-    /*-
+    /**
      * Approach 2: In-Place Swap (Method 1)
      * 
      * Intuition:
@@ -120,7 +120,7 @@ public class j02ConvertArrayToZigZag {
         }
     }
 
-    /*-
+    /**
      * Approach 3: In-Place Swap (Method 2) - Optimized
      * 
      * Intuition:

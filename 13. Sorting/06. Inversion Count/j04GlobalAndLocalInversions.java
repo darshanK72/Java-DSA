@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an array of integers, you need to determine whether the number of global inversions
@@ -29,7 +29,7 @@
 
 public class j04GlobalAndLocalInversions {
 
-    /*-
+    /**
      * Approach: Check if Global Inversions are equal to Local Inversions
      * 
      * Intuition:
@@ -56,7 +56,7 @@ public class j04GlobalAndLocalInversions {
         return (global == local);
     }
 
-    /*-
+    /**
      * Helper function: Count the number of global inversions using merge sort.
      * 
      * Intuition:
@@ -82,7 +82,7 @@ public class j04GlobalAndLocalInversions {
         return count;
     }
 
-    /*-
+    /**
      * Helper function: Count the number of local inversions.
      * 
      * Intuition:
@@ -104,7 +104,7 @@ public class j04GlobalAndLocalInversions {
         return count;
     }
 
-    /*-
+    /**
      * Helper function: Merge two sorted subarrays and count global inversions.
      * 
      * Intuition:
@@ -162,7 +162,7 @@ public class j04GlobalAndLocalInversions {
         return count;
     }
 
-    /*-
+    /**
      * Main method to test the code with different test cases.
      */
     public static void main(String[] args) {

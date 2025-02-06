@@ -36,7 +36,7 @@
 
 import java.util.Scanner;
 
-public class j15StepsToReduceNumToZero {
+public class j16StepsToReduceNumToZero {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         int num = in.nextInt();

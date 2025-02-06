@@ -31,7 +31,7 @@
 
 import java.util.Scanner;
 
-public class j15XorOfRange {
+public class j17XorOfRange {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         // int n = in.nextInt();

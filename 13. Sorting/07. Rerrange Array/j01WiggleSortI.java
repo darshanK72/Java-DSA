@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an array of integers, rearrange the elements such that they follow a 
@@ -58,7 +58,7 @@ public class j01WiggleSortI {
         System.out.println("wiggleSortDivideReminder Test 2: " + Arrays.toString(arr6));
     }
 
-    /*-
+    /**
      * Approach 1: Two Pointers with Sorting
      * 
      * Intuition:
@@ -96,7 +96,7 @@ public class j01WiggleSortI {
         }
     }
 
-    /*-
+    /**
      * Approach 2: In-Place Efficient Swap
      * 
      * Intuition:
@@ -129,7 +129,7 @@ public class j01WiggleSortI {
         }
     }
 
-    /*-
+    /**
      * Approach 3: Encoding Method (For Large Numbers)
      * 
      * Intuition:

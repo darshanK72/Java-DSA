@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an array of integers, the task is to find the minimum number of swaps required to sort the array.
@@ -46,7 +46,7 @@ public class j02MimimumSwaps {
         System.out.println("Minimum swaps for arr4: " + obj.countSwaps(arr4, arr4.length)); // Expected: 3
     }
 
-    /*-
+    /**
      * Approach: Merge Sort-based Inversion Counting
      * 
      * Intuition:
@@ -69,7 +69,7 @@ public class j02MimimumSwaps {
         return mergeSortAndCount(arr, 0, arr.length - 1);
     }
 
-    /*-
+    /**
      * Helper function: Performs merge sort and counts the inversions.
      * 
      * Intuition:
@@ -101,7 +101,7 @@ public class j02MimimumSwaps {
         return count;
     }
 
-    /*-
+    /**
      * Helper function: Merges two subarrays and counts the number of inversions.
      * 
      * Intuition:
