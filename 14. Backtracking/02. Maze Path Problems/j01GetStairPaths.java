@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given a staircase with `n` steps, you can climb 1, 2, or 3 steps at a time.
@@ -27,8 +27,8 @@
  *     - There are four possible ways to climb 3 steps: {1-1-1, 1-2, 2-1, 3}.
  */
 
-import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class j01GetStairPaths {
 
@@ -41,7 +41,7 @@ public class j01GetStairPaths {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Recursive Printing of Staircase Paths
      * 
      * Intuition:
@@ -80,7 +80,7 @@ public class j01GetStairPaths {
         printStairPaths(n - 3, path + "3");
     }
 
-    /*-
+    /**
      * Approach: Recursive Collection of Staircase Paths
      * 
      * Intuition:

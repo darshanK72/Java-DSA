@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given a maze of size `m x n`, you are initially at the top-left corner (0, 0).
@@ -48,7 +48,7 @@ public class j02GetMazePathsDownRightI {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Recursive Printing of Maze Paths
      * 
      * Intuition:
@@ -90,7 +90,7 @@ public class j02GetMazePathsDownRightI {
         printMazePaths(sr + 1, sc, dr, dc, step + "D");
     }
 
-    /*-
+    /**
      * Approach: Recursive Collection of Maze Paths
      * 
      * Intuition:
@@ -151,7 +151,7 @@ public class j02GetMazePathsDownRightI {
         return output;
     }
 
-   /*-
+   /**
     * Approach: Recursive Collection with ArrayList (Modified)
     * 
     * Intuition:

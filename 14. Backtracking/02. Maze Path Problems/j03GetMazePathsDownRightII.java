@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given a matrix of integers, we need to find all possible paths from the top-left corner
@@ -67,7 +67,7 @@ public class j03GetMazePathsDownRightII {
         }
     }
 
-    /*-
+    /**
      * Approach 1: Recursive Collection of All Paths with Backtracking
      * 
      * Intuition:
@@ -123,7 +123,7 @@ public class j03GetMazePathsDownRightII {
         currentPath.remove(currentPath.size() - 1);
     }
 
-    /*-
+    /**
      * Approach 2: Recursive Collection of All Paths (Without Backtracking)
      * 
      * Intuition:
@@ -149,7 +149,8 @@ public class j03GetMazePathsDownRightII {
      * @param currentPath The list that holds the current path.
      * @param allPaths The list of all valid paths found.
      */
-    public static void getAllPaths2(int[][] matrix, int r, int c, List<Integer> currentPath,List<List<Integer>> allPaths) {
+    public static void getAllPaths2(int[][] matrix, int r, int c, List<Integer> currentPath,
+            List<List<Integer>> allPaths) {
 
         // Check if out of bounds
         if (r >= matrix.length || c >= matrix[0].length) {
@@ -172,5 +173,52 @@ public class j03GetMazePathsDownRightII {
 
         // Backtrack: remove the current element from the path
         currentPath.remove(currentPath.size() - 1);
+    }
+
+    /**
+     * Approach 3: Recursive Collection of All Paths with Explicit Start and Destination
+     * 
+     * Intuition:
+     * - This approach is similar to the previous ones but allows specifying the start and destination positions.
+     * - We recursively explore two directions: move right (increases the column) and move down (increases the row).
+     * - Each recursive call adds the current element in the matrix to the path and continues exploring.
+     * - If we reach the destination, we add the current path to the list of all paths.
+     * - After exploring a direction (either right or down), we backtrack by removing the last element from the path.
+     * 
+     * Explanation:
+     * - At each step, we add the current element to the `curr`. When we reach the destination, we store the path into `set`.
+     * - If we exceed matrix bounds, we return from the recursion without adding anything.
+     * - We backtrack after exploring both right and down directions to remove the most recent element from `curr`
+     *   and explore other possibilities.
+     * 
+     * Time Complexity:
+     * - O(2^(m + n)) since at each position, we have two choices (right or down) and recursively explore both.
+     * 
+     * Space Complexity:
+     * - O(m + n) for the recursion stack.
+     * 
+     * @param mat The matrix to traverse.
+     * @param sr The starting row position.
+     * @param sc The starting column position.
+     * @param dr The destination row position.
+     * @param dc The destination column position.
+     * @param curr The list that holds the current path.
+     * @param set The list of all valid paths found.
+     */
+    public static void generatePaths(int[][] mat, int sr, int sc, int dr, int dc, ArrayList<Integer> curr,
+            ArrayList<ArrayList<Integer>> set) {
+        if (sr > dr || sc > dc) {
+            return; // Stop if out of bounds
+        }
+        curr.add(mat[sr][sc]);
+
+        if (sr == dr && sc == dc) {
+            set.add(new ArrayList<>(curr)); // Add the current path to set
+        } else {
+            generatePaths(mat, sr + 1, sc, dr, dc, curr, set); // Explore down
+            generatePaths(mat, sr, sc + 1, dr, dc, curr, set); // Explore right
+        }
+
+        curr.remove(curr.size() - 1); // Backtrack: remove the current element from the path
     }
 }
