@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class j04UniqueSubsetsII {
+public class j05UniqueSubsetsII {
 
     public static void main(String[] args) {
         // Test case 1: nums with duplicates

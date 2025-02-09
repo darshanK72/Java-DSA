@@ -24,7 +24,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class j05GenerateBinaryString {
+public class j03GenerateBinaryString {
 
     public static void main(String[] args) {
         int n = 3; // You can change this value for different tests

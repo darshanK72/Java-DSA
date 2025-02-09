@@ -30,7 +30,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class j03GetSubsequenceSum {
+public class j04GetSubsequenceSum {
 
     public static void main(String args[]) {
         // Reading input
@@ -41,6 +41,9 @@ public class j03GetSubsequenceSum {
             arr[i] = in.nextInt(); // Input: elements of the array
         }
         int k = in.nextInt(); // Input: target sum of subsequences
+        
+        // Checks if there is subset or sobsequence with sum K
+        System.out.println("Is Subset With Sum " + k + " Present : " + checkIsThereSubsetWithSum(k, n, k, arr));
 
         // Call to count the subsequences whose sum equals k
         System.out.println(countSubsequencesWithSum(arr, 0, 0, k));
@@ -52,7 +55,44 @@ public class j03GetSubsequenceSum {
     }
 
     /**
-     * Approach 1: Brute Force Approach (Recursive)
+     * Approach 1: Check if there is a subset with the given sum
+     * 
+     * Intuition:
+     * - We use a recursive function to explore all subsets of the array.
+     * - At each index, we can either include the current element in the subset or exclude it.
+     * - When we reach the end of the array, we check if the sum of the current subset equals the target sum `k`.
+     * 
+     * Time Complexity:
+     * - O(2^n), where n is the length of the array. This is because for each element, we have two choices (include or exclude).
+     * 
+     * Space Complexity:
+     * - O(n), due to the recursion stack.
+     * 
+     * @param k The target sum to be matched.
+     * @param idx The current index in the array.
+     * @param sum The current sum of the subset.
+     * @param arr The input array of numbers.
+     * @return True if there is a subset with the given sum, otherwise false.
+     */
+    public static boolean checkIsThereSubsetWithSum(int k, int idx, int sum, int[] arr) {
+        if (idx == arr.length) {
+            if (sum == k) {
+                return true; // If sum matches k, return true
+            }
+            return false; // Otherwise, return false
+        }
+
+        // Include current element
+        if (checkIsThereSubsetWithSum(k, idx + 1, sum + arr[idx], arr)) return true;
+
+        // Exclude current element
+        if (checkIsThereSubsetWithSum(k, idx + 1, sum, arr)) return true;
+
+        return false; // Return false if no subset matches the sum
+    }
+
+    /**
+     * Approach 2: Brute Force Approach (Recursive)
      * 
      * Intuition:
      * - We use a recursive function to explore all subsequences of the array.
@@ -89,7 +129,7 @@ public class j03GetSubsequenceSum {
     }
 
     /**
-     * Approach 2: Brute Force Approach (Recursive with storing subsequences)
+     * Approach 3: Brute Force Approach (Recursive with storing subsequences)
      * 
      * Intuition:
      * - Similar to the first approach, but instead of just counting subsequences, we store each subsequence that meets the condition.
