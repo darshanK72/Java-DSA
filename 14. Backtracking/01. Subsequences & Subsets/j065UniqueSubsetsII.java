@@ -31,30 +31,37 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class j05UniqueSubsetsII {
+public class j065UniqueSubsetsII {
 
     public static void main(String[] args) {
         // Test case 1: nums with duplicates
         int[] nums = { 1, 2, 2 };
 
+
         // Testing Approach 1: Using HashSet for Unique Subsets
+        HashSet<List<Integer>> set1 = new HashSet<>();
+        Arrays.sort(nums); // Sort to handle duplicates
+        generateSubsets1(nums, 0, new ArrayList<Integer>(), set1);
         System.out.println("Approach 1 (Using HashSet):");
-        List<List<Integer>> result1 = subsetsWithDup1(nums);
-        for (List<Integer> subset : result1) {
+        for (List<Integer> subset : set1) {
             System.out.println(subset);
         }
 
         // Testing Approach 2: Using List Without HashSet
+        Arrays.sort(nums); // Sort to handle duplicates
+        List<List<Integer>> set2 = new ArrayList<>();
+        generateSubsets2(nums, 0, new ArrayList<Integer>(), set2);
         System.out.println("\nApproach 2 (Using List without HashSet):");
-        List<List<Integer>> result2 = subsetsWithDup2(nums);
-        for (List<Integer> subset : result2) {
+        for (List<Integer> subset : set2) {
             System.out.println(subset);
         }
 
         // Testing Approach 3: Optimized Backtracking Without Extra Data Structures
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(nums); // Sort to handle duplicates
+        generateSubsets3(nums, 0, new ArrayList<>(), result);
         System.out.println("\nApproach 3 (Optimized Backtracking):");
-        List<List<Integer>> result3 = subsetsWithDup3(nums);
-        for (List<Integer> subset : result3) {
+        for (List<Integer> subset : result) {
             System.out.println(subset);
         }
     }
@@ -79,26 +86,25 @@ public class j05UniqueSubsetsII {
      * 
      * Space Complexity:
      * - O(2^n) for storing subsets.
+     * 
+     * 
+     * @param nums The input array of integers.
+     * @param index The current index in the array.
+     * @param curr The current subset being generated.
+     * @param set The HashSet to store unique subsets.
      */
-    public static List<List<Integer>> subsetsWithDup1(int[] nums) {
-        HashSet<List<Integer>> set = new HashSet<>();
-        Arrays.sort(nums); // Sort to handle duplicates
-        generateSubsets(nums, 0, new ArrayList<Integer>(), set);
-        return new ArrayList<>(set);
-    }
-
-    public static void generateSubsets(int[] nums, int index, ArrayList<Integer> curr, HashSet<List<Integer>> set) {
+    public static void generateSubsets1(int[] nums, int index, ArrayList<Integer> curr, HashSet<List<Integer>> set) {
         if (index == nums.length) {
             set.add(new ArrayList<>(curr)); // Add subset to HashSet
             return;
         }
         // Include current element
         curr.add(nums[index]);
-        generateSubsets(nums, index + 1, curr, set);
+        generateSubsets1(nums, index + 1, curr, set);
 
         // Exclude current element
         curr.remove(curr.size() - 1);
-        generateSubsets(nums, index + 1, curr, set);
+        generateSubsets1(nums, index + 1, curr, set);
     }
 
     /**
@@ -122,22 +128,20 @@ public class j05UniqueSubsetsII {
      * 
      * Space Complexity:
      * - O(2^n) for storing subsets.
+     * 
+     * @param nums The input array of integers.
+     * @param index The current index in the array.
+     * @param curr The current subset being generated.
+     * @param set The list to store unique subsets.
      */
-    public static List<List<Integer>> subsetsWithDup2(int[] nums) {
-        Arrays.sort(nums); // Sort to handle duplicates
-        List<List<Integer>> set = new ArrayList<>();
-        generateSubsets(nums, 0, new ArrayList<Integer>(), set);
-        return set;
-    }
-
-    public static void generateSubsets(int[] nums, int index, ArrayList<Integer> curr, List<List<Integer>> set) {
+    public static void generateSubsets2(int[] nums, int index, ArrayList<Integer> curr, List<List<Integer>> set) {
         if (index == nums.length) {
             set.add(new ArrayList<>(curr)); // Add subset to list
             return;
         }
         // Include current element
         curr.add(nums[index]);
-        generateSubsets(nums, index + 1, curr, set);
+        generateSubsets2(nums, index + 1, curr, set);
 
         // Exclude current element
         curr.remove(curr.size() - 1);
@@ -145,7 +149,7 @@ public class j05UniqueSubsetsII {
         // Skip duplicate elements to avoid duplicate subsets
         if (curr.size() > 0 && curr.get(curr.size() - 1) == nums[index])
             return;
-        generateSubsets(nums, index + 1, curr, set);
+        generateSubsets2(nums, index + 1, curr, set);
     }
 
     /**
@@ -168,15 +172,13 @@ public class j05UniqueSubsetsII {
      * 
      * Space Complexity:
      * - O(2^n) for storing subsets.
+     * 
+     * @param nums The input array of integers.
+     * @param index The current index in the array.
+     * @param curr The current subset being generated.
+     * @param result The list to store unique subsets.
      */
-    public static List<List<Integer>> subsetsWithDup3(int[] nums) {
-        List<List<Integer>> result = new ArrayList<>();
-        Arrays.sort(nums); // Sort to handle duplicates
-        generateSubsets(nums, 0, new ArrayList<>(), result);
-        return result;
-    }
-
-    public static void generateSubsets(int[] nums, int index, List<Integer> curr, List<List<Integer>> result) {
+    public static void generateSubsets3(int[] nums, int index, List<Integer> curr, List<List<Integer>> result) {
         result.add(new ArrayList<>(curr)); // Store current subset
 
         for (int i = index; i < nums.length; i++) {
@@ -185,7 +187,7 @@ public class j05UniqueSubsetsII {
                 continue;
 
             curr.add(nums[i]); // Include element
-            generateSubsets(nums, i + 1, curr, result);
+            generateSubsets3(nums, i + 1, curr, result);
             curr.remove(curr.size() - 1); // Remove last element (backtracking)
         }
     }

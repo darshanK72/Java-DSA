@@ -28,11 +28,12 @@ public class j03GenerateBinaryString {
 
     public static void main(String[] args) {
         int n = 3; // You can change this value for different tests
-        List<String> result = generateBinaryStrings(n);
 
-        // Print out the result
+        ArrayList<String> set = new ArrayList<>();
+        generateBinaryStrings(n, 0, "", set);
+
         System.out.println("Binary strings of length " + n + " with no consecutive 1's:");
-        for (String binaryString : result) {
+        for (String binaryString : set) {
             System.out.println(binaryString);
         }
     }
@@ -53,15 +54,13 @@ public class j03GenerateBinaryString {
      * - O(n) for the recursion call stack.
      * 
      * @param n The length of the binary strings to generate.
+     * @param index The current index in the binary string.
+     * @param current The current binary string being generated.
+     * @param set The list to store the generated binary strings.
      * @return A list of binary strings of length n with no consecutive 1's.
      */
-    public static List<String> generateBinaryStrings(int n) {
-        ArrayList<String> set = new ArrayList<>();
-        generate(n, 0, "", set);
-        return set;
-    }
 
-    public static void generate(int n, int index, String current, List<String> set) {
+    public static void generateBinaryStrings(int n, int index, String current, List<String> set) {
         if (index == n) {
             set.add(current);
             return;
@@ -69,11 +68,11 @@ public class j03GenerateBinaryString {
 
         // If the last character was '1', we can only add '0'
         if (current.length() > 0 && current.charAt(current.length() - 1) == '1') {
-            generate(n, index + 1, current + "0", set);
+            generateBinaryStrings(n, index + 1, current + "0", set);
         } else {
             // We can add both '0' and '1' in this case
-            generate(n, index + 1, current + "0", set);
-            generate(n, index + 1, current + "1", set);
+            generateBinaryStrings(n, index + 1, current + "0", set);
+            generateBinaryStrings(n, index + 1, current + "1", set);
         }
     }
 }

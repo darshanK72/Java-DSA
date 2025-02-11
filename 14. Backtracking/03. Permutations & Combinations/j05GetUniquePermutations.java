@@ -28,7 +28,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
 
-public class j02GetUniquePermutations {
+public class j05GetUniquePermutations {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
