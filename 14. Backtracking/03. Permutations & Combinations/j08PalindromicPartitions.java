@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given a string s, partition s such that every substring of the partition is a palindrome.
@@ -32,7 +32,7 @@ public class j08PalindromicPartitions {
         System.out.println(partition(s));
     }
 
-    /*-
+    /**
      * Approach 1: Backtracking
      * 
      * Intuition:
@@ -84,7 +84,7 @@ public class j08PalindromicPartitions {
         }
     }
 
-    /*-
+    /**
     * Helper Method: isPalindrome
     * 
     * Intuition:

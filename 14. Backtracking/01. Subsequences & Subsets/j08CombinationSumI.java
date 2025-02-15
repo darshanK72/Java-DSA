@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *      Given an array of distinct integers `candidates` and a target integer `target`,
@@ -53,7 +53,7 @@ public class j08CombinationSumI {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Backtracking with Pruning
      * 
      * Intuition:
@@ -88,7 +88,7 @@ public class j08CombinationSumI {
         return result;
     }
 
-    /*-
+    /**
      * Backtracking Method
      * 
      * Intuition:

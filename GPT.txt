@@ -120,7 +120,9 @@ Try to get problem statement from leetcode or Geeksforgeeks where yo can find, w
 Now remember this for each and every promt I will provide in this conversation, start giving your output from my next promt.
 if there are any efficient approach or any other approach present for question, then also provide it from your side in same format
 
-The intuition should be explained properly, if we are implementing certain logic, then why we are doing that should also be explained in intuition
+The intuition should be explained properly, if we are implementing certain logic, then why we are doing that should also be explained in intuition.
+
+Explanation part should contain proper description of steps taken in the code with reason properly explained.
 
 if there are multiple solutions or approaches for problem, then arrange them from worst to best
 
