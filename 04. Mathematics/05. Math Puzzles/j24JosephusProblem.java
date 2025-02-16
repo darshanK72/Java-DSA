@@ -24,7 +24,7 @@ import java.util.Scanner;
  *     Person 3 is the last remaining.
  */
 
-public class j03JosephusProblem {
+public class j24JosephusProblem {
     public static void main(String args[]) {
         // Reading input
         Scanner in = new Scanner(System.in);

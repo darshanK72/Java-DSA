@@ -1,3 +1,4 @@
+
 /**
  * Problem Statement:
  * 
@@ -33,6 +34,7 @@
  *     - The board follows all the Sudoku rules: Each row, column, and 3x3 subgrid contains the numbers 1 to 9 exactly once.
  */
 
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class j09ValidSudoku {
@@ -50,12 +52,12 @@ public class j09ValidSudoku {
         }
 
         // Call the function to check if the Sudoku board is valid
-        System.out.println(isValidSudoku(board));
+        System.out.println(isValidSudoku1(board));
 
         in.close();
     }
 
-    /**
+   /**
      * Approach: Brute Force Validation
      * 
      * Intuition:
@@ -76,7 +78,7 @@ public class j09ValidSudoku {
      * @param board The 9x9 Sudoku board represented as a 2D array.
      * @return `true` if the board is valid, otherwise `false`.
      */
-    public static boolean isValidSudoku(int[][] board) {
+    public static boolean isValidSudoku1(int[][] board) {
         // Check rows and columns
         for (int i = 0; i < 9; i++) {
             int[] map = new int[9];
@@ -126,7 +128,47 @@ public class j09ValidSudoku {
         return true;
     }
 
-    /**
+   /**
+      * Approach: HashSet Validation
+      * 
+      * Intuition:
+      * - We use a HashSet to keep track of the numbers we have seen in each row, column, and 3x3 subgrid.
+      * - For each cell in the board, we generate unique keys for the row, column, and subgrid constraints.
+      * - If any of these keys already exist in the HashSet, the board is invalid.
+      * - Otherwise, we add the keys to the HashSet and continue checking.
+      * 
+      * Time Complexity:
+      * - O(N^2), where N is 9 (the size of the board). We are iterating over each cell in the board once.
+      * 
+      * Space Complexity:
+      * - O(N^2), where N is 9. In the worst case, we store 3*N^2 keys in the HashSet.
+      * 
+      * @param board The 9x9 Sudoku board represented as a 2D array of characters.
+      * @return `true` if the board is valid, otherwise `false`.
+      */
+    public static boolean isValidSudoku2(char[][] board) {
+        HashSet<String> seen = new HashSet<>();
+
+        for (int row = 0; row < 9; row++) {
+            for (int col = 0; col < 9; col++) {
+                char num = board[row][col];
+                if (num != '.') {
+                    // Generate unique keys for row, col, and box constraints
+                    String rowKey = "row" + row + "-" + num;
+                    String colKey = "col" + col + "-" + num;
+                    String boxKey = "box" + (row / 3) + (col / 3) + "-" + num;
+
+                    // If the number is already seen in any set, return false
+                    if (!seen.add(rowKey) || !seen.add(colKey) || !seen.add(boxKey)) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+   /**
      * Helper Method: Check if the map is valid (no duplicates in row, column, or subgrid)
      * 
      * Intuition:
