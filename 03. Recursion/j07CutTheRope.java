@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given a rope of length `n` and three possible lengths `a`, `b`, and `c`, 
@@ -46,7 +46,7 @@ public class j07CutTheRope {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Recursion with Maximum Subproblem Selection
      * 
      * Intuition:

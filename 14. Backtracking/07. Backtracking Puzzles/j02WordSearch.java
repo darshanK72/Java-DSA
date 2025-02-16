@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given an `m x n` board and a word, find if the word exists in the grid.
@@ -41,7 +41,7 @@
 
 public class j02WordSearch {
 
-    /*-
+    /**
      * Approach: Backtracking with DFS (Depth-First Search)
      * 
      * Intuition:
@@ -88,7 +88,7 @@ public class j02WordSearch {
         return false;
     }
 
-    /*-
+    /**
      * Helper Method: DFS Search for the Word
      * 
      * Intuition:

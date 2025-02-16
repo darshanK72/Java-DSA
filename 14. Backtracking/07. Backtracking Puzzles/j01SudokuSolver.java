@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Write a program to solve a Sudoku puzzle by filling the empty cells.
@@ -69,7 +69,7 @@ public class j01SudokuSolver {
         System.out.println(Arrays.deepToString(board));
     }
 
-    /*-
+    /**
      * Approach 1: Backtracking with Separate Result Storage
      * 
      * Intuition:
@@ -120,7 +120,7 @@ public class j01SudokuSolver {
         }
     }
 
-    /*-
+    /**
      * Approach 2: Backtracking with Early Termination
      * 
      * Intuition:
@@ -168,7 +168,7 @@ public class j01SudokuSolver {
         return false;
     }
 
-    /*-
+    /**
      * Helper Method: Check if a Number Can Be Placed
      * 
      * Intuition:

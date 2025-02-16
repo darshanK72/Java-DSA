@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *      The N-Queens problem is to place N queens on an N × N chessboard such that no two queens
@@ -59,7 +59,7 @@ public class j01NQueens {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Backtracking
      * 
      * Intuition:
@@ -98,7 +98,7 @@ public class j01NQueens {
         }
     }
 
-    /*-
+    /**
      * Approach 2: Counting Valid Arrangements
      * 
      * Intuition:
@@ -133,7 +133,7 @@ public class j01NQueens {
         return count;
     }
 
-    /*-
+    /**
      * Approach 3: Storing and Returning Valid Arrangements
      * 
      * Intuition:
@@ -181,7 +181,7 @@ public class j01NQueens {
         }
     }
 
-    /*-
+    /**
      * Function: canPlaceQueen
      * 
      * Intuition:

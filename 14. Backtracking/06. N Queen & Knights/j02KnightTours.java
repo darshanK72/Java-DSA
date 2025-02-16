@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  * The Knight's Tour problem involves moving a knight on an `N × M` chessboard 
@@ -44,7 +44,7 @@ public class j02KnightTours {
         in.close();
     }
 
-    /*-
+    /**
      * Approach: Backtracking
      * 
      * Intuition:
@@ -94,7 +94,7 @@ public class j02KnightTours {
         chess[row][col] = 0; // Backtracking step
     }
 
-    /*-
+    /**
      * Approach: Finding and Storing a Valid Knight's Tour
      * 
      * Intuition:
@@ -129,7 +129,7 @@ public class j02KnightTours {
         return set;
     }
 
-    /*-
+    /**
      * Function: generateKnightTour
      * 
      * Intuition:
@@ -168,7 +168,7 @@ public class j02KnightTours {
         return false;
     }
 
-    /*-
+    /**
      * Function: printBoard
      * 
      * Intuition:
