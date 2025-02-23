@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Design your implementation of a doubly linked list. A node in a doubly linked list should have three attributes:
@@ -96,7 +96,7 @@ public class j02DesignDoublyLinkedList {
         linkedList.printList(); // Expected: 1 4 3
     }
 
-    /*-
+    /**
      * Node class: Represents a single node in the doubly linked list.
      * Each node contains:
      *  - `data`: Stores the integer value.
@@ -126,7 +126,7 @@ public class j02DesignDoublyLinkedList {
             this.size = 0;
         }
 
-        /*-
+        /**
          * Method: get(int index)
          * 
          * Intuition:
@@ -150,7 +150,7 @@ public class j02DesignDoublyLinkedList {
             return temp.data;
         }
 
-        /*-
+        /**
          * Method: addAtHead(int val)
          * 
          * Intuition:
@@ -178,7 +178,7 @@ public class j02DesignDoublyLinkedList {
             }
         }
 
-        /*-
+        /**
          * Method: addAtTail(int val)
          * 
          * Intuition:
@@ -206,7 +206,7 @@ public class j02DesignDoublyLinkedList {
             }
         }
 
-        /*-
+        /**
          * Method: addAtIndex(int index, int val)
          * 
          * Intuition:
@@ -245,7 +245,7 @@ public class j02DesignDoublyLinkedList {
             }
         }
 
-        /*-
+        /**
          * Method: deleteAtIndex(int index)
          * 
          * Intuition:
@@ -292,7 +292,7 @@ public class j02DesignDoublyLinkedList {
             }
         }
 
-        /*-
+        /**
          * Method: printList()
          * 
          * Intuition:

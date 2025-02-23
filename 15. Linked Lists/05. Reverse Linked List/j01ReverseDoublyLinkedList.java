@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given a Doubly Linked List (DLL), reverse the list so that the first node 
@@ -53,7 +53,7 @@ public class j01ReverseDoublyLinkedList {
         printList(head);
     }
 
-    /*-
+    /**
      * Approach 1: Reversing by Swapping Data
      * 
      * Intuition:
@@ -102,7 +102,7 @@ public class j01ReverseDoublyLinkedList {
         return head;
     }
 
-    /*-
+    /**
      * Approach 2: Reversing by Swapping Pointers (Efficient)
      * 
      * Intuition:
@@ -153,7 +153,7 @@ public class j01ReverseDoublyLinkedList {
         return temp.prev;
     }
 
-    /*-
+    /**
      * Approach 3: Recursive Reversal
      * 
      * Intuition:
@@ -195,7 +195,7 @@ public class j01ReverseDoublyLinkedList {
         return reverseDLLRecursive(head.prev);
     }
 
-    /*-
+    /**
      * Utility Function: Print Doubly Linked List
      * 
      * - This function prints the elements of a doubly linked list.

@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given a singly linked list, find the middle node of the list. 
@@ -57,7 +57,7 @@ public class j01MiddleOfLinkedList {
     }
 
 
-    /*-
+    /**
      * Approach 1: Two-Pass Traversal
      * 
      * Intuition:
@@ -97,7 +97,7 @@ public class j01MiddleOfLinkedList {
         return temp;
     }
 
-    /*-
+    /**
      * Approach 2: Fast and Slow Pointer (Efficient)
      * 
      * Intuition:

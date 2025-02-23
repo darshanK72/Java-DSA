@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Design your implementation of a singly linked list. A node in a singly linked list should have two attributes:
@@ -84,7 +84,7 @@ public class j01DesignSinglyLinkedList {
         obj.printList();
     }
 
-    /*-
+    /**
      * Node class: Represents a single node in the linked list.
      * Each node contains an integer `data` and a reference to the next node.
      */
@@ -108,7 +108,7 @@ public class j01DesignSinglyLinkedList {
             this.size = 0;
         }
 
-        /*-
+        /**
          * Method: get(int index)
          * 
          * Intuition:
@@ -132,7 +132,7 @@ public class j01DesignSinglyLinkedList {
             return temp.data;
         }
 
-        /*-
+        /**
          * Method: addAtHead(int val)
          * 
          * Intuition:
@@ -159,7 +159,7 @@ public class j01DesignSinglyLinkedList {
             }
         }
 
-        /*-
+        /**
          * Method: addAtTail(int val)
          * 
          * Intuition:
@@ -186,7 +186,7 @@ public class j01DesignSinglyLinkedList {
             }
         }
 
-        /*-
+        /**
          * Method: addAtIndex(int index, int val)
          * 
          * Intuition:
@@ -223,7 +223,7 @@ public class j01DesignSinglyLinkedList {
             }
         }
 
-        /*-
+        /**
          * Method: deleteAtIndex(int index)
          * 
          * Intuition:
@@ -262,7 +262,7 @@ public class j01DesignSinglyLinkedList {
             this.size--;
         }
 
-        /*-
+        /**
          * Method: printList()
          * 
          * Intuition:
