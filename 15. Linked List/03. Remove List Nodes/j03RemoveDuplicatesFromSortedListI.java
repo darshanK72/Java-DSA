@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *      Given a sorted singly linked list, remove all duplicate elements such that each element appears only once.
@@ -34,7 +34,7 @@ public class j03RemoveDuplicatesFromSortedListI {
         }
     }
 
-    /*-
+    /**
      * Approach 1: Iterative In-Place Removal
      * 
      * Intuition:
@@ -76,20 +76,20 @@ public class j03RemoveDuplicatesFromSortedListI {
         return head;
     }
 
-    /*-
+    /**
      * Approach 2: Using a Previous Pointer
      * 
      * Intuition:
-     * - Instead of checking `temp` directly, use a `prev` pointer to track the last unique node.
-     * - Start with a dummy node (`prev` initialized to a value smaller than any possible list value).
-     * - If `curr.data == prev.data`, skip `curr` by updating `prev.next = curr.next`.
-     * - Otherwise, move `prev` forward.
+     * - Instead of checking `temp` directly, use a `dummy` pointer to track the last unique node.
+     * - Start with a dummy node (`dummy` initialized to a value smaller than any possible list value).
+     * - If `curr.data == dummy.data`, skip `curr` by updating `dummy.next = curr.next`.
+     * - Otherwise, move `dummy` forward.
      * 
      * Explanation:
-     * 1. Initialize a `prev` node with a dummy value (Integer.MIN_VALUE) and link it to the head.
+     * 1. Initialize a `dummy` node with a dummy value (Integer.MIN_VALUE) and link it to the head.
      * 2. Traverse the list using `curr`.
-     * 3. If `curr.data == prev.data`, bypass `curr`.
-     * 4. Otherwise, move `prev` forward.
+     * 3. If `curr.data == dummy.data`, bypass `curr`.
+     * 4. Otherwise, move `dummy` forward.
      * 5. Return the modified list.
      * 
      * Edge Cases Considered:
@@ -108,15 +108,15 @@ public class j03RemoveDuplicatesFromSortedListI {
      * @return The head of the modified linked list with duplicates removed.
      */
     public Node deleteDuplicatesPrevPointer(Node head) {
-        Node prev = new Node(Integer.MIN_VALUE); // Dummy node
-        prev.next = head;
+        Node dummy = new Node(Integer.MIN_VALUE); // Dummy node
+        dummy.next = head;
         Node curr = head;
-        head = prev; // Update head to dummy node
+        head = dummy; // Update head to dummy node
         while (curr != null) {
-            if (curr.data == prev.data) {
-                prev.next = curr.next; // Skip duplicate node
+            if (curr.data == dummy.data) {
+                dummy.next = curr.next; // Skip duplicate node
             } else {
-                prev = prev.next; // Move prev to next distinct node
+                dummy = dummy.next; // Move dummy to next distinct node
             }
             curr = curr.next; // Move current pointer
         }

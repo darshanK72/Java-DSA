@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *      Given a singly linked list, remove all nodes that have a specific value.
@@ -34,7 +34,7 @@ public class j01RemoveListNodeOfValue {
         }
     }
 
-    /*-
+    /**
      * Approach: Sentinel Node & Iteration
      * 
      * Intuition:
@@ -42,11 +42,11 @@ public class j01RemoveListNodeOfValue {
      * - Using a sentinel (dummy) node simplifies this by ensuring the head is never removed directly.
      * 
      * Explanation:
-     * 1. Create a dummy node (`newHead`) pointing to the actual head.
+     * 1. Create a dummy node (`dummy`) pointing to the actual head.
      * 2. Use a `temp` pointer to traverse the list.
      * 3. If `temp.next.data == val`, skip the node (`temp.next = temp.next.next`).
      * 4. Otherwise, move `temp` forward.
-     * 5. Return `newHead.next` to discard the dummy node.
+     * 5. Return `dummy.next` to discard the dummy node.
      * 
      * Edge Cases Considered:
      * - Removing the head node.
@@ -65,9 +65,9 @@ public class j01RemoveListNodeOfValue {
      * @return Modified linked list after removing nodes with `val`.
      */
     public Node removeElements(Node head, int val) {
-        Node newHead = new Node(-1); // Dummy node
-        newHead.next = head;
-        Node temp = newHead;
+        Node dummy = new Node(-1); // Dummy node
+        dummy.next = head;
+        Node temp = dummy;
 
         while (temp.next != null) {
             if (temp.next.data == val) {
@@ -76,6 +76,6 @@ public class j01RemoveListNodeOfValue {
                 temp = temp.next; // Move forward
             }
         }
-        return newHead.next; // Skip dummy node and return updated list
+        return dummy.next; // Skip dummy node and return updated list
     }
 }

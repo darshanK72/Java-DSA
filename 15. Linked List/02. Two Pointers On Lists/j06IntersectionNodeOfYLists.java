@@ -116,4 +116,45 @@ public class j06IntersectionNodeOfYLists {
         }
         return size;
     }
+
+    /**
+    * Optimized Approach: Two Pointers with Reset
+    * 
+    * Intuition:
+    * - If two linked lists intersect, traversing them and resetting pointers can help find the intersection point.
+    * - By the time both pointers meet, they would have traversed equal lengths, accounting for the difference in the original lengths.
+    * 
+    * Explanation:
+    * 1. Initialize two pointers, one for each list.
+    * 2. Traverse each list. When a pointer reaches the end, redirect it to the head of the other list.
+    * 3. Continue until the two pointers meet, which will be the intersection node.
+    * 4. If there is no intersection, the pointers will both reach `null` at the same time.
+    * 
+    * Time Complexity:
+    * - O(M+N) → Where M and N are the lengths of the two lists. In the worst case, each pointer traverses both lists.
+    * 
+    * Space Complexity:
+    * - O(1) → No additional data structures are used.
+    * 
+    * @param headA The head of the first linked list.
+    * @param headB The head of the second linked list.
+    * @return The intersection node or null if no intersection exists.
+    */
+    public static Node getIntersectionNodeEfficient(Node headA, Node headB) {
+        if (headA == null || headB == null)
+            return null;
+        Node tempA = headA;
+        Node tempB = headB;
+        while (tempA != tempB) {
+            tempA = tempA.next;
+            tempB = tempB.next;
+            if (tempA == tempB)
+                return tempA;
+            if (tempA == null)
+                tempA = headB;
+            if (tempB == null)
+                tempB = headA;
+        }
+        return tempA;
+    }
 }

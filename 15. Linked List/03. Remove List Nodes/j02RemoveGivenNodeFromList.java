@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *      Given a non-tail node in a singly linked list, delete it in-place.
@@ -33,7 +33,7 @@ public class j02RemoveGivenNodeFromList {
         }
     }
 
-    /*-
+    /**
      * Approach: Copy & Bypass Technique
      * 
      * Intuition:
