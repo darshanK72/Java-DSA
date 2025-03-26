@@ -41,15 +41,15 @@ public class j04RemoveDuplicatesFromSortedListII {
      * Intuition:
      * - The list is sorted, so all duplicate values appear consecutively.
      * - We need to remove all nodes that have duplicates, not just the extra ones.
-     * - Use a dummy node (`dummy`) to track the new head and help with node removals.
+     * - Use a prev node (`prev`) to track the new head and help with node removals.
      * - If a node has duplicates, we skip all occurrences of that value.
      * 
      * Explanation:
-     * 1. Create a dummy node (`dummy`) and point it to `head`. This helps handle edge cases.
+     * 1. Create a prev node (`prev`) and point it to `head`. This helps handle edge cases.
      * 2. Traverse the list using a `curr` pointer.
      * 3. If `curr.data == curr.next.data`, store `curr.data` and skip all occurrences.
-     * 4. If no duplicates are found, move `dummy` forward.
-     * 5. Return `head.next` since `head` was assigned to `dummy` initially.
+     * 4. If no duplicates are found, move `prev` forward.
+     * 5. Return `head.next` since `head` was assigned to `prev` initially.
      * 
      * Edge Cases Considered:
      * - Empty list (head is null).
@@ -67,10 +67,10 @@ public class j04RemoveDuplicatesFromSortedListII {
      * @return The head of the modified linked list with duplicates removed.
      */
     public Node deleteDuplicates(Node head) {
-        Node dummy = new Node(Integer.MIN_VALUE); // Dummy node
-        dummy.next = head;
+        Node prev = new Node(Integer.MIN_VALUE); // prev node
+        prev.next = head;
         Node curr = head;
-        head = dummy; // Assign head to dummy node
+        head = prev; // Assign head to prev node
 
         while (curr != null) {
             // If duplicates exist, remove all occurrences of that value
@@ -79,9 +79,9 @@ public class j04RemoveDuplicatesFromSortedListII {
                 while (curr != null && curr.data == duplicateValue) {
                     curr = curr.next; // Skip all nodes with duplicate value
                 }
-                dummy.next = curr; // Link dummyious node to next unique node
+                prev.next = curr; // Link previous node to next unique node
             } else {
-                dummy = dummy.next; // Move dummy to next node
+                prev = prev.next; // Move prev to next node
                 curr = curr.next; // Move curr to next node
             }
         }

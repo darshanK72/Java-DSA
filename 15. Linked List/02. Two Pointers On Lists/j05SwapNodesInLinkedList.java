@@ -1,22 +1,22 @@
 /**
  * Problem Statement:
  * 
- * Given a singly linked list and an integer `k`, swap the values of the 
- * k-th node from the beginning and the k-th node from the end.
+ *      Given a singly linked list and an integer `k`, swap the values of the 
+ *      k-th node from the beginning and the k-th node from the end.
  * 
- * You are required to swap only the node values, not the actual nodes.
+ *      You are required to swap only the node values, not the actual nodes.
  * 
  * Constraints:
- * - The list is 1-indexed.
- * - The length of the linked list is at least `k`.
- * - The linked list consists of distinct node values.
+ *      - The list is 1-indexed.
+ *      - The length of the linked list is at least `k`.
+ *      - The linked list consists of distinct node values.
  * 
  * Input:
- * - A singly linked list.
- * - An integer `k` representing the k-th node position.
+ *      - A singly linked list.
+ *      - An integer `k` representing the k-th node position.
  * 
  * Output:
- * - The modified linked list after swapping values of k-th nodes.
+ *      - The modified linked list after swapping values of k-th nodes.
  * 
  * Example:
  * 

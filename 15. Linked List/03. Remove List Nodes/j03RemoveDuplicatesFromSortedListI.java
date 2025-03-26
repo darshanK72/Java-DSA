@@ -80,16 +80,16 @@ public class j03RemoveDuplicatesFromSortedListI {
      * Approach 2: Using a Previous Pointer
      * 
      * Intuition:
-     * - Instead of checking `temp` directly, use a `dummy` pointer to track the last unique node.
-     * - Start with a dummy node (`dummy` initialized to a value smaller than any possible list value).
-     * - If `curr.data == dummy.data`, skip `curr` by updating `dummy.next = curr.next`.
-     * - Otherwise, move `dummy` forward.
+     * - Instead of checking `temp` directly, use a `prev` pointer to track the last unique node.
+     * - Start with a prev node (`prev` initialized to a value smaller than any possible list value).
+     * - If `curr.data == prev.data`, skip `curr` by updating `prev.next = curr.next`.
+     * - Otherwise, move `prev` forward.
      * 
      * Explanation:
-     * 1. Initialize a `dummy` node with a dummy value (Integer.MIN_VALUE) and link it to the head.
+     * 1. Initialize a `prev` node with a prev value (Integer.MIN_VALUE) and link it to the head.
      * 2. Traverse the list using `curr`.
-     * 3. If `curr.data == dummy.data`, bypass `curr`.
-     * 4. Otherwise, move `dummy` forward.
+     * 3. If `curr.data == prev.data`, bypass `curr`.
+     * 4. Otherwise, move `prev` forward.
      * 5. Return the modified list.
      * 
      * Edge Cases Considered:
@@ -108,18 +108,18 @@ public class j03RemoveDuplicatesFromSortedListI {
      * @return The head of the modified linked list with duplicates removed.
      */
     public Node deleteDuplicatesPrevPointer(Node head) {
-        Node dummy = new Node(Integer.MIN_VALUE); // Dummy node
-        dummy.next = head;
+        Node prev = new Node(Integer.MIN_VALUE); // prev node
+        prev.next = head;
         Node curr = head;
-        head = dummy; // Update head to dummy node
+        head = prev; // Update head to prev node
         while (curr != null) {
-            if (curr.data == dummy.data) {
-                dummy.next = curr.next; // Skip duplicate node
+            if (curr.data == prev.data) {
+                prev.next = curr.next; // Skip duplicate node
             } else {
-                dummy = dummy.next; // Move dummy to next distinct node
+                prev = prev.next; // Move prev to next distinct node
             }
             curr = curr.next; // Move current pointer
         }
-        return head.next; // Skip the dummy node
+        return head.next; // Skip the prev node
     }
 }
