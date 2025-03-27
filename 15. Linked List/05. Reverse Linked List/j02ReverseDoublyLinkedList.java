@@ -24,7 +24,7 @@
  *     - The `prev` and `next` pointers of each node are swapped to reverse the list.
  */
 
-public class j01ReverseDoublyLinkedList {
+public class j02ReverseDoublyLinkedList {
 
     static class Node {
         public int data;
