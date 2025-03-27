@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given the head of a singly linked list and two integers `left` and `right` 
@@ -27,7 +27,7 @@
 
 public class j03ReverseLinkedListII {
 
-    /*-
+    /**
      * Definition of a Node in the linked list.
      */
     static class Node {
@@ -42,7 +42,7 @@ public class j03ReverseLinkedListII {
         }
     }
 
-    /*-
+    /**
      * Approach: Iterative Reversal
      * 
      * Intuition:

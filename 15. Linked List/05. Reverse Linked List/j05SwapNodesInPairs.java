@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given the head of a singly linked list, swap every two adjacent nodes and return its head.
@@ -23,7 +23,7 @@
 
 public class j05SwapNodesInPairs {
 
-    /*-
+    /**
      * Definition of a Node in the linked list.
      */
     static class Node {
@@ -38,7 +38,7 @@ public class j05SwapNodesInPairs {
         }
     }
 
-    /*-
+    /**
      * Approach 1: Swap Data Between Nodes
      * 
      * Intuition:
@@ -79,7 +79,7 @@ public class j05SwapNodesInPairs {
         return head;
     }
 
-    /*-
+    /**
      * Approach 2: Swap Nodes Using Links
      * 
      * Intuition:
@@ -123,7 +123,7 @@ public class j05SwapNodesInPairs {
         return dummy.next;
     }
 
-    /*-
+    /**
      * Approach 3: Recursive Solution
      * 
      * Intuition:

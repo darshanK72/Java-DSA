@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given the head of a singly linked list, determine if it is a palindrome.
@@ -21,7 +21,7 @@
 
 public class j04PalindromeLinkedList {
 
-    /*-
+    /**
      * Definition of a Node in the linked list.
      */
     static class Node {
@@ -42,7 +42,7 @@ public class j04PalindromeLinkedList {
         }
     }
 
-    /*-
+    /**
      * Approach 1: Two Pointers with Data Comparison
      * 
      * Intuition:
@@ -88,7 +88,7 @@ public class j04PalindromeLinkedList {
         return true;
     }
 
-    /*-
+    /**
      * Helper Method: getNode
      * 
      * Intuition:
@@ -118,7 +118,7 @@ public class j04PalindromeLinkedList {
         return temp;
     }
 
-    /*-
+    /**
      * Approach 2: Duplicate List Comparison
      * 
      * Intuition:
@@ -154,7 +154,7 @@ public class j04PalindromeLinkedList {
         return true;
     }
 
-    /*-
+    /**
      * Helper Method: Cloning Linked List in Reverse
      * 
      * Intuition:
@@ -191,7 +191,7 @@ public class j04PalindromeLinkedList {
         return newHead;
     }
 
-    /*-
+    /**
      * Approach 3: Efficient Palindrome Check
      * 
      * Intuition:
@@ -230,7 +230,7 @@ public class j04PalindromeLinkedList {
         return true;
     }
 
-    /*-
+    /**
      * Helper Method: getMiddleNode
      * 
      * Intuition:
@@ -262,7 +262,7 @@ public class j04PalindromeLinkedList {
         return slow;
     }
 
-    /*-
+    /**
      * Helper Method: reverseList
      * 
      * Intuition:

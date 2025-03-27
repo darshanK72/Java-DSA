@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Given the head of a singly linked list, reverse the list and return the new head.
@@ -31,7 +31,7 @@ public class j01ReverseSinglyLinkedList {
         }
     }
 
-    /*-
+    /**
      * Approach 1: Two Pointers with Data Swapping
      * 
      * Intuition:
@@ -81,7 +81,7 @@ public class j01ReverseSinglyLinkedList {
         return head; // Return the modified list
     }
 
-    /*-
+    /**
      * Helper Method: getNode
      * 
      * Intuition:
@@ -111,7 +111,7 @@ public class j01ReverseSinglyLinkedList {
         return temp; // Return the node at the specified index
     }
 
-    /*-
+    /**
      * Approach 2: Three Pointers Efficient
      * 
      * Intuition:
@@ -152,7 +152,7 @@ public class j01ReverseSinglyLinkedList {
         return prev; // Return the new head of the reversed list
     }
 
-    /*-
+    /**
      * Approach 3: Recursive Solution
      * 
      * Intuition:
@@ -192,7 +192,7 @@ public class j01ReverseSinglyLinkedList {
         return newHead; // Return the new head of the reversed list
     }
 
-    /*-
+    /**
      * Approach 4: Create a Reversed Linked List (Recursive)
      * 
      * Intuition:
