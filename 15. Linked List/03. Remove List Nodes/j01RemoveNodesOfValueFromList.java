@@ -24,7 +24,7 @@
  *     1 -> 2 -> 3 -> 4 -> 5
  */
 
-public class j01RemoveListNodeOfValue {
+public class j01RemoveNodesOfValueFromList {
     static class Node {
         public int data;
         public Node next;
