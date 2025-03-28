@@ -32,13 +32,11 @@ public class j04PalindromeLinkedList {
         public Node() {
             this.data = 0;
             this.next = null;
-            this.prev = null;
         }
 
         public Node(int data) {
             this.data = data;
             this.next = null;
-            this.prev = null;
         }
     }
 
