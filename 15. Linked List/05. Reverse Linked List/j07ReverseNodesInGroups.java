@@ -37,8 +37,98 @@ public class j07ReverseNodesInGroups {
         }
     }
 
+     /**
+     * Approach: Reverse Nodes in Groups of Size K (Iterative)
+     * 
+     * Intuition:
+     * - This approach reverses the nodes in groups of size `k` iteratively.
+     * - A dummy node is used to simplify edge cases, such as when the list starts with a group of size `k`.
+     * - The size of the list is calculated beforehand to ensure that only complete groups of size `k` are reversed.
+     * 
+     * Explanation:
+     * - Step 1: Create a dummy node and point its `next` to the head of the list.
+     * - Step 2: Calculate the size of the linked list using the `getSizeOfLL` method.
+     * - Step 3: Traverse the list while there are enough nodes left to form a group of size `k`:
+     *     1. Reverse the current group of `k` nodes using a loop.
+     *     2. Update the `next` pointer of the previous group's tail to point to the new head of the reversed group.
+     *     3. Update the `prevTail` pointer to the tail of the current group.
+     * - Step 4: If there are fewer than `k` nodes left, connect the remaining nodes as is.
+     * - Step 5: Return the new head of the list (i.e., `dummy.next`).
+     * 
+     * Time Complexity:
+     * - O(n), where `n` is the number of nodes in the linked list. Each node is visited once.
+     * 
+     * Space Complexity:
+     * - O(1), as no additional space is used apart from a few pointers.
+     * 
+     * @param head The head of the singly linked list.
+     * @param k The size of the groups to reverse.
+     * @return The head of the modified linked list.
+     */
+    public Node reverseKGroup1(Node head, int k) {
+        if (head == null) return head; // Base case: empty list
+        Node dummy = new Node(-1); // Dummy node to simplify edge cases
+        int size = getSizeOfLL(head); // Calculate the size of the linked list
+        dummy.next = head;
+        Node prevTail = dummy; // Pointer to the tail of the previous group
+        Node curr = head; // Pointer to the current node
+
+        while (curr != null) {
+            if (size >= k) { // If there are enough nodes to form a group of size `k`
+                Node prev = null;
+                Node tail = curr; // Mark the current node as the tail of the group
+                for (int i = 0; i < k; i++) { // Reverse the group of `k` nodes
+                    Node next = curr.next; // Store the next node
+                    curr.next = prev; // Reverse the `next` pointer
+                    prev = curr; // Move `prev` forward
+                    curr = next; // Move `curr` forward
+                }
+                size -= k; // Decrease the size by `k`
+                prevTail.next = prev; // Connect the previous group's tail to the new head of the reversed group
+                prevTail = tail; // Update the `prevTail` pointer to the tail of the current group
+            } else { // If there are fewer than `k` nodes left
+                prevTail.next = curr; // Connect the remaining nodes as is
+                break;
+            }
+        }
+
+        return dummy.next; // Return the new head of the list
+    }
+
     /**
-     * Approach: Reverse Nodes in Groups of Size K
+     * Helper Method: getSizeOfLL
+     * 
+     * Intuition:
+     * - This method calculates the size (number of nodes) of a singly linked list by traversing it.
+     * - A counter is incremented for each node visited until the end of the list is reached.
+     * 
+     * Explanation:
+     * - Step 1: Initialize a counter (`size`) to 0.
+     * - Step 2: Traverse the list starting from the head:
+     *     1. For each node, increment the counter.
+     *     2. Move to the next node using the `next` pointer.
+     * - Step 3: When the traversal is complete (i.e., `head` becomes null), return the counter as the size of the list.
+     * 
+     * Time Complexity:
+     * - O(n), where `n` is the number of nodes in the linked list. Each node is visited once.
+     * 
+     * Space Complexity:
+     * - O(1), as no additional space is used apart from the counter variable.
+     * 
+     * @param head The head of the singly linked list.
+     * @return The size (number of nodes) of the linked list.
+     */
+    public int getSizeOfLL(Node head) {
+        int size = 0; // Initialize the counter
+        while (head != null) { // Traverse the list until the end
+            size++; // Increment the counter for each node
+            head = head.next; // Move to the next node
+        }
+        return size; // Return the total size of the list
+    }
+
+    /**
+     * Approach 2: Efficient Reverse Nodes in Groups of Size K
      * 
      * Intuition:
      * - This approach reverses the nodes in groups of size `k` by identifying the sublist of `k` nodes, 
