@@ -20,7 +20,7 @@
  *         The odd-indexed nodes (1, 3, 5) are grouped together, followed by the even-indexed nodes (2, 4).
  */
 
-public class j05OddEvenLinkedList {
+public class j02OddEvenLinkedList {
 
     /**
      * Node Class:

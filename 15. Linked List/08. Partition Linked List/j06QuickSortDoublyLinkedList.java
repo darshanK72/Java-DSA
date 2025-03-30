@@ -1,13 +1,13 @@
 /**
  * Problem Statement:
  * 
- *     Implement quick sort for a singly linked list.
+ *     Implement quick sort for a doubly linked list.
  * 
  * Input:
- *     - A singly linked list where each node contains an integer value.
+ *     - A doubly linked list where each node contains an integer value.
  * 
  * Output:
- *     - The head of the sorted linked list.
+ *     - The head of the sorted doubly linked list.
  * 
  * Example:
  *     Input:
@@ -22,22 +22,25 @@
 
 import java.util.Random;
 
-public class j06QuickSortLinkedList {
+public class j06QuickSortDoublyLinkedList {
 
     /**
      * Node Class:
      * 
-     * Represents a node in a singly linked list. Each node contains:
+     * Represents a node in a doubly linked list. Each node contains:
      * - `data`: The integer value stored in the node.
      * - `next`: A reference to the next node in the list.
+     * - `prev`: A reference to the previous node in the list.
      */
     static class Node {
         public int data;
         public Node next;
+        public Node prev;
 
         public Node(int data) {
             this.data = data;
             this.next = null;
+            this.prev = null;
         }
     }
 
@@ -64,18 +67,22 @@ public class j06QuickSortLinkedList {
      * Space Complexity:
      * - O(log(n)) due to the recursive stack.
      * 
-     * @param head The head of the singly linked list.
-     * @return The head of the sorted linked list.
+     * @param head The head of the doubly linked list.
+     * @return The head of the sorted doubly linked list.
      */
-    public static Node quickSort(Node head) {
+    public Node quickSort(Node head) {
         if (head == null || head.next == null) {
             return head; // Base case: list is empty or has only one node
         }
 
         randomize(head); // Randomize the pivot to improve performance
-        Node left = quickSort(partition(head, head.data)); // Sort the left partition
+        Node left = quickSort(partition(head)); // Sort the left partition
         Node right = quickSort(head.next); // Sort the right partition
-        head.next = right; // Connect the pivot to the right partition
+
+        if (right != null) {
+            right.prev = head; // Connect the pivot to the right partition
+            head.next = right;
+        }
 
         if (left == null) {
             return head; // If the left partition is empty, return the pivot and right partition
@@ -87,6 +94,8 @@ public class j06QuickSortLinkedList {
         }
 
         tail.next = head; // Connect the left partition to the pivot
+        head.prev = tail;
+
         return left; // Return the head of the sorted list
     }
 
@@ -112,32 +121,34 @@ public class j06QuickSortLinkedList {
      * Space Complexity:
      * - O(1), as no additional space is used apart from a few pointers.
      * 
-     * @param head The head of the singly linked list.
-     * @param x The pivot value.
+     * @param head The head of the doubly linked list.
      * @return The head of the first partition.
      */
-    public static Node partition(Node head, int x) {
-        Node one = new Node(-1); // Dummy node for the first partition
-        Node two = new Node(-1); // Dummy node for the second partition
-        Node temp1 = one;
-        Node temp2 = two;
-        Node curr = head;
+    public Node partition(Node head) {
+        Node dummyL = new Node(-1); // Dummy node for the first partition
+        Node dummyR = new Node(-1); // Dummy node for the second partition
+        Node left = dummyL;
+        Node right = dummyR;
+        int x = head.data; // Pivot value
 
+        Node curr = head;
         while (curr != null) {
             if (curr.data < x) { // If the value is less than the pivot
-                temp1.next = curr; // Append to the first partition
-                temp1 = temp1.next;
+                curr.prev = left;
+                left.next = curr; // Append to the first partition
+                left = left.next;
             } else { // If the value is greater than or equal to the pivot
-                temp2.next = curr; // Append to the second partition
-                temp2 = temp2.next;
+                curr.prev = left;
+                right.next = curr; // Append to the second partition
+                right = right.next;
             }
             curr = curr.next; // Move to the next node
         }
 
-        temp1.next = null; // Disconnect the first partition
-        temp2.next = null; // Disconnect the second partition
+        left.next = null; // Disconnect the first partition
+        right.next = null; // Disconnect the second partition
 
-        return one.next; // Return the head of the first partition
+        return dummyL.next; // Return the head of the first partition
     }
 
     /**
@@ -159,7 +170,7 @@ public class j06QuickSortLinkedList {
      * Space Complexity:
      * - O(1), as no additional space is used apart from a few pointers.
      * 
-     * @param head The head of the singly linked list.
+     * @param head The head of the doubly linked list.
      */
     public static void randomize(Node head) {
         Node temp = head;
