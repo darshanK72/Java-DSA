@@ -23,7 +23,7 @@
 
 public class j07AbsoluteListSorting {
 
-    /*-
+    /**
      * Node Class:
      * 
      * Represents a node in a singly linked list. Each node contains:
@@ -40,7 +40,7 @@ public class j07AbsoluteListSorting {
         }
     }
 
-    /*-
+    /**
      * Approach: Absolute Sorting of the List
      * 
      * Intuition:

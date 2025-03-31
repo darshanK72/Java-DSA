@@ -25,7 +25,7 @@
 
 public class j05SplitListInKParts {
 
-    /*-
+    /**
      * Node Class:
      * 
      * Represents a node in a singly linked list. Each node contains:
@@ -42,7 +42,7 @@ public class j05SplitListInKParts {
         }
     }
 
-    /*-
+    /**
      * Approach: Split List into K Parts
      * 
      * Intuition:

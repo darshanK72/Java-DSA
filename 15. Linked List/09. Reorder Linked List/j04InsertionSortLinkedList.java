@@ -22,7 +22,7 @@
 
 public class j04InsertionSortLinkedList {
 
-    /*-
+    /**
      * Node Class:
      * 
      * Represents a node in a singly linked list. Each node contains:
@@ -39,7 +39,7 @@ public class j04InsertionSortLinkedList {
         }
     }
 
-    /*-
+    /**
      * Approach: Insertion Sort
      * 
      * Intuition:

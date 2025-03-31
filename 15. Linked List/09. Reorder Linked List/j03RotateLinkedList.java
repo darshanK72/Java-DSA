@@ -22,7 +22,7 @@
 
 public class j03RotateLinkedList {
 
-    /*-
+    /**
      * Node Class:
      * 
      * Represents a node in a singly linked list. Each node contains:
@@ -39,7 +39,7 @@ public class j03RotateLinkedList {
         }
     }
 
-    /*-
+    /**
      * Approach: Rotate the List
      * 
      * Intuition:

@@ -24,7 +24,7 @@ import java.util.HashMap;
 
 public class j06CopyRandomList {
 
-    /*-
+    /**
      * Node Class:
      * 
      * Represents a node in a singly linked list. Each node contains:
@@ -44,7 +44,7 @@ public class j06CopyRandomList {
         }
     }
 
-    /*-
+    /**
      * Approach 1: Using HashMap
      * 
      * Intuition:
@@ -97,7 +97,7 @@ public class j06CopyRandomList {
         return dummy.next; // Return the head of the copied list
     }
 
-    /*-
+    /**
      * Approach 2: Efficient In-Place Copy
      * 
      * Intuition:

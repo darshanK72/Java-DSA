@@ -23,7 +23,7 @@
 
 public class j01ReorderLinkedList {
 
-    /*-
+    /**
      * Node Class:
      * 
      * Represents a node in a singly linked list. Each node contains:
@@ -40,7 +40,7 @@ public class j01ReorderLinkedList {
         }
     }
 
-    /*-
+    /**
      * Approach: Reorder the List
      * 
      * Intuition:
@@ -95,7 +95,7 @@ public class j01ReorderLinkedList {
         head = out.next;
     }
 
-    /*-
+    /**
      * Helper Method: Get Middle Node
      * 
      * Intuition:
@@ -135,7 +135,7 @@ public class j01ReorderLinkedList {
         return slow; // Return the middle node
     }
 
-    /*-
+    /**
      * Helper Method: Reverse a Linked List
      * 
      * Intuition:
