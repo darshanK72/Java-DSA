@@ -25,7 +25,7 @@
 
 import java.util.HashMap;
 
-public class j02PageDefaulstInLRU {
+public class j02PageDefaultsInLRU {
 
     /**
      * Method: pageFaults
