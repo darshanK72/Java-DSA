@@ -41,47 +41,55 @@ public class j03TwoStacksUsingArray {
 
     public static class TwoStack {
         /*-
-        * Approach: Interleaved Array Implementation
-        * 
-        * Intuition:
-        * - Use even indices (0,2,4...) for stack1 and odd indices (1,3,5...) for stack2
-        * - top1 starts from -2 and increments by 2 for stack1
-        * - top2 starts from -1 and increments by 2 for stack2
-        * - This ensures maximum utilization of array space and no overlap between stacks
-        * - Each stack can grow until array is full, providing equal space to both
-        * 
-        * Time Complexity:
-        * - Push operations (push1, push2): O(1)
-        * - Pop operations (pop1, pop2): O(1)
-        * 
-        * Space Complexity:
-        * - O(n) where n is size of array (101 in this case)
-        */
-        int[] arr = new int[101];
-        int top1 = -2;
-        int top2 = -1;
+         * Approach: Two-End Array Implementation
+         * 
+         * Intuition:
+         * - Use a single array to implement two stacks by growing them from opposite ends
+         * - Stack1 grows from left end (starting at index 0)
+         * - Stack2 grows from right end (starting at index n-1)
+         * - top1 starts from -1 and grows towards right
+         * - top2 starts from array end and grows towards left
+         * - Stacks are full when they meet in middle (top1 == top2)
+         * - This approach provides dynamic space allocation based on usage
+         * 
+         * Time Complexity:
+         * - Push operations (push1, push2): O(1)
+         * - Pop operations (pop1, pop2): O(1)
+         * 
+         * Space Complexity:
+         * - O(n) where n is size of array (100 in this case)
+         */
+        int[] arr = new int[100];
+        int top1 = -1;
+        int top2 = 100;
 
         /**
-         * Push element into first stack.
+         * Push element into first stack from left end.
          * Time Complexity: O(1)
          * Space Complexity: O(1)
          * 
          * @param x element to push
+         * @return void, silently fails if stack is full
          */
         void push1(int x) {
-            top1 += 2;
+            top1++;
+            if (top1 == top2)
+                return;
             arr[top1] = x;
         }
 
         /**
-         * Push element into second stack.
+         * Push element into second stack from right end.
          * Time Complexity: O(1)
          * Space Complexity: O(1)
          * 
          * @param x element to push
+         * @return void, silently fails if stack is full
          */
         void push2(int x) {
-            top2 += 2;
+            top2--;
+            if (top1 == top2)
+                return;
             arr[top2] = x;
         }
 
@@ -93,11 +101,9 @@ public class j03TwoStacksUsingArray {
          * @return top element if exists, -1 if stack empty
          */
         int pop1() {
-            if (top1 == -2)
+            if (top1 == -1)
                 return -1;
-            int out = arr[top1];
-            top1 -= 2;
-            return out;
+            return arr[top1--];
         }
 
         /**
@@ -108,11 +114,9 @@ public class j03TwoStacksUsingArray {
          * @return top element if exists, -1 if stack empty
          */
         int pop2() {
-            if (top2 == -1)
+            if (top2 == 100)
                 return -1;
-            int out = arr[top2];
-            top2 -= 2;
-            return out;
+            return arr[top2++];
         }
     }
 }
