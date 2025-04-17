@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *     Design a stack that supports push, pop, peek, isEmpty, size, clear, and print operations using 
  *     a Linked List.
@@ -43,7 +43,7 @@
 
 public class j02StackUsingLinkedList {
 
-    /*-
+    /**
      * Approach: Linked List Implementation
      * 
      * Intuition:

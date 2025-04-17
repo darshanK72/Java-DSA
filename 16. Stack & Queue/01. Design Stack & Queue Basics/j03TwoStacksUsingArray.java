@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *     Implement two stacks in a single array efficiently.
  * 
@@ -40,7 +40,7 @@ public class j03TwoStacksUsingArray {
     }
 
     public static class TwoStack {
-        /*-
+        /**
          * Approach: Two-End Array Implementation
          * 
          * Intuition:

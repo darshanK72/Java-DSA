@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *     Implement a queue that supports basic operations using a Linked List.
  *     https://practice.geeksforgeeks.org/problems/implement-queue-using-linked-list/1
@@ -36,7 +36,7 @@
  */
 
 public class j06QueueUsingLinkedList {
-    /*-
+    /**
      * Approach: Linked List Implementation
      * 
      * Intuition:

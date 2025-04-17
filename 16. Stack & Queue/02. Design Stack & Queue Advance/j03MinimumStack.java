@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *     Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
  *     https://leetcode.com/problems/min-stack/
@@ -40,7 +40,30 @@
 import java.util.Stack;
 
 public class j03MinimumStack {
-    /*-
+
+    public static void main(String args[]){
+        // Example usage of MinStackTwoStacks
+        MinStackTwoStacks minStack = new MinStackTwoStacks();
+        minStack.push(-2);
+        minStack.push(0);
+        minStack.push(-3);
+        System.out.println(minStack.getMin()); // Returns -3
+        minStack.pop();
+        System.out.println(minStack.top());    // Returns 0
+        System.out.println(minStack.getMin()); // Returns -2
+
+        // Example usage of MinStackEncryption
+        MinStackEncryption minStackEnc = new MinStackEncryption();
+        minStackEnc.push(-2);
+        minStackEnc.push(0);
+        minStackEnc.push(-3);
+        System.out.println(minStackEnc.getMin()); // Returns -3
+        minStackEnc.pop();
+        System.out.println(minStackEnc.top());    // Returns 0
+        System.out.println(minStackEnc.getMin()); // Returns -2
+    }
+
+    /**
      * Approach 1: Two Stacks
      * 
      * Intuition:
@@ -135,7 +158,7 @@ public class j03MinimumStack {
         }
     }
 
-    /*-
+    /**
      * Approach 2: Single Stack with Encryption
      * 
      * Intuition:

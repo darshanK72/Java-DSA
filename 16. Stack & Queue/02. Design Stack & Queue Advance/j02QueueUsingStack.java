@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *     Implement a first-in-first-out (FIFO) queue using only two stacks.
  *     https://leetcode.com/problems/implement-queue-using-stacks/
@@ -57,7 +57,7 @@ public class j02QueueUsingStack {
         System.out.println("Is queue empty? " + queue.empty()); // Should print false
     }
     
-    /*-
+    /**
      * Approach 1: Two Stacks with Push Heavy
      * 
      * Intuition:

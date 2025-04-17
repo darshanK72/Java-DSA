@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *     Design a circular queue that supports enQueue, deQueue, Front, Rear, isEmpty and isFull operations.
  *     https://leetcode.com/problems/design-circular-queue/
@@ -55,7 +55,7 @@ public class j07CircularQueueUsingArray {
         System.out.println(obj.isFull());   // true
     }
 
-    /*-
+    /**
      * Approach: Fixed Size Circular Array Implementation
      * 
      * Intuition:

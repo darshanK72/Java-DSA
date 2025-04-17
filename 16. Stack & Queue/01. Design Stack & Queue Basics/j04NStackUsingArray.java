@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *     Implement N stacks in a single array efficiently.
  *     https://www.codingninjas.com/studio/problems/n-stacks-in-an-array_1164271
@@ -40,7 +40,7 @@ public class j04NStackUsingArray {
     }
     
     public static class NStack {
-        /*-
+        /**
          * Approach: Free List Implementation
          * 
          * Intuition:

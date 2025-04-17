@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *     Implement a last-in-first-out (LIFO) stack using only two queues.
  *     https://leetcode.com/problems/implement-stack-using-queues/
@@ -56,7 +56,7 @@ public class j01StackUsingQueue {
         System.out.println("Top element after pop: " + stack.top()); // Should print 1
     }
 
-    /*-
+    /**
      * Approach: Single Queue with Rotation
      * 
      * Intuition:

@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *     Design a stack that supports push, pop, peek, isEmpty, size, clear, and print operations using 
  *     an array.
@@ -63,7 +63,7 @@ public class j01StackUsingArray {
         System.out.println(stack.isEmpty()); // true (stack is empty)
     }
 
-    /*-
+    /**
      * Approach: Array Implementation
      * 
      * Intuition:

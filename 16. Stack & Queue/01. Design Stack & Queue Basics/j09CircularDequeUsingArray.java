@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *     Design a circular double-ended queue (deque) that supports various operations.
  *     https://leetcode.com/problems/design-circular-deque/
@@ -56,7 +56,7 @@ public class j09CircularDequeUsingArray {
         System.out.println(obj.isEmpty()); // false
     }
 
-    /*-
+    /**
      * Approach: Fixed Size Circular Array Implementation
      * 
      * Intuition:

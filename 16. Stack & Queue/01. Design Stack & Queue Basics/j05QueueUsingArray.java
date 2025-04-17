@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *     Implement a queue that supports basic operations using an array.
  *     https://practice.geeksforgeeks.org/problems/implement-queue-using-array/1
@@ -37,7 +37,7 @@
  */
 
 public class j05QueueUsingArray {
-    /*-
+    /**
      * Approach: Circular Array Implementation
      * 
      * Intuition:
