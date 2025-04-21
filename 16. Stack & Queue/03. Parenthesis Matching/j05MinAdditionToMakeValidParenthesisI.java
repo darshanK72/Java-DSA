@@ -23,7 +23,7 @@
 
 import java.util.Stack;
 
-public class j04MinAdditionToMakeValidParenthesisI {
+public class j05MinAdditionToMakeValidParenthesisI {
 
     /**
      * Main method to demonstrate minimum parentheses addition

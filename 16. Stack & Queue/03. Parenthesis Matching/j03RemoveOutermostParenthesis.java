@@ -24,7 +24,7 @@
 
 import java.util.Stack;
 
-public class j02RemoveOutermostParenthesis {
+public class j03RemoveOutermostParenthesis {
 
     /**
      * Main method to demonstrate outermost parentheses removal

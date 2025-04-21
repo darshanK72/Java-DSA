@@ -27,7 +27,7 @@
 
 import java.util.Stack;
 
-public class j05MinAdditionToMakeValidParenthesisII {
+public class j06MinAdditionToMakeValidParenthesisII {
 
     /**
      * Calculate minimum insertions needed for valid parentheses string

@@ -23,7 +23,7 @@
 
 import java.util.Stack;
 
-public class j03LongestValidParenthesis {
+public class j04LongestValidParenthesis {
 
     /**
      * Approach 1: Using Stack and Length Array

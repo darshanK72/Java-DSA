@@ -20,7 +20,7 @@
  *     Explanation: Convert last three '}' to '{': "{{{{}}}}{{{"
  */
 
-public class j07CountReversalToMakeValidParenthesis {
+public class j08CountReversalToMakeValidParenthesis {
 
     public static void main(String[] args) {
         // Test cases

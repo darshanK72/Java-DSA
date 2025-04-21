@@ -23,7 +23,7 @@
 
 import java.util.Stack;
 
-public class j06MinRemovalToMakeValidParenthesisI {
+public class j07MinRemovalToMakeValidParenthesisI {
 
     public static void main(String[] args) {
         String s = "a)b(c)d";
