@@ -23,7 +23,7 @@
 
 import java.util.Stack;
 
-public class j01MaxNestingDepthOfParenthesis {
+public class j02MaxNestingDepthOfParenthesis {
     /**
      * Main method to demonstrate maximum nesting depth calculation
      * Shows results for both approaches with test cases

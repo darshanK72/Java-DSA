@@ -25,7 +25,7 @@
 
 import java.util.Stack;
 
-public class j02ValidParenthesis {
+public class j01ValidParenthesis {
     /**
      * Main method to demonstrate parenthesis validation
      * Shows results for various test cases
