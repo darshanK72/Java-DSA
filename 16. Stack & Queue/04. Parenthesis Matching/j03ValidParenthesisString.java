@@ -23,7 +23,7 @@
 
  import java.util.Stack;
 
- public class j09ValidParenthesisString {
+ public class j03ValidParenthesisString {
  
      /**
       * Main method to demonstrate parenthesis string validation

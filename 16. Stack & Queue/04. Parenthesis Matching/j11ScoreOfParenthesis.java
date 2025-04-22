@@ -28,7 +28,7 @@
 
 import java.util.Stack;
 
-public class j10ScoreOfParenthesis {
+public class j11ScoreOfParenthesis {
 
     /**
      * Main method to demonstrate parentheses scoring
