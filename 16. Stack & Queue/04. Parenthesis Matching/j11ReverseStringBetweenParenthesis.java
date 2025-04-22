@@ -23,7 +23,7 @@
 
 import java.util.Stack;
 
-public class j10ReverseStringBetweenParenthesis {
+public class j11ReverseStringBetweenParenthesis {
 
     /**
      * Main method to demonstrate string reversal between parentheses
