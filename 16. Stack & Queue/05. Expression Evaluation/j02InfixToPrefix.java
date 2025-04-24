@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Convert an infix expression to prefix expression. In infix expressions, 
@@ -23,7 +23,7 @@
 
 import java.util.Stack;
 
-public class j03InfixToPrefix {
+public class j02InfixToPrefix {
 
     public static void main(String[] args) {
         String infix = "(a-b/c)*(a/k-l)";
@@ -32,7 +32,7 @@ public class j03InfixToPrefix {
         System.out.println("Prefix: " + prefix);
     }
 
-    /*-
+    /**
      * Approach: Using Stack and String Manipulation
      * 
      * Intuition:
@@ -76,7 +76,7 @@ public class j03InfixToPrefix {
         return out.reverse().toString();
     }
 
-    /*-
+    /**
      * Helper method to convert infix to postfix
      * 
      * Intuition:
@@ -135,7 +135,7 @@ public class j03InfixToPrefix {
         return out.toString();
     }
 
-    /*-
+    /**
      * Helper method for operator precedence
      * 
      * Intuition:

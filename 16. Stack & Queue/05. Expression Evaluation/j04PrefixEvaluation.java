@@ -1,8 +1,8 @@
-/*-
+/**
  * Problem Statement:
  * 
- *     Evaluate a postfix expression. In postfix notation (also known as Reverse
- *     Polish Notation), operators follow their operands. For example, "2 3 +" 
+ *     Evaluate a prefix expression. In prefix notation (also known as Polish
+ *     Notation), operators precede their operands. For example, "+ 2 3" 
  *     means "2 + 3" = 5.
  * 
  * Input:
@@ -12,31 +12,34 @@
  *     - Integer result after evaluating the expression
  * 
  * Example:
- *     Input: ["2", "3", "+", "4", "*"]
- *     Output: 20
+ *     Input: ["-", "+", "7", "*", "4", "5", "+", "2", "0"]
+ *     Output: 25
  * 
  *     Explanation:
- *     ((2 + 3) * 4) = 20
+ *     The expression evaluates to: (7 + (4 * 5)) - (2 + 0) = (7 + 20) - 2 = 25
  */
 
 import java.util.Stack;
 
-public class j04PostfixEvaluation {
+public class j04PrefixEvaluation {
 
     public static void main(String[] args) {
-        String[] tokens = { "2", "3", "+", "4", "*" };
-        int result = evaluatePostfixExpression(tokens);
-        System.out.println("Postfix Expression: " + String.join(" ", tokens));
+        String[] tokens = { "-", "+", "7", "*", "4", "5", "+", "2", "0" };
+        int result = evaluatePrefixExpression(tokens);
+        System.out.println("Prefix Expression: " + String.join(" ", tokens));
         System.out.println("Result: " + result);
     }
 
-    /*-
+    /**
      * Approach: Using Stack Data Structure
      * 
      * Intuition:
-     * - Use stack to store operands while processing expression
-     * - When encountering an operator, pop two operands and apply operation
-     * - Push result back to stack for further operations
+     * - Process prefix expression from right to left (unlike postfix which goes left to right)
+     * - When we encounter an operand, push it onto stack
+     * - When we encounter an operator:
+     *   1. Pop first operand (will be left operand)
+     *   2. Pop second operand (will be right operand)
+     *   3. Perform operation and push result back
      * - Final result will be the only element remaining in stack
      * 
      * Time Complexity:
@@ -48,12 +51,14 @@ public class j04PostfixEvaluation {
      * - O(n) where n is the number of tokens
      * - Stack can store at most n/2 numbers (in case of all operands)
      */
-    public static int evaluatePostfixExpression(String[] tokens) {
+    public static int evaluatePrefixExpression(String[] tokens) {
         Stack<Integer> stack = new Stack<>();
-        for (String s : tokens) {
+        // Process from right to left for prefix expression
+        for (int i = tokens.length - 1; i >= 0; i--) {
+            String s = tokens[i];
             if (isOperator(s)) {
-                int second = stack.pop();
-                int first = stack.pop();
+                int first = stack.pop();   // Left operand
+                int second = stack.pop();  // Right operand
                 int ans = operate(first, second, s);
                 stack.push(ans);
             } else {
@@ -63,23 +68,24 @@ public class j04PostfixEvaluation {
         return stack.peek();
     }
 
-    /*-
+    /**
      * Helper method to check if token is an operator
      * 
-     * Time Complexity: O(1)
-     * Space Complexity: O(1)
+     * Time Complexity: O(1) - Simple string comparison
+     * Space Complexity: O(1) - No extra space used
      */
     public static boolean isOperator(String s) {
         return s.equals("+") || s.equals("-") || s.equals("*") || s.equals("/");
     }
 
-    /*-
+    /**
      * Helper method to perform arithmetic operation
      * 
      * Note: Order of operands matters for - and / operations
+     * first is treated as left operand and second as right operand
      * 
-     * Time Complexity: O(1)
-     * Space Complexity: O(1)
+     * Time Complexity: O(1) - Simple switch case operation
+     * Space Complexity: O(1) - No extra space used
      */
     public static int operate(int a, int b, String op) {
         switch (op) {
@@ -91,7 +97,8 @@ public class j04PostfixEvaluation {
                 return a * b;
             case "/":
                 return a / b;
+            default:
+                return -1;  // Invalid operator
         }
-        return -1;
     }
 }

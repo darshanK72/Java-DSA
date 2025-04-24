@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Convert an infix expression to postfix expression. In infix expressions,
@@ -23,7 +23,7 @@
 
 import java.util.Stack;
 
-public class j02InfixToPostfix {
+public class j01InfixToPostfix {
 
     public static void main(String[] args) {
         String infix = "a+b*(c^d-e)^(f+g*h)-i";
@@ -32,7 +32,7 @@ public class j02InfixToPostfix {
         System.out.println("Postfix: " + postfix);
     }
 
-    /*-
+    /**
      * Approach: Using Stack Data Structure
      * 
      * Intuition:
@@ -92,7 +92,7 @@ public class j02InfixToPostfix {
         return out.toString();
     }
 
-    /*-
+    /**
      * Helper method for operator precedence
      * 
      * Intuition:

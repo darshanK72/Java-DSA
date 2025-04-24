@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  * 
  *     Convert a prefix expression to infix expression. In prefix notation,
@@ -23,7 +23,7 @@
 
 import java.util.Stack;
 
-public class j07PrefixToInfix {
+public class j06PrefixToInfix {
 
     public static void main(String[] args) {
         String prefix = "*-A/BC-/AKL";
@@ -32,7 +32,7 @@ public class j07PrefixToInfix {
         System.out.println("Infix: " + infix);
     }
 
-    /*-
+    /**
      * Approach: Using Stack Data Structure
      * 
      * Intuition:
@@ -73,7 +73,7 @@ public class j07PrefixToInfix {
         return operands.peek();
     }
 
-    /*-
+    /**
      * Helper method to check if character is an operator
      * 
      * Time Complexity: O(1) - Simple boolean comparison
