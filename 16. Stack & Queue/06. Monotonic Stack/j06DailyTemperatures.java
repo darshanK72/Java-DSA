@@ -53,7 +53,7 @@ public class j06DailyTemperatures {
             System.out.println("Brute Force: " + 
                 Arrays.toString(dailyTemperatures(temps.clone())));
             System.out.println("Stack Based: " + 
-                Arrays.toString(dailyTemperaturesEfficient(temps.clone())));
+                Arrays.toString(dailyTemperaturesEfficientI(temps.clone())));
             System.out.println();
         }
     }
@@ -107,7 +107,7 @@ public class j06DailyTemperatures {
      * Space Complexity: O(n)
      * - Stack can store up to n indices in worst case (decreasing temperatures)
      */
-    public static int[] dailyTemperaturesEfficient(int[] temperatures) {
+    public static int[] dailyTemperaturesEfficientI(int[] temperatures) {
         Stack<Integer> stack = new Stack<>();
         
         // Process each temperature
@@ -125,5 +125,45 @@ public class j06DailyTemperatures {
             temperatures[stack.pop()] = 0;
         }
         return temperatures;
+    }
+
+    /**
+     * Approach 3: Right-to-Left Monotonic Stack
+     * 
+     * Intuition:
+     * - Process temperatures from right to left
+     * - Stack stores indices of warmer temperatures
+     * - For each temperature, pop colder or equal temperatures as they can't be
+     *   the next warmer day
+     * - After popping, stack top (if exists) is the next warmer day
+     * - This approach avoids modifying input array
+     * 
+     * Time Complexity: O(n)
+     * - Single right-to-left pass through array
+     * - Each index is pushed and popped at most once
+     * 
+     * Space Complexity: O(n)
+     * - Additional array for results: O(n)
+     * - Stack can store up to n indices in worst case
+     */
+    static public int[] dailyTemperaturesEfficientII(int[] temperatures) {
+        // Initialize result array with zeros
+        Stack<Integer> stack = new Stack<>();
+        int[] out = new int[temperatures.length];
+        Arrays.fill(out, 0);
+        
+        // Process temperatures from right to left
+        for (int i = temperatures.length - 1; i >= 0; i--) {
+            // Remove colder or equal temperatures from stack
+            while (!stack.isEmpty() && temperatures[stack.peek()] <= temperatures[i]) {
+                stack.pop();
+            }
+            // If warmer day exists, calculate waiting days
+            if(!stack.isEmpty()) out[i] = stack.peek() - i;
+            // Add current day to stack
+            stack.push(i);
+        }
+
+        return out;
     }
 }
