@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *     Next Greater Element
  * 
@@ -40,7 +40,7 @@ public class j01NextGreaterElement {
         System.out.println(result); // Output: [5, 10, 10, -1, -1]
     }
 
-    /*-
+    /**
      * Approach 1: Left to Right Traversal using Monotonic Stack
      * 
      * Intuition:
@@ -82,7 +82,7 @@ public class j01NextGreaterElement {
         return out;
     }
 
-    /*-
+    /**
      * Approach 2: Right to Left Traversal using Monotonic Stack
      * 
      * Intuition:
