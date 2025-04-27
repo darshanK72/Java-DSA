@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *     LeetCode 456. 132 Pattern
  * 
@@ -51,7 +51,7 @@ public class j08Find132Pattern {
         }
     }
 
-    /*-
+    /**
      * Approach 1: Brute Force (Three Nested Loops)
      * 
      * Intuition:
@@ -87,7 +87,7 @@ public class j08Find132Pattern {
         return false;
     }
 
-    /*-
+    /**
      * Approach 2: Monotonic Stack (Single Pass)
      * 
      * Intuition:

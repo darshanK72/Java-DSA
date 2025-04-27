@@ -32,7 +32,7 @@
 import java.util.Stack;
 import java.util.Arrays;
 
-public class j06DailyTemperatures {
+public class j07DailyTemperatures {
 
     public static void main(String args[]) {
         // Test cases

@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *     LeetCode 316. Remove Duplicate Letters
  * 
@@ -28,7 +28,7 @@
  *     - Remove duplicate 'b' and 'c' keeping lexicographical order
  */
 
-public class j12RemoveDuplicateLetters {
+public class j16RemoveDuplicateLetters {
 
     public static void main(String[] args) {
         // Test cases
@@ -48,7 +48,7 @@ public class j12RemoveDuplicateLetters {
         }
     }
 
-    /*-
+    /**
      * Approach: Using Monotonic Stack (StringBuilder)
      * 
      * Intuition:

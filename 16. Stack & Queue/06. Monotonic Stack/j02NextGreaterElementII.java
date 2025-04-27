@@ -47,7 +47,46 @@ public class j02NextGreaterElementII {
     }
 
     /**
-     * Approach 1: Using Two Loops
+     * Approach 1: Using Nested Loop (Brute Force)
+     * 
+     * Intuition:
+     * - For each element, check all subsequent elements in circular manner
+     * - If a greater element is found, update result and break
+     * 
+     * Time Complexity: O(n^2)
+     * - Outer loop iterates n times
+     * - Inner loop iterates up to n times in worst case (circular check)
+     * - Total operations = n (outer) * n (inner) = O(n^2)
+     * 
+     * Space Complexity: O(n)
+     * - Output array: O(n) space
+     *
+     * @param arr
+     * @return
+     */
+    public static int[] nextGreaterElementsNestedLoop(int[] arr) {
+        // Initialize result array with -1 as default value
+        int[] outArr = new int[arr.length];
+        Arrays.fill(outArr, -1);
+        
+        // Iterate through each element in the array
+        for (int i = 0; i < arr.length; i++) {
+            // Check next elements in circular manner
+            for (int j = 1; j < arr.length; j++) {
+                // Calculate circular index
+                int idx = (i + j) % arr.length;
+                // If we find a greater element, update result and break
+                if (arr[idx] > arr[i]) {
+                    outArr[i] = arr[idx];
+                    break;
+                }
+            }
+        }
+        return outArr;
+    }
+
+    /**
+     * Approach 2: Using Two Loops
      * 
      * Intuition:
      * - Since the array is circular, we need to check elements twice
@@ -96,7 +135,7 @@ public class j02NextGreaterElementII {
     }
 
     /**
-     * Approach 2: Using Single Loop with Modulo
+     * Approach 3: Using Single Loop with Modulo
      * 
      * Intuition:
      * - Instead of two loops, we simulate circular array using modulo

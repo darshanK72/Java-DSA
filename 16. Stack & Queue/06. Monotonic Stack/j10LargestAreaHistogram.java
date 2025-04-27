@@ -26,7 +26,7 @@
 import java.util.Arrays;
 import java.util.Stack;
 
-public class j09LargestAreaHistogram {
+public class j10LargestAreaHistogram {
 
     public static void main(String[] args) {
         // Test cases
@@ -44,6 +44,7 @@ public class j09LargestAreaHistogram {
             System.out.println("Heights: " + Arrays.toString(testCases[i]));
             System.out.println("Brute Force: " + largestRectangleArea(testCases[i].clone()));
             System.out.println("Optimized: " + largestRectangleAreaEfficient(testCases[i].clone()));
+            System.out.println("More Efficient: " + largestRectangleAreaMoreEfficient(testCases[i].clone()));
             System.out.println();
         }
     }
@@ -116,6 +117,53 @@ public class j09LargestAreaHistogram {
         for (int i = 0; i < heights.length; i++) {
             maxArea = Math.max(maxArea, 
                 heights[i] * (nextSmaller[i] - prevSmaller[i] - 1));
+        }
+        return maxArea;
+    }
+
+    /**
+     * Approach 3: Single-Pass Monotonic Stack
+     * 
+     * Intuition:
+     * - Process bars in single pass, finding left and right boundaries simultaneously
+     * - Stack maintains indices of bars in increasing order of heights
+     * - When we find a shorter bar, we've found right boundary for taller bars
+     * - Stack's previous element gives left boundary
+     * - This eliminates need for separate arrays for boundaries
+     * 
+     * Time Complexity: O(n)
+     * - Single pass through array
+     * - Each element pushed and popped exactly once
+     * - More efficient than previous approach as it requires only one pass
+     * 
+     * Space Complexity: O(n)
+     * - Only stack space required: O(n)
+     * - No additional arrays needed for boundaries
+     */
+    public static int largestRectangleAreaMoreEfficient(int[] heights) {
+        Stack<Integer> stack = new Stack<>();
+        int maxArea = 0;
+        
+        // Process each bar
+        for(int i = 0; i < heights.length; i++) {
+            // Find right boundary for taller bars
+            while(!stack.isEmpty() && heights[stack.peek()] > heights[i]) {
+                int height = heights[stack.pop()];     // Current bar's height
+                int rightBound = i;                    // Right boundary is current index
+                int leftBound = stack.isEmpty() ? -1 : stack.peek();  // Left boundary from stack
+                int width = rightBound - leftBound - 1;  // Calculate width
+                maxArea = Math.max(maxArea, height * width);  // Update max area
+            }
+            stack.push(i);
+        }
+
+        // Process remaining bars in stack
+        while(!stack.isEmpty()) {
+            int height = heights[stack.pop()];    
+            int rightBound = heights.length;          // Right boundary is array end
+            int leftBound = stack.isEmpty() ? -1 : stack.peek();  // Left boundary from stack
+            int width = rightBound - leftBound - 1;   // Calculate width
+            maxArea = Math.max(maxArea, height * width);  // Update max area
         }
         return maxArea;
     }

@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *     LeetCode 402. Remove K Digits
  * 
@@ -24,7 +24,7 @@
  *     Remove digit 2 to get "1219"
  */
 
-public class j11RemoveKDigits {
+public class j15RemoveKDigits {
 
     public static void main(String[] args) {
         // Test cases
@@ -46,7 +46,7 @@ public class j11RemoveKDigits {
         }
     }
 
-    /*-
+    /**
      * Approach: Using Monotonic Stack (StringBuilder)
      * 
      * Intuition:

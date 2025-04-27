@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *     LeetCode 907. Sum of Subarray Minimums
  * 
@@ -26,7 +26,7 @@
 import java.util.Arrays;
 import java.util.Stack;
 
-public class j10SumOfSubarrayMinimums {
+public class j12SumOfSubarrayMinimums {
 
     public static void main(String args[]) {
         // Test cases
@@ -49,7 +49,7 @@ public class j10SumOfSubarrayMinimums {
         }
     }
 
-    /*-
+    /**
      * Approach: Using Monotonic Stack
      * 
      * Intuition:
@@ -93,7 +93,7 @@ public class j10SumOfSubarrayMinimums {
         return (int) (total % MOD);
     }
 
-    /*-
+    /**
      * Helper Method: Find next smaller elements
      * Uses monotonic stack to find next smaller element for each position
      */
@@ -111,7 +111,7 @@ public class j10SumOfSubarrayMinimums {
         return out;
     }
 
-    /*-
+    /**
      * Helper Method: Find previous smaller elements
      * Uses monotonic stack to find previous smaller element for each position
      */

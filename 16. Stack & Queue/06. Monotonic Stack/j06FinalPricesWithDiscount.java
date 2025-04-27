@@ -29,7 +29,7 @@
 import java.util.Stack;
 import java.util.Arrays;
 
-public class j05FinalPricesWithDiscount {
+public class j06FinalPricesWithDiscount {
 
     public static void main(String args[]) {
         // Test cases with different scenarios
