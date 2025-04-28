@@ -92,4 +92,43 @@ public class j38CelebrityProblem {
         }
         return -1; // No celebrity found
     }
+
+    /**
+     * Approach 2: Efficient Approach (O(n))
+     * 
+     * Intuition:
+     * - We can use a two-pointer technique to find the potential celebrity.
+     * - Start with two pointers, one at the beginning and one at the end of the list.
+     * - If the first person knows the second, move the first pointer forward; otherwise, move the second pointer backward.
+     * - This will lead us to a potential celebrity candidate.
+     * - Finally, we need to verify if this candidate is indeed a celebrity by checking their row and column in the matrix.
+     * 
+     * Time Complexity:
+     * - O(n) as we are only iterating through the list once to find a candidate and once more to verify.
+     * 
+     * Space Complexity:
+     * - O(1) as we are not using any additional space proportional to n.
+     * 
+     * @param M The input matrix representing knowledge between people.
+     * @param n The number of people.
+     * @return The index of the celebrity if found, otherwise -1.
+     */
+    public static int celibrityEfficient(int[][] M, int n){
+        int ans = 0;
+        for(int i = 1; i < n; i++){
+            if(M[i][ans] == 0){ // If i does not know ans, then ans cannot be a celebrity
+                ans = i;
+            }
+        }
+
+        for(int i = 0; i < n; i++){
+            if(i != ans){
+                if(M[ans][i] == 1 || M[i][ans] == 0){ // If ans knows i or i does not know ans, 
+                //then ans cannot be a celebrity
+                    return -1;
+                }
+            }
+        }
+        return ans; // Return the index of the celebrity
+    }
 }
