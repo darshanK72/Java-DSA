@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *     LeetCode 1047. Remove All Adjacent Duplicates In String
  * 
@@ -23,7 +23,7 @@
  *     - No more duplicates possible
  */
 
-public class j04RemoveAdjecentDuplicatesI {
+public class j07RemoveAdjecentDuplicatesI {
     
     public static void main(String args[]) {
         // Test cases with different scenarios
@@ -43,7 +43,7 @@ public class j04RemoveAdjecentDuplicatesI {
         }
     }
     
-    /*-
+    /**
      * Approach: Using StringBuilder as Stack
      * 
      * Intuition:

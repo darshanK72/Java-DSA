@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *     Remove Consecutive Characters
  * 
@@ -22,7 +22,7 @@
  *     - No more consecutive characters to remove
  */
 
-public class j03RemoveConsecutiveCharacters {
+public class j06RemoveConsecutiveCharacters {
 
     public static void main(String args[]) {
         // Test cases with different scenarios
@@ -42,7 +42,7 @@ public class j03RemoveConsecutiveCharacters {
         }
     }
 
-    /*-
+    /**
      * Approach: Using StringBuilder as Stack
      * 
      * Intuition:

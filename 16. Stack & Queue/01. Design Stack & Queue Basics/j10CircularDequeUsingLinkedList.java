@@ -56,7 +56,7 @@ public class j10CircularDequeUsingLinkedList {
         System.out.println(obj.isEmpty()); // false
     }
 
-    /*-
+    /**
      * Approach: Doubly Linked List Implementation
      * 
      * Intuition:

@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *     LeetCode 1209. Remove All Adjacent Duplicates in String II
  * 
@@ -28,9 +28,9 @@
 
 import java.util.Stack;
 
-public class j05RemoveAdjecentDuplicatesII {
+public class j08RemoveAdjecentDuplicatesII {
 
-    /*-
+    /**
      * Helper Class: Pair to store character and its frequency
      * Maintains count of consecutive occurrences of a character
      */
@@ -62,7 +62,7 @@ public class j05RemoveAdjecentDuplicatesII {
         }
     }
 
-    /*-
+    /**
      * Approach: Using Stack with Frequency Counter
      * 
      * Intuition:

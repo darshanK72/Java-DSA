@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *     LeetCode 1003. Check If Word Is Valid After Substitutions
  * 
@@ -36,7 +36,7 @@
 
 import java.util.Stack;
 
-public class j02CheckValidWordAfterSubstitutions {
+public class j05CheckValidWordAfterSubstitutions {
 
     public static void main(String args[]) {
         // Test cases with different scenarios
@@ -57,7 +57,7 @@ public class j02CheckValidWordAfterSubstitutions {
         }
     }
 
-    /*-
+    /**
      * Approach: Using Stack
      * 
      * Intuition:
