@@ -22,7 +22,7 @@
  *     Output: 5
  */
 
-public class j05GetSizeOfTree {
+public class j04GetSizeOfTree {
 
     /**
      * Node class represents a node in binary tree

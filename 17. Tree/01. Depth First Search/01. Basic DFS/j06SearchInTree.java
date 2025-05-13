@@ -25,7 +25,7 @@
  *     Output: true
  */
 
-public class j07SearchInTree {
+public class j06SearchInTree {
 
     /**
      * Node class represents a node in binary tree

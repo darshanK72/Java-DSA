@@ -25,7 +25,7 @@
  *     Min: 1
  */
 
-public class j06FindMaxMinOfTree {
+public class j05FindMaxMinOfTree {
 
     /**
      * Node class represents a node in binary tree
