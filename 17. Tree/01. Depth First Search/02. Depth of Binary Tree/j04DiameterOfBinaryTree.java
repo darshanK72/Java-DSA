@@ -46,6 +46,100 @@ public class j04DiameterOfBinaryTree {
         }
     }
 
+    public static void main(String args[]) {
+        // Test Case 1: Empty Tree
+        System.out.println("Test Case 1: Empty Tree");
+        TreeNode root1 = null;
+        System.out.println("Diameter: " + diameterOfBinaryTree(root1));
+        System.out.println();
+
+        // Test Case 2: Single Node
+        System.out.println("Test Case 2: Single Node");
+        TreeNode root2 = new TreeNode(1);
+        System.out.println("Diameter: " + diameterOfBinaryTree(root2));
+        System.out.println();
+
+        // Test Case 3: Simple Balanced Tree
+        //       1
+        //      / \
+        //     2   3
+        System.out.println("Test Case 3: Simple Balanced Tree");
+        TreeNode root3 = new TreeNode(1);
+        root3.left = new TreeNode(2);
+        root3.right = new TreeNode(3);
+        System.out.println("Diameter: " + diameterOfBinaryTree(root3));
+        System.out.println();
+
+        // Test Case 4: Complex Balanced Tree
+        //       1
+        //      / \
+        //     2   3
+        //    / \
+        //   4   5
+        System.out.println("Test Case 4: Complex Balanced Tree");
+        TreeNode root4 = new TreeNode(1);
+        root4.left = new TreeNode(2);
+        root4.right = new TreeNode(3);
+        root4.left.left = new TreeNode(4);
+        root4.left.right = new TreeNode(5);
+        System.out.println("Diameter: " + diameterOfBinaryTree(root4));
+        System.out.println();
+
+        // Test Case 5: Left Skewed Tree
+        // 1
+        //  \
+        //   2
+        //    \
+        //     3
+        System.out.println("Test Case 5: Right Skewed Tree");
+        TreeNode root5 = new TreeNode(1);
+        root5.right = new TreeNode(2);
+        root5.right.right = new TreeNode(3);
+        System.out.println("Diameter: " + diameterOfBinaryTree(root5));
+        System.out.println();
+
+        // Test Case 6: Complex Unbalanced Tree
+        //       1
+        //      / \
+        //     2   3
+        //    /     \
+        //   4       5
+        //  /         \
+        // 6           7
+        System.out.println("Test Case 6: Complex Unbalanced Tree");
+        TreeNode root6 = new TreeNode(1);
+        root6.left = new TreeNode(2);
+        root6.right = new TreeNode(3);
+        root6.left.left = new TreeNode(4);
+        root6.right.right = new TreeNode(5);
+        root6.left.left.left = new TreeNode(6);
+        root6.right.right.right = new TreeNode(7);
+        System.out.println("Diameter: " + diameterOfBinaryTree(root6));
+        System.out.println();
+
+        // Test Case 7: Maximum Diameter Not Through Root
+        //       1
+        //      / \
+        //     2   3
+        //    /     \
+        //   4       5
+        //  /         \
+        // 6           7
+        //  \         /
+        //   8       9
+        System.out.println("Test Case 7: Maximum Diameter Not Through Root");
+        TreeNode root7 = new TreeNode(1);
+        root7.left = new TreeNode(2);
+        root7.right = new TreeNode(3);
+        root7.left.left = new TreeNode(4);
+        root7.right.right = new TreeNode(5);
+        root7.left.left.left = new TreeNode(6);
+        root7.right.right.right = new TreeNode(7);
+        root7.left.left.left.right = new TreeNode(8);
+        root7.right.right.right.left = new TreeNode(9);
+        System.out.println("Diameter: " + diameterOfBinaryTree(root7));
+    }
+
     /**
      * Approach: Post-order DFS with Global Variable
      * 

@@ -49,7 +49,99 @@ public class j03BalancedBinaryTree {
     }
 
     public static void main(String args[]) {
-        // Test cases can be added here
+        // Test Case 1: Empty Tree
+        System.out.println("Test Case 1: Empty Tree");
+        TreeNode root1 = null;
+        System.out.println("Approach 1 (Top-down): " + isBalanced(root1));
+        System.out.println("Approach 2 (Global Var): " + isBalancedGlobalVariable(root1));
+        System.out.println("Approach 3 (Pair): " + isBalancedUsingPair(root1));
+        System.out.println("Approach 4 (Array): " + isBalancedUsingArray(root1));
+        System.out.println();
+
+        // Test Case 2: Single Node
+        System.out.println("Test Case 2: Single Node");
+        TreeNode root2 = new TreeNode(1);
+        System.out.println("Approach 1 (Top-down): " + isBalanced(root2));
+        System.out.println("Approach 2 (Global Var): " + isBalancedGlobalVariable(root2));
+        System.out.println("Approach 3 (Pair): " + isBalancedUsingPair(root2));
+        System.out.println("Approach 4 (Array): " + isBalancedUsingArray(root2));
+        System.out.println();
+
+        // Test Case 3: Balanced Tree
+        //       1
+        //      / \
+        //     2   3
+        //    / \
+        //   4   5
+        System.out.println("Test Case 3: Balanced Tree");
+        TreeNode root3 = new TreeNode(1);
+        root3.left = new TreeNode(2);
+        root3.right = new TreeNode(3);
+        root3.left.left = new TreeNode(4);
+        root3.left.right = new TreeNode(5);
+        System.out.println("Approach 1 (Top-down): " + isBalanced(root3));
+        System.out.println("Approach 2 (Global Var): " + isBalancedGlobalVariable(root3));
+        System.out.println("Approach 3 (Pair): " + isBalancedUsingPair(root3));
+        System.out.println("Approach 4 (Array): " + isBalancedUsingArray(root3));
+        System.out.println();
+
+        // Test Case 4: Unbalanced Tree
+        //       1
+        //      / \
+        //     2   3
+        //    / \
+        //   4   5
+        //  /
+        // 6
+        System.out.println("Test Case 4: Unbalanced Tree");
+        TreeNode root4 = new TreeNode(1);
+        root4.left = new TreeNode(2);
+        root4.right = new TreeNode(3);
+        root4.left.left = new TreeNode(4);
+        root4.left.right = new TreeNode(5);
+        root4.left.left.left = new TreeNode(6);
+        System.out.println("Approach 1 (Top-down): " + isBalanced(root4));
+        System.out.println("Approach 2 (Global Var): " + isBalancedGlobalVariable(root4));
+        System.out.println("Approach 3 (Pair): " + isBalancedUsingPair(root4));
+        System.out.println("Approach 4 (Array): " + isBalancedUsingArray(root4));
+        System.out.println();
+
+        // Test Case 5: Left Skewed Tree
+        // 1
+        //  \
+        //   2
+        //    \
+        //     3
+        System.out.println("Test Case 5: Right Skewed Tree");
+        TreeNode root5 = new TreeNode(1);
+        root5.right = new TreeNode(2);
+        root5.right.right = new TreeNode(3);
+        System.out.println("Approach 1 (Top-down): " + isBalanced(root5));
+        System.out.println("Approach 2 (Global Var): " + isBalancedGlobalVariable(root5));
+        System.out.println("Approach 3 (Pair): " + isBalancedUsingPair(root5));
+        System.out.println("Approach 4 (Array): " + isBalancedUsingArray(root5));
+        System.out.println();
+
+        // Test Case 6: Complex Unbalanced Tree
+        //       1
+        //      / \
+        //     2   3
+        //    /     \
+        //   4       5
+        //  /         \
+        // 6           7
+        System.out.println("Test Case 6: Complex Unbalanced Tree");
+        TreeNode root6 = new TreeNode(1);
+        root6.left = new TreeNode(2);
+        root6.right = new TreeNode(3);
+        root6.left.left = new TreeNode(4);
+        root6.right.right = new TreeNode(5);
+        root6.left.left.left = new TreeNode(6);
+        root6.right.right.right = new TreeNode(7);
+        System.out.println("Approach 1 (Top-down): " + isBalanced(root6));
+        System.out.println("Approach 2 (Global Var): " + isBalancedGlobalVariable(root6));
+        System.out.println("Approach 3 (Pair): " + isBalancedUsingPair(root6));
+        System.out.println("Approach 4 (Array): " + isBalancedUsingArray(root6));
     }
 
     /**
@@ -106,9 +198,9 @@ public class j03BalancedBinaryTree {
      * Time Complexity: O(n) - Single pass through tree
      * Space Complexity: O(h) - Recursion stack depth
      */
-    public boolean isBalanced = true;  // Global variable to track balance status
+    public static boolean isBalanced = true;  // Global variable to track balance status
 
-    public boolean isBalancedGlobalVariable(TreeNode root) {
+    public  static boolean isBalancedGlobalVariable(TreeNode root) {
         // Reset global variable before checking
         isBalanced = true;
         // Calculate height and check balance
@@ -116,7 +208,7 @@ public class j03BalancedBinaryTree {
         return isBalanced;
     }
 
-    public int heightGlobalVariable(TreeNode root) {
+    public static int heightGlobalVariable(TreeNode root) {
         // Base case: height of empty tree is 0
         if (root == null)
             return 0;
@@ -157,12 +249,12 @@ public class j03BalancedBinaryTree {
         }
     }
 
-    public boolean isBalancedUsingPair(TreeNode root) {
+    public static boolean isBalancedUsingPair(TreeNode root) {
         // Get balance status from the root
         return heightUsingPair(root).isBalanced;
     }
 
-    public Pair heightUsingPair(TreeNode root) {
+    public static Pair heightUsingPair(TreeNode root) {
         // Base case: empty tree is balanced with height 0
         if (root == null)
             return new Pair(0, true);
@@ -200,7 +292,7 @@ public class j03BalancedBinaryTree {
      * Time Complexity: O(n) - Single pass through tree
      * Space Complexity: O(h) - Recursion stack depth
      */
-    public boolean isBalancedUsingArray(TreeNode root) {
+    public static boolean isBalancedUsingArray(TreeNode root) {
         // Array to store balance status (using array to pass by reference)
         boolean[] isBalanced = new boolean[1];
         // Calculate height and check balance
@@ -209,7 +301,7 @@ public class j03BalancedBinaryTree {
         return !isBalanced[0];
     }
 
-    public int heightUsingArray(TreeNode root, boolean[] isBalanced) {
+    public static int heightUsingArray(TreeNode root, boolean[] isBalanced) {
         // Base case: height of empty tree is 0
         if (root == null)
             return 0;
