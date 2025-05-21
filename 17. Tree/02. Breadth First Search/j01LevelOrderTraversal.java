@@ -28,7 +28,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class j04LevelOrderTraversal {
+public class j01LevelOrderTraversal {
 
     static class TreeNode {
         int val;
@@ -104,28 +104,22 @@ public class j04LevelOrderTraversal {
         queue.add(root); // Start with root
 
         while (!queue.isEmpty()) {
-            ArrayList<TreeNode> levelNodes = new ArrayList<>(); // Store current level nodes
-
-            // Get all nodes at current level
-            while (!queue.isEmpty()) {
-                TreeNode node = queue.poll();
-                levelNodes.add(node);
-            }
-
-            ArrayList<Integer> levelInts = new ArrayList<>(); // Store level values
+            int levelSize = queue.size(); // Number of nodes at current level
+            ArrayList<Integer> valueList = new ArrayList<>(); // Store level values
 
             // Process current level nodes
-            for (TreeNode node : levelNodes) {
+            for (int i = 0; i < levelSize; i++) {
+                TreeNode node = queue.poll(); // Get current node
                 if (node.left != null) {
                     queue.add(node.left); // Add left child for next level
                 }
                 if (node.right != null) {
                     queue.add(node.right); // Add right child for next level
                 }
-                levelInts.add(node.val); // Store current node's value
+                valueList.add(node.val); // Store current node's value
             }
 
-            list.add(levelInts); // Add level to result
+            list.add(valueList); // Add level to result
         }
         return list;
     }
