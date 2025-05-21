@@ -47,7 +47,52 @@ public class j07FlattenBinaryTreeToLinkedList {
     }
 
     /**
-     * Approach 1: Post-order Traversal with Right Node Storage
+     * Approach 1: Reverse Post-order with Previous Node Tracking
+     * 
+     * Intuition:
+     * - Process tree in reverse post-order (right -> left -> root)
+     * - Maintain previous node as static reference
+     * - Each node becomes left child of its next node in sequence
+     * - This automatically creates reversed preorder sequence
+     * 
+     * Algorithm steps:
+     * 1. Process right subtree first (to handle it before left)
+     * 2. Process left subtree
+     * 3. Connect current node:
+     *    - Make previous node the right child
+     *    - Set left child to null
+     *    - Update previous to current node
+     * 
+     * Why it works:
+     * - Reverse post-order gives nodes in reverse of required sequence
+     * - By connecting each node to previous, we get correct forward sequence
+     * - Example: For 1->2->3, we process: 3,2,1 and connect: 1->2->3
+     * 
+     * Time Complexity: O(n)
+     * - Visit each node exactly once
+     * 
+     * Space Complexity: O(h)
+     * - h is height of tree (recursion stack)
+     */
+    static TreeNode prev = null;
+    public static void flatten(TreeNode root) {
+        // Base case: empty tree
+        if(root == null) return;
+
+        // Step 1: Process right subtree first
+        flatten(root.right);
+        
+        // Step 2: Process left subtree
+        flatten(root.left);
+
+        // Step 3: Connect current node
+        root.right = prev;     // Make previous node the right child
+        root.left = null;      // Remove left child (requirement)
+        prev = root;           // Update previous to current node
+    }
+
+    /**
+     * Approach 2: Post-order Traversal with Right Node Storage
      * 
      * Intuition:
      * - Process tree bottom-up using post-order traversal
@@ -78,7 +123,7 @@ public class j07FlattenBinaryTreeToLinkedList {
     }
 
     /**
-     * Approach 2: Pre-order Traversal with Head-Tail Tracking
+     * Approach 3: Pre-order Traversal with Head-Tail Tracking
      * 
      * Intuition:
      * - Track both head and tail of flattened portions
