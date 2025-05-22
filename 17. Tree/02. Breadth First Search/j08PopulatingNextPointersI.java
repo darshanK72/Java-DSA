@@ -81,7 +81,7 @@ public class j08PopulatingNextPointersI {
         printLevelOrder(connectLevelOrder(root1));
     }
 
-    /*-
+    /**
      * Approach 1: Recursive Solution
      * 
      * Quick Intuition:
@@ -123,7 +123,7 @@ public class j08PopulatingNextPointersI {
         return root;
     }
 
-    /*-
+    /**
      * Approach 2: Constant Space Solution
      * 
      * Quick Intuition:
@@ -176,7 +176,7 @@ public class j08PopulatingNextPointersI {
         return root;
     }
 
-    /*-
+    /**
      * Approach 3: Level Order Traversal
      * 
      * Quick Intuition:

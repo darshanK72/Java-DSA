@@ -1,4 +1,4 @@
-/*-
+/**
  * Problem Statement:
  *     LeetCode 117. Populating Next Right Pointers in Each Node II
  * 
@@ -33,7 +33,7 @@ import java.util.Queue;
 
 public class j09PopulatingNextPointersII {
 
-    /*-
+    /**
      * Node class representing each node in the binary tree
      * - val: value of the node
      * - left: left child
@@ -78,7 +78,7 @@ public class j09PopulatingNextPointersII {
         printLevelOrder(connectLevelOrder(root1));
     }
 
-    /*-
+    /**
      * Helper method to print level order traversal
      * to verify next pointers
      */
@@ -101,7 +101,7 @@ public class j09PopulatingNextPointersII {
         }
     }
 
-    /*-
+    /**
      * Approach 1: Constant Space Solution
      * 
      * Quick Intuition:
@@ -156,7 +156,7 @@ public class j09PopulatingNextPointersII {
         return root;
     }
 
-    /*-
+    /**
      * Approach 2: Level Order Traversal
      * 
      * Quick Intuition:
