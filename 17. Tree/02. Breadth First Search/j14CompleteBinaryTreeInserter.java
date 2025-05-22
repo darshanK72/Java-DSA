@@ -36,7 +36,7 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class j14CompleteBinaryTreeInsertor {
+public class j14CompleteBinaryTreeInserter {
 
     /**
      * CBTInserter class to maintain complete binary tree
