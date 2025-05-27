@@ -31,7 +31,7 @@
  *        1   3
  */
 
-public class j02SearchNodeInBST {
+public class j01SearchNodeInBST {
 
     static class TreeNode {
         int val;
@@ -75,6 +75,33 @@ public class j02SearchNodeInBST {
             return searchBST(root.left, val);
         else 
             return searchBST(root.right, val);
+    }
+
+    /**
+     * Iterative version of searchBST
+     * Intuition:
+     * - Use while loop to traverse tree
+     * - Compare value with current node to decide direction
+     * - Continue until value is found or tree ends
+     * 
+     * Explanation:
+     * - Start from root and traverse downwards
+     * - If value < current node, go left
+     * - If value > current node, go right
+     * - If value matches current node, return it
+     * 
+     * Time Complexity: O(h) where h is height of tree
+     * Space Complexity: O(1) for iterative approach
+     * 
+     * @param root    Root node of BST
+     * @param val     Value to search
+     * @return       Root of subtree containing val, or null if not found
+     */
+    public static TreeNode searchBSTIterative(TreeNode root, int val) {
+        while(root != null && root.val != val){
+            root = (val < root.val) ? root.left : root.right;
+        }
+        return root;
     }
 
     public static void main(String[] args) {

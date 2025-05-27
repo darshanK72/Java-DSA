@@ -28,7 +28,7 @@
  *      1   3       1  3 5
  */
 
-public class j01InsertNodeInBST {
+public class j04InsertNodeInBST {
 
     static class TreeNode {
         int val;
@@ -75,6 +75,58 @@ public class j01InsertNodeInBST {
         else
             root.right = insertIntoBST(root.right, val);
             
+        return root;
+    }
+
+
+    /**
+     * Iterative version of insertIntoBST
+     * Intuition:
+     * - Use a loop to find the correct position
+     * - Compare value with current node
+     * - If smaller, go left; if larger, go right
+     * - Insert at null position when found
+     * 
+     * Explanation:
+     * - Create new node with value
+     *   - If tree is empty, return new node
+     * - Use a while loop to traverse the tree
+     *   - If value < current node, go left
+     *   - If value > current node, go right
+     *   - Insert new node at the first null position found
+     * 
+     * Time Complexity: O(h) where h is height of tree
+     * Space Complexity: O(1) constant space
+     * 
+     * @param root    Root node of BST
+     * @param val     Value to insert
+     * @return       Root of modified BST
+     */
+    public static TreeNode insertIntoBSTIterative(TreeNode root, int val) {
+        TreeNode node = new TreeNode(val); // Create new node to insert
+         // If tree is empty, return new node
+        if(root == null) return node;
+        TreeNode curr = root;
+        while(true){
+            if(val < curr.val){ // If value is less, go left
+                // If left child is null, insert here
+                if(curr.left != null) curr = curr.left;
+                else{
+                    // Insert new node as left child
+                    curr.left = node;
+                    break;
+                }
+            }else{
+                // If value is greater, go right
+
+                if(curr.right != null) curr = curr.right;
+                else{
+                    // Insert new node as right child
+                    curr.right = node;
+                    break;
+                }
+            }
+        }
         return root;
     }
 
