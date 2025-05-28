@@ -27,7 +27,7 @@
  *      2   4   7     2       7
  */
 
-public class j05DeleteNodeInBST {
+public class j06DeleteNodeInBST {
 
     static class TreeNode {
         int val;

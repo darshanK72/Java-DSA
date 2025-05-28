@@ -28,7 +28,7 @@
  *      1   3       1  3 5
  */
 
-public class j04InsertNodeInBST {
+public class j05InsertNodeInBST {
 
     static class TreeNode {
         int val;

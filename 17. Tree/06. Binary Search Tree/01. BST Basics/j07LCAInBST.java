@@ -29,7 +29,7 @@
  *       3   5
  */
 
-public class j06LCAInBST {
+public class j07LCAInBST {
 
     static class TreeNode {
         int val;
@@ -83,7 +83,7 @@ public class j06LCAInBST {
         return root;
     }
 
-    /*-
+    /**
      * Helper method to print BST structure
      */
     private static void printTree(TreeNode root, String indent, String prefix) {
