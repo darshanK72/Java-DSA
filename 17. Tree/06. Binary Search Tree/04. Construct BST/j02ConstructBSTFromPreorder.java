@@ -2,36 +2,26 @@
  * LeetCode 1008. Construct Binary Search Tree from Preorder Traversal
  * 
  * Problem Statement:
- *     Given an array of integers preorder, which represents the preorder traversal
- *     of a BST (binary search tree), construct the tree and return its root.
+ *     Given an array of integers preorder, which represents the preorder traversal 
+ *     of a BST, construct the tree and return its root.
  * 
  * Input:
- *     - preorder: Integer array representing preorder traversal of BST
+ *     - preorder: int[] representing preorder traversal (1 <= length <= 100)
+ *     - All values are unique
  * 
  * Output:
- *     - Root node of constructed BST
+ *     - Root node of the constructed BST
  * 
  * Example:
- *     Input: [8,5,1,7,10,12]
- *     Output: 
- *              8
- *            /   \
- *           5    10
- *          / \     \
- *         1   7    12
- *     
- *     Explanation:
- *     - First element 8 is root
- *     - All elements < 8 form left subtree [5,1,7]
- *     - All elements > 8 form right subtree [10,12]
- *     - Process repeats recursively
+ *     Input: preorder = [8,5,1,7,10,12]
+ *     Output: Tree Structure:
+ *            8
+ *           / \
+ *          5   10
+ *         / \    \
+ *        1   7    12
  */
-
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class j02ConstructBSTFromPreorder {
-
     static class TreeNode {
         int val;
         TreeNode left, right;
@@ -43,40 +33,39 @@ public class j02ConstructBSTFromPreorder {
     }
 
     /**
-     * Explanation:
-     * - Convert preorder array to BST:
-     *   1. First element is root
-     *   2. Find first element > root (separates left and right subtrees)
-     *   3. Recursively build left and right subtrees
+     * Approach 1: Linear Search Based Construction
      * 
-     * Time Complexity: O(N²)
-     * - For each node, may need to scan entire remaining array
+     * Intuition:
+     * - In preorder traversal, first element is always the root
+     * - Elements smaller than root form left subtree
+     * - Elements larger than root form right subtree
      * 
-     * Space Complexity: O(N)
-     * - Recursion stack in worst case (skewed tree)
+     * Time Complexity: O(n^2) - Linear search for each node
+     * Space Complexity: O(h) - Recursion stack height
      * 
      * @param preorder Array containing preorder traversal
-     * @return         Root node of constructed BST
+     * @return Root of constructed BST
      */
     public static TreeNode bstFromPreorder(int[] preorder) {
         return convertPreorderToBST(preorder, 0, preorder.length - 1);
     }
 
     /**
-     * Helper Method: Find Index of First Larger Value
+     * Helper Method: Find First Larger Element
      * 
-     * Explanation:
-     * - Linear scan to find first element > key
-     * - Returns -1 if no larger element found
+     * Intuition:
+     * - Searches for first element larger than key to separate left and right subtrees
+     * - All elements before this index belong to left subtree
+     * - All elements after this index belong to right subtree
      * 
-     * Time Complexity: O(N)
-     * Space Complexity: O(1)
+     * Time Complexity: O(n) - Linear search through array
+     * Space Complexity: O(1) - No extra space used
      * 
      * @param preorder Array to search in
-     * @param s        Start index
-     * @param e        End index
-     * @param key      Value to compare against
-     * @return         Index of first larger value or -1
+     * @param s Start index
+     * @param e End index
+     * @param key Value to compare against
+     * @return Index of first larger element or -1 if not found
      */
     public static int findBiggerValueIndex(int[] preorder, int s, int e, int key) {
         for (int i = s; i <= e; i++) {
@@ -87,84 +76,96 @@ public class j02ConstructBSTFromPreorder {
     }
 
     /**
-     * Helper Method: Convert Preorder Segment to BST
+     * Helper Method: Convert Preorder Array to BST
+     * 
+     * Intuition:
+     * - First element becomes root of current subtree
+     * - Find first larger element to divide array into left and right parts
+     * - Recursively build left and right subtrees
      * 
      * Explanation:
-     * - Converts array segment [s,e] to BST:
-     *   1. Create root from first element
-     *   2. Find index of first larger element
-     *   3. If no larger element:
-     *      - All remaining elements form left subtree
-     *   4. If larger element found at index idx:
-     *      - Elements [s+1, idx-1] form left subtree
-     *      - Elements [idx, e] form right subtree
+     * 1. If start > end, return null (base case)
+     * 2. Create root node from first element
+     * 3. Find index of first element larger than root
+     * 4. If no larger element found, all remaining elements go to left subtree
+     * 5. Otherwise, split elements between left and right subtrees
      * 
-     * @param preorder Array containing preorder traversal
-     * @param s        Start index of current segment
-     * @param e        End index of current segment
-     * @return         Root node of BST for current segment
+     * Time Complexity: O(n^2) - Due to findBiggerValueIndex linear search
+     * Space Complexity: O(h) - Recursion stack
+     * 
+     * @param preorder Preorder array
+     * @param s Start index of current subarray
+     * @param e End index of current subarray
+     * @return Root of constructed subtree
      */
     public static TreeNode convertPreorderToBST(int[] preorder, int s, int e) {
         if (s > e)
             return null;
-            
         // Create root from first element
         TreeNode root = new TreeNode(preorder[s]);
-        
-        // Find first larger element to separate subtrees
-        int idx = findBiggerValueIndex(preorder, s + 1, e, preorder[s]);
-        
+        // Find first larger element
+        int idx = findBiggerValueIndex(preorder, s, e, preorder[s]);
         if (idx == -1) {
-            // No larger element - all elements form left subtree
+            // No larger element found, all elements go to left subtree
             root.left = convertPreorderToBST(preorder, s + 1, e);
         } else {
-            // Split into left and right subtrees
+            // Divide elements into left and right subtrees
             root.left = convertPreorderToBST(preorder, s + 1, idx - 1);
             root.right = convertPreorderToBST(preorder, idx, e);
         }
         return root;
     }
 
-    public static void main(String[] args) {
-        // Test Case 1: Basic case
-        int[] preorder1 = {8, 5, 1, 7, 10, 12};
-        System.out.println("\nBasic Test Case:");
-        printLevelOrder(bstFromPreorder(preorder1));
-
-        // Test Case 2: Edge case - single element
-        int[] preorder2 = {1};
-        System.out.println("\nSingle Element Test Case:");
-        printLevelOrder(bstFromPreorder(preorder2));
-
-        // Test Case 3: Increasing sequence
-        int[] preorder3 = {1, 2, 3, 4, 5};
-        System.out.println("\nIncreasing Sequence Test Case:");
-        printLevelOrder(bstFromPreorder(preorder3));
-
-        // Test Case 4: Decreasing sequence
-        int[] preorder4 = {5, 4, 3, 2, 1};
-        System.out.println("\nDecreasing Sequence Test Case:");
-        printLevelOrder(bstFromPreorder(preorder4));
+    /**
+     * Approach 2: Efficient Bound-Based Construction
+     * 
+     * Intuition:
+     * - Use upper bounds to determine valid node values
+     * - Maintain single array index for traversal
+     * - Each node value must be less than its upper bound
+     * 
+     * Time Complexity: O(n) - Single pass through array
+     * Space Complexity: O(h) - Recursion stack
+     * 
+     * @param preorder Array containing preorder traversal
+     * @return Root of constructed BST
+     */
+    public static TreeNode bstFromPreorderEfficient(int[] preorder) {
+        return constructBSTFromPreorder(preorder, Integer.MAX_VALUE, new int[] { 0 });
     }
 
-    // Helper method to print BST level by level for verification
-    private static void printLevelOrder(TreeNode root) {
-        if (root == null) {
-            System.out.println("Empty tree");
-            return;
-        }
-       
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        while (!queue.isEmpty()) {
-            TreeNode node = queue.poll();
-            if (node != null) {
-                System.out.print(node.val + " ");
-                queue.add(node.left);
-                queue.add(node.right);
-            } else {
-                System.out.print("null ");
-            }
-        }
+    /**
+     * Helper Method: Construct BST using Upper Bounds
+     * 
+     * Intuition:
+     * - Each node has an upper bound constraint
+     * - Left child must be less than current node's value
+     * - Right child must be less than parent's upper bound
+     * 
+     * Explanation:
+     * 1. If current value exceeds bound or array end reached, return null
+     * 2. Create node from current value and increment index
+     * 3. Left subtree bound is current node's value
+     * 4. Right subtree bound remains same as current bound
+     * 
+     * Time Complexity: O(n) - Single traversal
+     * Space Complexity: O(h) - Recursion stack
+     * 
+     * @param preorder Array containing preorder traversal
+     * @param bound Upper bound for current node value
+     * @param index Current position in array (passed as array for reference)
+     * @return Root of constructed subtree
+     */
+    public static TreeNode constructBSTFromPreorder(int[] preorder, int bound, int[] index) {
+        // Return null if end of array or value exceeds bound
+        if (index[0] >= preorder.length || preorder[index[0]] > bound)
+            return null;
+        // Create current node and increment index
+        TreeNode root = new TreeNode(preorder[index[0]++]);
+        // Construct left subtree with current value as bound
+        root.left = constructBSTFromPreorder(preorder, root.val, index);
+        // Construct right subtree with parent's bound
+        root.right = constructBSTFromPreorder(preorder, bound, index);
+        return root;
     }
 }

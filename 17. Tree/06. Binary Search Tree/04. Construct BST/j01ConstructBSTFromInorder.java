@@ -6,25 +6,22 @@
  *     convert it to a height-balanced binary search tree (BST).
  * 
  * Input:
- *     - nums: Integer array sorted in ascending order
+ *     - nums: integer array sorted in ascending order (-10^4 <= nums[i] <= 10^4)
+ *     - Array length: 0 <= nums.length <= 10^4
  * 
  * Output:
- *     - Root node of height-balanced BST
+ *     - Root node of the constructed height-balanced BST
  * 
  * Example:
- *     Input: [-10,-3,0,5,9]
- *     Output: 
- *              0
- *            /   \
- *          -3     9
- *          /     /
- *        -10    5
- *     
+ *     Input: nums = [-10,-3,0,5,9]
+ *     Output: [0,-3,9,-10,null,5]
+ * 
  *     Explanation:
- *     - Middle element 0 becomes root
- *     - Left half [-10,-3] forms left subtree
- *     - Right half [5,9] forms right subtree
- *     - Process repeats recursively for each subtree
+ *            0
+ *           / \
+ *         -3   9
+ *        /    /
+ *      -10   5
  */
 
 import java.util.LinkedList;
@@ -43,49 +40,56 @@ public class j01ConstructBSTFromInorder {
     }
 
     /**
+     * Approach: Recursive Binary Search
+     * 
+     * Intuition:
+     * - Since the array is sorted, middle element will be the root of BST
+     * - Left subarray forms left subtree, right subarray forms right subtree
+     * - This naturally creates a height-balanced tree
+     * 
      * Explanation:
-     * - Convert sorted array to balanced BST:
-     *   1. Find middle element to be root
-     *   2. Recursively build left subtree from left half
-     *   3. Recursively build right subtree from right half
-     *   4. Return root node
+     * - Step 1: Find middle element as root
+     * - Step 2: Recursively construct left subtree from left subarray
+     * - Step 3: Recursively construct right subtree from right subarray
      * 
-     * Time Complexity: O(N)
-     * - Process each element exactly once
-     * - Create N nodes in total
+     * Time Complexity: O(n) where n is the length of input array
+     * Space Complexity: O(log n) for recursion stack
      * 
-     * Space Complexity: O(log N)
-     * - Recursion stack depth is tree height
-     * - Tree is balanced, so height is log N
-     * 
-     * @param nums Sorted array of integers
-     * @return     Root node of balanced BST
+     * @param nums    Sorted array of integers (-10^4 <= nums[i] <= 10^4)
+     * @return       Root node of height-balanced BST
      */
     public static TreeNode sortedArrayToBST(int[] nums) {
+        // Handle null or empty input
+        if (nums == null || nums.length == 0) {
+            return null;
+        }
         return convertInorderToBST(nums, 0, nums.length - 1);
     }
 
     /**
-     * Helper Method: Convert Array Segment to BST
+     * Helper Method: Recursive BST Construction
+     * 
+     * Intuition:
+     * - Divides array into two equal halves around middle element
+     * - Ensures height-balanced property by design
      * 
      * Explanation:
-     * - Converts array segment [s,e] to balanced BST:
-     *   1. Base case: if start > end, return null
-     *   2. Find middle index of current segment
-     *   3. Create root node with middle element
-     *   4. Recursively build left subtree from [s, mid-1]
-     *   5. Recursively build right subtree from [mid+1, e]
+     * - Uses binary search approach to construct tree
+     * - Middle element becomes root of current subtree
+     * - Recursively processes left and right subarrays
      * 
-     * @param nums Array containing sorted elements
-     * @param s    Start index of current segment
-     * @param e    End index of current segment
-     * @return     Root node of BST for current segment
+     * @param nums    Input sorted array
+     * @param s       Start index of current subarray
+     * @param e       End index of current subarray
+     * @return       Root of current subtree
      */
-    public static TreeNode convertInorderToBST(int[] nums, int s, int e) {
-        if (s > e)
+    private static TreeNode convertInorderToBST(int[] nums, int s, int e) {
+        // Base case: invalid range
+        if (s > e) {
             return null;
+        }
         
-        // Find middle element for root
+        // Find middle element for current root
         int mid = s + (e - s) / 2;
         TreeNode root = new TreeNode(nums[mid]);
         
@@ -96,8 +100,39 @@ public class j01ConstructBSTFromInorder {
         return root;
     }
 
+    /**
+     * Helper Method: Level Order Traversal Print
+     * 
+     * Intuition:
+     * - Uses BFS to print tree level by level
+     * - Includes null nodes for complete visualization
+     * 
+     * @param root    Root node of the BST
+     */
+    private static void printLevelOrder(TreeNode root) {
+        if (root == null) {
+            System.out.println("Empty tree");
+            return;
+        }
+       
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            if (node != null) {
+                System.out.print(node.val + " ");
+                queue.add(node.left);
+                queue.add(node.right);
+            } else {
+                System.out.print("null ");
+            }
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args) {
-        // Test Case 1: Basic case
+        // Test Case 1: Basic case with odd number of elements
         int[] nums1 = {-10, -3, 0, 5, 9};
         System.out.println("\nBasic Test Case:");
         printLevelOrder(sortedArrayToBST(nums1));
@@ -116,26 +151,5 @@ public class j01ConstructBSTFromInorder {
         int[] nums4 = {1, 2, 3, 4};
         System.out.println("\nEven Elements Test Case:");
         printLevelOrder(sortedArrayToBST(nums4));
-    }
-
-    // Helper method to print BST level by level
-    private static void printLevelOrder(TreeNode root) {
-        if (root == null) {
-            System.out.println("Empty tree");
-            return;
-        }
-       
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        while (!queue.isEmpty()) {
-            TreeNode node = queue.poll();
-            if (node != null) {
-                System.out.print(node.val + " ");
-                queue.add(node.left);
-                queue.add(node.right);
-            } else {
-                System.out.print("null ");
-            }
-        }
     }
 }
