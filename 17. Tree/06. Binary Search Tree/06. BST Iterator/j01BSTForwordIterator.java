@@ -79,24 +79,56 @@ public class j01BSTForwordIterator {
 
         public BSTIteratorUsingIterativeInorderTraversal(TreeNode root) {
             this.stack = new Stack<>();
-            pushAllLeft(root);
+            pushAllLeft(root);  // Initialize stack with leftmost path
         }
 
+        /**
+         * Helper method to push all left nodes to stack
+         * 
+         * Intuition:
+         * - In inorder traversal, we need to process left subtree first
+         * - Push all left nodes to maintain the correct order
+         * 
+         * Time Complexity: O(h) where h is height of tree
+         * Space Complexity: O(1) as we use existing stack
+         * 
+         * @param node Current node to process
+         */
         private void pushAllLeft(TreeNode node) {
             while (node != null) {
-                stack.push(node);
-                node = node.left;
+                stack.push(node);  // Push current node to stack
+                node = node.left;  // Move to left child
             }
         }
 
+        /**
+         * Returns the next value in inorder traversal
+         * 
+         * Intuition:
+         * - Pop the top node from stack (current smallest)
+         * - Push all left nodes of right child to maintain order
+         * 
+         * Time Complexity: O(h) in worst case, O(1) amortized
+         * Space Complexity: O(1) as we use existing stack
+         * 
+         * @return Next value in inorder traversal
+         */
         public int next() {
-            TreeNode node = stack.pop();
-            pushAllLeft(node.right);
-            return node.val;
+            TreeNode node = stack.pop();  // Get the next node to process
+            pushAllLeft(node.right);      // Push left path of right subtree
+            return node.val;              // Return the value
         }
 
+        /**
+         * Checks if there are more nodes to process
+         * 
+         * Time Complexity: O(1)
+         * Space Complexity: O(1)
+         * 
+         * @return True if stack is not empty, false otherwise
+         */
         public boolean hasNext() {
-            return !stack.isEmpty();
+            return !stack.isEmpty();  // Check if stack has more nodes
         }
     }
 
@@ -128,45 +160,79 @@ public class j01BSTForwordIterator {
             this.root = root;
             this.curr = root;
 
+            // Initialize by creating threaded links for leftmost path
             while (curr.left != null) {
-                TreeNode floor = floor(curr);
-                floor.right = curr;
-                curr = curr.left;
+                TreeNode floor = floor(curr);  // Find rightmost node in left subtree
+                floor.right = curr;            // Create threaded link
+                curr = curr.left;              // Move to left child
             }
         }
 
+        /**
+         * Helper method to find rightmost node in left subtree
+         * 
+         * Time Complexity: O(h) where h is height of tree
+         * Space Complexity: O(1)
+         * 
+         * @param root Current node
+         * @return Rightmost node in left subtree
+         */
         public TreeNode floor(TreeNode root) {
-            root = root.left;
+            root = root.left;  // Move to left child
+            // Find rightmost node that's not already threaded
             while (root.right != null && root.right != curr) {
                 root = root.right;
             }
             return root;
         }
 
+        /**
+         * Returns the next value in inorder traversal
+         * 
+         * Intuition:
+         * - Process current node based on threaded links
+         * - Move to next node using Morris traversal rules
+         * 
+         * Time Complexity: O(1) amortized
+         * Space Complexity: O(1)
+         * 
+         * @return Next value in inorder traversal
+         */
         public int next() {
             while (curr != null) {
                 if (curr.left == null) {
+                    // Case 1: No left child, process current node
                     int val = curr.val;
-                    curr = curr.right;
+                    curr = curr.right;  // Move to right child
                     return val;
                 } else {
                     TreeNode floor = floor(curr);
                     if (floor.right == curr) {
-                        floor.right = null;
+                        // Case 2: Threaded link exists, process current node
+                        floor.right = null;  // Remove threaded link
                         int val = curr.val;
-                        curr = curr.right;
+                        curr = curr.right;   // Move to right child
                         return val;
                     } else {
-                        floor.right = curr;
-                        curr = curr.left;
+                        // Case 3: Create threaded link and move left
+                        floor.right = curr;  // Create threaded link
+                        curr = curr.left;    // Move to left child
                     }
                 }
             }
-            return -1;
+            return -1;  // No more nodes to process
         }
 
+        /**
+         * Checks if there are more nodes to process
+         * 
+         * Time Complexity: O(1)
+         * Space Complexity: O(1)
+         * 
+         * @return True if current node is not null, false otherwise
+         */
         public boolean hasNext() {
-            return curr != null;
+            return curr != null;  // Check if current node exists
         }
     }
 

@@ -42,6 +42,8 @@ public class j03TwoSumIV {
 
         TreeNode(int val) {
             this.val = val;
+            this.left = null;
+            this.right = null;
         }
     }
 
@@ -65,24 +67,56 @@ public class j03TwoSumIV {
 
         public ForwordIterator(TreeNode root) {
             stack = new Stack<>();
-            pushAllLeft(root);
+            pushAllLeft(root);  // Initialize stack with leftmost path
         }
 
+        /**
+         * Helper method to push all left nodes to stack
+         * 
+         * Intuition:
+         * - In inorder traversal, we need to process left subtree first
+         * - Push all left nodes to maintain the correct order
+         * 
+         * Time Complexity: O(h) where h is height of tree
+         * Space Complexity: O(1) as we use existing stack
+         * 
+         * @param node Current node to process
+         */
         private void pushAllLeft(TreeNode node) {
             while (node != null) {
-                stack.push(node);
-                node = node.left;
+                stack.push(node);  // Push current node to stack
+                node = node.left;  // Move to left child
             }
         }
 
+        /**
+         * Returns the next value in inorder traversal
+         * 
+         * Intuition:
+         * - Pop the top node from stack (current smallest)
+         * - Push all left nodes of right child to maintain order
+         * 
+         * Time Complexity: O(h) in worst case, O(1) amortized
+         * Space Complexity: O(1) as we use existing stack
+         * 
+         * @return Next value in inorder traversal
+         */
         public int next() {
-            TreeNode node = stack.pop();
-            pushAllLeft(node.right);
-            return node.val;
+            TreeNode node = stack.pop();  // Get the next node to process
+            pushAllLeft(node.right);      // Push left path of right subtree
+            return node.val;              // Return the value
         }
 
+        /**
+         * Checks if there are more nodes to process
+         * 
+         * Time Complexity: O(1)
+         * Space Complexity: O(1)
+         * 
+         * @return True if stack is not empty, false otherwise
+         */
         public boolean hasNext() {
-            return !stack.isEmpty();
+            return !stack.isEmpty();  // Check if stack has more nodes
         }
     }
 
@@ -106,24 +140,56 @@ public class j03TwoSumIV {
 
         public BackwordIterator(TreeNode root) {
             stack = new Stack<>();
-            pushAllRight(root);
+            pushAllRight(root);  // Initialize stack with rightmost path
         }
 
+        /**
+         * Helper method to push all right nodes to stack
+         * 
+         * Intuition:
+         * - In reverse inorder traversal, we need to process right subtree first
+         * - Push all right nodes to maintain the correct order
+         * 
+         * Time Complexity: O(h) where h is height of tree
+         * Space Complexity: O(1) as we use existing stack
+         * 
+         * @param node Current node to process
+         */
         private void pushAllRight(TreeNode node) {
             while (node != null) {
-                stack.push(node);
-                node = node.right;
+                stack.push(node);  // Push current node to stack
+                node = node.right; // Move to right child
             }
         }
 
+        /**
+         * Returns the previous value in reverse inorder traversal
+         * 
+         * Intuition:
+         * - Pop the top node from stack (current largest)
+         * - Push all right nodes of left child to maintain order
+         * 
+         * Time Complexity: O(h) in worst case, O(1) amortized
+         * Space Complexity: O(1) as we use existing stack
+         * 
+         * @return Previous value in reverse inorder traversal
+         */
         public int prev() {
-            TreeNode node = stack.pop();
-            pushAllRight(node.left);
-            return node.val;
+            TreeNode node = stack.pop();  // Get the next node to process
+            pushAllRight(node.left);      // Push right path of left subtree
+            return node.val;              // Return the value
         }
 
+        /**
+         * Checks if there are more nodes to process
+         * 
+         * Time Complexity: O(1)
+         * Space Complexity: O(1)
+         * 
+         * @return True if stack is not empty, false otherwise
+         */
         public boolean hasPrev() {
-            return !stack.isEmpty();
+            return !stack.isEmpty();  // Check if stack has more nodes
         }
     }
 
@@ -154,34 +220,37 @@ public class j03TwoSumIV {
      * @return     True if two elements sum to k, false otherwise
      */
     public static boolean findTarget(TreeNode root, int k) {
-        if (root == null)
+        if (root == null)  // Handle empty tree case
             return false;
 
+        // Initialize iterators
         ForwordIterator forward = new ForwordIterator(root);
         BackwordIterator backward = new BackwordIterator(root);
 
-        int left = forward.next();
-        int right = backward.prev();
+        // Get initial values
+        int left = forward.next();   // Smallest element
+        int right = backward.prev(); // Largest element
 
+        // Two pointer approach
         while (left < right) {
             int sum = left + right;
-            if (sum == k)
+            if (sum == k)  // Found target sum
                 return true;
-            if (sum > k) {
+            if (sum > k) {  // Sum too large, move right pointer
                 if (backward.hasPrev()) {
                     right = backward.prev();
                 } else {
-                    break;
+                    break;  // No more elements to check
                 }
-            } else {
+            } else {  // Sum too small, move left pointer
                 if (forward.hasNext()) {
                     left = forward.next();
                 } else {
-                    break;
+                    break;  // No more elements to check
                 }
             }
         }
-        return false;
+        return false;  // No pair found
     }
 
     public static void main(String[] args) {
@@ -194,7 +263,7 @@ public class j03TwoSumIV {
         root1.left.right = new TreeNode(4);
         root1.right.right = new TreeNode(7);
         
-        System.out.println("Target = 9: " + findTarget(root1, 9));  // Expected: true
+        System.out.println("Target = 9: " + findTarget(root1, 9));   // Expected: true
         System.out.println("Target = 28: " + findTarget(root1, 28)); // Expected: false
 
         // Test Case 2: Empty Tree

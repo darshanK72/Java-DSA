@@ -79,24 +79,56 @@ public class j02BSTBackwordIterator {
 
         public BSTBackwardIteratorUsingIterativeTraversal(TreeNode root) {
             this.stack = new Stack<>();
-            pushAllRight(root);
+            pushAllRight(root);  // Initialize stack with rightmost path
         }
 
-        public void pushAllRight(TreeNode root) {
-            while (root != null) {
-                stack.push(root);
-                root = root.right;
+        /**
+         * Helper method to push all right nodes to stack
+         * 
+         * Intuition:
+         * - In reverse inorder traversal, we need to process right subtree first
+         * - Push all right nodes to maintain the correct order
+         * 
+         * Time Complexity: O(h) where h is height of tree
+         * Space Complexity: O(1) as we use existing stack
+         * 
+         * @param node Current node to process
+         */
+        private void pushAllRight(TreeNode node) {
+            while (node != null) {
+                stack.push(node);  // Push current node to stack
+                node = node.right; // Move to right child
             }
         }
 
+        /**
+         * Returns the previous value in reverse inorder traversal
+         * 
+         * Intuition:
+         * - Pop the top node from stack (current largest)
+         * - Push all right nodes of left child to maintain order
+         * 
+         * Time Complexity: O(h) in worst case, O(1) amortized
+         * Space Complexity: O(1) as we use existing stack
+         * 
+         * @return Previous value in reverse inorder traversal
+         */
         public int prev() {
-            TreeNode node = stack.pop();
-            pushAllRight(node.left);
-            return node.val;
+            TreeNode node = stack.pop();  // Get the next node to process
+            pushAllRight(node.left);      // Push right path of left subtree
+            return node.val;              // Return the value
         }
 
+        /**
+         * Checks if there are more nodes to process
+         * 
+         * Time Complexity: O(1)
+         * Space Complexity: O(1)
+         * 
+         * @return True if stack is not empty, false otherwise
+         */
         public boolean hasPrev() {
-            return !stack.isEmpty();
+            return !stack.isEmpty();  // Check if stack has more nodes
         }
     }
 
@@ -128,45 +160,79 @@ public class j02BSTBackwordIterator {
             this.root = root;
             this.curr = root;
 
+            // Initialize by creating threaded links for rightmost path
             while (curr.right != null) {
-                TreeNode ceil = ceil(curr);
-                ceil.left = curr;
-                curr = curr.right;
+                TreeNode ceil = ceil(curr);  // Find leftmost node in right subtree
+                ceil.left = curr;            // Create threaded link
+                curr = curr.right;           // Move to right child
             }
         }
 
+        /**
+         * Helper method to find leftmost node in right subtree
+         * 
+         * Time Complexity: O(h) where h is height of tree
+         * Space Complexity: O(1)
+         * 
+         * @param root Current node
+         * @return Leftmost node in right subtree
+         */
         public TreeNode ceil(TreeNode root) {
-            root = root.right;
+            root = root.right;  // Move to right child
+            // Find leftmost node that's not already threaded
             while (root.left != null && root.left != curr) {
                 root = root.left;
             }
             return root;
         }
 
+        /**
+         * Returns the previous value in reverse inorder traversal
+         * 
+         * Intuition:
+         * - Process current node based on threaded links
+         * - Move to previous node using Morris traversal rules
+         * 
+         * Time Complexity: O(1) amortized
+         * Space Complexity: O(1)
+         * 
+         * @return Previous value in reverse inorder traversal
+         */
         public int prev() {
             while (curr != null) {
                 if (curr.right == null) {
+                    // Case 1: No right child, process current node
                     int val = curr.val;
-                    curr = curr.left;
+                    curr = curr.left;  // Move to left child
                     return val;
                 } else {
                     TreeNode ceil = ceil(curr);
                     if (ceil.left == curr) {
-                        ceil.left = null;
+                        // Case 2: Threaded link exists, process current node
+                        ceil.left = null;  // Remove threaded link
                         int val = curr.val;
-                        curr = curr.left;
+                        curr = curr.left;   // Move to left child
                         return val;
                     } else {
-                        ceil.left = curr;
-                        curr = curr.right;
+                        // Case 3: Create threaded link and move right
+                        ceil.left = curr;  // Create threaded link
+                        curr = curr.right; // Move to right child
                     }
                 }
             }
-            return -1;
+            return -1;  // No more nodes to process
         }
 
+        /**
+         * Checks if there are more nodes to process
+         * 
+         * Time Complexity: O(1)
+         * Space Complexity: O(1)
+         * 
+         * @return True if current node is not null, false otherwise
+         */
         public boolean hasPrev() {
-            return curr != null;
+            return curr != null;  // Check if current node exists
         }
     }
 

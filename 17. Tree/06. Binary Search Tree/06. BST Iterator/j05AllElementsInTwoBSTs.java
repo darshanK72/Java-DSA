@@ -41,10 +41,10 @@ public class j05AllElementsInTwoBSTs {
         TreeNode left;
         TreeNode right;
 
-        TreeNode(int x) {
-            val = x;
-            left = null;
-            right = null;
+        TreeNode(int val) {
+            this.val = val;
+            this.left = null;
+            this.right = null;
         }
     }
 
@@ -63,9 +63,9 @@ public class j05AllElementsInTwoBSTs {
      * @return List of all elements in ascending order
      */
     public static List<Integer> getAllElements(TreeNode root1, TreeNode root2) {
-        List<Integer> list1 = getInorder(root1);
-        List<Integer> list2 = getInorder(root2);
-        return mergeTwoSortedList(list1, list2);
+        List<Integer> list1 = getInorder(root1);  // Get inorder traversal of first tree
+        List<Integer> list2 = getInorder(root2);  // Get inorder traversal of second tree
+        return mergeTwoSortedList(list1, list2);  // Merge the sorted lists
     }
 
     /**
@@ -83,11 +83,11 @@ public class j05AllElementsInTwoBSTs {
      */
     private static List<Integer> getInorder(TreeNode root) {
         ArrayList<Integer> out = new ArrayList<>();
-        if (root == null)
+        if (root == null)  // Handle empty tree case
             return out;
-        out.addAll(getInorder(root.left));
-        out.add(root.val);
-        out.addAll(getInorder(root.right));
+        out.addAll(getInorder(root.left));   // Process left subtree
+        out.add(root.val);                   // Process current node
+        out.addAll(getInorder(root.right));  // Process right subtree
         return out;
     }
 
@@ -107,24 +107,26 @@ public class j05AllElementsInTwoBSTs {
      * @return Merged sorted list
      */
     private static List<Integer> mergeTwoSortedList(List<Integer> list1, List<Integer> list2) {
-        int i = 0, j = 0;
+        int i = 0, j = 0;  // Pointers for both lists
         List<Integer> out = new ArrayList<>();
 
         // Merge while both lists have elements
         while (i < list1.size() && j < list2.size()) {
             if (list1.get(i) < list2.get(j)) {
-                out.add(list1.get(i++));
+                out.add(list1.get(i++));  // Add smaller element from list1
             } else if (list1.get(i) > list2.get(j)) {
-                out.add(list2.get(j++));
+                out.add(list2.get(j++));  // Add smaller element from list2
             } else {
-                out.add(list1.get(i++));
+                out.add(list1.get(i++));  // Add equal elements from both lists
                 out.add(list2.get(j++));
             }
         }
 
-        // Add remaining elements
+        // Add remaining elements from list1
         while (i < list1.size())
             out.add(list1.get(i++));
+
+        // Add remaining elements from list2
         while (j < list2.size())
             out.add(list2.get(j++));
 
@@ -152,11 +154,15 @@ public class j05AllElementsInTwoBSTs {
 
         public ForwardIterator(TreeNode root) {
             stack = new Stack<>();
-            pushAllLeft(root);
+            pushAllLeft(root);  // Initialize stack with leftmost path
         }
 
         /**
          * Helper method to push all left nodes to stack
+         * 
+         * Intuition:
+         * - In inorder traversal, we need to process left subtree first
+         * - Push all left nodes to maintain the correct order
          * 
          * Time Complexity: O(h) where h is height of tree
          * Space Complexity: O(1) as we use existing stack
@@ -165,13 +171,17 @@ public class j05AllElementsInTwoBSTs {
          */
         private void pushAllLeft(TreeNode node) {
             while (node != null) {
-                stack.push(node);
-                node = node.left;
+                stack.push(node);  // Push current node to stack
+                node = node.left;  // Move to left child
             }
         }
 
         /**
          * Returns the next value in inorder traversal
+         * 
+         * Intuition:
+         * - Pop the top node from stack (current smallest)
+         * - Push all left nodes of right child to maintain order
          * 
          * Time Complexity: O(h) in worst case, O(1) amortized
          * Space Complexity: O(1) as we use existing stack
@@ -179,9 +189,9 @@ public class j05AllElementsInTwoBSTs {
          * @return Next value in inorder traversal
          */
         public int next() {
-            TreeNode node = stack.pop();
-            pushAllLeft(node.right);
-            return node.val;
+            TreeNode node = stack.pop();  // Get the next node to process
+            pushAllLeft(node.right);      // Push left path of right subtree
+            return node.val;              // Return the value
         }
 
         /**
@@ -193,7 +203,7 @@ public class j05AllElementsInTwoBSTs {
          * @return True if stack is not empty, false otherwise
          */
         public boolean hasNext() {
-            return !stack.isEmpty();
+            return !stack.isEmpty();  // Check if stack has more nodes
         }
 
         /**
@@ -205,7 +215,7 @@ public class j05AllElementsInTwoBSTs {
          * @return Next value in inorder traversal
          */
         public int peek() {
-            return stack.peek().val;
+            return stack.peek().val;  // Return value without popping
         }
     }
 
@@ -225,22 +235,26 @@ public class j05AllElementsInTwoBSTs {
      * @return List of all elements in ascending order
      */
     public List<Integer> getAllElementsUsingIterator(TreeNode root1, TreeNode root2) {
+        // Initialize iterators for both trees
         ForwardIterator forward1 = new ForwardIterator(root1);
         ForwardIterator forward2 = new ForwardIterator(root2);
         ArrayList<Integer> out = new ArrayList<>();
 
+        // Merge elements while both iterators have values
         while (forward1.hasNext() && forward2.hasNext()) {
             if (forward1.peek() < forward2.peek()) {
-                out.add(forward1.next());
+                out.add(forward1.next());  // Add smaller element from first tree
             } else {
-                out.add(forward2.next());
+                out.add(forward2.next());  // Add smaller element from second tree
             }
         }
 
+        // Add remaining elements from first tree
         while (forward1.hasNext()) {
             out.add(forward1.next());
         }
 
+        // Add remaining elements from second tree
         while (forward2.hasNext()) {
             out.add(forward2.next());
         }
@@ -260,17 +274,17 @@ public class j05AllElementsInTwoBSTs {
         root2.right = new TreeNode(3);
 
         List<Integer> result = getAllElements(root1, root2);
-        System.out.println("Merged elements: " + result); // Expected: [0,1,1,2,3,4]
+        System.out.println("Merged elements: " + result);  // Expected: [0,1,1,2,3,4]
 
         // Test Case 2: Empty trees
         System.out.println("\nEmpty trees test:");
         List<Integer> result2 = getAllElements(null, null);
-        System.out.println("Result: " + result2); // Expected: []
+        System.out.println("Result: " + result2);  // Expected: []
 
         // Test Case 3: One empty tree
         System.out.println("\nOne empty tree test:");
         List<Integer> result3 = getAllElements(root1, null);
-        System.out.println("Result: " + result3); // Expected: [1,2,4]
+        System.out.println("Result: " + result3);  // Expected: [1,2,4]
 
         // Test Case 4: Large trees
         System.out.println("\nLarge trees test:");
@@ -286,6 +300,6 @@ public class j05AllElementsInTwoBSTs {
         root5.right = new TreeNode(9);
 
         List<Integer> result4 = getAllElements(root4, root5);
-        System.out.println("Result: " + result4); // Expected: [1,2,3,4,5,6,7,8,9]
+        System.out.println("Result: " + result4);  // Expected: [1,2,3,4,5,6,7,8,9]
     }
 }

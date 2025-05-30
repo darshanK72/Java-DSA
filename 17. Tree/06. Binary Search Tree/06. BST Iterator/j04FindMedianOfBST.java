@@ -17,7 +17,7 @@
  * 
  * Example:
  *     Input: root = [5,3,6,2,4,null,7]
- *     Output: 4.0
+ *     Output: 4.5
  * 
  *     Explanation:
  *     The BST contains elements [2,3,4,5,6,7]
@@ -42,6 +42,8 @@ public class j04FindMedianOfBST {
 
         TreeNode(int val) {
             this.val = val;
+            this.left = null;
+            this.right = null;
         }
     }
 
@@ -65,7 +67,7 @@ public class j04FindMedianOfBST {
 
         public ForwordIterator(TreeNode root) {
             stack = new Stack<>();
-            pushAllLeft(root);
+            pushAllLeft(root);  // Initialize stack with leftmost path
         }
 
         /**
@@ -82,8 +84,8 @@ public class j04FindMedianOfBST {
          */
         private void pushAllLeft(TreeNode node) {
             while (node != null) {
-                stack.push(node);
-                node = node.left;
+                stack.push(node);  // Push current node to stack
+                node = node.left;  // Move to left child
             }
         }
 
@@ -100,9 +102,9 @@ public class j04FindMedianOfBST {
          * @return Next node in inorder traversal
          */
         public TreeNode next() {
-            TreeNode node = stack.pop();
-            pushAllLeft(node.right);
-            return node;
+            TreeNode node = stack.pop();  // Get the next node to process
+            pushAllLeft(node.right);      // Push left path of right subtree
+            return node;                  // Return the node
         }
 
         /**
@@ -114,7 +116,7 @@ public class j04FindMedianOfBST {
          * @return True if stack is not empty, false otherwise
          */
         public boolean hasNext() {
-            return !stack.isEmpty();
+            return !stack.isEmpty();  // Check if stack has more nodes
         }
     }
 
@@ -138,7 +140,7 @@ public class j04FindMedianOfBST {
 
         public BackwordIterator(TreeNode root) {
             stack = new Stack<>();
-            pushAllRight(root);
+            pushAllRight(root);  // Initialize stack with rightmost path
         }
 
         /**
@@ -155,8 +157,8 @@ public class j04FindMedianOfBST {
          */
         private void pushAllRight(TreeNode node) {
             while (node != null) {
-                stack.push(node);
-                node = node.right;
+                stack.push(node);  // Push current node to stack
+                node = node.right; // Move to right child
             }
         }
 
@@ -173,9 +175,9 @@ public class j04FindMedianOfBST {
          * @return Previous node in reverse inorder traversal
          */
         public TreeNode prev() {
-            TreeNode node = stack.pop();
-            pushAllRight(node.left);
-            return node;
+            TreeNode node = stack.pop();  // Get the next node to process
+            pushAllRight(node.left);      // Push right path of left subtree
+            return node;                  // Return the node
         }
 
         /**
@@ -187,7 +189,7 @@ public class j04FindMedianOfBST {
          * @return True if stack is not empty, false otherwise
          */
         public boolean hasPrev() {
-            return !stack.isEmpty();
+            return !stack.isEmpty();  // Check if stack has more nodes
         }
     }
 
@@ -216,23 +218,28 @@ public class j04FindMedianOfBST {
      * @return Median value of the BST
      */
     public static float findMedian(TreeNode root) {
-        if (root == null)
+        if (root == null)  // Handle empty tree case
             return 0.0f;
 
+        // Initialize iterators
         ForwordIterator forward = new ForwordIterator(root);
         BackwordIterator backward = new BackwordIterator(root);
 
-        TreeNode left = forward.next();
-        TreeNode right = backward.prev();
+        // Get initial values
+        TreeNode left = forward.next();   // Smallest element
+        TreeNode right = backward.prev(); // Largest element
+
+        // Move pointers towards center
         while (left.val < right.val && left != right) {
-            left = forward.next();
-            right = backward.prev();
+            left = forward.next();   // Move left pointer forward
+            right = backward.prev(); // Move right pointer backward
         }
-        if (left == right)
+
+        // Handle odd and even cases
+        if (left == right)  // Odd number of nodes
             return left.val;
-        else {
+        else  // Even number of nodes
             return ((float) left.val + (float) right.val) / 2;
-        }
     }
 
     public static void main(String[] args) {
