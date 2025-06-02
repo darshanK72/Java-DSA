@@ -1,4 +1,4 @@
-/*-
+/**
  * Custom Implementation: Priority Queue using Array
  * 
  * Problem Statement:
@@ -25,13 +25,13 @@
 
 import java.util.Arrays;
 
-public class j01PriorityQueueUsingArrayHeap {
+public class j01DesignPriorityQueue {
 
     static class PriorityQueue {
         int[] heap;
         int size;
 
-        /*-
+        /**
          * Constructor: Initializes the Priority Queue
          * 
          * Intuition:
@@ -71,7 +71,7 @@ public class j01PriorityQueueUsingArrayHeap {
             buildMinHeapFromLeafs();
         }
 
-        /*-
+        /**
          * Build Heap: Builds a min-heap from the input array
          * 
          * Intuition:
@@ -102,7 +102,7 @@ public class j01PriorityQueueUsingArrayHeap {
             }
         }
 
-        /*-
+        /**
          * Build Heap From Root: Builds a min-heap by heapifying each element from root
          * 
          * Intuition:
@@ -137,7 +137,7 @@ public class j01PriorityQueueUsingArrayHeap {
             }
         }
 
-        /*-
+        /**
          * Up Heapify: Maintains heap property by bubbling up element
          * 
          * Intuition:
@@ -178,7 +178,7 @@ public class j01PriorityQueueUsingArrayHeap {
             upHeapify(parent);
         }
 
-        /*-
+        /**
          * Down Heapify: Maintains heap property by bubbling down element
          * 
          * Intuition:
@@ -231,7 +231,7 @@ public class j01PriorityQueueUsingArrayHeap {
             downHeapify(min);
         }
 
-        /*-
+        /**
          * Peek: Returns the minimum element without removing it
          * 
          * Intuition:
@@ -264,7 +264,7 @@ public class j01PriorityQueueUsingArrayHeap {
             return this.heap[0];
         }
 
-        /*-
+        /**
          * Add: Adds a new element to the priority queue
          * 
          * Intuition:
@@ -301,7 +301,7 @@ public class j01PriorityQueueUsingArrayHeap {
             upHeapify(this.size - 1);
         }
 
-        /*-
+        /**
          * Remove: Removes and returns the minimum element
          * 
          * Intuition:

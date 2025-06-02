@@ -1,4 +1,4 @@
-/*-
+/**
  * Custom Implementation: Heap Sort Algorithm
  * 
  * Problem Statement:
@@ -24,9 +24,9 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class j02HeapSort {
+public class j04HeapSort {
 
-    /*-
+    /**
      * Method: Main heap sort implementation
      * 
      * Intuition:
@@ -72,7 +72,7 @@ public class j02HeapSort {
         }
     }
 
-    /*-
+    /**
      * Method: Maintains heap property by bubbling down element
      * 
      * Intuition:
@@ -128,7 +128,7 @@ public class j02HeapSort {
         downHeapify(min, heap);
     }
 
-    /*-
+    /**
      * Method: Swaps two elements in the heap
      * 
      * Intuition:
@@ -164,7 +164,7 @@ public class j02HeapSort {
         heap.set(r, temp);
     }
 
-    /*-
+    /**
      * Method: Removes and returns the minimum element
      * 
      * Intuition:
