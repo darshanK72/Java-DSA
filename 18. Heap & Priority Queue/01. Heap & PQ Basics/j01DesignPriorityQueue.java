@@ -348,7 +348,7 @@ public class j01DesignPriorityQueue {
             return value;
         }
 
-        /*-
+        /**
          * Swap: Swaps two elements in the heap
          * 
          * Intuition:
