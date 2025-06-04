@@ -29,7 +29,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.PriorityQueue;
 
-public class j07KthSmallestInMatrix {
+public class j09KthSmallestInMatrix {
 
     /**
      * Approach 1: Sorting

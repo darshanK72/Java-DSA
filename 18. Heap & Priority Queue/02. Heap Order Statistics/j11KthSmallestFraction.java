@@ -27,7 +27,7 @@
 import java.util.PriorityQueue;
 import java.util.Arrays;
 
-public class j09KthSmallestFraction {
+public class j11KthSmallestFraction {
 
     /**
      * Approach 1: Max Heap with All Fractions

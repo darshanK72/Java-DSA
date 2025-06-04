@@ -28,7 +28,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.PriorityQueue;
 
-public class j08KSmallestSumPairs {
+public class j10KSmallestSumPairs {
 
     /**
      * Approach: Min Heap with Pair Tracking
