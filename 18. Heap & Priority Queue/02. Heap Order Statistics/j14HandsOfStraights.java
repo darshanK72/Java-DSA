@@ -1,4 +1,4 @@
-/*-
+/**
  * LeetCode 846: Hand of Straights
  * 
  * Problem Statement:

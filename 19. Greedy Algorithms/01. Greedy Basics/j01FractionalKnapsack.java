@@ -1,4 +1,4 @@
-/*-
+/**
  * GeeksForGeeks - Fractional Knapsack
  * 
  * Problem Statement:
@@ -32,7 +32,7 @@ import java.util.PriorityQueue;
 
 public class j01FractionalKnapsack {
     
-    /*-
+    /**
      * Approach: Greedy
      * 
      * Intuition:

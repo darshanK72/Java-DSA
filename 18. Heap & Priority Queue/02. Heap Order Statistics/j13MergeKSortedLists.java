@@ -1,4 +1,4 @@
-/*-
+/**
  * LeetCode 23: Merge K Sorted Lists
  * 
  * Problem Statement:

@@ -1,4 +1,4 @@
-/*-
+/**
  * LeetCode 632. Smallest Range Covering Elements from K Lists
  * 
  * Problem Statement:
@@ -32,7 +32,7 @@ import java.util.PriorityQueue;
 
 public class j16SmallestRangeCoveringElementInKList {
 
-    /*-
+    /**
      * Approach 1: Brute Force with Pointers
      * 
      * Intuition:
@@ -96,7 +96,7 @@ public class j16SmallestRangeCoveringElementInKList {
         return out;
     }
 
-    /*-
+    /**
      * Approach 2: Priority Queue (More Efficient)
      * 
      * Intuition:

@@ -1,4 +1,4 @@
-/*-
+/**
  * GeeksForGeeks - Activity Selection
  * 
  * Problem Statement:
@@ -31,7 +31,7 @@ import java.util.PriorityQueue;
 
 public class j05ActivitySelection {
     
-    /*-
+    /**
      * Approach 1: Sorting with Custom Comparator
      * 
      * Intuition:
@@ -78,7 +78,7 @@ public class j05ActivitySelection {
         return ans;
     }
 
-    /*-
+    /**
      * Approach 2: Priority Queue
      * 
      * Intuition:

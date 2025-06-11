@@ -1,4 +1,4 @@
-/*-
+/**
  * GeeksForGeeks - Huffman Encoding
  * 
  * Problem Statement:
@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.PriorityQueue;
 
 public class j01HuffmanEncoding {
-    /*-
+    /**
      * Node class represents a node in the Huffman tree
      * - c: character stored in the node (if leaf node)
      * - freq: frequency of the character
@@ -68,7 +68,7 @@ public class j01HuffmanEncoding {
         }
     }
 
-    /*-
+    /**
      * Approach: Greedy Algorithm using Min-Heap
      * 
      * Intuition:
@@ -125,7 +125,7 @@ public class j01HuffmanEncoding {
         return out;
     }
 
-    /*-
+    /**
      * Helper Method: encodeHuffmanTree
      * 
      * Intuition:

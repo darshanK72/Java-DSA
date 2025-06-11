@@ -1,4 +1,4 @@
-/*-
+/**
  * GeeksForGeeks - Huffman Decoding
  * 
  * Problem Statement:
@@ -28,7 +28,7 @@
 
 public class j02HuffmanDecoding {
 
-    /*-
+    /**
      * MinHeapNode class represents a node in the Huffman tree
      * - data: character stored in the node (if leaf node)
      * - freq: frequency of the character
@@ -47,7 +47,7 @@ public class j02HuffmanDecoding {
         }
     }
 
-    /*-
+    /**
      * Approach: Tree Traversal
      * 
      * Intuition:

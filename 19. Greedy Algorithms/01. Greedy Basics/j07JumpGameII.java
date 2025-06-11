@@ -1,4 +1,4 @@
-/*-
+/**
  * LeetCode 45 - Jump Game II
  * 
  * Problem Statement:
@@ -28,7 +28,7 @@
 
 public class j07JumpGameII {
     
-    /*-
+    /**
      * Approach 1: Recursive with Backtracking
      * 
      * Intuition:
@@ -61,7 +61,7 @@ public class j07JumpGameII {
         return min[0];
     }
 
-    /*-
+    /**
      * Helper Method: Recursive Backtracking
      * 
      * Intuition:
@@ -95,7 +95,7 @@ public class j07JumpGameII {
         }
     }
 
-    /*-
+    /**
      * Approach 2: Greedy with BFS-like Window
      * 
      * Intuition:

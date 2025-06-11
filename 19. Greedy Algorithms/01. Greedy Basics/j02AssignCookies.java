@@ -1,4 +1,4 @@
-/*-
+/**
  * LeetCode 455 - Assign Cookies
  * 
  * Problem Statement:
@@ -32,7 +32,7 @@ import java.util.Arrays;
 
 public class j02AssignCookies {
     
-    /*-
+    /**
      * Approach: Greedy
      * 
      * Intuition:

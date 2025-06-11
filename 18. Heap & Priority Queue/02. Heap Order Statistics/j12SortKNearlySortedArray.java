@@ -1,4 +1,4 @@
-/*-
+/**
  * GeeksForGeeks: Sort a K Sorted Array
  * 
  * Problem Statement:

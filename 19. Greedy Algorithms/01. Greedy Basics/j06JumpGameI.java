@@ -1,4 +1,4 @@
-/*-
+/**
  * LeetCode 55 - Jump Game I
  * 
  * Problem Statement:
@@ -27,7 +27,7 @@
 
 public class j06JumpGameI {
     
-    /*-
+    /**
      * Approach: Greedy
      * 
      * Intuition:

@@ -1,4 +1,4 @@
-/*-
+/**
  * GeeksForGeeks: Merge K Sorted Arrays
  * 
  * Problem Statement:

@@ -1,4 +1,4 @@
-/*-
+/**
  * LeetCode 860 - Lemonade Change
  * 
  * Problem Statement:
@@ -29,7 +29,7 @@
 
 public class j04LemonadeChange {
     
-    /*-
+    /**
      * Approach: Greedy
      * 
      * Intuition:

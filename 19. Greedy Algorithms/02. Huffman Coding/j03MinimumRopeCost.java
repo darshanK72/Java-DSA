@@ -1,4 +1,4 @@
-/*-
+/**
  * GeeksForGeeks - Minimum Cost of Ropes
  * 
  * Problem Statement:
@@ -27,7 +27,7 @@
 import java.util.PriorityQueue;
 
 public class j03MinimumRopeCost {
-    /*-
+    /**
      * Approach: Greedy Algorithm using Min-Heap
      * 
      * Intuition:

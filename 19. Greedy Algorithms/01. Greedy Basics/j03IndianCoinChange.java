@@ -1,4 +1,4 @@
-/*-
+/**
  * GeeksForGeeks - Indian Coin Change
  * 
  * Problem Statement:
@@ -28,7 +28,7 @@ import java.util.List;
 
 public class j03IndianCoinChange {
     
-    /*-
+    /**
      * Approach: Greedy
      * 
      * Intuition:

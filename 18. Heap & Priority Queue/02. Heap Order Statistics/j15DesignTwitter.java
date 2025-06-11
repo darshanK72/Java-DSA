@@ -1,4 +1,4 @@
-/*-
+/**
  * LeetCode 355. Design Twitter
  * 
  * Problem Statement:
@@ -37,7 +37,7 @@ import java.util.*;
 
 public class j15DesignTwitter {
 
-    /*-
+    /**
      * Approach: Object-Oriented Design with Priority Queue
      * 
      * Intuition:
@@ -63,7 +63,7 @@ public class j15DesignTwitter {
     static class Twitter {
         private static int timestamp = 0;
         
-        /*-
+        /**
          * Tweet class to store tweet information
          * - id: unique tweet identifier
          * - time: timestamp of tweet creation
@@ -81,7 +81,7 @@ public class j15DesignTwitter {
             }
         }
         
-        /*-
+        /**
          * User class to manage user information
          * - id: unique user identifier
          * - following: set of user IDs being followed
