@@ -38,8 +38,7 @@ public class j01JobSequencing {
      * 
      * Intuition:
      * - Sort jobs by profit in descending order
-     * - For each job, try to schedule it at the latest possible time before
-     *   its deadline
+     * - For each job, try to schedule it at the latest possible time before its deadline
      * - This ensures we maximize profit while meeting deadlines
      * 
      * Explanation:
