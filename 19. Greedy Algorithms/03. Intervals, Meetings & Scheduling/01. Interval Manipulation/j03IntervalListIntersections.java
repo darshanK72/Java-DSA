@@ -26,7 +26,7 @@
 
 import java.util.ArrayList;
 
-public class j05IntervalListIntersections {
+public class j03IntervalListIntersections {
 
     /**
      * Approach: Two Pointer Technique

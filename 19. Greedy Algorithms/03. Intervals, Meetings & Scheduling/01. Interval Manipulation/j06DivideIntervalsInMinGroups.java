@@ -36,7 +36,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
-public class j07DivideIntervalsInMinGroups {
+public class j06DivideIntervalsInMinGroups {
 
     /**
      * Approach 1: Greedy with ArrayList

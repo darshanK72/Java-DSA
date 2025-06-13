@@ -35,7 +35,7 @@
 
 import java.util.Arrays;
 
-public class j11MinimumPlatforms {
+public class j07MinimumPlatforms {
 
     /**
      * Approach: Chronological Ordering
@@ -72,11 +72,11 @@ public class j11MinimumPlatforms {
         Arrays.sort(dep);
 
         // Initialize variables for tracking
-        int platforms = 0;
-        int maxPlatforms = 0;
+        int platforms = 1;
+        int maxPlatforms = 1;
 
         // Use two pointers to track current arrival and departure times
-        int i = 0;
+        int i = 1;
         int j = 0;
 
         // Process all trains

@@ -26,7 +26,7 @@
 
 import java.util.Arrays;
 
-public class j08MeetingRooms {
+public class j01MeetingRooms {
 
     /**
      * Approach: Greedy with Sorting

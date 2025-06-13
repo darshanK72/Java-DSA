@@ -32,10 +32,10 @@
 
 import java.util.Arrays;
 
-public class j09MaxMeetingsInOneRoom {
+public class j02MaxMeetingsInOneRoom {
 
     /**
-     * Approach: Greedy with Sorting
+     * Approach: Greedy with Sorting by Start Time
      * 
      * Intuition:
      * - Sort meetings by start time (and end time if starts are equal)
@@ -45,18 +45,18 @@ public class j09MaxMeetingsInOneRoom {
      * 
      * Why Process from Right to Left?
      * - When we process from right to left, we always know the earliest start
-     *   time of all meetings that come after the current one
+     * time of all meetings that come after the current one
      * - This allows us to make a greedy decision: if current meeting's end is
-     *   less than earliest start, we can schedule it
+     * less than earliest start, we can schedule it
      * - Processing from left to right would be more complex as we'd need to
-     *   track multiple potential conflicts with future meetings
+     * track multiple potential conflicts with future meetings
      * 
      * Explanation:
      * - Step 1: Convert start and end arrays to 2D array of meetings
      * - Step 2: Sort meetings by start time (and end time if starts are equal)
      * - Step 3: Process meetings from right to left:
-     *   * If current meeting's end < earliest start seen, increment count
-     *   * Update earliest start to current meeting's start
+     * * If current meeting's end < earliest start seen, increment count
+     * * Update earliest start to current meeting's start
      * - Step 4: Return count of meetings that can be scheduled
      * 
      * Time Complexity: O(N log N) for sorting, where N is number of meetings
@@ -64,9 +64,9 @@ public class j09MaxMeetingsInOneRoom {
      * 
      * @param start Array of start times of meetings
      * @param end   Array of end times of meetings
-     * @return     Maximum number of meetings that can be held
+     * @return Maximum number of meetings that can be held
      */
-    public static int maxMeetings(int start[], int end[]) {
+    public static int maxMeetingsSortingByStartTime(int start[], int end[]) {
         // Convert start and end arrays to 2D array of meetings
         int[][] meetings = new int[start.length][2];
         for (int i = 0; i < start.length; i++) {
@@ -99,6 +99,67 @@ public class j09MaxMeetingsInOneRoom {
         return ans;
     }
 
+    /**
+     * Approach: Greedy with Sorting by End Time
+     * 
+     * Intuition:
+     * - The key insight is to prioritize meetings that end earlier
+     * - By sorting meetings by end time, we can maximize the number of meetings
+     * - This ensures we don't block time slots that could be used for other meetings
+     * 
+     * Explanation:
+     * 1. Create a 2D array of meetings combining start and end times
+     * 2. Sort meetings by end time in ascending order
+     * 3. Keep track of the end time of the last scheduled meeting
+     * 4. For each meeting:
+     *    - If current meeting starts after last meeting ends, schedule it
+     *    - Update last meeting end time and increment count
+     *    - Skip meetings that overlap with the last scheduled meeting
+     * 
+     * Time Complexity: O(n log n) where:
+     *                  - n is the number of meetings
+     *                  - Sorting takes O(n log n)
+     *                  - Single pass through array takes O(n)
+     * 
+     * Space Complexity: O(n) where:
+     *                   - n for storing meetings array
+     * 
+     * @param start  Array of meeting start times
+     * @param end    Array of meeting end times
+     * @return      Maximum number of meetings that can be scheduled
+     */
+    public static int maxMeetingsSortingByEndTime(int start[], int end[]) {
+        // Create array of meetings with start and end times
+        int[][] meetings = new int[start.length][2];
+        for (int i = 0; i < start.length; i++) {
+            meetings[i] = new int[] {
+                    start[i], end[i]
+            };
+        }
+
+        // Sort meetings by end time in ascending order
+        Arrays.sort(meetings, (a, b) -> {
+            return a[1] - b[1];
+        });
+
+        int ans = 0;  // Count of meetings that can be scheduled
+
+        int i = 0;    // Current meeting index
+        int lastMeetingEnd = Integer.MIN_VALUE;  // End time of last scheduled meeting
+
+        // Process each meeting
+        while (i < meetings.length) {
+            // If current meeting starts after last meeting ends, schedule it
+            if (lastMeetingEnd < meetings[i][0]) {
+                ans++;  // Increment count of scheduled meetings
+                lastMeetingEnd = meetings[i][1];  // Update last meeting end time
+            }
+            i++;
+        }
+
+        return ans;
+    }
+
     public static void main(String[] args) {
         // Test Case 1: Basic overlapping meetings
         System.out.println("\nBasic Test Cases:");
@@ -106,7 +167,7 @@ public class j09MaxMeetingsInOneRoom {
         int[] end1 = { 2, 4, 6, 7, 9, 9 };
         System.out.println("Input: start = " + java.util.Arrays.toString(start1));
         System.out.println("Input: end = " + java.util.Arrays.toString(end1));
-        System.out.println("Output: " + maxMeetings(start1, end1));
+        System.out.println("Output: " + maxMeetingsSortingByStartTime(start1, end1));
         System.out.println("Expected: 4");
 
         // Test Case 2: No overlapping meetings
@@ -115,7 +176,7 @@ public class j09MaxMeetingsInOneRoom {
         int[] end2 = { 2, 4, 6 };
         System.out.println("Input: start = " + java.util.Arrays.toString(start2));
         System.out.println("Input: end = " + java.util.Arrays.toString(end2));
-        System.out.println("Output: " + maxMeetings(start2, end2));
+        System.out.println("Output: " + maxMeetingsSortingByStartTime(start2, end2));
         System.out.println("Expected: 3");
 
         // Test Case 3: All meetings overlap
@@ -124,7 +185,7 @@ public class j09MaxMeetingsInOneRoom {
         int[] end3 = { 4, 4, 4 };
         System.out.println("Input: start = " + java.util.Arrays.toString(start3));
         System.out.println("Input: end = " + java.util.Arrays.toString(end3));
-        System.out.println("Output: " + maxMeetings(start3, end3));
+        System.out.println("Output: " + maxMeetingsSortingByEndTime(start3, end3));
         System.out.println("Expected: 1");
 
         // Test Case 4: Empty input
@@ -133,7 +194,7 @@ public class j09MaxMeetingsInOneRoom {
         int[] end4 = {};
         System.out.println("Input: start = " + java.util.Arrays.toString(start4));
         System.out.println("Input: end = " + java.util.Arrays.toString(end4));
-        System.out.println("Output: " + maxMeetings(start4, end4));
+        System.out.println("Output: " + maxMeetingsSortingByEndTime(start4, end4));
         System.out.println("Expected: 0");
 
         // Test Case 5: Single meeting
@@ -142,7 +203,7 @@ public class j09MaxMeetingsInOneRoom {
         int[] end5 = { 2 };
         System.out.println("Input: start = " + java.util.Arrays.toString(start5));
         System.out.println("Input: end = " + java.util.Arrays.toString(end5));
-        System.out.println("Output: " + maxMeetings(start5, end5));
+        System.out.println("Output: " + maxMeetingsSortingByEndTime(start5, end5));
         System.out.println("Expected: 1");
     }
 }

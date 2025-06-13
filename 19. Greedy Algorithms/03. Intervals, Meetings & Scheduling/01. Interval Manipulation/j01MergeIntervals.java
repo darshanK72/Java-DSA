@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
-public class j03MergeIntervals {
+public class j01MergeIntervals {
     /**
      * Approach 1: Sorting
      * 

@@ -63,29 +63,22 @@ public class j01JobSequencing {
      * @param profit      Array of job profits
      * @return           ArrayList containing [jobs done, total profit]
      */
-    public static ArrayList<Integer> jobSequencing(int[] deadline, int[] profit) {
+    public static ArrayList<Integer> jobSequencingMaxHeap(int[] deadline, int[] profit) {
         // Create max-heap of jobs sorted by profit
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> {
-            if (a[1] > b[1])
-                return -1;
-            else if (a[1] < b[1])
-                return 1;
-            else
-                return 0;
-        });
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b[1] - a[1]);
 
         // Find maximum deadline and add jobs to heap
         int maxDeadline = -1;
         for (int i = 0; i < deadline.length; i++) {
             pq.add(new int[] {
-                    deadline[i],
-                    profit[i]
+                deadline[i],
+                profit[i]
             });
             maxDeadline = Math.max(maxDeadline, deadline[i]);
         }
 
         // Initialize time slots array
-        int[] map = new int[maxDeadline];
+        int[] timeSlots = new int[maxDeadline];
 
         // Schedule jobs and calculate profit
         int jobs = 0;
@@ -96,8 +89,8 @@ public class j01JobSequencing {
 
             // Try to schedule job at latest possible time
             for (int i = pair[0] - 1; i >= 0; i--) {
-                if (map[i] == 0) {
-                    map[i] = pair[0];
+                if (timeSlots[i] == 0) {
+                    timeSlots[i] = pair[0];
                     jobs++;
                     totalProfit += pair[1];
                     break;
@@ -108,6 +101,73 @@ public class j01JobSequencing {
         return new ArrayList<>(Arrays.asList(jobs, totalProfit));
     }
 
+    /**
+     * Approach: Greedy with Sorting
+     * 
+     * Intuition:
+     * - The key insight is to prioritize jobs with higher profits
+     * - For each job, we try to schedule it at the latest possible time before its deadline
+     * - This ensures we don't block earlier time slots that could be used for other jobs
+     * 
+     * Explanation:
+     * 1. Create a 2D array of jobs combining deadline and profit
+     * 2. Sort jobs by profit in descending order to prioritize higher paying jobs
+     * 3. Find the maximum deadline to determine time slot array size
+     * 4. For each job (in profit order):
+     *    - Try to schedule it at the latest possible time before its deadline
+     *    - If a slot is available, mark it and add profit
+     *    - If no slot is available, skip the job
+     * 
+     * Time Complexity: O(n log n + n*m) where:
+     *                  - n is the number of jobs
+     *                  - m is the maximum deadline
+     *                  - Sorting takes O(n log n)
+     *                  - Scheduling each job takes O(m) in worst case
+     * 
+     * Space Complexity: O(n + m) where:
+     *                   - n for storing jobs array
+     *                   - m for time slots array
+     * 
+     * @param deadline  Array of deadlines for each job
+     * @param profit    Array of profits for each job
+     * @return         ArrayList containing [number of jobs done, total profit]
+     */
+    public static ArrayList<Integer> jobSequencingSorting(int[] deadline, int[] profit) {
+        // Create array of jobs with deadline and profit
+        int[][] jobs = new int[deadline.length][2];
+        for (int i = 0; i < deadline.length; i++) {
+            jobs[i][0] = deadline[i];
+            jobs[i][1] = profit[i];
+        }
+        
+        // Sort jobs by profit in descending order
+        Arrays.sort(jobs, (a, b) -> b[1] - a[1]);
+        
+        // Find maximum deadline to determine time slot array size
+        int maxDeadline = Arrays.stream(deadline).max().getAsInt();
+        
+        // Initialize time slots array (0 means slot is available)
+        int[] timeSlots = new int[maxDeadline];
+        
+        int jobsDone = 0;    // Count of successfully scheduled jobs
+        int totalProfit = 0; // Total profit from scheduled jobs
+        
+        // Try to schedule each job in profit order
+        for (int[] job : jobs) {
+            // Try to schedule at latest possible time before deadline
+            for (int i = job[0] - 1; i >= 0; i--) {
+                if (timeSlots[i] == 0) {  // If slot is available
+                    timeSlots[i] = 1;     // Mark slot as occupied
+                    jobsDone++;           // Increment jobs count
+                    totalProfit += job[1]; // Add job's profit
+                    break;                // Move to next job
+                }
+            }
+        }
+        
+        return new ArrayList<>(Arrays.asList(jobsDone, totalProfit));
+    }
+
     public static void main(String[] args) {
         // Test Case 1: Basic case
         System.out.println("\nBasic Test Case:");
@@ -115,7 +175,7 @@ public class j01JobSequencing {
         int[] profit1 = {20, 10, 40, 30};
         System.out.println("Input: deadline = " + Arrays.toString(deadline1) + 
                          ", profit = " + Arrays.toString(profit1));
-        System.out.println("Output: " + jobSequencing(deadline1, profit1));
+        System.out.println("Output: " + jobSequencingMaxHeap(deadline1, profit1));
 
         // Test Case 2: All jobs can be done
         System.out.println("\nAll Jobs Possible Test:");
@@ -123,7 +183,7 @@ public class j01JobSequencing {
         int[] profit2 = {10, 20, 30, 40};
         System.out.println("Input: deadline = " + Arrays.toString(deadline2) + 
                          ", profit = " + Arrays.toString(profit2));
-        System.out.println("Output: " + jobSequencing(deadline2, profit2));
+        System.out.println("Output: " + jobSequencingMaxHeap(deadline2, profit2));
 
         // Test Case 3: Single job
         System.out.println("\nSingle Job Test:");
@@ -131,7 +191,7 @@ public class j01JobSequencing {
         int[] profit3 = {100};
         System.out.println("Input: deadline = " + Arrays.toString(deadline3) + 
                          ", profit = " + Arrays.toString(profit3));
-        System.out.println("Output: " + jobSequencing(deadline3, profit3));
+        System.out.println("Output: " + jobSequencingSorting(deadline3, profit3));
 
         // Test Case 4: Equal deadlines
         System.out.println("\nEqual Deadlines Test:");
@@ -139,6 +199,6 @@ public class j01JobSequencing {
         int[] profit4 = {50, 40, 30, 20};
         System.out.println("Input: deadline = " + Arrays.toString(deadline4) + 
                          ", profit = " + Arrays.toString(profit4));
-        System.out.println("Output: " + jobSequencing(deadline4, profit4));
+        System.out.println("Output: " + jobSequencingSorting(deadline4, profit4));
     }
 }

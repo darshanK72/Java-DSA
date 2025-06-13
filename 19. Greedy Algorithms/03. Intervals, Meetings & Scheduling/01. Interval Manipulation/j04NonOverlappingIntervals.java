@@ -28,7 +28,7 @@
 
 import java.util.Arrays;
 
-public class j06NonOverlappingIntervals {
+public class j04NonOverlappingIntervals {
 
     /**
      * Approach: Greedy with Sorting

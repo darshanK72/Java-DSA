@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
-public class j04InsertInterval {
+public class j02InsertInterval {
     /**
      * Approach 1: Iterative
      * 

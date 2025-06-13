@@ -29,7 +29,7 @@
 
 import java.util.Arrays;
 
-public class j10MeetingRoomsII {
+public class j05MeetingRoomsII {
 
     /**
      * Approach: Chronological Ordering
@@ -60,7 +60,7 @@ public class j10MeetingRoomsII {
      * @param end   Array of end times of meetings
      * @return     Minimum number of conference rooms required
      */
-    public int minMeetingRooms(int[] start, int[] end) {
+    public static int minMeetingRooms(int[] start, int[] end) {
         // Sort start and end times separately
         Arrays.sort(start);
         Arrays.sort(end);
@@ -91,15 +91,13 @@ public class j10MeetingRoomsII {
     }
 
     public static void main(String[] args) {
-        j10MeetingRoomsII solution = new j10MeetingRoomsII();
-
         // Test Case 1: Basic overlapping meetings
         System.out.println("\nBasic Test Cases:");
         int[] start1 = { 0, 5, 15 };
         int[] end1 = { 30, 10, 20 };
         System.out.println("Input: start = " + java.util.Arrays.toString(start1));
         System.out.println("Input: end = " + java.util.Arrays.toString(end1));
-        System.out.println("Output: " + solution.minMeetingRooms(start1, end1));
+        System.out.println("Output: " + minMeetingRooms(start1, end1));
         System.out.println("Expected: 2");
 
         // Test Case 2: No overlapping meetings
@@ -108,7 +106,7 @@ public class j10MeetingRoomsII {
         int[] end2 = { 4, 9, 15 };
         System.out.println("Input: start = " + java.util.Arrays.toString(start2));
         System.out.println("Input: end = " + java.util.Arrays.toString(end2));
-        System.out.println("Output: " + solution.minMeetingRooms(start2, end2));
+        System.out.println("Output: " + minMeetingRooms(start2, end2));
         System.out.println("Expected: 1");
 
         // Test Case 3: All meetings overlap
@@ -117,7 +115,7 @@ public class j10MeetingRoomsII {
         int[] end3 = { 5, 5, 5 };
         System.out.println("Input: start = " + java.util.Arrays.toString(start3));
         System.out.println("Input: end = " + java.util.Arrays.toString(end3));
-        System.out.println("Output: " + solution.minMeetingRooms(start3, end3));
+        System.out.println("Output: " + minMeetingRooms(start3, end3));
         System.out.println("Expected: 3");
 
         // Test Case 4: Empty input
@@ -126,7 +124,7 @@ public class j10MeetingRoomsII {
         int[] end4 = {};
         System.out.println("Input: start = " + java.util.Arrays.toString(start4));
         System.out.println("Input: end = " + java.util.Arrays.toString(end4));
-        System.out.println("Output: " + solution.minMeetingRooms(start4, end4));
+        System.out.println("Output: " + minMeetingRooms(start4, end4));
         System.out.println("Expected: 0");
 
         // Test Case 5: Single meeting
@@ -135,7 +133,7 @@ public class j10MeetingRoomsII {
         int[] end5 = { 5 };
         System.out.println("Input: start = " + java.util.Arrays.toString(start5));
         System.out.println("Input: end = " + java.util.Arrays.toString(end5));
-        System.out.println("Output: " + solution.minMeetingRooms(start5, end5));
+        System.out.println("Output: " + minMeetingRooms(start5, end5));
         System.out.println("Expected: 1");
 
         // Test Case 6: Meetings with same start time
@@ -144,7 +142,7 @@ public class j10MeetingRoomsII {
         int[] end6 = { 5, 10, 15 };
         System.out.println("Input: start = " + java.util.Arrays.toString(start6));
         System.out.println("Input: end = " + java.util.Arrays.toString(end6));
-        System.out.println("Output: " + solution.minMeetingRooms(start6, end6));
+        System.out.println("Output: " + minMeetingRooms(start6, end6));
         System.out.println("Expected: 3");
     }
 }

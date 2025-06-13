@@ -31,7 +31,7 @@
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
-public class j12MaxEventsCanBeAttended {
+public class j10MaxEventsCanBeAttended {
 
     /**
      * Approach: Greedy with Priority Queue

@@ -1,0 +1,16 @@
+Is it a resource allocation problem? (rooms, platforms, etc.)
+├── Yes → Use Priority Queue or Chronological Ordering
+│   ├── If need to track multiple resources → Priority Queue
+│   └── If need to track start/end times separately → Chronological Ordering
+│
+├── No → Is it about maximizing non-overlapping intervals?
+│   ├── Yes → Sort by End Time
+│   │   └── Use Greedy approach to select earliest ending intervals
+│   │
+│   └── No → Is it about merging or finding intersections?
+│       ├── Yes → Sort by Start Time
+│       │   └── Use Two-Pointer technique if needed
+│       │
+│       └── No → Is it about scheduling with deadlines?
+│           ├── Yes → Use Priority Queue with custom comparator
+│           └── No → Consider other approaches based on specific requirements
