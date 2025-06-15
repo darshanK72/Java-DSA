@@ -29,7 +29,8 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class j01LargestNumber {
+public class j02LargestNumber {
+    
     /**
      * Approach: Custom Sorting
      * 
@@ -56,7 +57,7 @@ public class j01LargestNumber {
      * @param nums Array of non-negative integers
      * @return    String representing the largest possible number
      */
-    public String largestNumber(int[] nums) {
+    public static String largestNumber(int[] nums) {
         // Convert numbers to strings for easier concatenation
         ArrayList<String> list = new ArrayList<>();
         for (int i = 0; i < nums.length; i++)
@@ -76,30 +77,29 @@ public class j01LargestNumber {
     }
 
     public static void main(String[] args) {
-        j01LargestNumber solution = new j01LargestNumber();
-
+        
         // Test Case 1: Basic case
         System.out.println("\nBasic Test Case:");
         int[] nums1 = {10, 2};
         System.out.println("Input: " + java.util.Arrays.toString(nums1));
-        System.out.println("Expected: 210, Output: " + solution.largestNumber(nums1));
+        System.out.println("Expected: 210, Output: " + largestNumber(nums1));
 
         // Test Case 2: All zeros
         System.out.println("\nAll Zeros Test Case:");
         int[] nums2 = {0, 0, 0};
         System.out.println("Input: " + java.util.Arrays.toString(nums2));
-        System.out.println("Expected: 0, Output: " + solution.largestNumber(nums2));
+        System.out.println("Expected: 0, Output: " + largestNumber(nums2));
 
         // Test Case 3: Single digit numbers
         System.out.println("\nSingle Digit Test Case:");
         int[] nums3 = {3, 30, 34, 5, 9};
         System.out.println("Input: " + java.util.Arrays.toString(nums3));
-        System.out.println("Expected: 9534330, Output: " + solution.largestNumber(nums3));
+        System.out.println("Expected: 9534330, Output: " + largestNumber(nums3));
 
         // Test Case 4: Large numbers
         System.out.println("\nLarge Numbers Test Case:");
         int[] nums4 = {999999991, 9};
         System.out.println("Input: " + java.util.Arrays.toString(nums4));
-        System.out.println("Expected: 9999999991, Output: " + solution.largestNumber(nums4));
+        System.out.println("Expected: 9999999991, Output: " + largestNumber(nums4));
     }
 }
