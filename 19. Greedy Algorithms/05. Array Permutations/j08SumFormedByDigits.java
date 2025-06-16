@@ -25,7 +25,7 @@
 
 import java.util.Arrays;
 
-public class j06SumFormedByDigits {
+public class j08SumFormedByDigits {
 
     /**
      * Approach: Greedy with Alternating Digits

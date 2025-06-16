@@ -25,7 +25,7 @@
 
 import java.util.Arrays;
 
-public class j05ConvertArrayToReducedForm {
+public class j07ConvertArrayToReducedForm {
 
     /**
      * Approach: Custom Sorting with Indices
