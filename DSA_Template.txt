@@ -1,4 +1,4 @@
-/**
+/*-
  * <Problem Source> <Problem Number>. <Problem Name>
  * 
  * Problem Statement:
@@ -25,11 +25,11 @@ import java.util.*;
 
 public class ClassName {
 
-    /**
+    /*-
      * Required helper classes/methods (if any) along with explanation
      */
 
-    /**
+    /*-
      * Approach [1 if multiple approaches exist, else just "Approach"]: <Name>
      * 
      * Intuition:
@@ -66,7 +66,7 @@ public class ClassName {
         return result;
     }
 
-    /**
+    /*-
      * Helper Method:
      * 
      * Intuition:
