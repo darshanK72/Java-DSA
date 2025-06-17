@@ -53,23 +53,32 @@ public class j16MaxChunksToMakeSortedI {
      */
     public static int maxChunksToSortedPrefixSuffix(int[] arr) {
         int n = arr.length;
+        // Create arrays to store prefix maximum and suffix minimum
         int[] preMax = new int[n];
         int[] sufMin = new int[n];
+        
+        // Calculate prefix maximum array
         int max = arr[0];
         for(int i = 0; i < n; i++){
-            max = Math.max(arr[i],max);
-            preMax[i] = max;
+            max = Math.max(arr[i], max);  // Update max if current element is larger
+            preMax[i] = max;              // Store the maximum up to current index
         }
 
+        // Calculate suffix minimum array
         int min = arr[n - 1];
         for(int i = n - 1; i >= 0; i--){
-            min = Math.min(arr[i],min);
-            sufMin[i] = min;
+            min = Math.min(arr[i], min);  // Update min if current element is smaller
+            sufMin[i] = min;              // Store the minimum from current index to end
         }
+
+        // Count the number of valid chunks
         int chunks = 0;
         for(int i = 0; i < n; i++){
+            // Get maximum element before current position (or -1 if at start)
             int prevMax = i > 0 ? preMax[i - 1] : -1;
+            // Get minimum element from current position to end
             int nextMin = sufMin[i];
+            // If max before is less than min after, we can form a chunk
             if(prevMax < nextMin) chunks++;
         }
 
@@ -101,15 +110,19 @@ public class j16MaxChunksToMakeSortedI {
      */
     public static int maxChunksToSortedPrefix(int[] arr) {
         int n = arr.length;
+        // Create prefix sum array for indices (0, 1, 2, ...)
         int[] prefix = new int[n];
-        prefix[0] = 0;
+        prefix[0] = 0;  // First element is 0
         for(int i = 1; i < n; i++){
-            prefix[i] = prefix[i - 1] + i;
+            prefix[i] = prefix[i - 1] + i;  // Sum of indices up to i
         }
+
+        // Keep track of running sum and chunk count
         int ans = 0;
         int sum = 0;
         for(int i = 0; i < n; i++){
-            sum += arr[i];
+            sum += arr[i];  // Add current element to running sum
+            // If sum equals prefix sum, we can form a chunk
             if(sum == prefix[i]) ans++;
         }
 

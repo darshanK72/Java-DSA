@@ -56,23 +56,33 @@ public class j17MaxChunksToMakeSortedII {
      */
     public static int maxChunksToSorted(int[] arr) {
         int n = arr.length;
+        // Create arrays to store prefix maximum and suffix minimum
         int[] preMax = new int[n];
         int[] sufMin = new int[n];
+        
+        // Calculate prefix maximum array
         int max = arr[0];
         for(int i = 0; i < n; i++){
-            max = Math.max(arr[i],max);
-            preMax[i] = max;
+            max = Math.max(arr[i], max);  // Update max if current element is larger
+            preMax[i] = max;              // Store the maximum up to current index
         }
 
+        // Calculate suffix minimum array
         int min = arr[n - 1];
         for(int i = n - 1; i >= 0; i--){
-            min = Math.min(arr[i],min);
-            sufMin[i] = min;
+            min = Math.min(arr[i], min);  // Update min if current element is smaller
+            sufMin[i] = min;              // Store the minimum from current index to end
         }
+
+        // Count the number of valid chunks
         int chunks = 0;
         for(int i = 0; i < n; i++){
+            // Get maximum element before current position (or -1 if at start)
             int prevMax = i > 0 ? preMax[i - 1] : -1;
+            // Get minimum element from current position to end
             int nextMin = sufMin[i];
+            // If max before is less than or equal to min after, we can form a chunk
+            // Note: Using <= instead of < to handle duplicate elements
             if(prevMax <= nextMin) chunks++;
         }
 
