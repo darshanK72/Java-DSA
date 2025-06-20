@@ -23,7 +23,7 @@
 
 import java.util.*;
 
-public class j05GraphBFSTraversal {
+public class j07GraphBFSTraversal {
     /**
      * Approach: Standard BFS using Queue
      *

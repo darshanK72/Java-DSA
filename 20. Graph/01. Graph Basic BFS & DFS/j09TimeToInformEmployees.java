@@ -27,7 +27,7 @@
 
 import java.util.*;
 
-public class j07TimeToInformEmployees {
+public class j09TimeToInformEmployees {
     /**
      * Approach 1: DFS with Accumulated Time (Backtracking)
      *

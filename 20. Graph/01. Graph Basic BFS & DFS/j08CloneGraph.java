@@ -24,7 +24,7 @@
 
 import java.util.*;
 
-public class j06CloneGraph {
+public class j08CloneGraph {
 
     /**
      * Node definition for undirected graph
