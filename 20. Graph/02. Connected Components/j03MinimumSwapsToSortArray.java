@@ -20,7 +20,7 @@
 
 import java.util.*;
 
-public class j16MinimumSwapsToSortArray {
+public class j03MinimumSwapsToSortArray {
 
     /**
      * Approach: Graph Cycle Decomposition
