@@ -25,7 +25,7 @@
 
 import java.util.*;
 
-public class j01TopologicalSort {
+public class j03TopologicalSort {
 
     /**
      * Approach 1: DFS-based Topological Sort
@@ -116,7 +116,7 @@ public class j01TopologicalSort {
         out.add(src); // Add node after all its neighbors (post-order)
     }
 
-    /*-
+    /**
      * Approach 2: BFS-based Topological Sort (Kahn's Algorithm)
      * 
      * Intuition:

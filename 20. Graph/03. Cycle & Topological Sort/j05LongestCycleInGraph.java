@@ -27,7 +27,7 @@
 
 import java.util.*;
 
-public class j03LongestCycleInGraph {
+public class j05LongestCycleInGraph {
 
     /**
      * Approach: DFS with Recursion Stack
