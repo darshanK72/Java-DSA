@@ -64,9 +64,13 @@ public class j03TopologicalSort {
         ArrayList<Integer>[] adj = new ArrayList[V];
         for (int i = 0; i < V; i++)
             adj[i] = new ArrayList<>(); // Initialize adjacency list for each vertex
-        for (int[] edge : edges)
-            adj[edge[0]].add(edge[1]); // Add directed edge from 'from' to 'to'
 
+        for (int i = 0; i < edges.length; i++) {
+            int from = edges[i][0];
+            int to = edges[i][1];
+            adj[from].add(to); // Add edge both ways (undirected)
+            adj[to].add(from);
+        }
         ArrayList<Integer> out = new ArrayList<>(); // Stores the topological order
         boolean[] visited = new boolean[V]; // Tracks visited nodes
         for (int i = 0; i < V; i++) {
@@ -148,9 +152,13 @@ public class j03TopologicalSort {
         ArrayList<Integer>[] adj = new ArrayList[V];
         for (int i = 0; i < V; i++)
             adj[i] = new ArrayList<>(); // Initialize adjacency list for each vertex
-        for (int[] edge : edges)
-            adj[edge[0]].add(edge[1]); // Add directed edge from 'from' to 'to'
-
+            
+        for (int i = 0; i < edges.length; i++) {
+            int from = edges[i][0];
+            int to = edges[i][1];
+            adj[from].add(to); // Add edge both ways (undirected)
+            adj[to].add(from);
+        }
         int[] indegree = new int[V]; // Array to store in-degree of each node
         for (int u = 0; u < V; u++) {
             for (int v : adj[u])
