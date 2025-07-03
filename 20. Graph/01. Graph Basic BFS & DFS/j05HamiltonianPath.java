@@ -59,9 +59,9 @@ public class j05HamiltonianPath {
             adj[to].add(from);
         }
 
+        HashSet<Integer> visited = new HashSet<>(); // Track visited nodes
         // Try to start a Hamiltonian Path from every vertex
         for (int i = 1; i <= n; i++) {
-            HashSet<Integer> visited = new HashSet<>(); // Track visited nodes
             if (checkForHamiltonianPath(adj, visited, i)) // If path found, return true
                 return true;
         }
@@ -89,13 +89,11 @@ public class j05HamiltonianPath {
     public static boolean checkForHamiltonianPath(ArrayList<Integer>[] adj, HashSet<Integer> visited, int node) {
         visited.add(node); // Mark current node as visited
         if (visited.size() == adj.length - 1) { // If all nodes visited
-            visited.remove(node); // Backtrack before returning
             return true;
         }
         for (int neb : adj[node]) { // Explore all neighbors
             if (!visited.contains(neb)) { // If neighbor not visited
                 if (checkForHamiltonianPath(adj, visited, neb)) { // Recurse
-                    visited.remove(node); // Backtrack before returning
                     return true;
                 }
             }

@@ -56,9 +56,9 @@ public class j06HamiltonianCycle {
             adj[from].add(to);      // Add edge both ways (undirected)
             adj[to].add(from);
         }
+        HashSet<Integer> visited = new HashSet<>(); // Track visited nodes
         // Try to start a Hamiltonian Cycle from every vertex
         for (int i = 1; i <= n; i++) {
-            HashSet<Integer> visited = new HashSet<>(); // Track visited nodes
             if (checkForHamiltonianCycle(adj, visited, i, i, n)) // If cycle found, return true
                 return true;
         }
@@ -89,16 +89,13 @@ public class j06HamiltonianCycle {
         visited.add(node); // Mark current node as visited
         if (visited.size() == n) { // If all nodes visited
             if (adj[node].contains(start)) { // Check if there is an edge back to start
-                visited.remove(node); // Backtrack before returning
                 return true;
             }
-            visited.remove(node); // Backtrack before returning
             return false;
         }
         for (int neb : adj[node]) { // Explore all neighbors
             if (!visited.contains(neb)) { // If neighbor not visited
                 if (checkForHamiltonianCycle(adj, visited, start, neb, n)) { // Recurse
-                    visited.remove(node); // Backtrack before returning
                     return true;
                 }
             }
