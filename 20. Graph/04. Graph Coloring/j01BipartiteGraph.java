@@ -105,23 +105,6 @@ public class j01BipartiteGraph {
     }
 
     /**
-     * Helper Class: Pair
-     *
-     * Intuition:
-     * - Used to store a node and its assigned color for BFS traversal.
-     *   This allows us to keep track of which color to assign to each node
-     *   as we process them in the queue.
-     *
-     */
-    static class Pair {
-        int node, color;
-        Pair(int node, int color) {
-            this.node = node;
-            this.color = color;
-        }
-    }
-
-    /**
      * Approach 2: Breadth-First Search (BFS) Coloring
      *
      * Intuition:
@@ -180,21 +163,22 @@ public class j01BipartiteGraph {
      * @param src      Source node
      * @return         true if coloring is possible, false otherwise
      */
-    private static boolean bfsColoring(int[][] graph, int[] visited, int src) {
-        Queue<Pair> queue = new LinkedList<>(); // Queue for BFS
-        queue.add(new Pair(src, 1)); // Start with source node and color 1
+    public static boolean bfsColoring(int[][] graph, int[] visited, int src) {
+        Queue<Integer> queue = new LinkedList<>(); // Queue for BFS
+        queue.add(src); // Start with source node 
+        visited[src] = 1; // Color source node with 1
         while (!queue.isEmpty()) {
-            Pair curr = queue.poll(); // Dequeue current node
-            // If node is already colored, check for color conflict
-            if (visited[curr.node] != 0) {
-                if (visited[curr.node] != curr.color) return false; // Conflict found
-                continue; // Already colored correctly, skip
-            }
-            visited[curr.node] = curr.color; // Color the node
+            int node = queue.poll(); // Dequeue current node
+            int color = visited[node]; // Take out color
             // Traverse all neighbors
-            for (int neb : graph[curr.node]) {
-                int newColor = (curr.color == 1) ? 2 : 1; // Alternate color for neighbor
-                queue.add(new Pair(neb, newColor)); // Enqueue neighbor with alternate color
+            for (int neb : graph[node]) {
+                int newColor = (color == 1) ? 2 : 1; // Alternate color for neighbor
+                if(visited[neb] != 0){ // Check if Already Colored
+                    if(visited[neb] != newColor) return false; // Check color is correct
+                    else continue;
+                }
+                visited[neb] = newColor; // Assign new color neighbor
+                queue.add(neb); // Enqueue neighbor with alternate color
             }
         }
         return true; // All nodes colored successfully
