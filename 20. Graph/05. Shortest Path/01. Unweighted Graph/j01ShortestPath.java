@@ -1,4 +1,4 @@
-/*-
+/**
  * Shortest Path in Unweighted Graph (BFS)
  *
  * Problem Statement:
@@ -27,7 +27,7 @@
 import java.util.*;
 
 public class j01ShortestPath {
-    /*-
+    /**
      * Helper Class: Pair
      *
      * Intuition:
@@ -47,7 +47,7 @@ public class j01ShortestPath {
         }
     }
 
-    /*-
+    /**
      * Approach: Breadth-First Search (BFS)
      *
      * Intuition:
