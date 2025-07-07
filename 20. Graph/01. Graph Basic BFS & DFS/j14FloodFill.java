@@ -23,7 +23,7 @@
  *     All pixels connected to (1,1) with original color 1 are changed to 2.
  */
 
-public class j15FloodFill {
+public class j14FloodFill {
     /**
      * Approach: DFS Flood Fill
      *

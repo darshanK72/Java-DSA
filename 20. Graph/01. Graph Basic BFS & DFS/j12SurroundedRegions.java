@@ -20,7 +20,7 @@
  *     The region on the second row is surrounded by 'X' on all sides. The 'O' on the bottom border is not captured.
  */
 
-public class j13SurroundedRegions {
+public class j12SurroundedRegions {
     /**
      * Approach: DFS from Border 'O's
      *

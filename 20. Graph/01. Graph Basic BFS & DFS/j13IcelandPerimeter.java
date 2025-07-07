@@ -20,7 +20,7 @@
  *     The perimeter is the sum of all edges that are adjacent to water or the grid boundary.
  */
 
-public class j14IcelandPerimeter {
+public class j13IcelandPerimeter {
     /**
      * Approach 1: DFS Traversal
      *
