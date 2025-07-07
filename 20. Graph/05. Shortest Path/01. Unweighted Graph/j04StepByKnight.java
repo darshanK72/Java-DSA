@@ -33,7 +33,7 @@
 
 import java.util.*;
 
-public class j03StepByKnight {
+public class j04StepByKnight {
 
     /**
      * Cell class to store position and steps information for BFS

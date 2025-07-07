@@ -33,7 +33,7 @@
 
 import java.util.*;
 
-public class j12ZeroOneMatrix {
+public class j03ZeroOneMatrix {
     /**
      * Approach: Multi-Source BFS
      *
