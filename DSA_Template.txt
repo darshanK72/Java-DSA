@@ -153,4 +153,5 @@ FORMAT GUIDELINES:
       * Boundary cases (min/max values)
       * Complex/Large inputs
       * Special cases (sorted, reverse sorted, etc.)
+11. Don't change my original code, if it works correctly, don't change my namings as well.
 */ 
