@@ -25,7 +25,7 @@
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
-public class j02MinimumCostPath {
+public class j03MinimumCostPath {
     /**
      * Approach: Dijkstra's Algorithm on Grid
      *

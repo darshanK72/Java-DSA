@@ -29,7 +29,7 @@
 
 import java.util.*;
 
-public class j01NetworkDelayTime {
+public class j02NetworkDelayTime {
     /**
      * Helper class to represent an edge in the graph
      * Intuition:
