@@ -29,7 +29,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.PriorityQueue;
 
-public class j01ShortestPathInWeightedUndirectedGraph {
+public class j01WeightedUndirectedGraph {
     /**
      * Helper class to represent an edge in the graph
      * Intuition:
@@ -130,7 +130,7 @@ public class j01ShortestPathInWeightedUndirectedGraph {
     }
 
     public static void main(String[] args) {
-        j01ShortestPathInWeightedUndirectedGraph solver = new j01ShortestPathInWeightedUndirectedGraph();
+        j01WeightedUndirectedGraph solver = new j01WeightedUndirectedGraph();
         // Basic Test Cases
         System.out.println("\nBasic Test Cases:");
         int[][] e1 = {{1,2,2},{1,3,4},{2,3,1},{2,4,7},{3,5,3},{4,5,1}};
