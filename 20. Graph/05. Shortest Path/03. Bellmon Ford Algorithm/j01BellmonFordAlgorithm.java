@@ -26,7 +26,7 @@
 
 import java.util.Arrays;
 
-public class j01BellmonFord {
+public class j01BellmonFordAlgorithm {
 
     /**
      * Approach: Bellman-Ford Algorithm
@@ -67,9 +67,7 @@ public class j01BellmonFord {
                 if (dist[from] == inf)
                     continue;
                 // Relaxation step: update dist[to] if a shorter path is found
-                if (dist[to] > dist[from] + weight) {
-                    dist[to] = dist[from] + weight;
-                }
+                dist[to] = Math.min(dist[to],dist[from] + weight);
             }
         }
         // Check for negative weight cycle by trying to relax once more
