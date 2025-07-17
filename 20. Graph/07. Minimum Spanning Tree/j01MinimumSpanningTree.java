@@ -28,7 +28,7 @@ import java.util.*;
 public class j01MinimumSpanningTree {
 
     /**
-     * Approach: Prim's Algorithm using Min-Heap (PriorityQueue)
+     * Approach 1 : Prim's Algorithm using Min-Heap (PriorityQueue)
      *
      * Intuition:
      * - Always pick the minimum weight edge that connects a new vertex to the MST.
@@ -75,7 +75,7 @@ public class j01MinimumSpanningTree {
     }
 
     /**
-     * Disjoint Set Union (Union-Find) for Kruskal's Algorithm
+     * Approach 2 : Disjoint Set Union (Union-Find) for Kruskal's Algorithm
      *
      * Intuition:
      * - DSU efficiently tracks which vertices are in the same component.
