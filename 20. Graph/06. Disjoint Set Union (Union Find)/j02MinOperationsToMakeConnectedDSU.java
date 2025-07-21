@@ -27,7 +27,7 @@
 
 import java.util.*;
 
-public class j02MinReconnectionsToMakeConnected {
+public class j02MinOperationsToMakeConnectedDSU {
     /**
      * Disjoint Set Union (Union-Find) data structure
      *
