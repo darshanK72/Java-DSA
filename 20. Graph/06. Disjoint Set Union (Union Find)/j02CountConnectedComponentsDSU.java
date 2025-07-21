@@ -24,7 +24,7 @@
 
 import java.util.*;
 
-public class j01ConnectedComponentsDSU {
+public class j02CountConnectedComponentsDSU {
 
     /**
      * Disjoint Set Union (Union-Find) data structure

@@ -23,7 +23,7 @@
 
 import java.util.*;
 
-public class j03CycleDetectionInUndirectedGraphDSU {
+public class j04CycleDetectionInUndirectedGraphDSU {
     /**
      * Disjoint Set Union (Union-Find) data structure
      *
@@ -114,7 +114,7 @@ public class j03CycleDetectionInUndirectedGraphDSU {
      * @param edges int[m][2]: List of undirected edges
      * @return      boolean: true if cycle exists, false otherwise
      */
-    public boolean isCycle(int V, int[][] edges) {
+    public static boolean isCycle(int V, int[][] edges) {
         DisjointSetUnion dsu = new DisjointSetUnion(V); // Initialize DSU for V nodes
         // Process each edge
         for (int[] edge : edges) {
@@ -138,28 +138,28 @@ public class j03CycleDetectionInUndirectedGraphDSU {
         System.out.println("\nBasic Test Cases:");
         int[][] edges1 = {{0,1},{1,2},{2,0}};
         System.out.println("Input: V=3, edges=[[0,1],[1,2],[2,0]]");
-        System.out.println("Expected: true, Output: " + new j03CycleDetectionInUndirectedGraphDSU().isCycle(3, edges1));
+        System.out.println("Expected: true, Output: " + isCycle(3, edges1));
 
         // Edge Cases
         System.out.println("\nEdge Cases:");
         int[][] edges2 = {};
         System.out.println("Input: V=1, edges=[]");
-        System.out.println("Expected: false, Output: " + new j03CycleDetectionInUndirectedGraphDSU().isCycle(1, edges2));
+        System.out.println("Expected: false, Output: " + isCycle(1, edges2));
         int[][] edges3 = {{0,1}};
         System.out.println("Input: V=2, edges=[[0,1]]");
-        System.out.println("Expected: false, Output: " + new j03CycleDetectionInUndirectedGraphDSU().isCycle(2, edges3));
+        System.out.println("Expected: false, Output: " + isCycle(2, edges3));
 
         // Boundary Cases
         System.out.println("\nBoundary Cases:");
         int V4 = 100000;
         int[][] edges4 = new int[0][2];
         System.out.println("Input: V=100000, edges=[]");
-        System.out.println("Expected: false, Output: " + new j03CycleDetectionInUndirectedGraphDSU().isCycle(V4, edges4));
+        System.out.println("Expected: false, Output: " + isCycle(V4, edges4));
 
         // Special Cases
         System.out.println("\nSpecial Cases:");
         int[][] edges5 = {{0,1},{1,2},{2,3},{3,4},{4,0}};
         System.out.println("Input: V=5, edges=[[0,1],[1,2],[2,3],[3,4],[4,0]]");
-        System.out.println("Expected: true, Output: " + new j03CycleDetectionInUndirectedGraphDSU().isCycle(5, edges5));
+        System.out.println("Expected: true, Output: " + isCycle(5, edges5));
     }
 }
