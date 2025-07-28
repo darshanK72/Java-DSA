@@ -28,7 +28,7 @@
 
 import java.util.*;
 
-public class j11SmallestStringWithSwaps {
+public class j10SmallestStringWithSwaps {
 
     /**
      * Disjoint Set Union (Union-Find) data structure
@@ -110,7 +110,7 @@ public class j11SmallestStringWithSwaps {
      * @param pairs  List<List<Integer>>: Pairs of indices that can be swapped
      * @return       String: Lexicographically smallest string after swaps
      */
-    public String smallestStringWithSwaps(String s, List<List<Integer>> pairs) {
+    public static String smallestStringWithSwaps(String s, List<List<Integer>> pairs) {
         // Initialize DSU for the length of the string
         DisjointSetUnion dsu = new DisjointSetUnion(s.length());
 
@@ -154,27 +154,27 @@ public class j11SmallestStringWithSwaps {
         String s1 = "dcab";
         List<List<Integer>> pairs1 = Arrays.asList(Arrays.asList(0, 3), Arrays.asList(1, 2), Arrays.asList(0, 2));
         System.out.println("Input: s=dcab, pairs=[[0,3],[1,2],[0,2]]");
-        System.out.println("Expected: abcd, Output: " + new j11SmallestStringWithSwaps().smallestStringWithSwaps(s1, pairs1));
+        System.out.println("Expected: abcd, Output: " + smallestStringWithSwaps(s1, pairs1));
 
         // Test Case 2: Edge cases
         System.out.println("\nEdge Cases:");
         String s2 = "a";
         List<List<Integer>> pairs2 = new ArrayList<>();
         System.out.println("Input: s=a, pairs=[]");
-        System.out.println("Expected: a, Output: " + new j11SmallestStringWithSwaps().smallestStringWithSwaps(s2, pairs2));
+        System.out.println("Expected: a, Output: " + smallestStringWithSwaps(s2, pairs2));
 
         // Test Case 3: Boundary cases
         System.out.println("\nBoundary Cases:");
         String s3 = "cba";
         List<List<Integer>> pairs3 = Arrays.asList(Arrays.asList(0, 1), Arrays.asList(1, 2));
         System.out.println("Input: s=cba, pairs=[[0,1],[1,2]]");
-        System.out.println("Expected: abc, Output: " + new j11SmallestStringWithSwaps().smallestStringWithSwaps(s3, pairs3));
+        System.out.println("Expected: abc, Output: " + smallestStringWithSwaps(s3, pairs3));
 
         // Test Case 4: Special cases
         System.out.println("\nSpecial Cases:");
         String s4 = "dcab";
         List<List<Integer>> pairs4 = Arrays.asList(Arrays.asList(0, 3), Arrays.asList(1, 2));
         System.out.println("Input: s=dcab, pairs=[[0,3],[1,2]]");
-        System.out.println("Expected: bacd, Output: " + new j11SmallestStringWithSwaps().smallestStringWithSwaps(s4, pairs4));
+        System.out.println("Expected: bacd, Output: " + smallestStringWithSwaps(s4, pairs4));
     }
 }

@@ -24,7 +24,7 @@
 
 import java.util.*;
 
-public class j10SmallestEquivalentString {
+public class j09SmallestEquivalentString {
     /**
      * Disjoint Set Union (Union-Find) data structure
      *

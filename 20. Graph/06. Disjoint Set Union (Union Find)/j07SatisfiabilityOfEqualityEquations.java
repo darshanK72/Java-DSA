@@ -23,7 +23,7 @@
 
 import java.util.*;
 
-public class j08SatisfiabilityOfEqualityEquations {
+public class j07SatisfiabilityOfEqualityEquations {
     /**
      * Disjoint Set Union (Union-Find) data structure
      *
@@ -112,7 +112,7 @@ public class j08SatisfiabilityOfEqualityEquations {
      * @param equations String[]: List of equations
      * @return         boolean: true if all equations can be satisfied
      */
-    public boolean equationsPossible(String[] equations) {
+    public static boolean equationsPossible(String[] equations) {
         DisjointSetUnion dsu = new DisjointSetUnion(26); // 26 variables a-z
         // First, process all equalities
         for (String eqn : equations) {
@@ -138,31 +138,31 @@ public class j08SatisfiabilityOfEqualityEquations {
         System.out.println("\nBasic Test Cases:");
         String[] eq1 = {"a==b","b!=c","c==a"};
         System.out.println("Input: [a==b,b!=c,c==a]");
-        System.out.println("Expected: false, Output: " + new j08SatisfiabilityOfEqualityEquations().equationsPossible(eq1));
+        System.out.println("Expected: false, Output: " + equationsPossible(eq1));
         String[] eq2 = {"a==b","b==c","a==c"};
         System.out.println("Input: [a==b,b==c,a==c]");
-        System.out.println("Expected: true, Output: " + new j08SatisfiabilityOfEqualityEquations().equationsPossible(eq2));
+        System.out.println("Expected: true, Output: " + equationsPossible(eq2));
 
         // Edge Cases
         System.out.println("\nEdge Cases:");
         String[] eq3 = {"a==a"};
         System.out.println("Input: [a==a]");
-        System.out.println("Expected: true, Output: " + new j08SatisfiabilityOfEqualityEquations().equationsPossible(eq3));
+        System.out.println("Expected: true, Output: " + equationsPossible(eq3));
         String[] eq4 = {"a!=a"};
         System.out.println("Input: [a!=a]");
-        System.out.println("Expected: false, Output: " + new j08SatisfiabilityOfEqualityEquations().equationsPossible(eq4));
+        System.out.println("Expected: false, Output: " + equationsPossible(eq4));
 
         // Boundary Cases
         System.out.println("\nBoundary Cases:");
         String[] eq5 = new String[26];
         for (int i = 0; i < 26; i++) eq5[i] = (char)('a'+i) + "==" + (char)('a'+i);
         System.out.println("Input: all self-equality");
-        System.out.println("Expected: true, Output: " + new j08SatisfiabilityOfEqualityEquations().equationsPossible(eq5));
+        System.out.println("Expected: true, Output: " + equationsPossible(eq5));
 
         // Special Cases
         System.out.println("\nSpecial Cases:");
         String[] eq6 = {"a==b","b==c","c!=a"};
         System.out.println("Input: [a==b,b==c,c!=a]");
-        System.out.println("Expected: false, Output: " + new j08SatisfiabilityOfEqualityEquations().equationsPossible(eq6));
+        System.out.println("Expected: false, Output: " + equationsPossible(eq6));
     }
 }

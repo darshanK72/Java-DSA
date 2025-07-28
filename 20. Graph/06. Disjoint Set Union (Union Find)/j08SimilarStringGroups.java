@@ -24,7 +24,7 @@
 
 import java.util.*;
 
-public class j09SimilarStringGroups {
+public class j08SimilarStringGroups {
     /**
      * Disjoint Set Union (Union-Find) data structure
      *
@@ -95,7 +95,7 @@ public class j09SimilarStringGroups {
      * @param strs String[]: List of strings
      * @return     int: Number of similar string groups
      */
-    public int numSimilarGroups(String[] strs) {
+    public static int numSimilarGroups(String[] strs) {
         int n = strs.length;
         DisjointSetUnion dsu = new DisjointSetUnion(n);
         // Compare each pair of strings
@@ -135,7 +135,7 @@ public class j09SimilarStringGroups {
      * @param s2 Second string
      * @return   boolean: true if strings are similar
      */
-    private boolean isSimilar(String s1, String s2) {
+    private static boolean isSimilar(String s1, String s2) {
         int diff = 0;
         for (int i = 0; i < s1.length(); i++) {
             if (s1.charAt(i) != s2.charAt(i)) {
@@ -146,31 +146,29 @@ public class j09SimilarStringGroups {
     }
 
     public static void main(String[] args) {
-        j09SimilarStringGroups solution = new j09SimilarStringGroups();
-
         // Basic Test Cases
         System.out.println("\nBasic Test Cases:");
         String[] strs1 = {"tars","rats","arts","star"};
         System.out.println("Input: [tars,rats,arts,star]");
-        System.out.println("Expected: 2, Output: " + solution.numSimilarGroups(strs1));
+        System.out.println("Expected: 2, Output: " + numSimilarGroups(strs1));
 
         // Edge Cases
         System.out.println("\nEdge Cases:");
         String[] strs2 = {"a"};
         System.out.println("Input: [a]");
-        System.out.println("Expected: 1, Output: " + solution.numSimilarGroups(strs2));
+        System.out.println("Expected: 1, Output: " + numSimilarGroups(strs2));
 
         // Boundary Cases
         System.out.println("\nBoundary Cases:");
         String[] strs3 = new String[300];
         for (int i = 0; i < 300; i++) strs3[i] = "a";
         System.out.println("Input: 300 identical strings");
-        System.out.println("Expected: 1, Output: " + solution.numSimilarGroups(strs3));
+        System.out.println("Expected: 1, Output: " + numSimilarGroups(strs3));
 
         // Special Cases
         System.out.println("\nSpecial Cases:");
         String[] strs4 = {"abc","acb","bac","bca","cab","cba"};
         System.out.println("Input: all permutations of 'abc'");
-        System.out.println("Expected: 1, Output: " + solution.numSimilarGroups(strs4));
+        System.out.println("Expected: 1, Output: " + numSimilarGroups(strs4));
     }
 }

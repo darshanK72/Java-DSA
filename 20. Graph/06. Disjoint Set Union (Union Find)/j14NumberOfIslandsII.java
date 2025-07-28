@@ -25,7 +25,7 @@
 
 import java.util.*;
 
-public class j04NumberOfIslandsII {
+public class j14NumberOfIslandsII {
     /**
      * Disjoint Set Union (Union-Find) data structure
      *
