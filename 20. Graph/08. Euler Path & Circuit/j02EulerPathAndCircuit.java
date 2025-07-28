@@ -1,4 +1,4 @@
-/*-
+/**
  * GeeksForGeeks: Euler Path and Circuit
  * 
  * Problem Statement:
@@ -28,7 +28,7 @@ import java.util.List;
 
 public class j02EulerPathAndCircuit {
     
-    /*-
+    /**
      * Approach: Degree Counting with DFS
      * 
      * Intuition:
@@ -82,7 +82,7 @@ public class j02EulerPathAndCircuit {
         }
     }
 
-    /*-
+    /**
      * Helper Method: DFS traversal
      * 
      * Intuition:

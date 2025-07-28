@@ -1,4 +1,4 @@
-/*-
+/**
  * GeeksForGeeks: Check for Euler Circuit
  * 
  * Problem Statement:
@@ -25,7 +25,7 @@
 import java.util.ArrayList;
 
 public class j01CheckEulerCircuit {
-    /*-
+    /**
      * Approach: Degree Counting
      * 
      * Intuition:
