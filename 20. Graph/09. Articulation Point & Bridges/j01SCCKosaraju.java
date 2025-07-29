@@ -23,7 +23,7 @@
 
 import java.util.*;
 
-public class j09SCCKosaraju {
+public class j01SCCKosaraju {
     /**
      * Approach: Kosaraju's Algorithm (DFS + Reverse Graph)
      * 
