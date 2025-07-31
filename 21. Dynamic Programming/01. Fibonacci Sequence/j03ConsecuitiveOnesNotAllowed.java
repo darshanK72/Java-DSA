@@ -1,4 +1,4 @@
-/*-
+/**
  * GeeksForGeeks: Count Binary Strings Without Consecutive 1's
  * 
  * Problem Statement:
@@ -24,7 +24,7 @@
 import java.util.Arrays;
 
 public class j03ConsecuitiveOnesNotAllowed {
-    /*-
+    /**
      * Approach: Dynamic Programming with State
      * 
      * Intuition:
@@ -55,7 +55,7 @@ public class j03ConsecuitiveOnesNotAllowed {
         return countNonConsecutive1String(n, dp, 0);
     }
 
-    /*-
+    /**
      * Helper Method: Recursive String Building
      * 
      * Intuition:
