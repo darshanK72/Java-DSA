@@ -1,5 +1,5 @@
 /**
- * Frog Jump II - Minimum Energy Required with Variable Jumps
+ * Frog Jump - Minimum Energy Required with Variable Jumps
  * 
  * Problem Statement:
  *     There is a frog on the 1st step of an N stairs long staircase. The frog 
@@ -38,7 +38,7 @@
 
 import java.util.Arrays;
 
-public class j10FrogJumpII {
+public class j10FrogJumpMinEnergyRequiredKJumps {
 
     /**
      * Approach 1: Dynamic Programming with Memoization (Top-Down)

@@ -1,5 +1,5 @@
 /**
- * Frog Jump I - Minimum Energy Required
+ * Frog Jump - Minimum Energy Required
  * 
  * Problem Statement:
  *     There is a frog on the 1st step of an N stairs long staircase. The frog 
@@ -28,7 +28,7 @@
 
 import java.util.Arrays;
 
-public class j09FrogJumpI {
+public class j09FrogJumpMinimumEnergyRequired {
 
     /**
      * Approach 1: Dynamic Programming with Memoization (Top-Down)

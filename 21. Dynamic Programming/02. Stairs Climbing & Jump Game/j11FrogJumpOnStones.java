@@ -34,7 +34,7 @@
 
 import java.util.*;
 
-public class j11FrogJumpIII {
+public class j11FrogJumpOnStones {
 
     /**
      * Approach 1: Dynamic Programming with Memoization (Top-Down)
