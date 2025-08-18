@@ -60,7 +60,7 @@ public class j01ClimbStairsI {
      * @param n    Number of steps to climb (1 <= n <= 45)
      * @return     Number of distinct ways to climb to the top
      */
-    public static int climbStairs(int n) {
+    public static int climbStairsMemoization(int n) {
         // Handle edge case for invalid input
         if (n <= 0) return 0;
         
@@ -80,7 +80,7 @@ public class j01ClimbStairsI {
         }
 
         // Call recursive helper with memoization
-        return climbStairsDP(n, dp);
+        return climbStairsMemoizationHelper(n, dp);
     }
 
     /**
@@ -106,7 +106,7 @@ public class j01ClimbStairsI {
      * @param dp   DP array to store computed results
      * @return     Number of ways to reach step n
      */
-    private static int climbStairsDP(int n, int[] dp) {
+    private static int climbStairsMemoizationHelper(int n, int[] dp) {
         // Handle base case for invalid step number
         if (n <= 0) {
             return 0;
@@ -119,7 +119,7 @@ public class j01ClimbStairsI {
         
         // Recursively calculate ways by adding ways from previous steps
         // ways(n) = ways(n-1) + ways(n-2)
-        return dp[n] = climbStairsDP(n - 1, dp) + climbStairsDP(n - 2, dp);
+        return dp[n] = climbStairsMemoizationHelper(n - 1, dp) + climbStairsMemoizationHelper(n - 2, dp);
     }
 
     /*-
@@ -180,26 +180,26 @@ public class j01ClimbStairsI {
         
         // Test Case 1: Basic cases
         System.out.println("Basic Test Cases:");
-        System.out.println("Input: n=1, Expected: 1, Output: " + climbStairs(1));
-        System.out.println("Input: n=2, Expected: 2, Output: " + climbStairs(2));
-        System.out.println("Input: n=3, Expected: 3, Output: " + climbStairs(3));
-        System.out.println("Input: n=4, Expected: 5, Output: " + climbStairs(4));
-        System.out.println("Input: n=5, Expected: 8, Output: " + climbStairs(5));
+        System.out.println("Input: n=1, Expected: 1, Output: " + climbStairsMemoization(1));
+        System.out.println("Input: n=2, Expected: 2, Output: " + climbStairsMemoization(2));
+        System.out.println("Input: n=3, Expected: 3, Output: " + climbStairsMemoization(3));
+        System.out.println("Input: n=4, Expected: 5, Output: " + climbStairsMemoization(4));
+        System.out.println("Input: n=5, Expected: 8, Output: " + climbStairsMemoization(5));
 
         // Test Case 2: Edge cases
         System.out.println("\nEdge Cases:");
-        System.out.println("Input: n=0, Expected: 0, Output: " + climbStairs(0));
-        System.out.println("Input: n=-1, Expected: 0, Output: " + climbStairs(-1));
+        System.out.println("Input: n=0, Expected: 0, Output: " + climbStairsMemoization(0));
+        System.out.println("Input: n=-1, Expected: 0, Output: " + climbStairsMemoization(-1));
 
         // Test Case 3: Boundary cases
         System.out.println("\nBoundary Cases:");
-        System.out.println("Input: n=10, Expected: 89, Output: " + climbStairs(10));
-        System.out.println("Input: n=20, Expected: 10946, Output: " + climbStairs(20));
+        System.out.println("Input: n=10, Expected: 89, Output: " + climbStairsTabulation(10));
+        System.out.println("Input: n=20, Expected: 10946, Output: " + climbStairsTabulation(20));
 
         // Test Case 4: Special cases
         System.out.println("\nSpecial Cases:");
-        System.out.println("Input: n=6, Expected: 13, Output: " + climbStairs(6));
-        System.out.println("Input: n=7, Expected: 21, Output: " + climbStairs(7));
-        System.out.println("Input: n=8, Expected: 34, Output: " + climbStairs(8));
+        System.out.println("Input: n=6, Expected: 13, Output: " + climbStairsTabulation(6));
+        System.out.println("Input: n=7, Expected: 21, Output: " + climbStairsTabulation(7));
+        System.out.println("Input: n=8, Expected: 34, Output: " + climbStairsTabulation(8));
     }
 }

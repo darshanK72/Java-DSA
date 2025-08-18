@@ -68,7 +68,7 @@ public class j02ClimbStairsII {
      * @param n    Number of steps to climb (1 <= n <= 45)
      * @return     Number of distinct ways to climb to the top
      */
-    public static int countWays(int n) {
+    public static int countWaysMemoization(int n) {
         // Handle edge case for invalid input
         if (n <= 0) return 0;
         
@@ -93,7 +93,7 @@ public class j02ClimbStairsII {
         }
 
         // Call recursive helper with memoization
-        return climbStairsDP(n, dp);
+        return climbStairsMemoizationHelper(n, dp);
     }
 
     /**
@@ -119,7 +119,7 @@ public class j02ClimbStairsII {
      * @param dp   DP array to store computed results
      * @return     Number of ways to reach step n
      */
-    private static int climbStairsDP(int n, int[] dp) {
+    private static int climbStairsMemoizationHelper(int n, int[] dp) {
         // Handle base case for invalid step number
         if (n <= 0) {
             return 0;
@@ -132,7 +132,7 @@ public class j02ClimbStairsII {
         
         // Recursively calculate ways by adding ways from three previous steps
         // ways(n) = ways(n-1) + ways(n-2) + ways(n-3)
-        return dp[n] = climbStairsDP(n - 1, dp) + climbStairsDP(n - 2, dp) + climbStairsDP(n - 3, dp);
+        return dp[n] = climbStairsMemoizationHelper(n - 1, dp) + climbStairsMemoizationHelper(n - 2, dp) + climbStairsMemoizationHelper(n - 3, dp);
     }
 
     /**
@@ -198,27 +198,27 @@ public class j02ClimbStairsII {
     public static void main(String[] args) {
         // Test Case 1: Basic cases
         System.out.println("Basic Test Cases:");
-        System.out.println("Input: n=1, Expected: 1, Output: " + countWays(1));
-        System.out.println("Input: n=2, Expected: 2, Output: " + countWays(2));
-        System.out.println("Input: n=3, Expected: 4, Output: " + countWays(3));
-        System.out.println("Input: n=4, Expected: 7, Output: " + countWays(4));
-        System.out.println("Input: n=5, Expected: 13, Output: " + countWays(5));
+        System.out.println("Input: n=1, Expected: 1, Output: " + countWaysMemoization(1));
+        System.out.println("Input: n=2, Expected: 2, Output: " + countWaysMemoization(2));
+        System.out.println("Input: n=3, Expected: 4, Output: " + countWaysMemoization(3));
+        System.out.println("Input: n=4, Expected: 7, Output: " + countWaysMemoization(4));
+        System.out.println("Input: n=5, Expected: 13, Output: " + countWaysMemoization(5));
 
         // Test Case 2: Edge cases
         System.out.println("\nEdge Cases:");
-        System.out.println("Input: n=0, Expected: 0, Output: " + countWays(0));
-        System.out.println("Input: n=-1, Expected: 0, Output: " + countWays(-1));
+        System.out.println("Input: n=0, Expected: 0, Output: " + countWaysMemoization(0));
+        System.out.println("Input: n=-1, Expected: 0, Output: " + countWaysMemoization(-1));
 
         // Test Case 3: Boundary cases
         System.out.println("\nBoundary Cases:");
-        System.out.println("Input: n=10, Expected: 274, Output: " + countWays(10));
-        System.out.println("Input: n=15, Expected: 5768, Output: " + countWays(15));
+        System.out.println("Input: n=10, Expected: 274, Output: " + countWaysTabulation(10));
+        System.out.println("Input: n=15, Expected: 5768, Output: " + countWaysTabulation(15));
 
         // Test Case 4: Special cases
         System.out.println("\nSpecial Cases:");
-        System.out.println("Input: n=6, Expected: 24, Output: " + countWays(6));
-        System.out.println("Input: n=7, Expected: 44, Output: " + countWays(7));
-        System.out.println("Input: n=8, Expected: 81, Output: " + countWays(8));
-        System.out.println("Input: n=9, Expected: 149, Output: " + countWays(9));
+        System.out.println("Input: n=6, Expected: 24, Output: " + countWaysTabulation(6));
+        System.out.println("Input: n=7, Expected: 44, Output: " + countWaysTabulation(7));
+        System.out.println("Input: n=8, Expected: 81, Output: " + countWaysTabulation(8));
+        System.out.println("Input: n=9, Expected: 149, Output: " + countWaysTabulation(9));
     }
 }

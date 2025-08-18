@@ -69,7 +69,7 @@ public class j02NthTriFibonacciNumber {
      */
     private static int fibNumber(int n, int[] dp) {
         // Base cases
-        if (n == 0) return 0;
+        if (n <= 0) return 0;
         if (n <= 2) return 1;
         
         // Return if already computed
@@ -100,7 +100,7 @@ public class j02NthTriFibonacciNumber {
      */
     public static int tribonacciTabulation(int n) {
         // Handle base cases
-        if (n == 0) return 0;
+        if (n <= 0) return 0;
         if (n <= 2) return 1;
         
         // Initialize DP array with base cases

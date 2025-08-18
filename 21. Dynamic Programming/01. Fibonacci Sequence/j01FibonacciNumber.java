@@ -70,8 +70,8 @@ public class j01FibonacciNumber {
      */
     private static int fibNumber(int n, int[] dp) {
         // Base cases
-        if (n <= 1)
-            return n;
+        if(n <= 0) return 0;
+        if(n == 1) return 1;
             
         // Return if already computed
         if (dp[n] != -1)
