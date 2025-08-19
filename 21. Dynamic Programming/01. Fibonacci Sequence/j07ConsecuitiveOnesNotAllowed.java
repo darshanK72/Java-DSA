@@ -23,7 +23,7 @@
 
 import java.util.Arrays;
 
-public class j03ConsecuitiveOnesNotAllowed {
+public class j07ConsecuitiveOnesNotAllowed {
     /**
      * Approach: Dynamic Programming with State
      * 
@@ -91,6 +91,59 @@ public class j03ConsecuitiveOnesNotAllowed {
         // Store and return total count
         dp[prevDigit][n] = withDigitZero + withDigitOne;
         return dp[prevDigit][n];
+    }
+
+    /**
+     * Approach: Bottom-Up Dynamic Programming (Tabulation)
+     * 
+     * Intuition:
+     * - Maintain two states based on the previously placed digit to avoid
+     *   consecutive 1's. If the previous digit was 0, we can place 0 or 1; if
+     *   the previous digit was 1, we can place only 0.
+     * 
+     * Explanation:
+     * - Let dp[p][len] denote the number of valid binary strings of length
+     *   'len' that can be formed given that the previously placed digit is p
+     *   (p ∈ {0,1}).
+     * - Base: dp[0][0] = dp[1][0] = 1 (empty suffix of length 0 is valid
+     *   regardless of previous digit).
+     * - Transition for len ≥ 1:
+     *     dp[0][len] = dp[0][len-1] + dp[1][len-1]  // previous digit 0 → may
+     *                                              // place 0 or 1
+     *     dp[1][len] = dp[0][len-1]               // previous digit 1 → may
+     *                                              // place only 0
+     * - Answer: starting with no previous restriction is equivalent to
+     *   previous digit 0, so return dp[0][n].
+     * 
+     * Time Complexity: O(n)
+     * Space Complexity: O(n) for the dp table (2 × (n+1))
+     * 
+     * @param n  Length of the binary string (n ≥ 0)
+     * @return   Number of valid binary strings of length n with no consecutive 1's
+     */
+    public static int countStringsTabulation(int n) {
+        // dp[p][len]: number of valid strings of remaining length 'len'
+        // given that the previously placed digit is 'p'
+        int[][] dp = new int[2][n+1];
+        
+        // Initialize with sentinel values for clarity (not strictly required)
+        Arrays.fill(dp[0], -1);
+        Arrays.fill(dp[1], -1);
+        
+        // Base: empty suffix is valid regardless of previous digit
+        dp[0][0] = 1;
+        dp[1][0] = 1;
+        
+        // Build up solutions for all lengths from 1..n
+        for (int i = 1; i <= n; i++) {
+            // Previous digit 0: we may place 0 or 1
+            dp[0][i] = dp[0][i - 1] + dp[1][i - 1];
+            // Previous digit 1: we may place only 0
+            dp[1][i] = dp[0][i - 1];
+        }
+        
+        // Start state corresponds to previous digit 0 (no restriction)
+        return dp[0][n];
     }
 
     public static void main(String[] args) {

@@ -28,7 +28,7 @@
 import java.util.Arrays;
 
 public class j03ClimbStairsIII {
-	/*-
+	/**
 	 * Approach [1]: Top-Down (Backward) Memoization
 	 *
 	 * Intuition:
@@ -64,7 +64,7 @@ public class j03ClimbStairsIII {
 		return countWaysMemoizationHelper(jumps, 0, dp);
 	}
 
-	/*-
+	/**
 	 * Helper: Backward Memoization
 	 *
 	 * Intuition:
@@ -109,7 +109,7 @@ public class j03ClimbStairsIII {
 		return dp[currIndex] = numberOfWaysFromHere;
 	}
 
-	/*-
+	/**
 	 * Approach [2]: Bottom-Up (Backward) Tabulation
 	 *
 	 * Intuition:
@@ -164,7 +164,7 @@ public class j03ClimbStairsIII {
 		return dp[0];
 	}
 
-	/*-
+	/**
 	 * Approach [3]: Top-Down (Forward) Memoization
 	 *
 	 * Intuition:
@@ -196,7 +196,7 @@ public class j03ClimbStairsIII {
 		return countWaysMemonizationForwardHelper(jumps,n, 0, dp);
 	}
 
-	/*-
+	/**
 	 * Helper: Forward Memoization
 	 *
 	 * Intuition:
@@ -239,7 +239,7 @@ public class j03ClimbStairsIII {
 		return dp[index] = ways;
 	}
 
-	/*-
+	/**
 	 * Approach [4]: Bottom-Up (Forward) Tabulation
 	 *
 	 * Intuition:

@@ -122,7 +122,7 @@ public class j01ClimbStairsI {
         return dp[n] = climbStairsMemoizationHelper(n - 1, dp) + climbStairsMemoizationHelper(n - 2, dp);
     }
 
-    /*-
+    /**
      * Approach 2: Dynamic Programming with Tabulation (Bottom-Up)
      * 
      * Intuition:
