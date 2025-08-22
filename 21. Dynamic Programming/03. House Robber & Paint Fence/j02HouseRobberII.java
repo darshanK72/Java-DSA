@@ -157,6 +157,102 @@ public class j02HouseRobberII {
         return dp[prevState][index] = ans;
     }
 
+    /**
+     * Approach 2: 1D Tabulation Optimized (Space O(1))
+     * 
+     * Intuition:
+     * - Use the same circular house robber logic but with optimized 1D tabulation.
+     * - Since houses are in a circle, we solve two subproblems:
+     *   1. Houses [0, n-2] (exclude last house)
+     *   2. Houses [1, n-1] (exclude first house)
+     * - Take the maximum of these two cases.
+     * 
+     * Explanation:
+     * - For each subproblem, use optimized tabulation with only two variables
+     *   (prev1, prev2) instead of a full DP array.
+     * - rob1DTabulationHelper solves the linear house robber for range [start, end].
+     * - Special case: if only one house, return its value directly.
+     * 
+     * Time Complexity: O(n) - Each subproblem takes O(n) time
+     * Space Complexity: O(1) - Only two variables used per subproblem
+     * 
+     * @param nums    Input array of non-negative integers representing money in
+     *                each house arranged in a circle. null/empty treated as 0.
+     * @return        Maximum money that can be robbed without robbing adjacent
+     *                houses in circular arrangement.
+     */
+    public static int rob1DTabulation(int[] nums) {
+        // Handle edge cases: null or empty input yields 0 profit
+        if (nums == null || nums.length == 0) {
+            return 0; // No houses to rob
+        }
+
+        // Special case: only one house, can rob it directly
+        int n = nums.length;
+        if (n == 1) {
+            return nums[0]; // Only option is to rob the single house
+        }
+
+        // Solve two subproblems and take maximum:
+        // Case 1: Rob houses [0, n-2] (exclude last house)
+        // Case 2: Rob houses [1, n-1] (exclude first house)
+        return Math.max(rob1DTabulationHelper(nums, 0, n - 2), 
+                       rob1DTabulationHelper(nums, 1, n - 1));
+    }
+
+    /**
+     * Helper Method: rob1DTabulationHelper
+     * 
+     * Intuition:
+     * - Solves the linear house robber problem for a specific range [start, end]
+     *   using optimized tabulation with only two variables.
+     * - Uses the same logic as House Robber I but for a custom range.
+     * 
+     * Explanation:
+     * - Initialize prev1 = nums[start] and prev2 = 0
+     * - For each house i from start to end:
+     *   - take = nums[i] + prev2 (if i > start + 1, else just nums[i])
+     *   - notTake = prev1
+     *   - curr = max(take, notTake)
+     *   - Update: prev2 = prev1, prev1 = curr
+     * - Return prev1
+     * 
+     * Time Complexity: O(end - start + 1)
+     * Space Complexity: O(1) - Only two variables used
+     * 
+     * @param nums   Money in each house
+     * @param start  Starting index (inclusive)
+     * @param end    Ending index (inclusive)
+     * @return       Maximum money obtainable from houses [start, end]
+     */
+    public static int rob1DTabulationHelper(int[] nums, int start, int end) {
+        // Initialize variables: prev1 = dp[i-1], prev2 = dp[i-2]
+        int prev1 = nums[start]; // dp[start] = nums[start]
+        int prev2 = 0;           // dp[start-1] = 0 (no houses before start)
+
+        // Process houses from start to end
+        for (int i = start; i <= end; i++) {
+            // Option 1: Take current house (i) - add to result from house i-2
+            int take = nums[i];
+            if (i > start + 1) {
+                take += prev2; // Add result from house i-2 if it exists
+            }
+
+            // Option 2: Skip current house (i) - take result from house i-1
+            int notTake = prev1;
+
+            // Compute current best result for houses [start, i]
+            int curr = Math.max(take, notTake);
+
+            // Update variables for next iteration
+            prev2 = prev1; // Move prev1 to prev2
+            prev1 = curr;  // Move curr to prev1
+        }
+
+        // Return the final result (prev1 contains dp[end])
+        return prev1;
+    }
+
     public static void main(String[] args) {
         // Basic Test Cases
         System.out.println("\nBasic Test Cases:");
@@ -190,5 +286,18 @@ public class j02HouseRobberII {
         System.out.println("\nComplex/Large Input:");
         System.out.println("Input: [100,1,1,100,1,1,100], Expected: 300, Output: " +
                 rob(new int[]{100, 1, 1, 100, 1, 1, 100}));
+
+        // 1D Tabulation Optimized Tests
+        System.out.println("\n1D Tabulation Optimized Tests:");
+        System.out.println("Input: [2,3,2], Expected: 3, Output: " +
+                rob1DTabulation(new int[]{2, 3, 2}));
+        System.out.println("Input: [1,2,3,1], Expected: 4, Output: " +
+                rob1DTabulation(new int[]{1, 2, 3, 1}));
+        System.out.println("Input: [], Expected: 0, Output: " +
+                rob1DTabulation(new int[]{}));
+        System.out.println("Input: null, Expected: 0, Output: " +
+                rob1DTabulation(null));
+        System.out.println("Input: [5,5,5,5], Expected: 10, Output: " +
+                rob1DTabulation(new int[]{5, 5, 5, 5}));
     }
 }
