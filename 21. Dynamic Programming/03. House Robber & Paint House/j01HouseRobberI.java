@@ -324,7 +324,7 @@ public class j01HouseRobberI {
         return dp[n - 1];
     }
 
-    /*-
+    /**
      * Approach 5: 1D Tabulation Optimized (Space O(1))
      * 
      * Intuition:
