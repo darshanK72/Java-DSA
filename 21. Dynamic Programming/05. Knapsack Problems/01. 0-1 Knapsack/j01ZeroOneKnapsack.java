@@ -194,6 +194,37 @@ public class j01ZeroOneKnapsack {
         return dp[n][W];
     }
 
+    /**
+     * Approach 3: Dynamic Programming (Space-Optimized 1D Tabulation)
+     * 
+     * Intuition:
+     * - Classic 0-1 knapsack DP can be reduced from a 2D table to a 1D array
+     *   because each state dp[capacity] only depends on values from the
+     *   previous row (previous item) at capacities <= current capacity.
+     * - We simulate the row transition by keeping the previous row in `dp`
+     *   and building the current row in `newDp` for each item.
+     * - This preserves correctness (no item is counted more than once) while
+     *   reducing space from O(n*W) to O(W).
+     * 
+     * Explanation:
+     * - Step 1: Validate inputs; return 0 for invalid or empty cases.
+     * - Step 2: Initialize a 1D dp array of size W+1 representing the best
+     *   value achievable for each capacity when considering processed items.
+     * - Step 3: For each item, build a new row (newDp) where for each capacity:
+     *   * notTake = dp[capacity]  (carry forward previous best without item)
+     *   * take = value[item] + dp[capacity - weight[item]] if weight fits
+     *   Then set newDp[capacity] = max(take, notTake).
+     * - Step 4: Replace dp with newDp and continue to next item.
+     * - Step 5: Answer is dp[W].
+     * 
+     * Time Complexity: O(n * W) where n is number of items and W is capacity.
+     * Space Complexity: O(W) for the single rolling DP array.
+     * 
+     * @param W    Knapsack capacity (0 ≤ W)
+     * @param val  Array of item values; val.length == wt.length
+     * @param wt   Array of item weights; wt[i] ≥ 0
+     * @return     Maximum value achievable with capacity W using 0-1 items
+     */
     public static int knapsackSpaceOptimized(int W, int val[], int wt[]) {
         // Validate input parameters
         if (val == null || wt == null || val.length != wt.length || W < 0) {
