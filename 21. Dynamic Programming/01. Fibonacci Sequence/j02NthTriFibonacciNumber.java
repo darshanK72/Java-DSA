@@ -77,10 +77,9 @@ public class j02NthTriFibonacciNumber {
             return dp[n];
         
         // Compute and store new value
-        dp[n] = fibNumber(n - 1, dp) + 
+        return dp[n] = fibNumber(n - 1, dp) + 
                 fibNumber(n - 2, dp) + 
                 fibNumber(n - 3, dp);
-        return dp[n];
     }
 
     /**

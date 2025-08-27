@@ -106,6 +106,72 @@ public class j04WaysToTileAFloorII {
         return dp[n] = (singleTileWays + multiTileWays) % MOD;
     }
 
+    /**
+     * Approach 2: Bottom-Up DP (Tabulation)
+     *
+     * Intuition:
+     * - Let f(n) be the number of ways to tile a 1 x n floor using tiles
+     *   of size 1 x 1 and 1 x m.
+     * - We can place a 1 x 1 tile first (remaining length n-1) or a 1 x m
+     *   tile first (remaining length n-m), so:
+     *     f(n) = f(n - 1) + f(n - m), with base f(0) = 1.
+     * - For lengths below m, only 1 x 1 tiles fit, thus f(i) = 1 for 0 <= i < m.
+     *
+     * Explanation:
+     * - Handle invalid input (n < 0 or m < 1) by returning 0.
+     * - If n == 0, exactly one way (empty tiling). If m == 1, both tiles are
+     *   effectively 1 x 1, yielding exactly one tiling for any n.
+     * - Initialize dp[0..m-1] = 1 and dp[m] = 2 (either all 1x1 or one 1xm
+     *   plus remaining 1s). Then fill dp[i] for i = m+1..n using the
+     *   recurrence with modulo arithmetic.
+     *
+     * Time Complexity: O(n)
+     *     Single pass to fill dp up to n.
+     * Space Complexity: O(n)
+     *     Array of size n+1.
+     *
+     * @param n        Length of the floor (units). If n < 0, returns 0.
+     * @param m        Length of the larger tile (1 x m). Must be >= 1.
+     * @return         Number of tilings modulo 10^9 + 7.
+     */
+    public static int countWaysTabulation(int n, int m) {
+        // Validate input parameters
+        if (n < 0 || m < 1) {
+            return 0;
+        }
+
+        // Base cases
+        if (n == 0) {
+            return 1; // One way: empty tiling
+        }
+        if (m == 1) {
+            return 1; // Only 1x1 tiles effectively; unique tiling
+        }
+        if (n < m) {
+            return 1; // Only 1x1 tiles can be used to reach length n
+        }
+
+        // dp[i] stores the number of tilings for a floor of length i
+        long[] dp = new long[n + 1];
+
+        // Initialize states 0..m-1 to 1: only 1x1 tiles fit
+        for (int i = 0; i < m; i++) {
+            dp[i] = 1;
+        }
+
+        // For exactly length m: either all 1x1 or one 1xm tile
+        dp[m] = 2;
+
+        // Fill for lengths > m using the recurrence f(i) = f(i-1) + f(i-m)
+        for (int i = m + 1; i <= n; i++) {
+            // Place one 1x1 tile first (i-1), or one 1xm tile first (i-m)
+            dp[i] = (dp[i - 1] + dp[i - m]) % MOD;
+        }
+
+        // Return result modulo MOD
+        return (int) (dp[n] % MOD);
+    }
+
     public static void main(String[] args) {
         // Basic/Happy path cases
         System.out.println("\nBasic Test Cases:");

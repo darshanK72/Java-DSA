@@ -78,8 +78,7 @@ public class j01FibonacciNumber {
             return dp[n];
             
         // Compute and store new value
-        dp[n] = fibNumber(n - 1, dp) + fibNumber(n - 2, dp);
-        return dp[n];
+        return dp[n] = fibNumber(n - 1, dp) + fibNumber(n - 2, dp);
     }
 
     /**

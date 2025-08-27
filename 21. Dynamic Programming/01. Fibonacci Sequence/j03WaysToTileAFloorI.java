@@ -83,8 +83,8 @@ public class j03WaysToTileAFloorI {
      */
     public static int countWaysToTile(int n, int[] dp) {
         // Base cases
-        if (n == 0) return 1;                // One way: no tiles placed
         if (n < 0) return 0;                  // Invalid: overshot length
+        if (n == 0) return 1;                // One way: no tiles placed
 
         // Return cached result if already computed
         if (dp[n] != -1) return dp[n];
@@ -97,6 +97,62 @@ public class j03WaysToTileAFloorI {
 
         // Cache and return total ways
         return dp[n] = verticalWays + horizontalWays;
+    }
+
+    /**
+     * Approach 2: Bottom-Up DP (Tabulation)
+     *
+     * Intuition:
+     * - The tiling count follows Fibonacci: f(n) = f(n-1) + f(n-2) with
+     *   bases f(0)=1 (empty board) and f(1)=1 (one vertical domino).
+     * - Build an array iteratively where dp[i] stores the number of tilings
+     *   for a 2 x i board, using previously computed results.
+     *
+     * Explanation:
+     * - Handle invalid input n < 0 by returning 0 since no tiling is possible.
+     * - Directly return base cases for n == 0 and n == 1.
+     * - Initialize dp[0] and dp[1] to 1, then iterate i from 2..n computing
+     *   dp[i] = dp[i-1] + dp[i-2]. This corresponds to placing a vertical
+     *   domino first (leaving i-1) or two horizontals (leaving i-2).
+     *
+     * Time Complexity: O(n)
+     *     Single pass filling dp[0..n].
+     * Space Complexity: O(n)
+     *     Array of size n+1 to store subproblem results.
+     *
+     * @param n        Length of the board (columns). If n < 0, returns 0.
+     * @return         Number of tilings of a 2 x n board.
+     */
+    public static int cointWaysToTileTabulation(int n){
+        // Validate input: negative lengths have 0 valid tilings
+        if (n < 0) {
+            return 0;
+        }
+
+        // Handle base cases explicitly to avoid out-of-bounds access
+        if (n == 0) {
+            return 1; // One way: empty tiling
+        }
+        if (n == 1) {
+            return 1; // One vertical domino
+        }
+
+        // dp[i] holds the number of tilings for a 2 x i board
+        int[] dp = new int[n + 1];
+
+        // Initialize base cases
+        dp[0] = 1; // Empty board
+        dp[1] = 1; // Single column: one vertical domino
+
+        // Fill the table from 2..n using the Fibonacci-like recurrence
+        for (int i = 2; i <= n; i++) {
+            // dp[i-1]: place one vertical domino in the first column
+            // dp[i-2]: place two horizontal dominoes covering first two columns
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+
+        // The answer for the full board length n
+        return dp[n];
     }
 
     public static void main(String[] args) {

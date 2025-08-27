@@ -113,6 +113,71 @@ public class j06DecodeWays {
         return dp[index] = totalWays;
     }
 
+    /**
+     * Approach 2: Bottom-Up DP (Tabulation)
+     *
+     * Intuition:
+     * - Let dp[i] be the number of ways to decode the substring s[0..i-1].
+     * - At position i, we can decode either one digit (if it's '1'..'9') or
+     *   two digits (if the pair forms 10..26). This gives the recurrence:
+     *     dp[i] = dp[i-1] (if s[i-1] != '0') + dp[i-2] (if s[i-2..i-1] is 10..26).
+     * - Base cases: dp[0] = 1 (empty string), dp[1] = 1 (if s[0] != '0').
+     *
+     * Explanation:
+     * - Handle null/empty input by returning 0.
+     * - If the first character is '0', no valid decoding exists.
+     * - Initialize dp[0] = 1 (empty string) and dp[1] = 1 (single valid digit).
+     * - For each position i >= 2, check if we can decode one digit (s[i-1])
+     *   and/or two digits (s[i-2..i-1]). Add the corresponding dp values.
+     *
+     * Time Complexity: O(n)
+     *     Single pass through the string.
+     * Space Complexity: O(n)
+     *     dp array of size n+1.
+     *
+     * @param s        Input digit string; may be null or empty
+     * @return         Number of valid decodings; 0 for null/empty/invalid
+     */
+    public static int numDecodingsTabulation(String s) {
+        // Handle null or empty input explicitly
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
+
+        // If the first character is '0', no valid decoding exists
+        if (s.charAt(0) == '0') {
+            return 0;
+        }
+
+        int n = s.length();
+        // dp[i] stores the number of ways to decode substring s[0..i-1]
+        int[] dp = new int[n + 1];
+
+        // Base cases
+        dp[0] = 1; // Empty string: one way (do nothing)
+        dp[1] = 1; // Single character: one way if it's not '0'
+
+        // Fill the dp table for positions 2..n
+        for (int i = 2; i <= n; i++) {
+            char one = s.charAt(i - 1);   // Current digit at position i-1
+            char ten = s.charAt(i - 2);   // Previous digit at position i-2
+
+            // Option 1: Decode single digit (1..9) at position i-1
+            if (one != '0') {
+                dp[i] += dp[i - 1];
+            }
+
+            // Option 2: Decode two digits (10..26) spanning positions i-2 and i-1
+            int val = (ten - '0') * 10 + (one - '0');
+            if (val >= 10 && val <= 26) {
+                dp[i] += dp[i - 2];
+            }
+        }
+
+        // Return the number of ways to decode the entire string
+        return dp[n];
+    }
+
     public static void main(String[] args) {
         // Basic Test Cases
         System.out.println("\nBasic Test Cases:");
