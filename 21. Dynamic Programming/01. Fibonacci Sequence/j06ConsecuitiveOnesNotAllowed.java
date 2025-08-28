@@ -23,7 +23,7 @@
 
 import java.util.Arrays;
 
-public class j05ConsecuitiveOnesNotAllowed {
+public class j06ConsecuitiveOnesNotAllowed {
     /**
      * Approach: Dynamic Programming with State
      * 

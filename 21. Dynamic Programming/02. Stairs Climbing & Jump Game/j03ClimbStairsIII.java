@@ -61,7 +61,7 @@ public class j03ClimbStairsIII {
 		Arrays.fill(dp, -1);
 		
 		// Compute number of ways starting from index 0
-		return countWaysMemoizationHelper(jumps, 0, dp);
+		return countWaysMemoizationBackwordHelper(jumps, 0, dp);
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class j03ClimbStairsIII {
 	 * @param dp          memoization array (-1 = unknown)
 	 * @return            number of ways from currIndex to last index
 	 */
-	public static int countWaysMemoizationHelper(int[] jumps,int currIndex,int[] dp){
+	public static int countWaysMemoizationBackwordHelper(int[] jumps,int currIndex,int[] dp){
 		// If we are at the destination (last index), count this as 1 way
 		if(currIndex == jumps.length - 1){
 			return 1;
@@ -101,7 +101,7 @@ public class j03ClimbStairsIII {
 			int nextIndex = currIndex + step; // Next index after jumping 'step' steps
 			// Ensure next index stays within staircase bounds
 			if(nextIndex < jumps.length){
-				numberOfWaysFromHere += countWaysMemoizationHelper(jumps, nextIndex, dp);
+				numberOfWaysFromHere += countWaysMemoizationBackwordHelper(jumps, nextIndex, dp);
 			}
 		}
 
@@ -165,18 +165,22 @@ public class j03ClimbStairsIII {
 	}
 
 	/**
-	 * Approach [3]: Top-Down (Forward) Memoization
+	 * Approach [3]: Top-Down (Forward) Memoization — Ways to Reach Index
 	 *
 	 * Intuition:
-	 * - Starting at index 0, push forward to all i + step within bounds and
-	 *   count the ways from those indices; memoize per index to avoid repeats.
+	 * - Let dp[i] denote the number of ways to REACH index i from start (0).
+	 * - Then dp[i] = sum of dp[j] for all j < i such that j + k == i for some
+	 *   1 <= k <= jumps[j]. Compute this top-down by asking "how many ways to
+	 *   reach i?" and recursively summing valid predecessors.
 	 *
 	 * Explanation:
-	 * - Handle null/empty input. Initialize dp with -1. Recurse forward and
-	 *   cache results to ensure each index is solved once.
+	 * - Handle invalid input. Initialize dp with -1, and set base dp[0] = 1.
+	 * - To compute dp[target], look at all prior indices that can jump to target
+	 *   and sum their memoized ways. This contrasts with the backward approach
+	 *   which counts ways FROM an index to the end.
 	 *
-	 * Time Complexity: O(S) edges considered; worst-case O(n^2).
-	 * Space Complexity: O(n) for memo plus recursion stack.
+	 * Time Complexity: O(n^2) in worst case (checking all predecessors per i).
+	 * Space Complexity: O(n) for memo and recursion depth.
 	 *
 	 * @param jumps  jumps[i] is max steps forward from index i
 	 * @param n      size bound used for index checks
@@ -185,58 +189,38 @@ public class j03ClimbStairsIII {
 	public static int countWaysMemonizationForward(int[] jumps, int n){
 		// Validate input; if invalid or empty, there are 0 ways
 		if (jumps == null || jumps.length == 0) return 0;
-		// Prefer the actual array length to avoid mismatch issues
 		final int size = jumps.length;
 		
-		// Initialize memo array with -1 indicating uncomputed states
+		// Initialize memo with -1 (unknown). Base: one way to be at index 0
 		int[] dp = new int[size];
 		Arrays.fill(dp, -1);
+		dp[0] = 1;
 		
-		// Compute number of ways starting from index 0
-		return countWaysMemonizationForwardHelper(jumps,n, 0, dp);
+		// Compute number of ways to REACH the last index
+		return countWaysMemonizationForwardHelper(jumps, n - 1, dp);
 	}
 
 	/**
-	 * Helper: Forward Memoization
+	 * Helper: compute ways to REACH a given index from start using memoization.
 	 *
-	 * Intuition:
-	 * - Try all steps from current index and sum the memoized answers ahead.
-	 *
-	 * Explanation:
-	 * - If at last index, return 1. If cached, return dp[index]. Otherwise loop
-	 *   all valid steps, recurse, accumulate, memoize, and return.
-	 *
-	 * Time Complexity: Mirrors the parent forward memoization.
-	 * Space Complexity: O(n) for memo and recursion depth.
-	 *
-	 * @param jumps  jumps array
-	 * @param n      size bound
-	 * @param index  current index
-	 * @param dp     memo array storing ways from each index
-	 * @return       number of ways from index to last index
+	 * @param jumps   jumps array
+	 * @param target  index whose reach-count we need
+	 * @param dp      memo array where dp[i] = ways to reach i (or -1 if unknown)
+	 * @return        number of ways to reach target from index 0
 	 */
-	public static int countWaysMemonizationForwardHelper(int[] jumps, int n, int index, int[] dp){
-		// If we are already at the last index, count this as one valid way
-		if(index == n - 1){
-			return 1;
-		}
-
-		// Return cached result if this subproblem was solved earlier
-		if(dp[index] != -1){
-			return dp[index];
-		}
-
-		int ways = 0; // Accumulate number of ways from current index
-		// Try all jump sizes allowed from current index
-		for(int step = 1; step <= jumps[index]; step++){
-			// Ensure the next index stays within array bounds
-			if(index + step < n){
-				// Recurse to the next index and add the number of ways from there
-				ways += countWaysMemonizationForwardHelper(jumps, n, index + step, dp);
+	public static int countWaysMemonizationForwardHelper(int[] jumps, int target, int[] dp){
+		// Base already initialized for 0, and cached values return immediately
+		if (dp[target] != -1) return dp[target];
+		
+		int totalWaysToTarget = 0;
+		// Consider all possible predecessors 'prev' that can jump to 'target'
+		for (int prev = 0; prev < target; prev++){
+			// If from 'prev' we can reach 'target' in one allowed jump
+			if (prev + jumps[prev] >= target){
+				totalWaysToTarget += countWaysMemonizationForwardHelper(jumps, prev, dp);
 			}
 		}
-		// Memoize the computed number of ways for current index
-		return dp[index] = ways;
+		return dp[target] = totalWaysToTarget;
 	}
 
 	/**

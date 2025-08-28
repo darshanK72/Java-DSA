@@ -121,6 +121,76 @@ public class j04JumpGameI {
         return dp[index] = 0;
     }
 
+    /**
+     * Approach: Bottom-Up Tabulation (Reachability DP)
+     *
+     * Intuition:
+     * - Maintain a boolean array dp where dp[i] indicates whether index i is reachable from start.
+     * - Initialize dp[0] = true. For each reachable index i, mark all indices i+1..i+nums[i] as reachable.
+     * - If we ever mark the last index as reachable, we can return true early.
+     *
+     * Explanation:
+     * - Handle null/empty as trivially true (already at or beyond destination semantics used in canJump).
+     * - Iterate forward, propagating reachability. Use bounds checks to avoid overflow.
+     *
+     * Time Complexity: O(n^2) in the worst case (sum of ranges).
+     * Space Complexity: O(n) for the dp array.
+     *
+     * @param nums   Array where nums[i] is the maximum jump length from index i
+     * @return       true if we can reach the last index, false otherwise
+     */
+    public boolean canJumpTabulation(int[] nums) {
+        if (nums == null || nums.length <= 1) return true;
+
+        int n = nums.length;
+        boolean[] dp = new boolean[n];
+        dp[0] = true;
+
+        for (int i = 0; i < n; i++) {
+            if (!dp[i]) continue; // skip unreachable indices
+            int maxJump = Math.min(n - 1, i + nums[i]);
+            for (int next = i + 1; next <= maxJump; next++) {
+                if (!dp[next]) {
+                    dp[next] = true;
+                    if (next == n - 1) return true; // early exit if last is reached
+                }
+            }
+        }
+
+        return dp[n - 1];
+    }
+
+    /**
+     * Approach: Greedy / Optimized Tabulation with Farthest Reach (O(n))
+     *
+     * Intuition:
+     * - Track the farthest index we can reach while scanning from left to right.
+     * - If the current index i is within the farthest reachable range, we can
+     *   update farthest = max(farthest, i + nums[i]). If we ever reach or pass
+     *   the last index, return true. If we encounter i > farthest, we are stuck.
+     *
+     * Explanation:
+     * - This effectively compresses the O(n^2) propagation into a single pass,
+     *   because we only maintain the frontier (farthest) rather than explicit
+     *   reachability for every cell.
+     *
+     * Time Complexity: O(n)
+     * Space Complexity: O(1)
+     *
+     * @param nums   Array where nums[i] is the maximum jump length from index i
+     * @return       true if we can reach the last index, false otherwise
+     */
+    public boolean canJumpGreedy(int[] nums) {
+        if (nums == null || nums.length <= 1) return true;
+        int farthest = 0;
+        int last = nums.length - 1;
+        for (int i = 0; i <= farthest; i++) {
+            farthest = Math.max(farthest, i + nums[i]);
+            if (farthest >= last) return true;
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         j04JumpGameI solution = new j04JumpGameI();
         
@@ -149,5 +219,15 @@ public class j04JumpGameI {
         System.out.println("Input: [2,0], Expected: true, Output: " + solution.canJump(new int[]{2,0}));
         System.out.println("Input: [1,0,1,0], Expected: false, Output: " + solution.canJump(new int[]{1,0,1,0}));
         System.out.println("Input: [3,0,8,2,0,0,1], Expected: true, Output: " + solution.canJump(new int[]{3,0,8,2,0,0,1}));
+
+        // Tabulation checks
+        System.out.println("\nTabulation (Bottom-Up) Checks:");
+        System.out.println("Input: [2,3,1,1,4], Expected: true, Output: " + solution.canJumpTabulation(new int[]{2,3,1,1,4}));
+        System.out.println("Input: [3,2,1,0,4], Expected: false, Output: " + solution.canJumpTabulation(new int[]{3,2,1,0,4}));
+
+        // Greedy O(n) checks
+        System.out.println("\nGreedy (O(n)) Checks:");
+        System.out.println("Input: [2,3,1,1,4], Expected: true, Output: " + solution.canJumpGreedy(new int[]{2,3,1,1,4}));
+        System.out.println("Input: [3,2,1,0,4], Expected: false, Output: " + solution.canJumpGreedy(new int[]{3,2,1,0,4}));
     }
 }

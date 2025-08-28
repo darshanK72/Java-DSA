@@ -28,7 +28,7 @@
 
 import java.util.Arrays;
 
-public class j06DecodeWays {
+public class j05DecodeWays {
     /**
      * Approach: Top-Down DP (Memoized Recursion)
      *
