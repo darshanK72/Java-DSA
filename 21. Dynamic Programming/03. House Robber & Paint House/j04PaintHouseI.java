@@ -125,30 +125,70 @@ public class j04PaintHouseI {
         return dp[house][lastColor] = minCost;
     }
 
+    /*-
+     * Approach 2: Bottom-Up DP with Tabulation
+     * 
+     * Intuition:
+     * - Build the solution iteratively from the first house to the last house.
+     * - For each house, we compute the minimum cost for all possible last colors
+     *   (0,1,2,3) by considering the costs from the previous house and adding
+     *   the current house's painting cost for each valid color choice.
+     * - This eliminates recursion overhead and builds the solution systematically.
+     * 
+     * Explanation:
+     * - Step 1: Initialize dp[house][lastColor] where lastColor in {0,1,2,3}.
+     *   lastColor represents the color used for the previous house (3 means no previous).
+     * - Step 2: Base case: For house 0, compute dp[0][lastColor] as the minimum
+     *   cost of painting house 0 with any color except lastColor.
+     * - Step 3: For each subsequent house, for each possible lastColor, try all
+     *   colors except lastColor and take the minimum cost.
+     * - Step 4: The answer is dp[n-1][3] (minimum cost for all houses with no
+     *   previous color constraint).
+     * 
+     * Time Complexity: O(n * 4 * 3) = O(n) - Each house considers 4 last colors
+     *                  and 3 color choices
+     * Space Complexity: O(n * 4) - DP table size
+     * 
+     * @param cost   n x 3 matrix where cost[i][j] = cost of painting house i
+     *               with color j (0=red, 1=blue, 2=green)
+     * @return       Minimum cost to paint all houses with no adjacent same colors
+     */
     public static int minCostTabulation(int[][] cost) {
-        int n = cost.length;
-        int[][] dp = new int[n][4];
+        // Handle edge cases: null or empty input
+        if (cost == null || cost.length == 0) {
+            return 0; // No houses to paint
+        }
+        
+        int n = cost.length;                    // Number of houses to paint
+        int[][] dp = new int[n][4];             // dp[house][lastColor] = min cost
         for(int i = 0; i < n; i++){
-            Arrays.fill(dp[i],-1);
+            Arrays.fill(dp[i],-1);              // Initialize all states as uncomputed
         }
 
-        dp[0][0] = Math.min(cost[0][1],cost[0][2]);
-        dp[0][1] = Math.min(cost[0][0],cost[0][2]);
-        dp[0][2] = Math.min(cost[0][0],cost[0][1]);
-        dp[0][3] = Math.min(cost[0][0],Math.min(cost[0][1],cost[0][2]));
+        // Base case: Compute minimum cost for first house (house 0)
+        // dp[0][lastColor] = min cost to paint house 0 with any color except lastColor
+        dp[0][0] = Math.min(cost[0][1],cost[0][2]);  // House 0 painted with min of blue/green
+        dp[0][1] = Math.min(cost[0][0],cost[0][2]);  // House 0 painted with min of red/green
+        dp[0][2] = Math.min(cost[0][0],cost[0][1]);  // House 0 painted with min of red/blue
+        dp[0][3] = Math.min(cost[0][0],Math.min(cost[0][1],cost[0][2])); // House 0 with any color
 
+        // Build solution iteratively for remaining houses
         for(int day = 1; day < n; day++){
+            // For each possible last color used in previous house
             for(int last = 0; last <= 3; last++){
-                int minCost = Integer.MAX_VALUE;
+                int minCost = Integer.MAX_VALUE;     // Track minimum cost for current state
+                // Try all colors (0=red, 1=blue, 2=green) except the last color
                 for(int i = 0; i <= 2; i++){
                     if(i != last){
+                        // Candidate cost: previous house cost + current house color cost
                         minCost = Math.min(minCost,cost[day][i] + dp[day-1][i]); 
                     }
                 }
-                dp[day][last] = minCost;
+                dp[day][last] = minCost;             // Store minimum cost for this state
             }
         }
         
+        // Return minimum cost for all houses with no previous color constraint
         return dp[n-1][3];
     }   
 
