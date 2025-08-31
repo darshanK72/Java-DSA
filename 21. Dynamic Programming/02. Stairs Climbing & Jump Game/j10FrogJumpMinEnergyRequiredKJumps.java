@@ -192,7 +192,7 @@ public class j10FrogJumpMinEnergyRequiredKJumps {
         return dp[0];
     }
 
-    /*-
+    /**
      * Approach 3: Memoized Backward DP (End -> Start)
      * 
      * Intuition:
@@ -222,7 +222,7 @@ public class j10FrogJumpMinEnergyRequiredKJumps {
         return frogJumpBackwardHelper(dp,heights,k,n-1); // Compute for last index
     }
 
-    /*-
+    /**
      * Helper Method: Backward memoized recurrence for dp[index]
      * 
      * Intuition:
@@ -259,7 +259,7 @@ public class j10FrogJumpMinEnergyRequiredKJumps {
         return dp[index] = minCost;             // Memoize and return
     }
 
-    /*-
+    /**
      * Approach 4: Backward Tabulation (Iterative End -> Start construction)
      * 
      * Intuition:

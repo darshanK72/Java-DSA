@@ -133,7 +133,7 @@ public class j01ZeroOneKnapsack {
         return dp[index][capacity];
     }
 
-    /*-
+    /**
      * Approach 2: Dynamic Programming (Bottom-Up Tabulation)
      * 
      * Intuition:

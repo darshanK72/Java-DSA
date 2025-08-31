@@ -125,7 +125,7 @@ public class j04PaintHouseI {
         return dp[house][lastColor] = minCost;
     }
 
-    /*-
+    /**
      * Approach 2: Bottom-Up DP with Tabulation
      * 
      * Intuition:
