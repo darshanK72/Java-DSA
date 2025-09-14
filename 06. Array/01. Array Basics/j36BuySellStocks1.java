@@ -46,7 +46,7 @@ public class j36BuySellStocks1 {
     }
 
     /**
-     * Approach: Single Pass (O(n))
+     * Approach 1: Single Pass (O(n))
      * 
      * Intuition:
      * - To find the maximum profit, we can iterate through the array once.
@@ -75,5 +75,57 @@ public class j36BuySellStocks1 {
         }
 
         return ans; // Return the maximum profit
+    }
+
+    /*-
+     * Approach 2: Reverse Traversal (O(n))
+     * 
+     * Intuition:
+     * - Instead of tracking minimum price from left to right, we track maximum 
+     *   price from right to left
+     * - At each position, we know the maximum price available to the right of 
+     *   current position
+     * - We calculate profit by selling at the maximum price and buying at current 
+     *   price
+     * - This approach works because we're looking for the best selling price 
+     *   available after each potential buying price
+     * 
+     * Explanation:
+     * - Step 1: Initialize max price to the last element (rightmost price)
+     * - Step 2: Traverse array from right to left, calculating profit at each 
+     *   position
+     * - Step 3: Update maximum price seen so far as we move left
+     * - Step 4: Keep track of maximum profit encountered during traversal
+     * 
+     * Time Complexity: O(n) where n is the length of prices array
+     * Space Complexity: O(1) using only constant extra space
+     * 
+     * @param prices    Array of stock prices for each day (1 <= prices.length <= 10^5)
+     * @return         Maximum profit from buying and selling exactly once
+     */
+    public int maxProfit(int[] prices) {
+        // Get array length for boundary calculations
+        int n = prices.length;
+        
+        // Initialize maximum price to last element (rightmost selling price)
+        int max = prices[n-1];
+        
+        // Initialize answer to track maximum profit found
+        int ans = 0; 
+        
+        // Traverse array from right to left to find optimal buy-sell pair
+        for(int i = n-1; i >= 0; i--){
+            // Calculate profit if we buy at current price and sell at max price
+            int profit = max - prices[i];
+            
+            // Update maximum price seen so far as we move leftward
+            max = Math.max(prices[i], max);
+            
+            // Update maximum profit if current profit is better
+            ans = Math.max(ans, profit);
+        }
+        
+        // Return the maximum profit achievable
+        return ans;
     }
 }
