@@ -25,7 +25,7 @@
  *     Total profit is 1 + 2 = 3
  */
 
-public class j03BuySellStocksCooldownPeriod {
+public class j05BuySellStocksCooldownPeriod {
 
     /**
      * Approach: Dynamic Programming with State Machine and Cooldown

@@ -24,10 +24,125 @@
  *     Total profit is 4 + 3 = 7
  */
 
+ import java.util.Arrays;
+
 public class j01BuySellStocksInfiniteTransaction {
 
     /**
-     * Approach: Dynamic Programming with State Machine
+     * Approach 1: Recursion + Memoization (Top-Down DP)
+     * 
+     * Intuition:
+     * - At any day `index`, we are in one of two states:
+     *   1) `canBuy == 1`  -> we are allowed to buy now (we do not hold stock)
+     *   2) `canBuy == 0`  -> we must sell or skip (we currently hold stock)
+     * - We explore both choices at each step and take the maximum profit.
+     * - With unlimited transactions, we can buy/sell as many times as beneficial,
+     *   but we cannot hold more than one share simultaneously.
+     * - We memoize on `(canBuy, index)` to avoid recomputation of overlapping
+     *   subproblems.
+     * 
+     * Explanation:
+     * - Step 1: Validate input and handle edge cases (null/empty -> profit 0).
+     * - Step 2: Create DP table `dp[2][n]` initialized to -1, where `n` is the
+     *   number of days. `dp[canBuy][i]` stores the best profit from day `i` with
+     *   the current ability to buy or not.
+     * - Step 3: Use a helper recursion:
+     *   - If `canBuy == 1`, choose max of buying today (subtract price and move
+     *     to `canBuy = 0`) or skipping.
+     *   - Else (`canBuy == 0`), choose max of selling today (add price and move
+     *     to `canBuy = 1`) or skipping.
+     * - Step 4: Base case when `index == n` (no days left): profit is 0.
+     * - Step 5: Return memoized result for the initial call `(index = 0, canBuy
+     *   = 1)`.
+     * 
+     * Time Complexity: O(n * 2) -> O(n), each state computed once.
+     * Space Complexity: O(n * 2) for memo + O(n) recursion stack in worst case.
+     * 
+     * @param prices    Array of daily stock prices
+     *                  (1 <= prices.length <= 3*10^4, 0 <= prices[i] <= 10^4)
+     * @return          Maximum profit with unlimited transactions
+     */
+    public static int maxProfitMemo(int[] prices) {
+        // Handle edge cases: null or empty input yields zero profit
+        if (prices == null || prices.length == 0) return 0;
+
+        // Determine number of days for DP dimensions
+        int n = prices.length;
+
+        // Allocate memoization table: rows -> canBuy state (0/1), cols -> day index
+        int[][] dp = new int[2][n];
+
+        // Initialize memo rows with -1 to denote uncomputed states
+        Arrays.fill(dp[0], -1);
+        Arrays.fill(dp[1], -1);
+
+        // Start recursion from day 0 with ability to buy (canBuy = 1)
+        return maxProfitMemoHelper(prices, dp, 0, 0);
+    }
+
+    /**
+     * Helper Method: maxProfitMemoHelper
+     * 
+     * Intuition:
+     * - Compute the maximum profit from `index` onward, given whether we can
+     *   buy (`canBuy == 1`) or must sell (`canBuy == 0`).
+     * - Use memo table `dp[canBuy][index]` to cache results.
+     * 
+     * Explanation:
+     * - If we reached the end (`index == prices.length`), return 0 (no more
+     *   transactions possible).
+     * - If memoized, return cached value.
+     * - Branch on `canBuy`:
+     *   - Buy branch: pay price today (subtract) and move to sell state.
+     *   - Sell branch: gain price today (add) and move to buy state.
+     *   - Skip branch: move to next day without changing state.
+     * - Cache and return the maximum of the considered choices.
+     * 
+     * Time Complexity: O(1) per state after memoization; total O(n).
+     * Space Complexity: O(1) auxiliary besides the shared memo table.
+     * 
+     * @param prices    Array of daily stock prices
+     * @param dp        Memoization table for states (2 x n)
+     * @param index     Current day index being processed
+     * @param canBuy    1 if we may buy now; 0 if we currently hold and may sell
+     * @return          Maximum profit achievable from this state
+     */
+    public static int maxProfitMemoHelper(int[] prices,int[][] dp,int index,int canSell){
+        // Base case: no days left -> no profit possible
+        if (index == prices.length) return 0;
+
+        // Return cached value if already computed
+        if (dp[canSell][index] != -1) return dp[canSell][index];
+
+        // Initialize best profit from this state
+        int profit = Integer.MIN_VALUE;
+
+        if (canSell == 0) {
+            // Option 1: Buy today -> pay price, switch to sell state next day
+            int buy = -prices[index] + maxProfitMemoHelper(prices, dp, index + 1, 1);
+
+            // Option 2: Skip buying today -> remain in buy state
+            int notBuy = maxProfitMemoHelper(prices, dp, index + 1, 0);
+
+            // Choose the better of buying vs skipping
+            profit = Math.max(buy, notBuy);
+        } else {
+            // Option 1: Sell today -> gain price, switch to buy state next day
+            int sell = prices[index] + maxProfitMemoHelper(prices, dp, index + 1, 0);
+
+            // Option 2: Skip selling today -> remain in sell state
+            int notSell = maxProfitMemoHelper(prices, dp, index + 1, 1);
+
+            // Choose the better of selling vs skipping
+            profit = Math.max(sell, notSell);
+        }
+
+        // Memoize and return the computed best profit for this state
+        return dp[canSell][index] = profit;
+    }
+
+    /**
+     * Approach 2: Dynamic Programming with State Machine
      * 
      * Intuition:
      * - Use a state machine approach where we track two states: holding stock 
@@ -52,7 +167,7 @@ public class j01BuySellStocksInfiniteTransaction {
      * @param prices    Array of stock prices for each day (1 <= prices.length <= 3*10^4)
      * @return         Maximum profit from unlimited buy and sell transactions
      */
-    public static int maxProfit(int[] prices) {
+    public static int maxProfitTabulation(int[] prices) {
         // Get array length for DP table initialization
         int n = prices.length;
         
@@ -78,8 +193,8 @@ public class j01BuySellStocksInfiniteTransaction {
         return Math.max(dp[0][n - 1], dp[1][n - 1]);
     }
 
-    /*-
-     * Approach 2: Space-Optimized Dynamic Programming
+    /**
+     * Approach 3: Space-Optimized Dynamic Programming
      * 
      * Intuition:
      * - Instead of maintaining a 2D DP table, we only need two variables to track 
@@ -131,31 +246,31 @@ public class j01BuySellStocksInfiniteTransaction {
         // Test Case 1: Basic cases with multiple profitable transactions
         System.out.println("\nBasic Test Cases:");
         System.out.println("Input: [7,1,5,3,6,4], Expected: 7, Output: " + 
-            maxProfit(new int[]{7,1,5,3,6,4}));
+            maxProfitMemo(new int[]{7,1,5,3,6,4}));
         System.out.println("Input: [1,2,3,4,5], Expected: 4, Output: " + 
-            maxProfit(new int[]{1,2,3,4,5}));
+            maxProfitMemo(new int[]{1,2,3,4,5}));
         System.out.println("Input: [5,4,3,2,1], Expected: 0, Output: " + 
-            maxProfit(new int[]{5,4,3,2,1}));
+            maxProfitMemo(new int[]{5,4,3,2,1}));
 
         // Test Case 2: Edge cases
         System.out.println("\nEdge Cases:");
         System.out.println("Input: [1], Expected: 0, Output: " + 
-            maxProfit(new int[]{1}));
+            maxProfitTabulation(new int[]{1}));
         System.out.println("Input: [1,1,1,1], Expected: 0, Output: " + 
-            maxProfit(new int[]{1,1,1,1}));
+            maxProfitTabulation(new int[]{1,1,1,1}));
 
         // Test Case 3: Boundary cases
         System.out.println("\nBoundary Cases:");
         System.out.println("Input: [0,1,0,1], Expected: 2, Output: " + 
-            maxProfit(new int[]{0,1,0,1}));
+            maxProfitSpaceOptimized(new int[]{0,1,0,1}));
         System.out.println("Input: [10000,1,10000], Expected: 9999, Output: " + 
-            maxProfit(new int[]{10000,1,10000}));
+            maxProfitSpaceOptimized(new int[]{10000,1,10000}));
 
         // Test Case 4: Special cases
         System.out.println("\nSpecial Cases:");
         System.out.println("Input: [2,4,1,7], Expected: 8, Output: " + 
-            maxProfit(new int[]{2,4,1,7}));
+            maxProfitSpaceOptimized(new int[]{2,4,1,7}));
         System.out.println("Input: [3,3,5,0,0,3,1,4], Expected: 8, Output: " + 
-            maxProfit(new int[]{3,3,5,0,0,3,1,4}));
+            maxProfitSpaceOptimized(new int[]{3,3,5,0,0,3,1,4}));
     }
 }

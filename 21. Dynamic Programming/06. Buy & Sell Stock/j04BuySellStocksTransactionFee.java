@@ -25,7 +25,7 @@
  *     Total profit is 5 + 3 = 8
  */
 
-public class j02BuySellStocksTransactionFee {
+public class j04BuySellStocksTransactionFee {
 
     /**
      * Approach 1: Dynamic Programming with State Machine
