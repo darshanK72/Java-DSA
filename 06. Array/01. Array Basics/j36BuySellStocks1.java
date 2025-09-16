@@ -77,7 +77,7 @@ public class j36BuySellStocks1 {
         return ans; // Return the maximum profit
     }
 
-    /*-
+    /**
      * Approach 2: Reverse Traversal (O(n))
      * 
      * Intuition:

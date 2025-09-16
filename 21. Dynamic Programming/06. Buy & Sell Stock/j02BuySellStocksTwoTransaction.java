@@ -27,8 +27,78 @@ import java.util.Arrays;
 
 public class j02BuySellStocksTwoTransaction {
 
+    /*-
+     * Approach 1: Two-Pass Split DP (Prefix + Suffix Best Profits)
+     * 
+     * Intuition:
+     * - The best total profit with at most two transactions can be realized by
+     *   splitting the timeline at some index i: make at most one transaction
+     *   in the prefix [0..i] and at most one in the suffix [i..n-1]. The
+     *   optimal answer is the maximum over all i of prefixBest[i] + suffixBest[i].
+     * - We can compute these two arrays in linear time: a forward pass tracks
+     *   the minimum price so far to compute the best single-transaction
+     *   profit up to each day; a backward pass tracks the maximum future price
+     *   to compute the best single-transaction profit from each day onward.
+     * 
+     * Explanation:
+     * - Forward pass builds buy[i]: best profit achievable within [0..i].
+     *   Maintain running min of prices; potential profit at day i is
+     *   prices[i] - minSoFar. Take max with previous best.
+     * - Backward pass builds sell[i]: best profit achievable within [i..n-1].
+     *   Maintain running max to the right; potential profit buying at i and
+     *   selling later is maxRight - prices[i]. Take max with previous best.
+     * - Combine: answer is max over i of buy[i] + sell[i]. This allows the two
+     *   transactions to reside entirely in the prefix, entirely in the suffix,
+     *   or one on each side of i, without overlap.
+     * 
+     * Time Complexity: O(n) — two linear passes plus a final combine pass.
+     * Space Complexity: O(n) — arrays buy and sell of length n.
+     * 
+     * @param prices    Array of daily prices (null/empty -> 0 profit)
+     * @return          Maximum profit with at most two transactions
+     */
+    public int maxProfit(int[] prices) {
+        // Handle edge cases: null or fewer than 2 days yields zero profit
+        if (prices == null || prices.length == 0) return 0;
+        int n = prices.length;
+        if (n == 1) return 0;
+
+        int[] buy = new int[n];  // buy[i] = best profit in [0..i] with one transaction
+        int[] sell = new int[n]; // sell[i] = best profit in [i..n-1] with one transaction
+
+        int min = prices[0]; // track minimum price seen so far for prefix computations
+        int ans = 0;         // reuse as running best profit
+        buy[0] = 0;          // with only one day, profit is zero
+        for (int i = 1; i < n; i++) {
+            // Candidate profit: sell today vs. keep previous best
+            ans = Math.max(prices[i] - min, ans);
+            // Update minimum buying price so far
+            min = Math.min(prices[i], min);
+            // Store best prefix profit up to index i
+            buy[i] = ans;
+        }
+
+        sell[n - 1] = 0;      // single day suffix has zero profit
+        ans = 0;               // reset to accumulate suffix bests
+        int max = prices[n - 1]; // track maximum future price for suffix computations
+        for (int i = n - 2; i >= 0; i--) {
+            // Candidate profit: buy today and sell later at max vs. keep best
+            ans = Math.max(max - prices[i], ans);
+            // Update maximum selling price to the right
+            max = Math.max(prices[i], max);
+            // Store best suffix profit starting at index i
+            sell[i] = ans;
+        }
+
+        // Combine prefix and suffix bests to simulate at most two transactions
+        for (int i = 0; i < n; i++) {
+            ans = Math.max(ans, buy[i] + sell[i]);
+        }
+        return ans;
+    }
+
     /**
-     * Approach: DP + Memoization (Top-Down)
+     * Approach 2: DP + Memoization (Top-Down)
      * 
      * Intuition:
      * - Treat the trading process as a finite state machine driven by three
@@ -129,7 +199,7 @@ public class j02BuySellStocksTwoTransaction {
     }
 
     /**
-     * Approach: DP + Tabulation (Bottom-Up)
+     * Approach 3: DP + Tabulation (Bottom-Up)
      * 
      * Intuition:
      * - Unroll the recursive formulation into an iterative DP that fills a
@@ -178,7 +248,7 @@ public class j02BuySellStocksTwoTransaction {
     }
 
     /**
-     * Approach: Space-Optimized Tabulation
+     * Approach 4: Space-Optimized Tabulation
      * 
      * Intuition:
      * - Observing that transitions use only index+1 states, we can retain only

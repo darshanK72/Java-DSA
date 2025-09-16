@@ -25,7 +25,118 @@
  *     Total profit is 5 + 3 = 8
  */
 
-public class j04BuySellStocksTransactionFee {
+import java.util.Arrays;
+
+public class j05BuySellStocksTransactionFee {
+
+    /**
+     * Approach 1: Top-Down DP (Memoization) with Transaction Fee
+     * 
+     * Intuition:
+     * - At each day, decide based on current state (canBuy vs holding).
+     * - Transaction fee is applied when we buy or sell (here applied on buy as
+     *   a modeling choice; equivalent if consistently handled).
+     * - Memoize results for (day, canBuy) to avoid recomputation.
+     * 
+     * Explanation:
+     * - State (index, canBuy). Base: index==n → 0.
+     * - If canBuy=1: max(buy today → -price[i] - fee + f(i+1,0), skip → f(i+1,1)).
+     * - If canBuy=0: max(sell today → +price[i] + f(i+1,1), skip → f(i+1,0)).
+     * 
+     * Time Complexity: O(n) states × O(1) work each → O(n)
+     * Space Complexity: O(n) for memo and recursion depth
+     * 
+     * @param prices    Daily prices (may be null/empty)
+     * @param fee       Per-transaction fee (>=0)
+     * @return          Maximum profit with transaction fee
+     */
+    public static int maxProfitMemo(int[] prices, int fee) {
+        // Handle edge cases up front
+        if (prices == null || prices.length <= 1) return 0;
+        int n = prices.length;
+        int[][] dp = new int[2][n];
+        Arrays.fill(dp[0], -1);
+        Arrays.fill(dp[1], -1);
+        return maxProfitMemoHelper(prices, dp, 0, 1, fee);
+    }
+
+    /**
+     * Helper Method
+     * 
+     * Intuition:
+     * - Explore both choices (take/skip) and memoize best outcome.
+     * 
+     * Explanation:
+     * - Uses dp[canBuy][index] to cache computed profit.
+     * - Recurses linearly through days applying fee consistently.
+     * 
+     * Time Complexity: O(1) per state; overall O(n)
+     * Space Complexity: O(n)
+     * 
+     * @param prices    Prices array
+     * @param dp        Memo table dp[canBuy][index]
+     * @param index     Current day
+     * @param canBuy    1 if allowed to buy, 0 if currently holding
+     * @param fee       Transaction fee
+     * @return          Best profit from this state
+     */
+    public static int maxProfitMemoHelper(int[] prices,int[][] dp,int index,int canBuy,int fee){
+        if(index == prices.length) return 0;
+        int profit = Integer.MIN_VALUE;
+        if(dp[canBuy][index] != -1) return dp[canBuy][index];
+        if(canBuy == 1){
+            int buy = -prices[index] - fee + maxProfitMemoHelper(prices,dp,index + 1,0,fee);
+            int notBuy = maxProfitMemoHelper(prices,dp,index + 1,1,fee);
+            profit = Math.max(buy,notBuy);
+        }else{
+            int sell = prices[index] + maxProfitMemoHelper(prices,dp,index + 1,1,fee);
+            int notSell = maxProfitMemoHelper(prices,dp,index + 1,0,fee);
+            profit = Math.max(sell,notSell);
+        }
+        return dp[canBuy][index] = profit;
+    }
+
+    /**
+     * Approach 2: Bottom-Up DP (Tabulation) with Transaction Fee
+     * 
+     * Intuition:
+     * - Build from the end to the start, modeling two states per day:
+     *   holding vs not-holding.
+     * - Apply fee consistently on buy (or sell) transition.
+     * 
+     * Explanation:
+     * - dp[2][n+1] to allow safe index+1 access.
+     * - For each day from n-1..0, compute best for both states.
+     * - Answer is dp[0][0] (start not-holding, can buy).
+     * 
+     * Time Complexity: O(n)
+     * Space Complexity: O(n)
+     * 
+     * @param prices    Daily prices (may be null/empty)
+     * @param fee       Per-transaction fee
+     * @return          Maximum profit with transaction fee
+     */
+    public static int maxProfitTabulation1(int[] prices, int fee) {
+        if (prices == null || prices.length <= 1) return 0;
+
+        int n = prices.length;
+        int[][] dp = new int[2][n+1];
+        for(int index = n - 1; index >= 0; index--){
+            for(int holding = 0; holding <= 1; holding++){
+                if(holding == 0){
+                    int buy = -prices[index] - fee + dp[1][index + 1];
+                    int notBuy = dp[0][index + 1];
+                    dp[holding][index] = Math.max(buy,notBuy);
+                }else{
+                    int sell = prices[index] + dp[0][index + 1];
+                    int notSell = dp[1][index + 1];
+                    dp[holding][index] = Math.max(sell,notSell);
+                }
+            }
+        }
+
+        return dp[0][0];
+    }
 
     /**
      * Approach 1: Dynamic Programming with State Machine
@@ -54,7 +165,10 @@ public class j04BuySellStocksTransactionFee {
      * @param fee       Transaction fee for each sell operation (0 <= fee <= 5*10^4)
      * @return         Maximum profit from unlimited transactions with fees
      */
-    public static int maxProfit(int[] prices, int fee) {
+    public static int maxProfitTabulation2(int[] prices, int fee) {
+        // Handle edge cases: null or length <= 1 yields zero profit
+        if (prices == null || prices.length <= 1) return 0;
+
         // Get array length for DP table initialization
         int n = prices.length;
         
@@ -107,6 +221,9 @@ public class j04BuySellStocksTransactionFee {
      * @return         Maximum profit from unlimited transactions with fees
      */
     public static int maxProfitSpaceOptimized(int[] prices, int fee) {
+        // Handle edge cases: null or length <= 1 yields zero profit
+        if (prices == null || prices.length <= 1) return 0;
+
         // Get array length for iteration bounds
         int n = prices.length;
         
@@ -133,33 +250,37 @@ public class j04BuySellStocksTransactionFee {
         // Test Case 1: Basic cases with transaction fees
         System.out.println("\nBasic Test Cases:");
         System.out.println("Input: [1,3,2,8,4,9], fee=2, Expected: 8, Output: " + 
-            maxProfit(new int[]{1,3,2,8,4,9}, 2));
+            maxProfitMemo(new int[]{1,3,2,8,4,9}, 2));
         System.out.println("Input: [1,3,2,8,4,9], fee=2, Expected: 8, Output: " + 
             maxProfitSpaceOptimized(new int[]{1,3,2,8,4,9}, 2));
         System.out.println("Input: [1,2,3,4,5], fee=2, Expected: 2, Output: " + 
-            maxProfit(new int[]{1,2,3,4,5}, 2));
+            maxProfitTabulation1(new int[]{1,2,3,4,5}, 2));
 
         // Test Case 2: Edge cases
         System.out.println("\nEdge Cases:");
+        System.out.println("Input: null, fee=1, Expected: 0, Output: " + 
+            maxProfitMemo(null, 1));
+        System.out.println("Input: [], fee=1, Expected: 0, Output: " + 
+            maxProfitTabulation1(new int[]{}, 1));
         System.out.println("Input: [1], fee=1, Expected: 0, Output: " + 
-            maxProfit(new int[]{1}, 1));
+            maxProfitMemo(new int[]{1}, 1));
         System.out.println("Input: [1,1,1,1], fee=0, Expected: 0, Output: " + 
-            maxProfit(new int[]{1,1,1,1}, 0));
+            maxProfitMemo(new int[]{1,1,1,1}, 0));
         System.out.println("Input: [1,1,1,1], fee=1, Expected: 0, Output: " + 
-            maxProfit(new int[]{1,1,1,1}, 1));
+            maxProfitMemo(new int[]{1,1,1,1}, 1));
 
         // Test Case 3: Boundary cases
         System.out.println("\nBoundary Cases:");
         System.out.println("Input: [0,1,0,1], fee=0, Expected: 2, Output: " + 
-            maxProfit(new int[]{0,1,0,1}, 0));
+            maxProfitTabulation1(new int[]{0,1,0,1}, 0));
         System.out.println("Input: [10000,1,10000], fee=5000, Expected: 4999, Output: " + 
-            maxProfit(new int[]{10000,1,10000}, 5000));
+            maxProfitTabulation2(new int[]{10000,1,10000}, 5000));
 
         // Test Case 4: Special cases
         System.out.println("\nSpecial Cases:");
         System.out.println("Input: [2,4,1,7], fee=1, Expected: 5, Output: " + 
-            maxProfit(new int[]{2,4,1,7}, 1));
+            maxProfitTabulation1(new int[]{2,4,1,7}, 1));
         System.out.println("Input: [3,3,5,0,0,3,1,4], fee=2, Expected: 6, Output: " + 
-            maxProfit(new int[]{3,3,5,0,0,3,1,4}, 2));
+            maxProfitTabulation2(new int[]{3,3,5,0,0,3,1,4}, 2));
     }
 }
