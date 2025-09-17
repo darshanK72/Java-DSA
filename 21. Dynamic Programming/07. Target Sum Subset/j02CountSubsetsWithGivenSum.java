@@ -28,10 +28,10 @@
 
 import java.util.Arrays;
 
-public class j06PerfectSumProblem {
+public class j02PerfectSumProblem {
 
     /**
-     * Approach: Memoized Dynamic Programming (Top-Down)
+     * Approach 1: Memoized Dynamic Programming (Top-Down)
      * 
      * Intuition:
      * - Use recursive approach with memoization to count all valid subsets
