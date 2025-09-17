@@ -28,7 +28,7 @@
 
 import java.util.Arrays;
 
-public class j02PerfectSumProblem {
+public class j02CountSubsetsWithGivenSum {
 
     /**
      * Approach 1: Memoized Dynamic Programming (Top-Down)
