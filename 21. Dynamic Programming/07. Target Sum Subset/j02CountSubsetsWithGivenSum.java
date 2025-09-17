@@ -284,14 +284,24 @@ public class j02CountSubsetsWithGivenSum {
         dp[0] = 1; // Empty subset sums to 0 (1 way)
         
         // Fill DP array using bottom-up approach
-        for (int num : nums) {
-            // Update from right to left to avoid overwriting needed values
-            for (int tar = target; tar >= num; tar--) {
-                dp[tar] += dp[tar - num];
+        for(int i = 1; i <= nums.length; i++){
+
+            // Create new DP array for current element
+            int[] newDp = new int[target + 1];
+
+            // For each target, update the DP array
+            for(int tar = 1; tar <= target; tar++){
+                int notTake = dp[tar]; // Don't take the current element
+                int take = 0; // Take the current element
+                if(tar >= nums[i - 1]){ // If the target is greater than the current element
+                    take = dp[tar - nums[i - 1]];
+                }
+                newDp[tar] = take + notTake; // Update the DP array
             }
+            dp = newDp; // Update the DP array
         }
         
-        return dp[target];
+        return dp[target]; // Return the result
     }
 
     public static void main(String[] args) {

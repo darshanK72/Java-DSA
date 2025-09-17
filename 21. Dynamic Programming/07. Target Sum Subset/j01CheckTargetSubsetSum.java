@@ -86,12 +86,12 @@ public class j01CheckTargetSubsetSum {
      * @return        True if possible from this state, else false
      */
     public static boolean isSubsetSumMemoHelper(int[] arr, int[][] dp, int sum, int index) {
-        // Guard: if index crosses the end, no elements left to choose
-        if (index > arr.length)
-            return false;                // cannot form further subsets
         // Success base: sum has been achieved
         if (sum == 0)
             return true;                 // empty subset works for sum 0
+        // Guard: if index crosses the end, no elements left to choose
+        if (index == arr.length)
+            return false;                // cannot form further subsets
         // Failure base: negative sum cannot be formed by non-negatives
         if (sum < 0)
             return false;                // invalid path due to overshoot
