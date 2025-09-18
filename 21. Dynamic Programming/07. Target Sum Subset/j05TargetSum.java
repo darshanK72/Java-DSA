@@ -23,7 +23,7 @@
  *     There are 5 ways to assign symbols to get sum 3.
  */
 
-public class j04TargetSum {
+public class j05TargetSum {
     /**
      * Approach: Brute-force recursion over +/- choices
      * 
