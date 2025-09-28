@@ -121,6 +121,41 @@ public class j10LargestAreaHistogram {
         return maxArea;
     }
 
+
+    /**
+     * Helper Method: Find next smaller element for each bar
+     */
+    private static int[] getNextSmallerElements(int[] arr) {
+        Stack<Integer> stack = new Stack<>();
+        int[] out = new int[arr.length];
+        Arrays.fill(out, arr.length);  // Default: no smaller element found
+        
+        for (int i = 0; i < arr.length; i++) {
+            while (!stack.isEmpty() && arr[stack.peek()] > arr[i]) {
+                out[stack.pop()] = i;
+            }
+            stack.push(i);
+        }
+        return out;
+    }
+
+    /**
+     * Helper Method: Find previous smaller element for each bar
+     */
+    private static int[] getPrevSmallerElements(int[] arr) {
+        Stack<Integer> stack = new Stack<>();
+        int[] out = new int[arr.length];
+        Arrays.fill(out, -1);  // Default: no smaller element found
+        
+        for (int i = arr.length - 1; i >= 0; i--) {
+            while (!stack.isEmpty() && arr[stack.peek()] > arr[i]) {
+                out[stack.pop()] = i;
+            }
+            stack.push(i);
+        }
+        return out;
+    }
+
     /**
      * Approach 3: Single-Pass Monotonic Stack
      * 
@@ -166,39 +201,5 @@ public class j10LargestAreaHistogram {
             maxArea = Math.max(maxArea, height * width);  // Update max area
         }
         return maxArea;
-    }
-
-    /**
-     * Helper Method: Find next smaller element for each bar
-     */
-    private static int[] getNextSmallerElements(int[] arr) {
-        Stack<Integer> stack = new Stack<>();
-        int[] out = new int[arr.length];
-        Arrays.fill(out, arr.length);  // Default: no smaller element found
-        
-        for (int i = 0; i < arr.length; i++) {
-            while (!stack.isEmpty() && arr[stack.peek()] > arr[i]) {
-                out[stack.pop()] = i;
-            }
-            stack.push(i);
-        }
-        return out;
-    }
-
-    /**
-     * Helper Method: Find previous smaller element for each bar
-     */
-    private static int[] getPrevSmallerElements(int[] arr) {
-        Stack<Integer> stack = new Stack<>();
-        int[] out = new int[arr.length];
-        Arrays.fill(out, -1);  // Default: no smaller element found
-        
-        for (int i = arr.length - 1; i >= 0; i--) {
-            while (!stack.isEmpty() && arr[stack.peek()] > arr[i]) {
-                out[stack.pop()] = i;
-            }
-            stack.push(i);
-        }
-        return out;
     }
 }
