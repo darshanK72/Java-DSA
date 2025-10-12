@@ -1,4 +1,4 @@
-/*-
+/**
  * LeetCode 300. Longest Increasing Subsequence
  * 
  * Problem Statement:
@@ -32,7 +32,7 @@ import java.util.Arrays;
 
 public class j01LongestIncreasingSubsequence {
 
-    /*-
+    /**
      * Approach 1: Brute Force Recursion
      * 
      * Intuition:
@@ -61,7 +61,7 @@ public class j01LongestIncreasingSubsequence {
         return longestLISBruitForce(nums, 0, -1);
     }
 
-    /*-
+    /**
      * Helper Method: Recursive exploration of all subsequence possibilities
      * 
      * Intuition:
@@ -105,7 +105,7 @@ public class j01LongestIncreasingSubsequence {
         return Math.max(notTake, take);
     }
 
-    /*-
+    /**
      * Approach 2: Memoization (Top-Down DP)
      * 
      * Intuition:
@@ -142,7 +142,7 @@ public class j01LongestIncreasingSubsequence {
         return longestLISMemoHelper(nums, dp, 0, -1);
     }
 
-    /*-
+    /**
      * Helper Method: Memoized recursive computation
      * 
      * Intuition:
@@ -192,7 +192,7 @@ public class j01LongestIncreasingSubsequence {
         return dp[index][prev + 1] = Math.max(notTake, take);
     }
 
-    /*-
+    /**
      * Approach 3: Bottom-Up DP (Space Optimized)
      * 
      * Intuition:
