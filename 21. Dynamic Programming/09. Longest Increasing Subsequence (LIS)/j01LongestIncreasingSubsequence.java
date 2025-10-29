@@ -193,7 +193,120 @@ public class j01LongestIncreasingSubsequence {
     }
 
     /**
-     * Approach 3: Bottom-Up DP (Space Optimized)
+     * Approach 3: Tabulation (Bottom-Up DP over index and prev-index state)
+     *
+     * Intuition:
+     * - We convert the memoized state (index, prevIndex) into a bottom-up table.
+     * - Use 2D DP where dp[i][p] stores the best LIS length starting from i
+     *   when the previous chosen element's index is (p - 1). We shift by +1 so
+     *   that p = 0 represents prev = -1 (no element chosen yet).
+     * - Transition mirrors the recursive choices: take current element (if it
+     *   maintains increasing order), or skip it.
+     *
+     * Explanation:
+     * - Step 1: Define dp with dimensions (n+1) x (n+1). Row n is the base row
+     *   of 0s representing no elements left to process.
+     * - Step 2: Iterate i from n-1 down to 0 and prev index j from i-1 down to
+     *   -1 (encoded as column j+1). For each state, compute:
+     *     * take = 1 + dp[i+1][i+1] if j == -1 or nums[i] > nums[j]
+     *     * notTake = dp[i+1][j+1]
+     * - Step 3: dp[i][j+1] = max(take, notTake). Answer is dp[0][0]
+     *   (start at i=0 with prev=-1 encoded as 0).
+     *
+     * Time Complexity: O(n^2) due to the nested loops over i and j.
+     * Space Complexity: O(n^2) for the dp table.
+     *
+     * @param nums	Array of integers (1 <= nums.length <= 2500)
+     * @return		Length of longest strictly increasing subsequence
+     */
+    public static int lengthOfLISTabulation(int[] nums) {
+        // Get array length and allocate DP table where dp[i][p] represents
+        // best LIS starting at index i given previous index encoded as p=j+1
+        int n = nums.length;
+        int[][] dp = new int[n + 1][n + 1];
+
+        // Fill from bottom (i = n-1 -> 0). Base case dp[n][*] is already 0.
+        for (int i = n - 1; i >= 0; i--) {
+            // Iterate prev index j from i-1 down to -1, mapped to column j+1
+            for (int j = i - 1; j >= -1; j--) {
+                // Option 1: take current nums[i] if it keeps sequence increasing
+                int take = -1; // initialize to -1 so max with notTake works
+                if (j == -1 || nums[i] > nums[j]) {
+                    // If we take nums[i], next state is (i+1, prev=i) => column i+1
+                    take = dp[i + 1][i + 1] + 1;
+                }
+
+                // Option 2: skip current element, keep prev as j
+                int notTake = dp[i + 1][j + 1];
+
+                // Choose the better of taking or skipping
+                dp[i][j + 1] = Math.max(take, notTake);
+            }
+        }
+
+        // Start from index 0 with prev = -1 (encoded as 0)
+        return dp[0][0];
+    }
+    
+
+    /**
+     * Approach 4: Tabulation (Space Optimized over prev-index state)
+     *
+     * Intuition:
+     * - This is the 2D tabulation reformulated to use only two 1D arrays.
+     * - We still encode prev index as column (j + 1). For each i, we build a
+     *   fresh row `next` from the row below `dp` (which represents i+1).
+     * - Transitions mirror the 2D version: either take nums[i] if it keeps the
+     *   sequence increasing, or skip it and carry forward the best.
+     *
+     * Explanation:
+     * - Step 1: Maintain `dp` as the row for i+1 and compute `next` for i.
+     * - Step 2: For each prev j in [i-1..-1], compute:
+     *     * take = 1 + dp[i+1] when j == -1 or nums[i] > nums[j]
+     *     * notTake = dp[j+1]
+     * - Step 3: next[j+1] = max(take, notTake). After finishing j-loop, set
+     *   dp = next. The answer is dp[0] (i=0, prev=-1 encoded as 0).
+     *
+     * Time Complexity: O(n^2) due to nested loops over i and j.
+     * Space Complexity: O(n) for the two 1D arrays used per row.
+     *
+     * @param nums    Array of integers (1 <= nums.length <= 2500)
+     * @return        Length of longest strictly increasing subsequence
+     */
+    public static int lengthOfLISTabulationSpaceOptimized(int[] nums) {
+        // Length of the input sequence
+        int n = nums.length;
+        // `dp` holds the row for i+1 (encoded prev indices as columns)
+        int[] dp = new int[n + 1];
+
+        // Build rows from bottom to top: i = n-1 down to 0
+        for (int i = n - 1; i >= 0; i--) {
+            // `next` is the row for current i that we'll compute from `dp`
+            int[] next = new int[n + 1];
+            // Iterate prev index j from i-1 down to -1, mapped to column j+1
+            for (int j = i - 1; j >= -1; j--) {
+                // Option 1: take nums[i] if it keeps sequence strictly increasing
+                int take = -1;
+                if (j == -1 || nums[i] > nums[j]) {
+                    // If we take nums[i], next state is (i+1, prev=i) => column i+1
+                    take = dp[i + 1] + 1;
+                }
+                // Option 2: skip current element, keep prev as j
+                int notTake = dp[j + 1];
+
+                // Best of taking or skipping for state (i, j)
+                next[j + 1] = Math.max(take, notTake);
+            }
+            // Move up one row: i becomes i+1 for the next iteration
+            dp = next;
+        }
+
+        // Start from index 0 with prev = -1 (encoded as 0)
+        return dp[0];
+    }
+
+    /**
+     * Approach 5: Bottom-Up DP (Space Optimized)
      * 
      * Intuition:
      * - dp[i] represents length of longest increasing subsequence ending at index i
