@@ -24,7 +24,7 @@
 
 import java.util.*;
 
-public class j04LISBinarySearch {
+public class j06LISBinarySearch {
 
     /**
      * Approach: Binary Search with Dynamic Programming

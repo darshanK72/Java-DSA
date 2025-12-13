@@ -21,7 +21,7 @@
 
 import java.util.*;
 
-public class j05NumberOfLongestIncreasingSubsequences {
+public class j07NumberOfLongestIncreasingSubsequences {
 
     /**
      * Approach: Dynamic Programming with Count Tracking

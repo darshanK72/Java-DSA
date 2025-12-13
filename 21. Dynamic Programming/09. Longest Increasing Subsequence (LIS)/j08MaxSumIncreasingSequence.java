@@ -22,7 +22,7 @@
  *     One optimal increasing subsequence is [1, 2, 3, 100] with sum 106.
  */
 
-public class j06MaxSumIncreasingSequence {
+public class j08MaxSumIncreasingSequence {
 
     /**
      * Approach: Dynamic Programming (LIS variant accumulating sums)

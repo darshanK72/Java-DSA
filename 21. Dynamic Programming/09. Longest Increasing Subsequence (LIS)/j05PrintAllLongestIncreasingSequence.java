@@ -26,7 +26,7 @@
 
 import java.util.*;
 
-public class j03PrintAllLongestIncreasingSequence {
+public class j05PrintAllLongestIncreasingSequence {
 
     /**
      * Approach: Dynamic Programming with DFS Backtracking
