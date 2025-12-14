@@ -84,7 +84,7 @@ public class j04LongestStringChain {
      *                 1 <= words[i].length <= 16)
      * @return         Longest possible word chain length
      */
-    public int longestStrChain(String[] words) {
+    public static int longestStrChain(String[] words) {
         // Get the number of words
         int n = words.length;
         
@@ -150,7 +150,7 @@ public class j04LongestStringChain {
      * @param s2    Shorter string (potential predecessor)
      * @return      True if s2 is a predecessor of s1, false otherwise
      */
-    public boolean isDiffOne(String s1, String s2) {
+    public static boolean isDiffOne(String s1, String s2) {
         // Predecessor must be exactly one character shorter
         if (s1.length() - s2.length() != 1) {
             return false;
@@ -176,35 +176,33 @@ public class j04LongestStringChain {
         return j == s2.length();
     }
 
-    public static void main(String[] args) {
-        j04LongestStringChain solution = new j04LongestStringChain();
-        
+    public static void main(String[] args) {       
         // Test Case 1: Basic cases
         System.out.println("\nBasic Test Cases:");
         System.out.println("Input: [\"a\",\"b\",\"ba\",\"bca\",\"bda\",\"bdca\"], Expected: 4, Output: " + 
-            solution.longestStrChain(new String[]{"a","b","ba","bca","bda","bdca"}));
+            longestStrChain(new String[]{"a","b","ba","bca","bda","bdca"}));
         System.out.println("Input: [\"xbc\",\"pcxbcf\",\"xb\",\"cxbc\",\"pcxbc\"], Expected: 5, Output: " + 
-            solution.longestStrChain(new String[]{"xbc","pcxbcf","xb","cxbc","pcxbc"}));
+            longestStrChain(new String[]{"xbc","pcxbcf","xb","cxbc","pcxbc"}));
 
         // Test Case 2: Edge cases
         System.out.println("\nEdge Cases:");
         System.out.println("Input: [\"a\"], Expected: 1, Output: " + 
-            solution.longestStrChain(new String[]{"a"}));
+            longestStrChain(new String[]{"a"}));
         System.out.println("Input: [\"a\",\"b\"], Expected: 1, Output: " + 
-            solution.longestStrChain(new String[]{"a","b"}));
+            longestStrChain(new String[]{"a","b"}));
 
         // Test Case 3: Boundary cases
         System.out.println("\nBoundary Cases:");
         System.out.println("Input: [\"abcd\",\"dbqca\"], Expected: 1, Output: " + 
-            solution.longestStrChain(new String[]{"abcd","dbqca"}));
+            longestStrChain(new String[]{"abcd","dbqca"}));
         System.out.println("Input: [\"a\",\"ab\",\"abc\",\"abcd\"], Expected: 4, Output: " + 
-            solution.longestStrChain(new String[]{"a","ab","abc","abcd"}));
+            longestStrChain(new String[]{"a","ab","abc","abcd"}));
 
         // Test Case 4: Special cases
         System.out.println("\nSpecial Cases:");
         System.out.println("Input: [\"a\",\"b\",\"ab\",\"abc\"], Expected: 3, Output: " + 
-            solution.longestStrChain(new String[]{"a","b","ab","abc"}));
+            longestStrChain(new String[]{"a","b","ab","abc"}));
         System.out.println("Input: [\"a\",\"ba\",\"bca\",\"bdca\",\"bda\"], Expected: 4, Output: " + 
-            solution.longestStrChain(new String[]{"a","ba","bca","bdca","bda"}));
+            longestStrChain(new String[]{"a","ba","bca","bdca","bda"}));
     }
 }
