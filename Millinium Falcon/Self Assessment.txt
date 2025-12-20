@@ -19,7 +19,7 @@ Backend Services: Built 20+ AWS Lambda microservices using TypeScript and Java (
 
 Azure Integration: Designed and implemented Azure Logic Apps and Function Apps for B2G (Business-to-Government) integrations
 
-Cloud Infrastructure & DevOps
+Cloud Infrastructure & DevOpsasdfasd
 AWS Serverless Architecture: Implemented serverless solutions using:
 
 Lambda Functions with Middy middleware framework
