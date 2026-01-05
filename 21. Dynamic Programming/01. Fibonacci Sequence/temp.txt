@@ -1,0 +1,425 @@
+import {
+  app,
+  HttpRequest,
+  HttpResponseInit,
+  InvocationContext,
+} from "@azure/functions";
+import { DOMParser, XMLSerializer } from "xmldom";
+import * as crypto from "crypto";
+import * as forge from "node-forge";
+import { DefaultAzureCredential } from "@azure/identity";
+import { SecretClient } from "@azure/keyvault-secrets";
+
+class SigningError extends Error {
+  constructor(message: string, public readonly code: string) {
+    super(message)
+    this.name = 'SigningError'
+  }
+}
+
+class ValidationError extends SigningError {
+  constructor(message: string) {
+    super(message, 'VALIDATION_ERROR')
+  }
+}
+
+class ConfigurationError extends SigningError {
+  constructor(message: string) {
+    super(message, 'CONFIGURATION_ERROR')
+  }
+}
+
+const createErrorXML = (error: string, code: string, message: string): string => {
+  const escapedMessage = message.replace(/[&<>]/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m] || m))
+  const faultCode = error === 'Validation Error' ? 'soap:Client' : 'soap:Server'
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Body>
+      <soap:Fault>
+         <faultcode>${faultCode}</faultcode>
+         <faultstring>${escapedMessage}</faultstring>
+      </soap:Fault>
+   </soap:Body>
+</soap:Envelope>`
+}
+
+export class XAdESBESSigner {
+  private privateKey: forge.pki.PrivateKey
+  private certificates: forge.pki.Certificate[]
+  private signingCert: forge.pki.Certificate
+  private context?: InvocationContext
+  private correlationId?: string
+
+  constructor(pkcs12Data: string, context?: InvocationContext, correlationId?: string) {
+    this.context = context
+    this.correlationId = correlationId
+    
+    try {
+      if (!pkcs12Data?.trim()) {
+        throw new ConfigurationError('PKCS#12 data is empty')
+      }
+
+      // Parse PKCS#12 to extract private key and certificate chain
+      const pkcs12Der = forge.util.decode64(pkcs12Data)
+      const pkcs12Asn1 = forge.asn1.fromDer(pkcs12Der)
+      const pkcs12 = forge.pkcs12.pkcs12FromAsn1(pkcs12Asn1, false) // No password
+      
+      // Extract private key
+      const keyBags = pkcs12.getBags({ bagType: forge.pki.oids.pkcs8ShroudedKeyBag })
+      this.privateKey = keyBags[forge.pki.oids.pkcs8ShroudedKeyBag]?.[0]?.key
+      
+      // Extract certificate chain
+      const certBags = pkcs12.getBags({ bagType: forge.pki.oids.certBag })
+      this.certificates = certBags[forge.pki.oids.certBag]?.map(bag => bag.cert) || []
+      this.signingCert = this.certificates[0]
+      
+      if (!this.privateKey) {
+        throw new ConfigurationError('No private key found in PKCS#12')
+      }
+      
+      if (!this.certificates.length) {
+        throw new ConfigurationError('No certificates found in PKCS#12')
+      }
+      
+      this.log('XAdES-BES Signer initialized successfully')
+    } catch (error) {
+      this.logError('Failed to initialize XAdES-BES Signer', error)
+      throw error instanceof SigningError ? error : new ConfigurationError(`Initialization failed: ${error instanceof Error ? error.message : 'Unknown error'}`)
+    }
+  }
+
+  private log(message: string, data?: any): void {
+    const logMessage = this.correlationId ? `For correlationId: ${this.correlationId} the ${message}` : message
+    this.context?.log(data ? `${logMessage}: ${JSON.stringify(data)}` : logMessage)
+  }
+
+  private logError(message: string, error: any): void {
+    const logMessage = this.correlationId ? `For correlationId: ${this.correlationId} the ${message}` : message
+    this.context?.error(`${logMessage}: ${error instanceof Error ? error.message : JSON.stringify(error)}`)
+  }
+
+  async signXML(xmlString: string): Promise<string> {
+    try {
+      if (!xmlString?.trim()) {
+        throw new ValidationError('XML string is empty or invalid')
+      }
+
+      xmlString = xmlString.trim()
+      this.validateXMLFormat(xmlString)
+      this.log('Starting XML signing process')
+      
+      const doc = this.parseXML(xmlString)
+      const signedSPSElement = this.findSignedSPSCertificate(doc)
+      const signatureId = this.generateId()
+
+      // Process signing in parallel where possible
+      const [canonicalXml, signedPropertiesXml] = await Promise.all([
+        this.canonicalizeDocument(doc),
+        Promise.resolve(this.createSignedProperties(signatureId))
+      ])
+
+      const [documentDigest, signedPropertiesCanonical] = await Promise.all([
+        Promise.resolve(this.calculateDigest(canonicalXml)),
+        this.canonicalizeXml(signedPropertiesXml)
+      ])
+
+      const signedPropertiesDigest = this.calculateDigest(signedPropertiesCanonical)
+      const completeSignedInfo = this.createCompleteSignedInfo(signatureId, documentDigest, signedPropertiesDigest)
+      
+      const [signedInfoCanonical] = await Promise.all([
+        this.canonicalizeXml(completeSignedInfo)
+      ])
+
+      const signatureValue = this.signData(signedInfoCanonical)
+      const signature = this.buildSignature(signatureId, completeSignedInfo, signatureValue, signedPropertiesXml)
+      
+      return this.insertSignatureIntoSPSCertificate(xmlString, signature, signedSPSElement.tagName).trim()
+    } catch (error) {
+      this.logError('XML signing failed', error)
+      throw error instanceof SigningError ? error : new ValidationError(`Signing failed: ${error instanceof Error ? error.message : 'Unknown error'}`)
+    }
+  }
+
+  private parseXML(xmlString: string): Document {
+    const doc = new DOMParser().parseFromString(xmlString, "text/xml")
+    
+    if (doc.getElementsByTagName('parsererror').length > 0) {
+      throw new ValidationError('Invalid XML format: parsing error')
+    }
+    
+    if (!doc.documentElement) {
+      throw new ValidationError('Invalid XML: no root element found')
+    }
+    
+    return doc
+  }
+
+  private validateXMLFormat(xmlString: string): void {
+    if (!xmlString.includes('<') || !xmlString.includes('>')) {
+      throw new ValidationError('Invalid XML format: missing XML tags')
+    }
+
+    const openBrackets = (xmlString.match(/</g) || []).length
+    const closeBrackets = (xmlString.match(/>/g) || []).length
+    
+    if (openBrackets !== closeBrackets) {
+      throw new ValidationError('Invalid XML format: unmatched angle brackets')
+    }
+  }
+
+  private findSignedSPSCertificate(doc: Document): Element {
+    const elements = doc.getElementsByTagName('*')
+    
+    for (let i = 0; i < elements.length; i++) {
+      const element = elements[i]
+      const localName = element.localName || element.tagName.split(':').pop()
+      
+      if (localName === 'SignedSPSCertificate') {
+        return element
+      }
+    }
+    
+    throw new ValidationError('SignedSPSCertificate element not found in XML document')
+  }
+
+  private generateId(): string {
+    return "id-" + crypto.randomBytes(16).toString("hex")
+  }
+
+  private canonicalizeXml(xmlString: string): Promise<string> {
+    return new Promise((resolve, reject) => {
+      if (!xmlString?.trim()) {
+        reject(new ValidationError('Cannot canonicalize empty XML string'))
+        return
+      }
+      
+      try {
+        this.log('Loading xml-c14n module...')
+        let c14n
+        try {
+          c14n = require("xml-c14n")()
+          this.log('xml-c14n module loaded successfully')
+        } catch (moduleError) {
+          this.logError('Failed to load xml-c14n module', moduleError)
+          reject(new ConfigurationError(`xml-c14n module not found: ${moduleError instanceof Error ? moduleError.message : 'Unknown error'}`))
+          return
+        }
+        
+        const doc = new DOMParser().parseFromString(xmlString, "text/xml")
+        
+        if (doc.getElementsByTagName('parsererror').length > 0) {
+          reject(new ValidationError('XML parsing failed during canonicalization'))
+          return
+        }
+        
+        const canonicaliser = c14n.createCanonicaliser("http://www.w3.org/2001/10/xml-exc-c14n#WithComments")
+        
+        canonicaliser.canonicalise(doc.documentElement, (err: any, result: string) => {
+          if (err) {
+            this.logError('Canonicalization failed', err)
+            reject(new ValidationError(`Canonicalization failed: ${err.message || 'Unknown error'}`))
+          } else {
+            this.log('XML canonicalization completed successfully')
+            resolve(result)
+          }
+        })
+      } catch (error) {
+        this.logError('Canonicalization error', error)
+        reject(new ValidationError(`Canonicalization error: ${error instanceof Error ? error.message : 'Unknown error'}`))
+      }
+    })
+  }
+
+  private async canonicalizeDocument(doc: Document): Promise<string> {
+    if (!doc?.documentElement) {
+      throw new ValidationError('Invalid document: missing document element')
+    }
+    
+    let xml = new XMLSerializer().serializeToString(doc).replace(/<\?xml[^>]*\?>\s*/g, "")
+    
+    if (!xml.trim()) {
+      throw new ValidationError('Document serialization resulted in empty XML')
+    }
+    
+    return this.canonicalizeXml(xml)
+  }
+
+  private calculateDigest(data: string): string {
+    if (!data) {
+      throw new ValidationError('Cannot calculate digest of empty data')
+    }
+    
+    return crypto.createHash("sha256").update(data, "utf8").digest("base64")
+  }
+
+  private createCompleteSignedInfo(signatureId: string, documentDigest: string, signedPropertiesDigest: string): string {
+    return `<ds:SignedInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/><ds:Reference Id="r-${signatureId}-1" URI=""><ds:Transforms><ds:Transform xmlns:dsig-filter2="http://www.w3.org/2002/06/xmldsig-filter2" Algorithm="http://www.w3.org/2002/06/xmldsig-filter2"><dsig-filter2:XPath Filter="subtract">/descendant::ds:Signature</dsig-filter2:XPath></ds:Transform><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>${documentDigest}</ds:DigestValue></ds:Reference><ds:Reference Type="http://uri.etsi.org/01903#SignedProperties" URI="#xades-${signatureId}"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>${signedPropertiesDigest}</ds:DigestValue></ds:Reference></ds:SignedInfo>`
+  }
+
+  private signData(data: string): string {
+    if (!data) {
+      throw new ValidationError('Cannot sign empty data')
+    }
+    
+    if (!this.privateKey) {
+      throw new ConfigurationError('Private key not available for signing')
+    }
+    
+    const md = forge.md.sha256.create()
+    md.update(data, "utf8")
+    const signature = (this.privateKey as any).sign(md)
+    
+    if (!signature) {
+      throw new ValidationError('Signature generation failed')
+    }
+    
+    return forge.util.encode64(signature)
+  }
+
+  private createSignedProperties(signatureId: string): string {
+    const signingTime = new Date().toISOString()
+    const certDer = forge.asn1.toDer(forge.pki.certificateToAsn1(this.signingCert)).getBytes()
+    const certDigest = forge.md.sha512.create()
+    certDigest.update(certDer)
+    const certDigestValue = forge.util.encode64(certDigest.digest().getBytes())
+    const issuerSerial = this.getIssuerSerial(this.signingCert)
+
+    return `<xades:SignedProperties xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" Id="xades-${signatureId}"><xades:SignedSignatureProperties><xades:SigningTime>${signingTime}</xades:SigningTime><xades:SigningCertificateV2><xades:Cert><xades:CertDigest><ds:DigestMethod xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><ds:DigestValue xmlns:ds="http://www.w3.org/2000/09/xmldsig#">${certDigestValue}</ds:DigestValue></xades:CertDigest><xades:IssuerSerialV2>${issuerSerial}</xades:IssuerSerialV2></xades:Cert></xades:SigningCertificateV2></xades:SignedSignatureProperties><xades:SignedDataObjectProperties><xades:DataObjectFormat ObjectReference="#r-${signatureId}-1"><xades:MimeType>text/plain</xades:MimeType></xades:DataObjectFormat></xades:SignedDataObjectProperties></xades:SignedProperties>`
+  }
+
+  private getIssuerSerial(cert: forge.pki.Certificate): string {
+    const issuerAsn1 = forge.pki.distinguishedNameToAsn1(cert.issuer)
+    const issuerSerial = forge.asn1.create(
+      forge.asn1.Class.UNIVERSAL,
+      forge.asn1.Type.SEQUENCE,
+      true,
+      [
+        issuerAsn1,
+        forge.asn1.create(
+          forge.asn1.Class.UNIVERSAL,
+          forge.asn1.Type.INTEGER,
+          false,
+          forge.util.hexToBytes(cert.serialNumber),
+        ),
+      ],
+    )
+    return forge.util.encode64(forge.asn1.toDer(issuerSerial).getBytes())
+  }
+
+  private buildSignature(signatureId: string, signedInfo: string, signatureValue: string, signedProperties: string): string {
+    const certChain = this.certificates
+      .map(cert => forge.util.encode64(forge.asn1.toDer(forge.pki.certificateToAsn1(cert)).getBytes()))
+      .join("</ds:X509Certificate><ds:X509Certificate>")
+
+    return `<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="${signatureId}">${signedInfo}<ds:SignatureValue Id="value-${signatureId}">${signatureValue}</ds:SignatureValue><ds:KeyInfo><ds:X509Data><ds:X509Certificate>${certChain}</ds:X509Certificate></ds:X509Data></ds:KeyInfo><ds:Object xmlns:xades="http://uri.etsi.org/01903/v1.3.2#"><xades:QualifyingProperties Target="#${signatureId}">${signedProperties}</xades:QualifyingProperties></ds:Object></ds:Signature>`
+  }
+
+  private insertSignatureIntoSPSCertificate(xmlString: string, signature: string, spsTagName: string): string {
+    const closingTag = `</${spsTagName}>`
+    const closingTagIndex = xmlString.lastIndexOf(closingTag)
+    
+    if (closingTagIndex === -1) {
+      throw new ValidationError(`Closing tag ${closingTag} not found in XML`)
+    }
+    
+    return xmlString.substring(0, closingTagIndex) + signature + xmlString.substring(closingTagIndex)
+  }
+}
+
+export async function generateXMLSignature(
+  request: HttpRequest,
+  context: InvocationContext,
+): Promise<HttpResponseInit> {
+  const startTime = Date.now()
+  const correlationId = request.headers.get('CorrelationId') || request.headers.get('correlation-id') || request.headers.get('X-Correlation-ID')
+  
+  try {
+    const logPrefix = correlationId ? `For correlationId: ${correlationId} the ` : ''
+    context.log(`${logPrefix}XML signing request received for URL: ${request.url}`)
+
+    const xml = await request.text()
+    if (!xml?.trim()) {
+      return {
+        status: 400,
+        body: createErrorXML('Validation Error', 'EMPTY_XML', 'XML content is required in the request body'),
+        headers: { 'Content-Type': 'application/xml' },
+      }
+    }
+
+    const keyVaultUrl = process.env.KEY_VAULT_URL;
+    const certificateName = process.env.CERTIFICATE_NAME;
+    
+    const credential = new DefaultAzureCredential();
+    const secretClient = new SecretClient(keyVaultUrl, credential);
+
+    const secret = await secretClient.getSecret(certificateName);
+    
+    if (!secret.value) {
+      return {
+        status: 500,
+        body: createErrorXML('Configuration Error', 'MISSING_CERTIFICATE', 'Server configuration error: missing certificate'),
+        headers: { 'Content-Type': 'application/xml' },
+      }
+    }
+
+    const signer = new XAdESBESSigner(secret.value, context, correlationId)
+    const signedXml = await signer.signXML(xml)
+
+    const processingTime = Date.now() - startTime
+    const successLogPrefix = correlationId ? `For correlationId: ${correlationId} the ` : ''
+    context.log(`${successLogPrefix}XML signing completed successfully in ${processingTime}ms`)
+
+    return {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/xml',
+        'X-Processing-Time': processingTime.toString()
+      },
+      body: signedXml,
+    }
+  } catch (error) {
+    const processingTime = Date.now() - startTime
+    
+    // Log detailed error information
+    const errorLogPrefix = correlationId ? `For correlationId: ${correlationId} the ` : ''
+    context.error(`${errorLogPrefix}XML signing failed after ${processingTime}ms:`, {
+      error: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined,
+      type: error?.constructor?.name || typeof error,
+      name: error instanceof Error ? error.name : undefined
+    })
+    
+    if (error instanceof ValidationError) {
+      return {
+        status: 400,
+        body: createErrorXML('Validation Error', error.code, error.message),
+        headers: { 'Content-Type': 'application/xml' },
+      }
+    }
+    
+    if (error instanceof ConfigurationError) {
+      return {
+        status: 500,
+        body: createErrorXML('Configuration Error', error.code, error.message),
+        headers: { 'Content-Type': 'application/xml' },
+      }
+    }
+    
+    // Check for module loading errors
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred'
+    const errorName = error instanceof Error ? error.name : 'UnknownError'
+    
+    // Return more specific error message
+    return {
+      status: 500,
+      body: createErrorXML('Internal Server Error', 'SIGNING_FAILED', `${errorName}: ${errorMessage}`),
+      headers: { 'Content-Type': 'application/xml' },
+    }
+  }
+}
+
+app.http('generateXMLSignature', {
+  methods: ['POST'],
+  authLevel: 'anonymous',
+  handler: generateXMLSignature,
+})
