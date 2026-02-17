@@ -28,7 +28,7 @@
  *         yielding 2 lines.
  */
 
-public class j03UncrossedLines {
+public class j04UncrossedLines {
 
     /**
      * Approach: Longest Common Subsequence (Bottom-Up Tabulation)

@@ -23,7 +23,7 @@
  *     The longest common subarray is [3,2,1] with length 3.
  */
 
-public class j04MaxLengthRepeatedArray {
+public class j05MaxLengthRepeatedArray {
 
     /*-
      * Approach: Dynamic Programming (Bottom-Up Tabulation)

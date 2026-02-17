@@ -24,7 +24,7 @@
 
 import java.util.*;
 
-public class j02PrintAllLCS {
+public class j03PrintAllLCS {
 
     /*-
      * Approach: Backtracking with Memoization (Bottom-Up DP)

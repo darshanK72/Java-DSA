@@ -22,7 +22,7 @@
  *     One possible common subsequence of length 3 is "acf".
  */
 
-public class j05LCSOfThreeStrings {
+public class j06LCSOfThreeStrings {
 
     /*-
      * Approach: 3D Dynamic Programming (Bottom-Up Tabulation)
